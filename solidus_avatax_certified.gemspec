@@ -1,8 +1,10 @@
 # encoding: UTF-8
+gem_version = File.read(File.expand_path('../GEM_VERSION',__FILE__)).strip
+
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_avatax_certified'
-  s.version     = '0.0.1'
+  s.version     = gem_version
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
   s.required_ruby_version = '>= 2.1'
