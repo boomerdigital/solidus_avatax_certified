@@ -15,6 +15,9 @@ ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
+require 'dotenv'
+Dotenv.load
+
 require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
@@ -25,14 +28,16 @@ require 'shoulda/matchers'
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 # Requires factories and other useful helpers defined in spree_core.
+require 'spree/testing_support/preferences'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 
-# Requires factories defined in lib/solidus_avatax_certified/factories.rb
-require 'solidus_avatax_certified/factories'
+require 'factories/avalara_factories'
+
+Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
@@ -40,12 +45,7 @@ RSpec.configure do |config|
   # Infer an example group's spec type from the file location.
   config.infer_spec_type_from_file_location!
 
-  # == URL Helpers
-  #
-  # Allows access to Spree's routes in specs:
-  #
-  # visit spree.admin_path
-  # current_path.should eql(spree.products_path)
+  config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::UrlHelpers
 
   # == Mock Framework
@@ -76,6 +76,7 @@ RSpec.configure do |config|
   config.before :each do
     DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
+    MyConfigPreferences.set_preferences
   end
 
   # After each spec clean the database.
