@@ -47,6 +47,7 @@ RSpec.configure do |config|
 
   config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::UrlHelpers
+  config.include Spree::TestingSupport::ControllerRequests, type: :controller
 
   # == Mock Framework
   #
