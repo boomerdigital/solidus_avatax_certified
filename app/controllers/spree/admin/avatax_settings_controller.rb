@@ -3,6 +3,7 @@ module Spree
     class AvataxSettingsController < Spree::Admin::BaseController
 
       respond_to :html
+      before_filter :load_avatax_origin, only: [:show, :edit]
 
       def show
       end
@@ -39,36 +40,26 @@ module Spree
       end
 
       def update
-        origin = params[:address]
-        taxpref = params[:settings]
+        updater = SolidusAvataxCertified::PreferenceUpdater.new(params)
+        if updater.update
+          respond_to do |format|
+            format.html {
+              redirect_to admin_avatax_settings_path
+            }
+          end
+        else
+          flash[:error] = 'There was an error updating your Avalara Preferences'
+          redirect_to :back
+        end
+      end
 
-        Spree::Config.avatax_origin = {
-          :Address1 =>  origin[:avatax_address1],
-          :Address2 => origin[:avatax_address2],
-          :City => origin[:avatax_city],
-          :Region => origin[:avatax_region],
-          :Zip5 => origin[:avatax_zip5],
-          :Zip4 => origin[:avatax_zip4],
-          :Country => origin[:avatax_country]
-        }.to_json
+      private
 
-        Spree::Config.avatax_api_username = taxpref[:avatax_api_username]
-        Spree::Config.avatax_api_password = taxpref[:avatax_api_password]
-        Spree::Config.avatax_endpoint = taxpref[:avatax_endpoint]
-        Spree::Config.avatax_account = taxpref[:avatax_account]
-        Spree::Config.avatax_license_key = taxpref[:avatax_license_key]
-        Spree::Config.avatax_iseligible = taxpref[:avatax_iseligible]
-        Spree::Config.avatax_log = taxpref[:avatax_log]
-        Spree::Config.avatax_address_validation = taxpref[:avatax_address_validation]
-        Spree::Config.avatax_address_validation_enabled_countries = taxpref[:avatax_address_validation_enabled_countries]
-        Spree::Config.avatax_tax_calculation = taxpref[:avatax_tax_calculation]
-        Spree::Config.avatax_document_commit = taxpref[:avatax_document_commit]
-        Spree::Config.avatax_company_code =taxpref[:avatax_company_code]
-
-        respond_to do |format|
-          format.html {
-            redirect_to admin_avatax_settings_path
-          }
+      def load_avatax_origin
+        if Spree::AvalaraPreference.origin_address.value.blank?
+          @avatax_origin = {}
+        else
+          @avatax_origin = JSON.parse(Spree::AvalaraPreference.origin_address.value)
         end
       end
     end

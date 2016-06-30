@@ -1,23 +1,22 @@
 <%= render :partial => 'spree/admin/shared/configuration_menu' %>
-<% origin = JSON.parse(Spree::Config.avatax_origin) || {} %>
 <h1><%= "Avalara Settings" %></h1>
 
 <table>
   <tr>
     <th scope="row"><%= t("avatax_company_code") %>:</th>
-    <td><%= Spree::Config.avatax_company_code %></td>
+    <td><%= Spree::AvalaraPreference.company_code.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_license_key") %>:</th>
-    <td><%= Spree::Config.avatax_license_key %></td>
+    <td><%= Spree::AvalaraPreference.license_key.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_account") %>:</th>
-    <td><%= Spree::Config.avatax_account %></td>
+    <td><%= Spree::AvalaraPreference.account.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_endpoint") %>:</th>
-    <td><%= Spree::Config.avatax_endpoint %></td>
+    <td><%= Spree::AvalaraPreference.endpoint.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_servicepath_tax") %>:</th>
@@ -29,19 +28,19 @@
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax") %>:</th>
-    <td><%= Spree::Config.avatax_iseligible %></td>
+    <td><%= Spree::AvalaraPreference.iseligible.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax_logging") %>:</th>
-    <td><%= Spree::Config.avatax_log %></td>
+    <td><%= Spree::AvalaraPreference.log.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax_address_validation") %>:</th>
-    <td><%= Spree::Config.avatax_address_validation %></td>
+    <td><%= Spree::AvalaraPreference.address_validation.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_address_validation_enabled_countries") %>:</th>
-    <% address_validated_countries = Spree::Config.avatax_address_validation_enabled_countries %>
+    <% address_validated_countries = Spree::AvalaraPreference.validation_enabled_countries_array %>
     <td>
       <% unless address_validated_countries.nil? %>
       <ul style="list-style: inside;">
@@ -54,11 +53,11 @@
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax_tax_calculation") %>:</th>
-    <td><%= Spree::Config.avatax_tax_calculation %></td>
+    <td><%= Spree::AvalaraPreference.tax_calculation.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax_document_committing") %>:</th>
-    <td><%= Spree::Config.avatax_document_commit %></td>
+    <td><%= Spree::AvalaraPreference.document_commit.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("client_version") %>:</th>
@@ -69,13 +68,13 @@
     <th scope="row"><%= t("business_address") %>:</th>
 
     <td><table>
-      <tr><td><%= Spree.t("address1") %>: <%= origin["Address1"]  %> </td></tr>
-      <tr><td><%= Spree.t("address2") %>: <%= origin["Address2"]  %></td></tr>
-      <tr><td><%= Spree.t("city") %>: <%= origin["City"]  %></td></tr>
-      <tr><td><%= Spree.t("state") %>: <%= origin["Region"]  %></td></tr>
-      <tr><td><%= Spree.t("zipcode") %>: <%= origin["Zip5"]  %></td></tr>
-      <tr><td><%= t("zip_plus_4") %>: <%= origin["Zip4"] %></td></tr>
-      <tr><td><%= t("country_code") %>: <%= origin["Country"] %></td></tr>
+      <tr><td><%= Spree.t("address1") %>: <%= @avatax_origin["Address1"]  %> </td></tr>
+      <tr><td><%= Spree.t("address2") %>: <%= @avatax_origin["Address2"]  %></td></tr>
+      <tr><td><%= Spree.t("city") %>: <%= @avatax_origin["City"]  %></td></tr>
+      <tr><td><%= Spree.t("state") %>: <%= @avatax_origin["Region"]  %></td></tr>
+      <tr><td><%= Spree.t("zipcode") %>: <%= @avatax_origin["Zip5"]  %></td></tr>
+      <tr><td><%= t("zip_plus_4") %>: <%= @avatax_origin["Zip4"] %></td></tr>
+      <tr><td><%= t("country_code") %>: <%= @avatax_origin["Country"] %></td></tr>
     </table></td>
   </tr>
   <tr>
