@@ -76,7 +76,7 @@ class TaxSvc
   private
 
   def tax_calculation_enabled?
-    Spree::Config.avatax_tax_calculation
+    Spree::AvalaraPreference.tax_calculation.is_true?
   end
 
   def credential
@@ -84,15 +84,15 @@ class TaxSvc
   end
 
   def service_url
-    Spree::Config.avatax_endpoint + AVATAX_SERVICEPATH_TAX
+    Spree::AvalaraPreference.endpoint.value + AVATAX_SERVICEPATH_TAX
   end
 
   def license_key
-    Spree::Config.avatax_license_key
+    Spree::AvalaraPreference.license_key.value
   end
 
   def account_number
-    Spree::Config.avatax_account
+    Spree::AvalaraPreference.account.value
   end
 
   def response(uri, request_hash)

@@ -9,7 +9,7 @@ Spree::Order.class_eval do
                                       :if => :avalara_eligible?
 
   def avalara_eligible?
-    Spree::Config.avatax_iseligible
+    Spree::AvalaraPreference.iseligible.is_true?
   end
 
   def cancel_avalara

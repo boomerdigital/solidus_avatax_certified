@@ -32,8 +32,8 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
       {
         address: {},
         settings: {
-          avatax_account: '123456789',
-          avatax_address_validation_enabled_countries: []
+          account: '123456789',
+          address_validation_enabled_countries: []
         }
       }
     end

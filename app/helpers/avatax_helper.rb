@@ -12,7 +12,7 @@ module AvataxHelper
     end
 
     def logger_enabled?
-      Spree::Config.avatax_log
+      Spree::AvalaraPreference.log.is_true?
     end
 
     def progname(progname = nil)

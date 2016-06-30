@@ -20,6 +20,15 @@ FactoryGirl.define do
     use_code 'A'
     use_code_description 'Federal government'
   end
+
+  factory :avalara_transaction_calculator, class: Spree::Calculator::AvalaraTransaction do
+  end
+
+  factory :avalara_preference, class: Spree::AvalaraPreference do
+    name { "AvalaraPreference - #{rand(999999)}" }
+    value '54321'
+    object_type 'string'
+  end
 end
 
 FactoryGirl.modify do

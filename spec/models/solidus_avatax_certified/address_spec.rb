@@ -6,7 +6,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
   let(:order) { FactoryGirl.create(:order_with_line_items, ship_address: address) }
 
   before do
-    Spree::Config.avatax_address_validation = true
+    Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
   end
 
   let(:address_lines) { SolidusAvataxCertified::Address.new(order) }
@@ -62,7 +62,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
     end
 
     it "does not validate when config settings are false" do
-      Spree::Config.avatax_address_validation = false
+      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
       result = address_lines.validate
       expect(address_lines.validate).to eq("Address validation disabled")
     end

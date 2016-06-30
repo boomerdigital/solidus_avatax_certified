@@ -10,7 +10,7 @@ module SolidusAvataxCertified
     def initialize(order)
       @order = order
       @ship_address = order.ship_address
-      @origin_address = JSON.parse(Spree::Config.avatax_origin)
+      @origin_address = JSON.parse(Spree::AvalaraPreference.origin_address.value)
       @stock_loc_ids = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment).map(&:stock_location_id)
       @addresses = []
       @logger ||= AvataxHelper::AvataxLog.new('avalara_order_addresses', 'SolidusAvataxCertified::Address', "Building Addresses for Order#: #{order.number}")
@@ -82,7 +82,7 @@ module SolidusAvataxCertified
     end
 
     def address_validation_enabled?
-      Spree::Config.avatax_address_validation && country_enabled?
+      Spree::AvalaraPreference.address_validation.is_true? && country_enabled?
     end
 
     private
@@ -117,19 +117,19 @@ module SolidusAvataxCertified
     end
 
     def service_url
-      Spree::Config.avatax_endpoint + AVATAX_SERVICEPATH_ADDRESS + 'validate?'
+      Spree::AvalaraPreference.endpoint.value + AVATAX_SERVICEPATH_ADDRESS + 'validate?'
     end
 
     def license_key
-      Spree::Config.avatax_license_key
+      Spree::AvalaraPreference.license_key.value
     end
 
     def account_number
-      Spree::Config.avatax_account
+      Spree::AvalaraPreference.account.value
     end
 
     def enabled_countries
-      Spree::Config.avatax_address_validation_enabled_countries
+      Spree::AvalaraPreference.validation_enabled_countries_array
     end
   end
 end

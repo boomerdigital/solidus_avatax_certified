@@ -51,7 +51,7 @@ module Spree
       logger.info('cancel order to avalara')
 
       cancel_tax_request = {
-        CompanyCode: Spree::Config.avatax_company_code,
+        CompanyCode: Spree::AvalaraPreference.company_code.value,
         DocType: doc_type,
         DocCode: order.number,
         CancelCode: 'DocVoided'
@@ -144,7 +144,7 @@ module Spree
       {
         CustomerCode: customer_code,
         DocDate: doc_date,
-        CompanyCode: Spree::Config.avatax_company_code,
+        CompanyCode: Spree::AvalaraPreference.company_code.value,
         CustomerUsageType: order.customer_usage_type,
         ExemptionNo: order.user.try(:exemption_number),
         Client:  avatax_client_version,
@@ -162,11 +162,11 @@ module Spree
     end
 
     def document_committing_enabled?
-      Spree::Config.avatax_document_commit
+      Spree::AvalaraPreference.document_commit.is_true?
     end
 
     def tax_calculation_enabled?
-      Spree::Config.avatax_tax_calculation
+      Spree::AvalaraPreference.tax_calculation.is_true?
     end
 
     def logger
