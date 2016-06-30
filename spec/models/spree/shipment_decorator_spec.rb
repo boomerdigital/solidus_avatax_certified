@@ -20,8 +20,15 @@ describe Spree::Shipment, type: :model do
   end
 
   describe '#shipping_method_tax_code' do
-    it 'should return tax code' do
+    it 'should return empty string if no tax category assigned to shipment' do
       shipment = create(:shipment)
+
+      expect(shipment.shipping_method_tax_code).to eq('')
+    end
+    it 'should return tax code' do
+      tax_category = create(:tax_category, name: 'Shipping', tax_code: 'FR000000')
+      shipping_method = create(:shipping_method,tax_category: tax_category)
+      shipment = create(:shipment, shipping_method: shipping_method)
 
       expect(shipment.shipping_method_tax_code).to eq('FR000000')
     end

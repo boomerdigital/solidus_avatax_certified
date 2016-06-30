@@ -15,8 +15,8 @@ Spree::Shipment.class_eval do
 
   def shipping_method_tax_code
     tax_code = shipping_method.tax_category.try(:tax_code)
-    if tax_code.nil? || tax_code.empty?
-      'FR000000'
+    if tax_code.nil?
+      ''
     else
       tax_code
     end

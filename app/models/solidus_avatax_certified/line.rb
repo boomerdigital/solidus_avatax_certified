@@ -26,7 +26,7 @@ module SolidusAvataxCertified
       {
         LineNo: "#{line_item.id}-LI",
         Description: line_item.name[0..255],
-        TaxCode: line_item.tax_category.try(:tax_code) || 'P0000000',
+        TaxCode: line_item.tax_category.try(:tax_code) || '',
         ItemCode: line_item.variant.sku,
         Qty: line_item.quantity,
         Amount: line_item.discounted_amount.to_f,
@@ -95,7 +95,7 @@ module SolidusAvataxCertified
       {
         LineNo: "#{line_item.id}-LI",
         Description: line_item.name[0..255],
-        TaxCode: line_item.tax_category.try(:tax_code) || 'P0000000',
+        TaxCode: line_item.tax_category.try(:tax_code) || '',
         ItemCode: line_item.variant.sku,
         Qty: quantity,
         Amount: -amount.to_f,
