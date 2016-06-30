@@ -19,6 +19,11 @@ module SolidusAvataxCertified
         puts "***** SOLIDUS AVATAX CERTIFIED *****"
       end
 
+      def seed_use_codes!
+        create_use_codes
+        puts "***** SOLIDUS AVATAX CERTIFIED: Use Codes Seeded"
+      end
+
       def create_tax
         default_tax_category = Spree::TaxCategory.find_by(name: 'Default')
         default_tax_rate = Spree::TaxRate.find_by(name: 'North America')
