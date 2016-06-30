@@ -6,6 +6,7 @@ module SolidusAvataxCertified
         create_use_codes
         create_tax
         add_tax_category_to_shipping_methods
+        add_tax_category_to_products
         populate_default_stock_location
 
         puts "***** SOLIDUS AVATAX CERTIFIED *****"
@@ -13,6 +14,7 @@ module SolidusAvataxCertified
         puts "Please remember to:"
         puts "- Add tax category to all shipping methods that need to be taxed."
         puts "- Don't assign anything default tax."
+        puts "- Assign proper Tax Category to each product"
         puts "- Fill in Stock Location Address."
         puts "- Fill Origin Address in Avatax Settings."
         puts ""
@@ -46,9 +48,11 @@ module SolidusAvataxCertified
       end
 
       def add_tax_category_to_shipping_methods
-        Spree::ShippingMethod.all.each do |shipping_method|
-          shipping_method.update_attributes(tax_category: Spree::TaxCategory.find_by(name: 'Shipping'))
-        end
+        Spree::ShippingMethod.update_all(tax_category_id: Spree::TaxCategory.find_by(name: 'Shipping').id)
+      end
+
+      def add_tax_category_to_products
+        Spree::Product.update_all(tax_category_id: Spree::TaxCategory.find_by(name: 'Clothing').id)
       end
 
       def populate_default_stock_location

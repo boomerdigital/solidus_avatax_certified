@@ -39,6 +39,7 @@ The line above will:
 - Destroy the 'Default' TaxCategory
 - Create Clothing and Shipping TaxCategories
 - Add Shipping TaxCategory to all shipping methods
+- Add Clothing TaxCategory to all products
 - Destroy North America Tax Rate
 - Create TaxRate for clothing and shipping
 - Populate default stock location with random address
