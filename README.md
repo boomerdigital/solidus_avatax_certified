@@ -1,7 +1,5 @@
 SolidusAvataxCertified
 ===========
-WIP
-===
 
 SolidusAvataxCertified is the *only* [officially certified Avatax solution](http://www.avalara.com/avalara-certified/) that integrates with Solidus.  With this extension you can add instantaneous sales tax decisions to your store.
 
@@ -25,7 +23,31 @@ bundle install
 ```shell
 bundle exec rails g solidus_avatax_certified:install
 ```
+**__Remember to load preferences!__ Gem will not work without calling this rake task.**
+```shell
+bundle exec rake solidus_avatax_certified:load_preferences
+```
 
+Seeding Options
+---------------
+#### Load all Seeds
+```shell
+bundle exec rake solidus_avatax_certified:load_seeds
+```
+The line above will:
+- Create AvalaraEntityUseCodes given to us by Avalara
+- Destroy the 'Default' TaxCategory
+- Create Clothing and Shipping TaxCategories
+- Add Shipping TaxCategory to all shipping methods
+- Destroy North America Tax Rate
+- Create TaxRate for clothing and shipping
+- Populate default stock location with random address
+- Load AvalaraPreferences
+
+#### Load Use Codes
+```shell
+bundle exec rake solidus_avatax_certified:load_use_codes
+```
 
 Setup
 -----
