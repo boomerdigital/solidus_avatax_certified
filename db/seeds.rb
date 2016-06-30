@@ -1,1 +1,1 @@
-SolidusAvataxCertified::Seeder.seed!
+SolidusAvataxCertified::PreferenceSeeder.seed!

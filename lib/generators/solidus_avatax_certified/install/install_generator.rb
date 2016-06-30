@@ -33,6 +33,13 @@ module SolidusAvataxCertified
           puts 'Skipping rake db:migrate, don\'t forget to run it!'
         end
       end
+
+      def include_seed_data
+        append_file "db/seeds.rb", <<-SEEDS
+        \n
+SolidusAvataxCertified::Engine.load_seed if defined?(SolidusAvataxCertified::Engine)
+        SEEDS
+      end
     end
   end
 end
