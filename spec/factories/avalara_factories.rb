@@ -134,7 +134,7 @@ FactoryGirl.define do
             order_id: shipment.order_id,
             variant_id: line_item.variant_id,
             line_item_id: line_item.id
-            )
+          )
         end
       end
     end
@@ -148,6 +148,11 @@ FactoryGirl.modify do
   end
 
   factory :address, class: Spree::Address do
+    transient do
+      country_iso_code 'US'
+      state_code 'AL'
+    end
+
     firstname 'John'
     lastname 'Doe'
     company 'Company'
@@ -171,7 +176,7 @@ FactoryGirl.modify do
       if address.state
         address.state.country
       else
-        address.association(:country)
+        address.association(:country, iso: country_iso_code)
       end
     end
   end
