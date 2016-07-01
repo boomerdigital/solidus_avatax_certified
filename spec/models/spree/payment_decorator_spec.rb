@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Spree::Payment, :type => :model do
   subject(:order) do
-    order = FactoryGirl.create(:completed_order_with_totals)
+    order = FactoryGirl.create(:completed_order_with_totals, ship_address: create(:real_ship_address))
     Spree::AvalaraTransaction.create(order: order)
     order
   end

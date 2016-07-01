@@ -8,7 +8,7 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
   let(:included_in_price) { false }
   let!(:rate) { create(:tax_rate, :tax_category => tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
   let!(:calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-  let(:order) { create(:order_with_line_items, line_items_count: 5) }
+  let(:order) { create(:order_with_line_items, line_items_count: 5, ship_address: create(:real_ship_address)) }
   let(:line_item) { order.line_items.first }
 
   before :each do
