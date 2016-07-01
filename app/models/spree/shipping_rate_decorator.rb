@@ -1,5 +1,5 @@
 Spree::ShippingRate.class_eval do
   def tax_rate
-    Spree::TaxRate.find(tax_rate_id)
+    Spree::TaxRate.find(tax_rate_id) if tax_rate_id
   end
 end
