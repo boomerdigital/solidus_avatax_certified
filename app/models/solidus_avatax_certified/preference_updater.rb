@@ -7,10 +7,10 @@ module SolidusAvataxCertified
     end
 
     def update
-      update_stored_preferences
-      update_boolean_preferences
       update_validation_enabled_countries
       update_origin_address
+      update_stored_preferences
+      update_boolean_preferences
     end
 
     private
