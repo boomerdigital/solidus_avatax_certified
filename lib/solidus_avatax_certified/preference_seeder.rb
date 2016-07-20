@@ -31,7 +31,11 @@ module SolidusAvataxCertified
 
       def boolean_prefs
         BOOLEAN_PREFERENCES.each do |preference|
-          pref = Spree::AvalaraPreference.new(name: preference, value: 'true', object_type: 'boolean')
+          if preference == 'log_to_stdout'
+            pref = Spree::AvalaraPreference.new(name: preference, value: 'false', object_type: 'boolean')
+          else
+            pref = Spree::AvalaraPreference.new(name: preference, value: 'true', object_type: 'boolean')
+          end
 
           save_preference(pref)
         end
