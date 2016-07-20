@@ -2,7 +2,6 @@ module Spree
   module Admin
     class AvataxSettingsController < Spree::Admin::BaseController
 
-      respond_to :html
       before_filter :load_avatax_origin, only: [:show, :edit]
 
       def show
@@ -44,11 +43,7 @@ module Spree
       def update
         updater = SolidusAvataxCertified::PreferenceUpdater.new(params)
         if updater.update
-          respond_to do |format|
-            format.html {
-              redirect_to admin_avatax_settings_path
-            }
-          end
+          redirect_to admin_avatax_settings_path
         else
           flash[:error] = 'There was an error updating your Avalara Preferences'
           redirect_to :back
