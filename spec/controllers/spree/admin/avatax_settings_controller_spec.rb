@@ -19,6 +19,19 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
     it { should be_success }
   end
 
+  describe '/avatax_settings/erase_data' do
+    it 'erases the log' do
+      Dir.mkdir('log') unless Dir.exist?('log')
+      file = File.open("log/test.log", 'w') { |f| f.write('Hyah!') }
+
+      expect(File.read('log/test.log')).to eq('Hyah!')
+
+      spree_get :erase_data, { log_name: 'test' }
+
+      expect(File.read('log/test.log')).to eq('')
+    end
+  end
+
   describe '/avatax_settings/ping_my_service' do
     it 'flashes message' do
       subject { spree_get :ping_my_service }
