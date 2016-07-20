@@ -17,7 +17,7 @@
   </tr>
   </thead>
   <tbody>
-  <% @use_codes.each do |use_code|%>
+  <% @avalara_entity_use_codes.each do |use_code|%>
       <tr id="<%= dom_id use_code %>" data-hook="admin_sale_events_index_rows">
         <td><%=link_to use_code.use_code, object_url(use_code) %></td>
         <td><%=use_code.use_code_description %></td>

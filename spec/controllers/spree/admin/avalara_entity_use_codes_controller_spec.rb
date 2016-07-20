@@ -45,8 +45,8 @@ describe Spree::Admin::AvalaraEntityUseCodesController do
     subject { spree_put :update, params }
 
     it { is_expected.to redirect_to(spree.admin_avalara_entity_use_codes_path) }
-    it 'expect @use_code to eq the use_code being updated' do
-      expect(assigns(:avalara_entity_use_code)).to eq(@use_code)
+    it 'expect @avalara_entity_use_code to eq the use_code being updated' do
+      expect(assigns(:avalara_entity_use_code)).to eq(@avalara_entity_use_code)
     end
 
     it 'should update use_code' do
