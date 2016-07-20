@@ -96,10 +96,18 @@ class TaxSvc
   end
 
   def response(uri, request_hash)
-    url = service_url + uri
-    res = RestClient.post(url, JSON.generate(request_hash), authorization: credential, content_type: 'application/json') do |response|
+    res = RestClient::Request.execute(method: :post,
+                                timeout: 5,
+                                url: service_url + uri,
+                                payload:  JSON.generate(request_hash),
+                                headers: {
+                                  authorization: credential,
+                                  content_type: 'application/json'
+                                }
+    )  do |response, request, result|
       response
     end
+
     JSON.parse(res)
   end
 
