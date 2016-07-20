@@ -170,7 +170,7 @@ module Spree
     end
 
     def logger
-      @logger ||= AvataxHelper::AvataxLog.new('post_order_to_avalara', __FILE__)
+      @logger ||= SolidusAvataxCertified::AvataxLog.new('post_order_to_avalara', __FILE__)
     end
   end
 end

@@ -70,7 +70,7 @@ class TaxSvc
   protected
 
   def logger
-    AvataxHelper::AvataxLog.new('tax_svc', 'tax_service', 'call to tax service')
+    SolidusAvataxCertified::AvataxLog.new('tax_svc', 'tax_service', 'call to tax service')
   end
 
   private

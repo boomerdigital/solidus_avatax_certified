@@ -58,6 +58,6 @@ Spree::Order.class_eval do
   end
 
   def logger
-    @logger ||= AvataxHelper::AvataxLog.new('avalara_order', 'order class', 'start order processing')
+    @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order', 'order class', 'start order processing')
   end
 end

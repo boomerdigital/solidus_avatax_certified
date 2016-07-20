@@ -3,14 +3,12 @@ module SolidusAvataxCertified
     attr_reader :order, :lines
 
     def initialize(order, invoice_type, refund = nil)
-      @logger ||= AvataxHelper::AvataxLog.new('avalara_order_lines', 'SolidusAvataxCertified::Line', "Building Lines for Order#: #{order.number}")
       @order = order
       @invoice_type = invoice_type
       @lines = []
       @refund = refund
       @refunds = []
       build_lines
-      @logger.debug @lines
     end
 
     def build_lines
@@ -20,6 +18,8 @@ module SolidusAvataxCertified
         item_lines_array
         shipment_lines_array
       end
+
+      logger.debug @lines
     end
 
     def item_line(line_item)
@@ -121,6 +121,12 @@ module SolidusAvataxCertified
       li_stock_locs = order.stock_locations.joins(:stock_items).where(spree_stock_items: { variant_id: li.variant_id })
 
       li_stock_locs.empty? ? 'Orig' : "#{li_stock_locs.first.id}"
+    end
+
+    private
+
+    def logger
+      @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_lines', 'SolidusAvataxCertified::Line', "Building Lines for Order#: #{order.number}")
     end
   end
 end

@@ -13,15 +13,16 @@ module SolidusAvataxCertified
       @origin_address = JSON.parse(Spree::AvalaraPreference.origin_address.value)
       @stock_loc_ids = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment).map(&:stock_location_id)
       @addresses = []
-      @logger ||= AvataxHelper::AvataxLog.new('avalara_order_addresses', 'SolidusAvataxCertified::Address', "Building Addresses for Order#: #{order.number}")
+
       build_addresses
-      @logger.debug @addresses
     end
 
     def build_addresses
       origin_address
       order_ship_address unless @ship_address.nil?
       origin_ship_addresses
+
+      logger.debug @addresses
     end
 
     def origin_address
@@ -130,6 +131,10 @@ module SolidusAvataxCertified
 
     def enabled_countries
       Spree::AvalaraPreference.validation_enabled_countries_array
+    end
+
+    def logger
+      @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_addresses', 'SolidusAvataxCertified::Address', "Building Addresses for Order#: #{order.number}")
     end
   end
 end

@@ -1,8 +1,6 @@
 require 'logger'
 
 Spree::Refund.class_eval do
-  logger.info('start refund processing')
-
   has_one :avalara_transaction
   after_create :avalara_capture_finalize, if: :avalara_eligible?
 
@@ -27,6 +25,6 @@ Spree::Refund.class_eval do
   end
 
   def logger
-    @logger ||= AvataxHelper::AvataxLog.new('refund', 'refund class')
+    @logger ||= SolidusAvataxCertified::AvataxLog.new('refund', 'refund class')
   end
 end

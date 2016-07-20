@@ -1,4 +1,4 @@
-module AvataxHelper
+module SolidusAvataxCertified
   class AvataxLog
     def initialize(path_name, file_name, log_info = nil, schedule = nil)
       schedule = 'weekly' unless schedule != nil
@@ -11,24 +11,24 @@ module AvataxHelper
       @logger
     end
 
-    def logger_enabled?
+    def enabled?
       Spree::AvalaraPreference.log.is_true?
     end
 
     def progname(progname = nil)
-      if logger_enabled?
+      if enabled?
         progname.nil? ? logger.progname : logger.progname = progname
       end
     end
 
     def info(log_info = nil)
-      if logger_enabled?
+      if enabled?
         logger.info log_info unless log_info.nil?
       end
     end
 
     def info_and_debug(log_info, response)
-      if logger_enabled?
+      if enabled?
         logger.info log_info
         if response.is_a?(Hash)
           logger.debug JSON.generate(response)
@@ -39,11 +39,11 @@ module AvataxHelper
     end
 
 
-    def debug(error, text = nil)
-      if logger_enabled?
-        logger.debug error
+    def debug(obj, text = nil)
+      if enabled?
+        logger.debug obj
         if text.nil?
-          error
+          obj
         else
           logger.debug text
           text
