@@ -35,6 +35,10 @@
     <td><%= Spree::AvalaraPreference.log.value %></td>
   </tr>
   <tr>
+    <th scope="row"><%= t("enable_avatax_log_to_stdout") %>:</th>
+    <td><%= Spree::AvalaraPreference.log_to_stdout.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t("enable_avatax_address_validation") %>:</th>
     <td><%= Spree::AvalaraPreference.address_validation.value %></td>
   </tr>

@@ -111,6 +111,14 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
+  describe '#log_to_stdout' do
+    it 'should return object with same name' do
+      log_to_stdout = Spree::AvalaraPreference.find_by(name: 'log_to_stdout')
+
+      expect(Spree::AvalaraPreference.log_to_stdout).to eq(log_to_stdout)
+    end
+  end
+
   describe '#address_validation' do
     it 'should return object with same name' do
       address_validation = Spree::AvalaraPreference.find_by(name: 'address_validation')

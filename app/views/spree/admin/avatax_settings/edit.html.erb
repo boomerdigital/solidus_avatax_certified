@@ -59,6 +59,14 @@
     </fieldset>
 
     <fieldset>
+      <legend><%= t('avatax_log_to_stdout') %></legend>
+      <p>
+        <label><%= t('avatax_log_to_stdout') %></label><br />
+        <%= check_box_tag('settings[log_to_stdout]','yes' , Spree::AvalaraPreference.log_to_stdout.value, :class => 'avatax') %>
+      </p>
+    </fieldset>
+    
+    <fieldset>
       <legend><%= t('avatax_address_validation') %></legend>
       <p>
         <label><%= t('enable_avatax_address_validation') %></label><br />

@@ -37,6 +37,10 @@ module Spree
       find_by(name: 'log')
     end
 
+    def self.log_to_stdout
+      find_by(name: 'log_to_stdout')
+    end
+
     def self.address_validation
       find_by(name: 'address_validation')
     end
