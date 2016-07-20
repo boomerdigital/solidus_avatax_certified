@@ -11,7 +11,6 @@ module SolidusAvataxCertified
       @order = order
       @ship_address = order.ship_address
       @origin_address = JSON.parse(Spree::AvalaraPreference.origin_address.value)
-      @stock_loc_ids = Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment).map(&:stock_location_id)
       @addresses = []
 
       build_addresses
@@ -50,7 +49,7 @@ module SolidusAvataxCertified
     end
 
     def origin_ship_addresses
-      Spree::StockLocation.where(id: @stock_loc_ids).each do |stock_location|
+      Spree::StockLocation.where(id: stock_loc_ids).each do |stock_location|
         addresses << {
           AddressCode: "#{stock_location.id}",
           Line1: stock_location.address1,
@@ -112,6 +111,9 @@ module SolidusAvataxCertified
       "error in address validation: #{e}"
     end
 
+    def stock_loc_ids
+      Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment).map(&:stock_location_id)
+    end
 
     def credential
       'Basic ' + Base64.encode64(account_number + ':' + license_key)
