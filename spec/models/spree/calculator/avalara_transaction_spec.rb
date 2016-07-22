@@ -113,13 +113,8 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
 
     context 'when given a shipment' do
       let!(:shipping_tax_category) { Spree::TaxCategory.create(name: 'Shipping', tax_code: 'FR000000') }
-<<<<<<< HEAD
       let!(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
       let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
-=======
-      let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => false, zone: zone) }
-      let!(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => shipping_rate ) }
->>>>>>> refactored and fixed specs for avalara transaction calc
 
       before do
         @shipment = build_shipment(order)
@@ -127,7 +122,6 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
       end
 
       it 'should be equal 4.0' do
-<<<<<<< HEAD
         expect(shipping_calculator.compute(order.shipments.first)).to eq(4.0)
       end
 
@@ -140,19 +134,6 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
         let(:included_in_price) { true }
         it 'should be equal to 3.85' do
           expect(shipping_calculator.compute(order.shipments.first)).to eq(3.85)
-=======
-        expect(calculator.compute(@shipment)).to eq(4.0)
-      end
-
-      it 'takes discounts into consideration' do
-        @shipment.update_attributes(promo_total: -1)
-        expect(calculator.compute(@shipment)).to eq(3.96)
-      end
-      context 'when given a shipping rate' do
-        it 'raises exception' do
-          @shipment.selected_shipping_rate.tax_rate.update_attributes(included_in_price: true)
-          expect{calculator.compute(@shipment.selected_shipping_rate)}.to raise_exception
->>>>>>> refactored and fixed specs for avalara transaction calc
         end
       end
     end

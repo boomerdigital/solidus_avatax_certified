@@ -25,8 +25,8 @@ describe SolidusAvataxCertified::Line, :type => :model do
     it 'should have lines be an array' do
       expect(sales_lines.lines).to be_kind_of(Array)
     end
-    it 'lines should be a length of 2' do
-      expect(sales_lines.lines.length).to eq(2)
+    it 'lines should be a length of 3' do
+      expect(sales_lines.lines.length).to eq(3)
     end
   end
 
