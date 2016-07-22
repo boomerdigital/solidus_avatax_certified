@@ -33,7 +33,8 @@ module SolidusAvataxCertified
         OriginCode: get_stock_location(line_item),
         DestinationCode: 'Dest',
         CustomerUsageType: order.customer_usage_type,
-        Discounted: true
+        Discounted: true,
+        TaxIncluded: tax_included_in_price?(line_item)
       }
     end
 
@@ -61,7 +62,8 @@ module SolidusAvataxCertified
         CustomerUsageType: order.customer_usage_type,
         Description: 'Shipping Charge',
         TaxCode: shipment.shipping_method_tax_code,
-        Discounted: false
+        Discounted: false,
+        TaxIncluded: tax_included_in_price?(shipment)
       }
     end
 
@@ -127,6 +129,14 @@ module SolidusAvataxCertified
 
     def logger
       @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_lines', 'SolidusAvataxCertified::Line', "Building Lines for Order#: #{order.number}")
+    end
+
+    def tax_included_in_price?(item)
+      if item.tax_category.try(:tax_rates).any?
+        item.tax_category.tax_rates.first.included_in_price
+      else
+        false
+      end
     end
   end
 end

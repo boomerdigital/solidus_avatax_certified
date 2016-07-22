@@ -16,6 +16,12 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
     order.state = 'delivery'
   end
 
+  describe '#description' do
+    it 'responds with avalara_transaction' do
+      expect(calculator.description).to eq('Avalara Transaction Calculator')
+    end
+  end
+
   context '#compute' do
     context 'when given an order' do
       let!(:line_item_1) { line_item }
@@ -34,8 +40,8 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
     context 'when computing a line item' do
       context 'when tax is included in price' do
         let(:included_in_price) { true }
-        it 'should raise error' do
-          expect{calculator.compute(line_item)}.to raise_error(RuntimeError)
+        it 'should be equal to the item pre-tax total * rate' do
+          expect(calculator.compute(line_item)).to eq(0.38)
         end
       end
 
@@ -77,7 +83,7 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
     context 'when given a shipment' do
       let!(:shipping_tax_category) { Spree::TaxCategory.create(name: 'Shipping', tax_code: 'FR000000') }
       let!(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-      let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => false, zone: zone) }
+      let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
 
       before do
         order.shipments.first.selected_shipping_rate.update_attributes(tax_rate: shipping_rate)
@@ -86,17 +92,18 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
       end
 
       it 'should be equal 4.0' do
-        expect(calculator.compute(order.shipments.first)).to eq(4.0)
+        expect(shipping_calculator.compute(order.shipments.first)).to eq(4.0)
       end
 
       it 'takes discounts into consideration' do
         order.shipments.first.update_attributes(promo_total: -1)
-        expect(calculator.compute(order.shipments.first)).to eq(3.96)
+        expect(shipping_calculator.compute(order.shipments.first)).to eq(3.96)
       end
-      context 'when given a shipping rate' do
-        it 'raises exception' do
-          order.shipments.first.selected_shipping_rate.tax_rate.update_attributes(included_in_price: true)
-          expect{calculator.compute(order.shipments.first.selected_shipping_rate)}.to raise_exception
+
+      context 'included_in_price' do
+        let(:included_in_price) { true }
+        it 'should be equal to 3.85' do
+          expect(shipping_calculator.compute(order.shipments.first)).to eq(3.85)
         end
       end
     end
