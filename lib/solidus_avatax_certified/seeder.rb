@@ -36,7 +36,7 @@ module SolidusAvataxCertified
         clothing = Spree::TaxCategory.find_or_create_by(name: 'Clothing')
         clothing.update_attributes(tax_code: 'P0000000')
         tax_zone = Spree::Zone.find_or_create_by(name: 'North America')
-        tax_calculator = Spree::Calculator::AvalaraTransactionCalculator.create!
+        tax_calculator = Spree::Calculator::AvalaraTransaction.create!
         sales_tax = Spree::TaxRate.find_or_create_by(name: 'Tax') do |tax_rate|
           # default values for the create
           tax_rate.amount = BigDecimal.new('0')
@@ -52,7 +52,7 @@ module SolidusAvataxCertified
           shipping_tax.zone = tax_zone
           shipping_tax.show_rate_in_label = false
         end
-        shipping_tax.update!(tax_category: shipping, amount: BigDecimal.new('0'), zone: Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: Spree::Calculator::AvalaraTransactionCalculator.create!)
+        shipping_tax.update!(tax_category: shipping, amount: BigDecimal.new('0'), zone: Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: Spree::Calculator::AvalaraTransaction.create!)
       end
 
       def add_tax_category_to_shipping_methods
