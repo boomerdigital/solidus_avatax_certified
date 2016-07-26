@@ -64,8 +64,9 @@ module SolidusAvataxCertified
       end
 
       def populate_default_stock_location
-        default = Spree::StockLocation.find_by(name: 'default')
-        default.destroy if default
+        default = Spree::StockLocation.find_or_create_by(name: 'default')
+
+        return unless default.zipcode.nil? || default.address1.nil?
 
         state = Spree::State.find_by(name: 'Alabama')
 
@@ -80,7 +81,7 @@ module SolidusAvataxCertified
           backorderable_default: true
         }
 
-        Spree::StockLocation.create(address)
+        default.update_attributes(address)
       end
 
       def create_use_codes

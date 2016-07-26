@@ -47,7 +47,9 @@ module SolidusAvataxCertified
       end
 
       def origin_address
-        pref = Spree::AvalaraPreference.new(name: 'origin_address', object_type: 'json')
+        pref = Spree::AvalaraPreference.find_or_create_by(name: 'origin_address', object_type: 'json')
+        pref.value = "{}" if pref.value.nil?
+
         save_preference(pref)
       end
 
