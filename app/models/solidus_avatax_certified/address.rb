@@ -112,7 +112,7 @@ module SolidusAvataxCertified
     end
 
     def stock_loc_ids
-      Spree::Stock::Coordinator.new(order).packages.map(&:to_shipment).map(&:stock_location_id)
+      order.shipments.pluck(:stock_location_id).uniq
     end
 
     def credential

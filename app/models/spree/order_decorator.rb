@@ -53,7 +53,7 @@ Spree::Order.class_eval do
   end
 
   def stock_locations
-    stock_loc_ids = Spree::Stock::Coordinator.new(self).packages.map(&:to_shipment).map(&:stock_location_id)
+    stock_loc_ids = shipments.pluck(:stock_location_id).uniq
     Spree::StockLocation.where(id: stock_loc_ids)
   end
 
