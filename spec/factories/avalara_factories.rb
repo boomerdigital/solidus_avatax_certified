@@ -36,6 +36,7 @@ FactoryGirl.define do
     tax_category { Spree::TaxCategory.find_or_create_by(tax_code: 'PC030000') }
     association(:calculator, factory: :avalara_transaction_calculator)
     zone { Spree::Zone.find_or_create_by(name: 'GlobalZone') }
+    show_rate_in_label false
   end
 
   factory :shipping_tax_rate, class: Spree::TaxRate do
@@ -44,6 +45,7 @@ FactoryGirl.define do
     tax_category { create(:tax_category, tax_code: 'FR000000') }
     association(:calculator, factory: :avalara_transaction_calculator)
     zone { Spree::Zone.find_or_create_by(name: 'GlobalZone') }
+    show_rate_in_label false
   end
 
   factory :avalara_order, class: Spree::Order do
@@ -63,7 +65,17 @@ FactoryGirl.define do
     end
 
     before(:create) do |order, evaluator|
-      create(:clothing_tax_rate, tax_category: create(:tax_category))
+      if Spree::Country.count == 0
+        create(:country)
+      end
+      if Spree::Zone.find_by(name: 'GlobalZone').nil?
+        create(:global_zone, default_tax: true)
+      end
+      if Spree::TaxCategory.first.nil?
+        create(:clothing_tax_rate, tax_category: create(:tax_category))
+      else
+        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first)
+      end
     end
 
     after(:create) do |order, evaluator|
@@ -88,12 +100,15 @@ FactoryGirl.define do
   end
 
   factory :avalara_shipping_method, class: Spree::ShippingMethod do
-    zones { |a| [Spree::Zone.find_or_create_by(name: 'GlobalZone')] }
+    zones { |a| [Spree::Zone.find_by(name: 'GlobalZone') || create(:zone, :with_country, default_tax: true)] }
     name 'Avalara Ground'
     code 'Avalara_Ground'
     association(:calculator, factory: :shipping_calculator, strategy: :create)
 
     before(:create) do |shipping_method, evaluator|
+      if Spree::Country.count == 0
+        create(:country)
+      end
       shipping_tax_rate = create(:shipping_tax_rate)
       shipping_method.tax_category = shipping_tax_rate.tax_category
       if shipping_method.shipping_categories.empty?
@@ -143,7 +158,14 @@ FactoryGirl.modify do
     phone '555-555-0199'
     alternative_phone '555-555-0199'
 
-    state { |address| address.association(:state) }
+    state do |address|
+      if !Spree::State.find_by(name: address.state_name).nil?
+        Spree::State.find_by(name: address.state_name)
+      else
+         address.association(:state)
+      end
+    end
+
     country do |address|
       if address.state
         address.state.country
