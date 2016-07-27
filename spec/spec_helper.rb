@@ -34,8 +34,17 @@ require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
+require 'spree/testing_support/order_walkthrough'
 
 require 'factories/avalara_factories'
+
+require 'capybara-screenshot/rspec'
+Capybara.save_and_open_page_path = ENV['CIRCLE_ARTIFACTS'] if ENV['CIRCLE_ARTIFACTS']
+
+if ENV['WEBDRIVER'] == 'accessible'
+  require 'capybara/accessible'
+  Capybara.javascript_driver = :accessible
+end
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
@@ -66,6 +75,11 @@ RSpec.configure do |config|
   # to cleanup after each test instead.  Without transactional fixtures set to false the records created
   # to setup a test will be unavailable to the browser, which runs under a separate server instance.
   config.use_transactional_fixtures = false
+  if ENV['WEBDRIVER'] == 'accessible'
+    config.around(:each, :inaccessible => true) do |example|
+      Capybara::Accessible.skip_audit { example.run }
+    end
+  end
 
   # Ensure Suite is set to use transactions for speed.
   config.before :suite do
