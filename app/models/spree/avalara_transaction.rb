@@ -112,9 +112,9 @@ module Spree
       avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail, refund)
 
       taxoverride = {
-        TaxOverrideType: 'None',
-        Reason: 'Return',
-        TaxDate: order.completed_at.strftime('%F')
+        TaxOverrideType: 'TaxDate',
+        Reason: refund.try(:reason).try(:name).limit(255) || 'Return',
+        TaxDate: Date.today.strftime('%F')
       }
 
       gettaxes = {
