@@ -29,11 +29,11 @@ module SolidusAvataxCertified
         TaxCode: line_item.tax_category.try(:tax_code) || '',
         ItemCode: line_item.variant.sku,
         Qty: line_item.quantity,
-        Amount: line_item.discounted_amount.to_f,
+        Amount: line_item.amount.to_f,
         OriginCode: get_stock_location(line_item),
         DestinationCode: 'Dest',
         CustomerUsageType: order.customer_usage_type,
-        Discounted: true,
+        Discounted: discounted?(line_item),
         TaxIncluded: tax_included_in_price?(line_item)
       }
     end
@@ -126,6 +126,10 @@ module SolidusAvataxCertified
     end
 
     private
+
+    def discounted?(line_item)
+      line_item.adjustments.promotion.eligible.any? || order.adjustments.promotion.eligible.any?
+    end
 
     def logger
       @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_lines', 'SolidusAvataxCertified::Line', "Building Lines for Order#: #{order.number}")
