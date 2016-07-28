@@ -1,0 +1,1 @@
+SolidusAvataxCertified::PreferenceSeeder.seed!

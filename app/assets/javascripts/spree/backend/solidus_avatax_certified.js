@@ -1,2 +1,3 @@
-// Placeholder manifest file.
-// the installer will append this file to the app vendored assets here: vendor/assets/javascripts/spree/backend/all.js'
+//= require spree/backend/use_code_picker
+
+Spree.routes.use_code_search = Spree.pathFor("admin/avalara_entity_use_codes")
