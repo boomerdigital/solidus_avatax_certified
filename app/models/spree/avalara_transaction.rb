@@ -84,8 +84,11 @@ module Spree
         end
       end
 
+      doc_date = order.completed? ? order.completed_at.strftime('%F') : Date.today.strftime('%F')
+
       gettaxes = {
         DocCode: order.number,
+        DocDate: doc_date,
         Discount: order.all_adjustments.promotion.eligible.sum(:amount).abs.to_s,
         Commit: commit,
         DocType: invoice_detail ? invoice_detail : 'SalesOrder',
@@ -114,11 +117,12 @@ module Spree
       taxoverride = {
         TaxOverrideType: 'TaxDate',
         Reason: refund.try(:reason).try(:name).limit(255) || 'Return',
-        TaxDate: Date.today.strftime('%F')
+        TaxDate: order.completed_at.strftime('%F')
       }
 
       gettaxes = {
         DocCode: order.number.to_s + '.' + refund.id.to_s,
+        DocDate: Date.today.strftime('%F'),
         Commit: commit,
         DocType: invoice_detail ? invoice_detail : 'ReturnOrder',
         Addresses: avatax_address.addresses,
@@ -140,10 +144,8 @@ module Spree
     end
 
     def base_tax_hash
-      doc_date = order.completed? ? order.completed_at.strftime('%F') : Date.today.strftime('%F')
       {
         CustomerCode: customer_code,
-        DocDate: doc_date,
         CompanyCode: Spree::AvalaraPreference.company_code.value,
         CustomerUsageType: order.customer_usage_type,
         ExemptionNo: order.user.try(:exemption_number),
