@@ -75,7 +75,9 @@ describe Spree::Refund, type: :model do
   context 'full refund' do
     it 'returns correct tax calculations' do
       order = create(:avalara_order)
-      order.update_attributes(state: 'complete', completed_at: Time.now)
+      order.update_attributes(state: 'complete', completed_at: 2.days.ago)
+      order.avalara_capture_finalize
+
       payment = create(:payment, order: order, amount: order.total.to_f)
       refund = build(:refund, payment: payment, amount: order.total.to_f)
 

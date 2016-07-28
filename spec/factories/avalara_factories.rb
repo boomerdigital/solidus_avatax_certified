@@ -60,6 +60,7 @@ FactoryGirl.define do
     transient do
       line_items_price BigDecimal.new(10)
       line_items_count 1
+      line_items_quantity 1
       shipment_cost 5
       tax_category Spree::TaxCategory.first
     end
@@ -79,7 +80,7 @@ FactoryGirl.define do
     end
 
     after(:create) do |order, evaluator|
-      create_list(:line_item, evaluator.line_items_count, order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category)
+      create_list(:line_item, evaluator.line_items_count, order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category, quantity: evaluator.line_items_quantity)
       order.line_items.reload
 
       create(:avalara_shipment, order: order, cost: evaluator.shipment_cost )
