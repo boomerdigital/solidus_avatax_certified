@@ -94,19 +94,7 @@ module SolidusAvataxCertified
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       res = http.get(uri.request_uri, 'Authorization' => credential)
 
-      response = JSON.parse(res.body)
-      address = response['Address']
-
-      if address['City'] != @ship_address.city || address['Region'] != @ship_address.state.abbr
-        response['ResultCode'] = 'Error'
-        response['Messages'] = [
-          {
-            'Summary' => "Did you mean #{address['Line1']}, #{address['City']}, #{address['Region']}, #{address['PostalCode']}?"
-          }
-        ]
-      end
-
-      return response
+      JSON.parse(res.body)
     rescue => e
       "error in address validation: #{e}"
     end

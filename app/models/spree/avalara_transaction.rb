@@ -81,6 +81,7 @@ module Spree
           logger.info('Address Validation Success')
         else
           logger.info('Address Validation Failed')
+          logger.debug response
         end
       end
 

@@ -66,6 +66,11 @@ describe SolidusAvataxCertified::Address, :type => :model do
       result = address_lines.validate
       expect(address_lines.validate).to eq("Address validation disabled")
     end
+
+    it 'fails when information is incorrect' do
+      order.ship_address.update_attributes(city: nil)
+      expect(address_lines.validate['ResultCode']).to eq('Error')
+    end
   end
 
   describe '#country_enabled?' do
