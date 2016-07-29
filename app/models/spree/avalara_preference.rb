@@ -45,6 +45,10 @@ module Spree
       find_by(name: 'address_validation')
     end
 
+    def self.refuse_checkout_address_validation_error
+      find_by(name: 'refuse_checkout_address_validation_error')
+    end
+
     def self.tax_calculation
       find_by(name: 'tax_calculation')
     end
