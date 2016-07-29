@@ -36,10 +36,6 @@
         <label><%= t('avatax_servicepath_address') %></label><br />
         <input type="text" placeholder="<%= AVATAX_SERVICEPATH_ADDRESS %>", readonly>
       </p>
-      <p>
-        <label><%= t('avatax_client_version') %></label><br />
-        <input type="text" placeholder="<%= AVATAX_CLIENT_VERSION %>", readonly>
-      </p>
     </fieldset>
 
     <fieldset>
@@ -65,7 +61,7 @@
         <%= check_box_tag('settings[log_to_stdout]','yes' , Spree::AvalaraPreference.log_to_stdout.value, :class => 'avatax') %>
       </p>
     </fieldset>
-    
+
     <fieldset>
       <legend><%= t('avatax_address_validation') %></legend>
       <p>
