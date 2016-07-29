@@ -161,7 +161,7 @@ module Spree
     end
 
     def avatax_client_version
-      AVATAX_CLIENT_VERSION || 'SolidusV1.2.0-ExtV0.0.1'
+      AVATAX_CLIENT_VERSION || 'a0o33000004FH8l'
     end
 
     def document_committing_enabled?
