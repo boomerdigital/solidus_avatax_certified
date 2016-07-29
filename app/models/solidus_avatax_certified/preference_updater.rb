@@ -17,7 +17,7 @@ module SolidusAvataxCertified
 
     def update_stored_preferences
       Spree::AvalaraPreference.storable_envs.each do |preference|
-        if !ENV.fetch("AVATAX_#{preference.name.upcase}").nil?
+        if !ENV["AVATAX_#{preference.name.upcase}"].blank?
           update_value(preference, ENV["AVATAX_#{preference.name.upcase}"])
         else
           update_value(preference, @avatax_preferences[preference.name.downcase])
