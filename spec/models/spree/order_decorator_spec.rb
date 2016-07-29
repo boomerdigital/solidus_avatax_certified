@@ -4,7 +4,7 @@ describe Spree::Order, type: :model do
 
   it { should have_one :avalara_transaction }
 
-  let(:order) {FactoryGirl.create(:order_with_line_items)}
+  let(:order) { FactoryGirl.create(:avalara_order, ship_address: create(:address)) }
   let(:completed_order) { create(:completed_order_with_totals) }
   let(:variant) { create(:variant) }
 
@@ -102,6 +102,35 @@ describe Spree::Order, type: :model do
     it 'should respond with blank string if no user' do
       order.update_attributes(user: nil)
       expect(order.customer_usage_type).to eq('')
+    end
+  end
+
+  describe '#validate_ship_address' do
+    it 'should return nil if address validation is disabled' do
+      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
+
+      expect(order.validate_ship_address).to eq(nil)
+    end
+
+    it 'should return the response if validation is success' do
+      response = order.validate_ship_address
+
+      expect(response['ResultCode']).to eq('Success')
+    end
+
+    it 'should return the response if refuse checkout on address validation is disabled' do
+      Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'false')
+      response = order.validate_ship_address
+
+      expect(response['ResultCode']).to eq('Success')
+    end
+
+    it 'should return false if validation failed' do
+      Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'true')
+      order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
+      response = order.validate_ship_address
+
+      expect(response).to eq(false)
     end
   end
 end

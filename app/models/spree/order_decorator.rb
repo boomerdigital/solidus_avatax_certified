@@ -7,6 +7,9 @@ Spree::Order.class_eval do
   self.state_machine.before_transition :to => :canceled,
                                       :do => :cancel_avalara,
                                       :if => :avalara_eligible?
+  self.state_machine.before_transition :to => :delivery,
+                                      :do => :validate_ship_address,
+                                      :if => :avalara_eligible?
 
   def avalara_eligible?
     Spree::AvalaraPreference.iseligible.is_true?
@@ -39,6 +42,21 @@ Spree::Order.class_eval do
 
     logger.info_and_debug('tax amount', @rtn_tax)
     @rtn_tax
+  end
+
+  def validate_ship_address
+    if ship_address.validation_enabled?
+      avatax_address = SolidusAvataxCertified::Address.new(self)
+      response = avatax_address.validate
+
+      return response if response['ResultCode'] == 'Success'
+      return response if !Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?
+
+      messages = response['Messages'].each do |message|
+        errors.add(:address_validation_failure, message['Summary'])
+      end
+     return false
+    end
   end
 
   def avatax_cache_key

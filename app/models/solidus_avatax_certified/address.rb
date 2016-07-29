@@ -62,7 +62,7 @@ module SolidusAvataxCertified
     end
 
     def validate
-      return 'Address validation disabled' unless address_validation_enabled?
+      return 'Address validation disabled' unless @ship_address.validation_enabled?
       return @ship_address if @ship_address.nil?
 
       address_hash = {
@@ -77,14 +77,6 @@ module SolidusAvataxCertified
       validation_response(address_hash)
     end
 
-    def country_enabled?
-      enabled_countries.include?(@ship_address.country.try(:name))
-    end
-
-    def address_validation_enabled?
-      Spree::AvalaraPreference.address_validation.is_true? && country_enabled?
-    end
-
     private
 
     def validation_response(address)
@@ -93,6 +85,8 @@ module SolidusAvataxCertified
       http.use_ssl = true
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       res = http.get(uri.request_uri, 'Authorization' => credential)
+
+      logger.debug res
 
       JSON.parse(res.body)
     rescue => e
@@ -117,10 +111,6 @@ module SolidusAvataxCertified
 
     def account_number
       Spree::AvalaraPreference.account.value
-    end
-
-    def enabled_countries
-      Spree::AvalaraPreference.validation_enabled_countries_array
     end
 
     def logger

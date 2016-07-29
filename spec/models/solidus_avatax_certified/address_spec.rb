@@ -69,13 +69,8 @@ describe SolidusAvataxCertified::Address, :type => :model do
 
     it 'fails when information is incorrect' do
       order.ship_address.update_attributes(city: nil)
-      expect(address_lines.validate['ResultCode']).to eq('Error')
-    end
-  end
 
-  describe '#country_enabled?' do
-    it 'returns true if the current country is enabled' do
-      expect(address_lines.country_enabled?).to be_truthy
+      expect(address_lines.validate['ResultCode']).to eq('Error')
     end
   end
 end
