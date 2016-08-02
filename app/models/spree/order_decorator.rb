@@ -6,13 +6,13 @@ Spree::Order.class_eval do
 
   self.state_machine.before_transition :to => :canceled,
                                       :do => :cancel_avalara,
-                                      :if => :avalara_eligible?
+                                      :if => :avalara_tax_enabled?
   self.state_machine.before_transition :to => :delivery,
                                       :do => :validate_ship_address,
                                       :if => :address_validation_enabled?
 
-  def avalara_eligible?
-    Spree::AvalaraPreference.iseligible.is_true?
+  def avalara_tax_enabled?
+    Spree::AvalaraPreference.tax_calculation.is_true?
   end
 
   def cancel_avalara

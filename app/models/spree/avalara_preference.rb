@@ -29,10 +29,6 @@ module Spree
       find_by(name: 'origin_address')
     end
 
-    def self.iseligible
-      find_by(name: 'iseligible')
-    end
-
     def self.log
       find_by(name: 'log')
     end
