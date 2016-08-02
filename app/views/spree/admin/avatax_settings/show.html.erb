@@ -19,6 +19,10 @@
     <td><%= Spree::AvalaraPreference.endpoint.value %></td>
   </tr>
   <tr>
+    <th scope="row"><%= t("avatax_vat_identification_no") %>:</th>
+    <td><%= Spree::AvalaraPreference.vat_identification_no.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t("avatax_servicepath_tax") %>:</th>
     <td><%= AVATAX_SERVICEPATH_TAX %></td>
   </tr>

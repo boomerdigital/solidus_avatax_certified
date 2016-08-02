@@ -1,7 +1,7 @@
 module SolidusAvataxCertified
   class PreferenceSeeder
     BOOLEAN_PREFERENCES = ['log', 'address_validation', 'tax_calculation', 'document_commit', 'log_to_stdout', 'refuse_checkout_address_validation_error'].freeze
-    STORABLE_ENV_PREFERENCES = ['company_code', 'endpoint', 'account', 'license_key'].freeze
+    STORABLE_ENV_PREFERENCES = ['company_code', 'endpoint', 'account', 'license_key', 'vat_identification_no'].freeze
 
     class << self
 
@@ -17,7 +17,7 @@ module SolidusAvataxCertified
 
       def stored_env_prefs
         STORABLE_ENV_PREFERENCES.each do |env|
-          if !ENV.fetch("AVATAX_#{env.upcase}").nil?
+          if !ENV["AVATAX_#{env.upcase}"].blank?
             value = ENV["AVATAX_#{env.upcase}"]
           else
             value = nil
