@@ -40,6 +40,31 @@ module Spree
         end
       end
 
+      def validate_address
+        mytax = TaxSvc.new
+        address = params['address']
+
+        if address['Country'].to_i != 0
+          address['Country'] = Spree::Country.find(address['Country']).try(:iso)
+        end
+
+        if address['Region'].to_i != 0
+          address['Region'] = Spree::State.find(address['Region']).try(:abbr)
+        end
+
+        response = mytax.validate_address(address)
+
+        if response['ResultCode'] == 'Success'
+          flash[:success] = 'Address Validation Successful'
+        else
+          flash[:error] = 'Address Validation Error'
+        end
+
+        respond_to do |format|
+          format.js
+        end
+      end
+
       def update
         updater = SolidusAvataxCertified::PreferenceUpdater.new(params)
         if updater.update
