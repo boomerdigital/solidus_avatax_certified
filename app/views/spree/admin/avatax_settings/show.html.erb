@@ -43,6 +43,10 @@
     <td><%= Spree::AvalaraPreference.address_validation.value %></td>
   </tr>
   <tr>
+    <th scope="row">Refuse Checkout if Address Validation Fails</th>
+    <td><%= Spree::AvalaraPreference.refuse_checkout_address_validation_error.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t("avatax_address_validation_enabled_countries") %>:</th>
     <% address_validated_countries = Spree::AvalaraPreference.validation_enabled_countries_array %>
     <td>
@@ -62,10 +66,6 @@
   <tr>
     <th scope="row"><%= t("enable_avatax_document_committing") %>:</th>
     <td><%= Spree::AvalaraPreference.document_commit.value %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= t("client_version") %>:</th>
-    <td><%= AVATAX_CLIENT_VERSION %></td>
   </tr>
 
   <tr>

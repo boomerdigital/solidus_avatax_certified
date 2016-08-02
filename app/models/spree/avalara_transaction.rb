@@ -74,16 +74,6 @@ module Spree
       avatax_address = SolidusAvataxCertified::Address.new(order)
       avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail)
 
-      response = avatax_address.validate
-
-      unless response.nil?
-        if response['ResultCode'] == 'Success'
-          logger.info('Address Validation Success')
-        else
-          logger.info('Address Validation Failed')
-        end
-      end
-
       doc_date = order.completed? ? order.completed_at.strftime('%F') : Date.today.strftime('%F')
 
       gettaxes = {
@@ -161,7 +151,7 @@ module Spree
     end
 
     def avatax_client_version
-      AVATAX_CLIENT_VERSION || 'SolidusV1.2.0-ExtV0.0.1'
+      AVATAX_CLIENT_VERSION || 'a0o33000004FH8l'
     end
 
     def document_committing_enabled?
