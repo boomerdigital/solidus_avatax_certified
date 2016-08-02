@@ -75,8 +75,8 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
           expect(calculator.compute(line_item)).to eq(0.1)
         end
 
-        it 'should be equal to the previous tax total if preference iseligible is false' do
-          Spree::AvalaraPreference.iseligible.update_attributes(value: 'false')
+        it 'should be equal to the previous tax total if preference tax_calculation is false' do
+          Spree::AvalaraPreference.tax_calculation.update_attributes(value: 'false')
 
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)

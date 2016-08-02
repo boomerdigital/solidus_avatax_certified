@@ -95,14 +95,6 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
-  describe '#iseligible' do
-    it 'should return object with same name' do
-      iseligible = Spree::AvalaraPreference.find_by(name: 'iseligible')
-
-      expect(Spree::AvalaraPreference.iseligible).to eq(iseligible)
-    end
-  end
-
   describe '#log' do
     it 'should return object with same name' do
       log = Spree::AvalaraPreference.find_by(name: 'log')
@@ -161,7 +153,7 @@ describe Spree::AvalaraPreference, type: :model do
 
   describe '#is_true?' do
     it 'should return true if value is a string of true or false' do
-      expect(Spree::AvalaraPreference.iseligible.is_true?).to be_in([true, false])
+      expect(Spree::AvalaraPreference.tax_calculation.is_true?).to be_in([true, false])
     end
 
     it 'should return false if value is a string that does not contain true or false' do

@@ -2,10 +2,10 @@ require 'logger'
 
 Spree::Refund.class_eval do
   has_one :avalara_transaction
-  after_create :avalara_capture_finalize, if: :avalara_eligible?
+  after_create :avalara_capture_finalize, if: :avalara_tax_enabled?
 
-  def avalara_eligible?
-    Spree::AvalaraPreference.iseligible.is_true?
+  def avalara_tax_enabled?
+    Spree::AvalaraPreference.tax_calculation.is_true?
   end
 
   def avalara_capture_finalize
