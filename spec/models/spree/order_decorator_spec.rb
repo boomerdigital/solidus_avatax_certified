@@ -106,13 +106,8 @@ describe Spree::Order, type: :model do
   end
 
   describe '#validate_ship_address' do
-    it 'should return nil if address validation is disabled' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
-
-      expect(order.validate_ship_address).to eq(nil)
-    end
-
     it 'should return the response if validation is success' do
+      Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
       response = order.validate_ship_address
 
       expect(response['ResultCode']).to eq('Success')
@@ -131,6 +126,33 @@ describe Spree::Order, type: :model do
       response = order.validate_ship_address
 
       expect(response).to eq(false)
+    end
+  end
+
+  describe '#address_validation_enabled?' do
+    it 'should return false if ship address is nil' do
+      order.ship_address = nil
+
+      expect(order.address_validation_enabled?).to be_falsey
+    end
+
+    it 'returns true if preference is true and country validation is enabled' do
+      Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
+      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'United States,Canada')
+
+      expect(order.address_validation_enabled?).to be_truthy
+    end
+
+    it 'returns false if address validation preference is false' do
+      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
+
+      expect(order.address_validation_enabled?).to be_falsey
+    end
+
+    it 'returns false if enabled country is not present' do
+      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'Canada')
+
+      expect(order.address_validation_enabled?).to be_falsey
     end
   end
 end

@@ -9,7 +9,7 @@ Spree::Order.class_eval do
                                       :if => :avalara_eligible?
   self.state_machine.before_transition :to => :delivery,
                                       :do => :validate_ship_address,
-                                      :if => :avalara_eligible?
+                                      :if => :address_validation_enabled?
 
   def avalara_eligible?
     Spree::AvalaraPreference.iseligible.is_true?
@@ -45,18 +45,16 @@ Spree::Order.class_eval do
   end
 
   def validate_ship_address
-    if ship_address.validation_enabled?
-      avatax_address = SolidusAvataxCertified::Address.new(self)
-      response = avatax_address.validate
+    avatax_address = SolidusAvataxCertified::Address.new(self)
+    response = avatax_address.validate
 
-      return response if response['ResultCode'] == 'Success'
-      return response if !Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?
+    return response if response['ResultCode'] == 'Success'
+    return response if !Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?
 
-      messages = response['Messages'].each do |message|
-        errors.add(:address_validation_failure, message['Summary'])
-      end
-     return false
+    messages = response['Messages'].each do |message|
+      errors.add(:address_validation_failure, message['Summary'])
     end
+   return false
   end
 
   def avatax_cache_key
@@ -73,6 +71,12 @@ Spree::Order.class_eval do
   def stock_locations
     stock_loc_ids = shipments.pluck(:stock_location_id).uniq
     Spree::StockLocation.where(id: stock_loc_ids)
+  end
+
+  def address_validation_enabled?
+    return false if ship_address.nil?
+
+    ship_address.validation_enabled?
   end
 
   def logger
