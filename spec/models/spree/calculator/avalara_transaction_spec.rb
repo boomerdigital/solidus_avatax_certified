@@ -63,14 +63,21 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
           expect(calculator.compute(line_item)).to eq(0.4)
         end
 
-        it 'should be equal to the previous additional_tax_total is order is at cart' do
+        it 'should be equal to the previous additional_tax_total if order is at cart' do
           order.state = 'cart'
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
         end
 
-        it 'should be equal to the previous additional_tax_total is order is at address' do
+        it 'should be equal to the previous additional_tax_total if order is at address' do
           order.state = 'address'
+          line_item.additional_tax_total = 0.1
+          expect(calculator.compute(line_item)).to eq(0.1)
+        end
+
+        it 'should be equal to the previous tax total if preference iseligible is false' do
+          Spree::AvalaraPreference.iseligible.update_attributes(value: 'false')
+
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
         end
