@@ -119,6 +119,22 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
+  describe '#refuse_checkout_address_validation_error' do
+    it 'should return object with same name' do
+      pref = Spree::AvalaraPreference.find_by(name: 'refuse_checkout_address_validation_error')
+
+      expect(Spree::AvalaraPreference.refuse_checkout_address_validation_error).to eq(pref)
+    end
+  end
+
+  describe '#vat_identification_no' do
+    it 'should return object with same name' do
+      pref = Spree::AvalaraPreference.find_by(name: 'vat_identification_no')
+
+      expect(Spree::AvalaraPreference.vat_identification_no).to eq(pref)
+    end
+  end
+
   describe '#tax_calculation' do
     it 'should return object with same name' do
       tax_calculation = Spree::AvalaraPreference.find_by(name: 'tax_calculation')
