@@ -7,7 +7,7 @@ module Spree
     scope :strings, -> { where(object_type: 'string') }
     scope :arrays, -> { where(object_type: 'array') }
     scope :jsons, -> { where(object_type: 'json') }
-    scope :storable_envs, -> { where(name: ['company_code', 'license_key', 'account', 'endpoint', 'vat_identification_no']) }
+    scope :storable_envs, -> { where(name: ['company_code', 'license_key', 'account', 'endpoint', 'vat_id']) }
 
     def self.company_code
       find_by(name: 'company_code')
@@ -25,8 +25,8 @@ module Spree
       find_by(name: 'endpoint')
     end
 
-    def self.vat_identification_no
-      find_by(name: 'vat_identification_no')
+    def self.vat_id
+      find_by(name: 'vat_id')
     end
 
     def self.origin_address
