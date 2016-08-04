@@ -159,7 +159,7 @@ module Spree
     end
 
     def business_id_no
-      Spree::AvalaraPreference.vat_identification_no.try(:value)
+      Spree::AvalaraPreference.vat_id.try(:value)
     end
 
     def avatax_client_version

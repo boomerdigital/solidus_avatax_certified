@@ -127,11 +127,11 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
-  describe '#vat_identification_no' do
+  describe '#vat_id' do
     it 'should return object with same name' do
-      pref = Spree::AvalaraPreference.find_by(name: 'vat_identification_no')
+      pref = Spree::AvalaraPreference.find_by(name: 'vat_id')
 
-      expect(Spree::AvalaraPreference.vat_identification_no).to eq(pref)
+      expect(Spree::AvalaraPreference.vat_id).to eq(pref)
     end
   end
 
