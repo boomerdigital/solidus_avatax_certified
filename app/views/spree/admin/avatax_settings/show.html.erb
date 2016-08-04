@@ -19,16 +19,16 @@
     <td><%= Spree::AvalaraPreference.endpoint.value %></td>
   </tr>
   <tr>
+    <th scope="row"><%= t("avatax_vat_id") %>:</th>
+    <td><%= Spree::AvalaraPreference.vat_id.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t("avatax_servicepath_tax") %>:</th>
     <td><%= AVATAX_SERVICEPATH_TAX %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_servicepath_address") %>:</th>
     <td><%= AVATAX_SERVICEPATH_ADDRESS %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= t("enable_avatax") %>:</th>
-    <td><%= Spree::AvalaraPreference.iseligible.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("enable_avatax_logging") %>:</th>
@@ -41,6 +41,10 @@
   <tr>
     <th scope="row"><%= t("enable_avatax_address_validation") %>:</th>
     <td><%= Spree::AvalaraPreference.address_validation.value %></td>
+  </tr>
+  <tr>
+    <th scope="row">Refuse Checkout if Address Validation Fails</th>
+    <td><%= Spree::AvalaraPreference.refuse_checkout_address_validation_error.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= t("avatax_address_validation_enabled_countries") %>:</th>
@@ -62,10 +66,6 @@
   <tr>
     <th scope="row"><%= t("enable_avatax_document_committing") %>:</th>
     <td><%= Spree::AvalaraPreference.document_commit.value %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= t("client_version") %>:</th>
-    <td><%= AVATAX_CLIENT_VERSION %></td>
   </tr>
 
   <tr>

@@ -1,7 +1,7 @@
 module SolidusAvataxCertified
   class PreferenceSeeder
-    BOOLEAN_PREFERENCES = ['iseligible', 'log', 'address_validation', 'tax_calculation', 'document_commit', 'log_to_stdout'].freeze
-    STORABLE_ENV_PREFERENCES = ['company_code', 'endpoint', 'account', 'license_key'].freeze
+    BOOLEAN_PREFERENCES = ['log', 'address_validation', 'tax_calculation', 'document_commit', 'log_to_stdout', 'refuse_checkout_address_validation_error'].freeze
+    STORABLE_ENV_PREFERENCES = ['company_code', 'endpoint', 'account', 'license_key', 'vat_id'].freeze
 
     class << self
 
@@ -17,7 +17,7 @@ module SolidusAvataxCertified
 
       def stored_env_prefs
         STORABLE_ENV_PREFERENCES.each do |env|
-          if !ENV.fetch("AVATAX_#{env.upcase}").nil?
+          if !ENV["AVATAX_#{env.upcase}"].blank?
             value = ENV["AVATAX_#{env.upcase}"]
           else
             value = nil
@@ -31,7 +31,7 @@ module SolidusAvataxCertified
 
       def boolean_prefs
         BOOLEAN_PREFERENCES.each do |preference|
-          if preference == 'log_to_stdout'
+          if ['refuse_checkout_address_validation_error', 'log_to_stdout'].include?(preference)
             pref = Spree::AvalaraPreference.new(name: preference, value: 'false', object_type: 'boolean')
           else
             pref = Spree::AvalaraPreference.new(name: preference, value: 'true', object_type: 'boolean')

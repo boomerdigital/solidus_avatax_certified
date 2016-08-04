@@ -95,14 +95,6 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
-  describe '#iseligible' do
-    it 'should return object with same name' do
-      iseligible = Spree::AvalaraPreference.find_by(name: 'iseligible')
-
-      expect(Spree::AvalaraPreference.iseligible).to eq(iseligible)
-    end
-  end
-
   describe '#log' do
     it 'should return object with same name' do
       log = Spree::AvalaraPreference.find_by(name: 'log')
@@ -124,6 +116,22 @@ describe Spree::AvalaraPreference, type: :model do
       address_validation = Spree::AvalaraPreference.find_by(name: 'address_validation')
 
       expect(Spree::AvalaraPreference.address_validation).to eq(address_validation)
+    end
+  end
+
+  describe '#refuse_checkout_address_validation_error' do
+    it 'should return object with same name' do
+      pref = Spree::AvalaraPreference.find_by(name: 'refuse_checkout_address_validation_error')
+
+      expect(Spree::AvalaraPreference.refuse_checkout_address_validation_error).to eq(pref)
+    end
+  end
+
+  describe '#vat_id' do
+    it 'should return object with same name' do
+      pref = Spree::AvalaraPreference.find_by(name: 'vat_id')
+
+      expect(Spree::AvalaraPreference.vat_id).to eq(pref)
     end
   end
 
@@ -161,7 +169,7 @@ describe Spree::AvalaraPreference, type: :model do
 
   describe '#is_true?' do
     it 'should return true if value is a string of true or false' do
-      expect(Spree::AvalaraPreference.iseligible.is_true?).to be_in([true, false])
+      expect(Spree::AvalaraPreference.tax_calculation.is_true?).to be_in([true, false])
     end
 
     it 'should return false if value is a string that does not contain true or false' do

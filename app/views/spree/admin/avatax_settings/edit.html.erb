@@ -20,6 +20,11 @@
         <label><%= t('avatax_license_key') %></label><br />
         <%= text_field_tag('settings[license_key]', Spree::AvalaraPreference.license_key.value, :maxlength => 256, :class => 'avatax') %>
       </p>
+      <p>
+        <label><%= t('avatax_vat_id') %></label><br />
+        <p><strong>Please leave blank if you are not a VAT user</strong></p>
+        <%= text_field_tag('settings[vat_id]', Spree::AvalaraPreference.vat_id.value, :maxlength => 256, :class => 'avatax') %>
+      </p>
     </fieldset>
 
     <fieldset>
@@ -35,18 +40,6 @@
       <p>
         <label><%= t('avatax_servicepath_address') %></label><br />
         <input type="text" placeholder="<%= AVATAX_SERVICEPATH_ADDRESS %>", readonly>
-      </p>
-      <p>
-        <label><%= t('avatax_client_version') %></label><br />
-        <input type="text" placeholder="<%= AVATAX_CLIENT_VERSION %>", readonly>
-      </p>
-    </fieldset>
-
-    <fieldset>
-      <legend><%= t('eligible') %></legend>
-      <p>
-        <label><%= t('enable_avatax') %></label><br />
-        <%= check_box_tag('settings[iseligible]','yes' , Spree::AvalaraPreference.iseligible.value, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -65,15 +58,20 @@
         <%= check_box_tag('settings[log_to_stdout]','yes' , Spree::AvalaraPreference.log_to_stdout.value, :class => 'avatax') %>
       </p>
     </fieldset>
-    
+
     <fieldset>
       <legend><%= t('avatax_address_validation') %></legend>
       <p>
         <label><%= t('enable_avatax_address_validation') %></label><br />
         <%= check_box_tag('settings[address_validation]','yes' , Spree::AvalaraPreference.address_validation.value, :class => 'avatax') %>
       </p>
+      <p>
+        <label>Refuse Checkout if Address Validation Fails</label><br />
+        <%= check_box_tag('settings[refuse_checkout_address_validation_error]','yes' , Spree::AvalaraPreference.refuse_checkout_address_validation_error.value, :class => 'avatax') %>
+      </p>
     </fieldset>
-      <fieldset>
+
+    <fieldset>
       <legend><%= t('avatax_address_validation_enabled_countries') %></legend>
       <p>
         <% current_countries = Spree::Country.where(name: Spree::AvalaraPreference.validation_enabled_countries_array) %>
