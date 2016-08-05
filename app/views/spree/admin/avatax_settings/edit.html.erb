@@ -23,7 +23,7 @@
       <p>
         <label><%= t('avatax_vat_id') %></label><br />
         <p><strong>Please leave blank if you are not a VAT user</strong></p>
-        <%= text_field_tag('settings[vat_id]', Spree::AvalaraPreference.vat_id.value, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('settings[vat_id]', Spree::AvalaraPreference.vat_id.try(:value), :maxlength => 256, :class => 'avatax') %>
       </p>
     </fieldset>
 
