@@ -1,5 +1,6 @@
 en:
   spree:
+    vat_identification_number: VAT Identification Number
     avalara_transaction_calculator: Avalara Transaction Calculator
     avalara:
       settings: Avalara Settings
