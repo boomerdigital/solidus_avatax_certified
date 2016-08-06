@@ -30,9 +30,10 @@ AddressValidator.prototype = {
     }).done(function(data){
       var address = data.Address;
       var controller = this;
+      var wrapper = controller.addressWrapper()
       $.each(['Line1', 'Line2', 'City', 'PostalCode'], function(index, value){
         var keyVal = controller.getKeyByValue(value);
-        $("#shipping input[id*='" + keyVal + "']").val(address[value])
+        $(wrapper + " input[id*='" + keyVal + "']").val(address[value])
       }.bind(address))
 
       this.showFlash(data)
@@ -41,16 +42,18 @@ AddressValidator.prototype = {
   formatAddress: function() {
     var address = {}
     controller = this;
+    var wrapper = controller.addressWrapper();
 
-    $('#shipping input').not("[name$='name]']").not("[class*=select2]").each(function(){
+    $(wrapper + ' input').not("select").each(function(){
       var id = $(this).attr('id');
       var line = controller.lineHash[id.split('_').pop()]
       address[line] = $(this).val()
     })
 
-    $("#shipping select.select2").each(function(){
-      var line = controller.lineHash[$(this).attr('title').toLowerCase()]
-      address[line] = $(this).select2('val')
+    $(wrapper + " select").each(function(){
+      var id = $(this).attr('id');
+      var line = controller.lineHash[id.slice(0, -3).split('_').pop()]
+      address[line] = $(this).val()
     })
 
     return address;
@@ -63,9 +66,15 @@ AddressValidator.prototype = {
 
     if(resultCode === 'success') {
       window.show_flash('success', "Address Validation Successful")
-
     } else {
       window.show_flash('error', "Address Validation Error: " + data.Summary)
+    }
+  },
+  addressWrapper: function(){
+    if($('#order_use_billing').is(':checked')){
+      return '#billing';
+    } else {
+      return '#shipping';
     }
   }
 }

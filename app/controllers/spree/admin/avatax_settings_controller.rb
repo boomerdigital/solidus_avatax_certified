@@ -54,14 +54,8 @@ module Spree
 
         response = mytax.validate_address(address)
 
-        if response['ResultCode'] == 'Success'
-          flash[:success] = 'Address Validation Successful'
-        else
-          flash[:error] = 'Address Validation Error'
-        end
-
         respond_to do |format|
-          format.js
+          format.json { render json: response }
         end
       end
 

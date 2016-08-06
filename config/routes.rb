@@ -13,4 +13,6 @@ Spree::Core::Engine.routes.draw do
       end
     end
   end
+
+  get '/checkout/validate_address', to: 'checkout#validate_address', as: :validate_address
 end
