@@ -41,15 +41,16 @@ AddressValidator.prototype = {
   formatAddress: function() {
     var address = {}
     controller = this;
+    var wrapper = controller.addressWrapper();
 
-    $('#shipping input').not("[name$='name]']").not("[class*=select2]").each(function(){
+    $(wrapper + ' input').not("[name$='name]']").not("[class*=select2]").each(function(){
       var id = $(this).attr('id');
       var line = controller.lineHash[id.split('_').pop()]
       address[line] = $(this).val()
     })
 
-    $("#shipping select.select2").each(function(){
-      var line = controller.lineHash[$(this).attr('title').toLowerCase()]
+    $(wrapper + " select.select2").each(function(){
+      var line = controller.lineHash[$(this).attr('id')]
       address[line] = $(this).select2('val')
     })
 
@@ -66,6 +67,13 @@ AddressValidator.prototype = {
 
     } else {
       window.show_flash('error', "Address Validation Error: " + data.Summary)
+    }
+  },
+  addressWrapper: function(){
+    if($('#shipping').length != 0){
+      return '#shipping';
+    } else {
+      return '#business-address';
     }
   }
 }
