@@ -19,8 +19,9 @@ AddressValidator.prototype = {
     $('.address_validator').on('click', this.validate.bind(this))
   },
   validate: function(){
-    event.preventDefault()
-    var address = this.formatAddress()
+    event.preventDefault();
+    $('#checkout_form_address').validate().form();
+    var address = this.formatAddress();
 
     $.ajax({
       url: Spree.routes.validate_address,
