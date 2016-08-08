@@ -43,6 +43,10 @@
     <td><%= Spree::AvalaraPreference.refuse_checkout_address_validation_error.value %></td>
   </tr>
   <tr>
+    <th scope="row">Customer can validate address in checkout</th>
+    <td><%= Spree::AvalaraPreference.customer_can_validate.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= t("avatax_address_validation_enabled_countries") %>:</th>
     <% address_validated_countries = Spree::AvalaraPreference.validation_enabled_countries_array %>
     <td>

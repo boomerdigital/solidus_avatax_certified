@@ -64,6 +64,10 @@
         <label>Refuse Checkout if Address Validation Fails</label><br />
         <%= check_box_tag('settings[refuse_checkout_address_validation_error]','yes' , Spree::AvalaraPreference.refuse_checkout_address_validation_error.value, :class => 'avatax') %>
       </p>
+      <p>
+        <label>Customer can validate address in checkout</label><br />
+        <%= check_box_tag('settings[customer_can_validate]','yes' , Spree::AvalaraPreference.customer_can_validate.value, :class => 'avatax') %>
+      </p>
     </fieldset>
 
     <fieldset>
