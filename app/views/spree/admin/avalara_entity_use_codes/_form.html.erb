@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="alpha twelve columns">
+  <div class="sixteen columns">
     <fieldset class="no-border-bottom">
       <% if @avalara_entity_use_code.errors.any? %>
           <div id="error_explanation">
@@ -13,11 +13,11 @@
           </div>
       <% end %>
 
-      <div class="field">
+      <div class="field alpha eight columns">
         <%= f.label :use_code %><br>
         <%= f.text_field :use_code, class: 'fullwidth' %>
       </div>
-      <div class="field">
+      <div class="field omega eight columns">
         <%= f.label :use_code_description %><br>
         <%= f.text_field :use_code_description, class: 'fullwidth' %>
       </div>

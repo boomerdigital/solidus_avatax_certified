@@ -1,18 +1,20 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/taxes_tabs' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:avalara_entity_use_codes) %>
+<% end %>
 
 <% content_for :page_actions do %>
     <li>
-      <%= button_link_to t('avalara entity_use_code'), new_object_url, :icon => 'icon-plus', :id => 'admin_new_avalara_entity_use_code_link' %>
+      <%= button_link_to Spree.t(:new_avalara_entity_use_code), new_object_url, :icon => 'plus', :id => 'admin_new_avalara_entity_use_code_link' %>
     </li>
 <% end %>
-
-<h1><%= Spree.t('avalara_entity_use_codes') %></h1>
 
 <table class="index" id="listing_sale_events" data-hook>
   <thead>
   <tr data-hook="admin_sale_events_index_headers">
-    <th><%= t(:use_code) %></th>
-    <th ><%= t(:use_code_description) %></th>
+    <th><%= Spree.t(:use_code) %></th>
+    <th ><%= Spree.t(:use_code_description) %></th>
     <tH data-hook="admin_sale_events_index_header_actions"></tH>
   </tr>
   </thead>
