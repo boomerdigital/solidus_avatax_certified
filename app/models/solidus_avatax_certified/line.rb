@@ -78,7 +78,7 @@ module SolidusAvataxCertified
         inv_unit_ids = inv_unit.map { |iu| iu.id }
         return_items = Spree::ReturnItem.where(inventory_unit_id: inv_unit_ids)
         quantity = inv_unit.uniq.count
-        amount = return_items.sum(:pre_tax_amount)
+        amount = return_items.sum(:amount)
 
         lines << return_item_line(inv_unit.first.line_item, quantity, amount)
       end
