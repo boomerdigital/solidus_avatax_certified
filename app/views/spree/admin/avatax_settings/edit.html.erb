@@ -105,20 +105,20 @@
         <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
+        <label><%= t('country') %></label><br />
+        <span id="scountry">
+          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:id)), {:class => 'select2 avatax'} %>
+        </span>
+      </p>
+      <p>
         <label><%= Spree.t('state') %></label><br />
-        <%= text_field_tag('address[Region]', @avatax_origin["Region"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <span id="sstate">
+          <%= select_tag 'address[Region]', options_from_collection_for_select(Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:states), 'id', 'name', Spree::State.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax'} %>
+        </span>
       </p>
       <p>
         <label><%= Spree.t('zipcode') %></label><br />
-        <%= text_field_tag('address[Zip5]', @avatax_origin["Zip5"], :size => 46, :maxlength => 256, :class => 'avatax') %>
-      </p>
-      <p>
-        <label><%= t('zip_plus_4') %></label><br />
-        <%= text_field_tag('address[Zip4]', @avatax_origin["Zip4"], :size => 46, :maxlength => 256, :class => 'avatax') %>
-      </p>
-      <p>
-        <label><%= t('country_code') %></label><br />
-        <%= text_field_tag('address[Country]', @avatax_origin["Country"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('address[PostalCode]', @avatax_origin["PostalCode"], :size => 46, :maxlength => 256, :class => 'avatax') %>
       </p>
 
     </fieldset>
@@ -163,4 +163,12 @@
 
 <p class="form-buttons"><%= button t('save_preferences') %></p>
 
+<% end %>
+
+<% content_for :head do %>
+  <%= javascript_tag do -%>
+    $(document).ready(function(){
+      $('span#scountry .select2').on('change', function() { update_state('s'); });
+    });
+  <% end -%>
 <% end %>
