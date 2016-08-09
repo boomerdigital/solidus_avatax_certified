@@ -36,6 +36,8 @@ module SolidusAvataxCertified
     end
 
     def update_origin_address
+      set_region
+      set_country
       update_value(Spree::AvalaraPreference.origin_address, @avatax_origin.to_json)
     end
 
@@ -51,6 +53,20 @@ module SolidusAvataxCertified
 
     def value_changed?(preference, param)
       preference.value != param
+    end
+
+    def set_region
+      region = @avatax_origin['Region']
+      unless region.blank?
+        @avatax_origin['Region'] = Spree::State.find(region).try(:abbr)
+      end
+    end
+
+    def set_country
+      country = @avatax_origin['Country']
+      unless country.blank?
+        @avatax_origin['Country'] = Spree::Country.find(country).try(:iso)
+      end
     end
   end
 end

@@ -31,7 +31,7 @@ module SolidusAvataxCertified
         Line2: @origin_address['Address2'],
         City: @origin_address['City'],
         Region: @origin_address['Region'],
-        PostalCode: @origin_address['Zip5'],
+        PostalCode: @origin_address['PostalCode'],
         Country: @origin_address['Country']
       }
     end
