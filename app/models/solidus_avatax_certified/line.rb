@@ -133,7 +133,7 @@ module SolidusAvataxCertified
     end
 
     def tax_included_in_price?(item)
-      if item.tax_category.try(:tax_rates).any?
+      if !item.try(:tax_category).try(:tax_rates).blank?
         item.tax_category.tax_rates.first.included_in_price
       else
         false
