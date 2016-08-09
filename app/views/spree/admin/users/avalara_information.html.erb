@@ -27,13 +27,21 @@
       <%= f.select(:avalara_entity_use_code_id, use_codes_list) %>
       <% end %>
     </div>
-    <div class="omega six columns">
+    <div class="clear"></div>
+    <div class="alpha six columns">
       <%= f.field_container :exemption_number do %>
-      <%= f.label :exemption_number, Spree.t(:exemption_number) %>
-      <%= f.text_field :exemption_number, :class => 'fullwidth' %>
+        <%= f.label :exemption_number, Spree.t(:exemption_number) %>
+        <%= f.text_field :exemption_number, :class => 'fullwidth' %>
+      <% end %>
+    </div>
+    <div class="omega six columns">
+      <%= f.field_container :vat_id do %>
+        <%= f.label :vat_id, Spree.t(:vat_identification_number) %>
+        <%= f.text_field :vat_id, :class => 'fullwidth' %>
       <% end %>
     </div>
     <br><br><br>
+    <div class="clear"></div>
     <% if can?(:update, @user) %>
       <div data-hook="admin_user_edit_form_button">
         <%= render :partial => 'spree/admin/shared/edit_resource_links', :locals => { :collection_url => admin_users_url } %>

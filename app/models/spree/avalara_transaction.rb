@@ -86,7 +86,7 @@ module Spree
         Lines: avatax_line.lines
       }.merge(base_tax_hash)
 
-      if !business_id_no.nil?
+      if !business_id_no.blank?
         gettaxes[:BusinessIdentificationNo] = business_id_no
       end
 
@@ -123,7 +123,7 @@ module Spree
         Lines: avatax_line.lines
       }.merge(base_tax_hash)
 
-      if !business_id_no.nil?
+      if !business_id_no.blank?
         gettaxes[:BusinessIdentificationNo] = business_id_no
       end
 
@@ -159,7 +159,7 @@ module Spree
     end
 
     def business_id_no
-      Spree::AvalaraPreference.vat_id.try(:value)
+      order.user.try(:vat_id)
     end
 
     def avatax_client_version

@@ -127,14 +127,6 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
-  describe '#vat_id' do
-    it 'should return object with same name' do
-      pref = Spree::AvalaraPreference.find_by(name: 'vat_id')
-
-      expect(Spree::AvalaraPreference.vat_id).to eq(pref)
-    end
-  end
-
   describe '#tax_calculation' do
     it 'should return object with same name' do
       tax_calculation = Spree::AvalaraPreference.find_by(name: 'tax_calculation')
