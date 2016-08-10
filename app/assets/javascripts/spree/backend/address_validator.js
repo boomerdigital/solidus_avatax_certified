@@ -30,9 +30,11 @@ AddressValidator.prototype = {
     }).done(function(data){
       var address = data.Address;
       var controller = this;
+      var wrapper = controller.addressWrapper();
+
       $.each(['Line1', 'Line2', 'City', 'PostalCode'], function(index, value){
         var keyVal = controller.getKeyByValue(value);
-        $("#shipping input[id*='" + keyVal + "']").val(address[value])
+        $(wrapper + " input[id*='" + keyVal + "']").val(address[value])
       }.bind(address))
 
       this.showFlash(data)
