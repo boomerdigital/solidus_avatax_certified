@@ -27,8 +27,8 @@ module SolidusAvataxCertified
     def origin_address
       addresses << {
         AddressCode: 'Orig',
-        Line1: @origin_address['Address1'],
-        Line2: @origin_address['Address2'],
+        Line1: @origin_address['Line1'],
+        Line2: @origin_address['Line2'],
         City: @origin_address['City'],
         Region: @origin_address['Region'],
         PostalCode: @origin_address['PostalCode'],
@@ -80,37 +80,12 @@ module SolidusAvataxCertified
     private
 
     def validation_response(address)
-      uri = URI(service_url + address.to_query)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      res = http.get(uri.request_uri, 'Authorization' => credential)
-
-      logger.debug res
-
-      JSON.parse(res.body)
-    rescue => e
-      "error in address validation: #{e}"
+      validator = TaxSvc.new
+      validator.validate_address(address)
     end
 
     def stock_loc_ids
       order.shipments.pluck(:stock_location_id).uniq
-    end
-
-    def credential
-      'Basic ' + Base64.encode64(account_number + ':' + license_key)
-    end
-
-    def service_url
-      Spree::AvalaraPreference.endpoint.value + AVATAX_SERVICEPATH_ADDRESS + 'validate?'
-    end
-
-    def license_key
-      Spree::AvalaraPreference.license_key.value
-    end
-
-    def account_number
-      Spree::AvalaraPreference.account.value
     end
 
     def logger

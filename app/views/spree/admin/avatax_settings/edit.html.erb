@@ -64,6 +64,10 @@
         <label>Refuse Checkout if Address Validation Fails</label><br />
         <%= check_box_tag('settings[refuse_checkout_address_validation_error]','yes' , Spree::AvalaraPreference.refuse_checkout_address_validation_error.value, :class => 'avatax') %>
       </p>
+      <p>
+        <label>Customer can validate address in checkout</label><br />
+        <%= check_box_tag('settings[customer_can_validate]','yes' , Spree::AvalaraPreference.customer_can_validate.value, :class => 'avatax') %>
+      </p>
     </fieldset>
 
     <fieldset>
@@ -90,37 +94,38 @@
       </p>
     </fieldset>
 
-    <fieldset>
+    <fieldset id='business-address'>
       <legend><%= t('business_address') %></legend>
       <p>
         <label><%= Spree.t('address1') %></label><br />
-        <%= text_field_tag('address[Address1]', @avatax_origin["Address1"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('address[Line1]', @avatax_origin["Line1"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address1') %>
       </p>
       <p>
         <label><%= Spree.t('address2') %></label><br />
-        <%= text_field_tag('address[Address2]', @avatax_origin["Address2"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('address[Line2]', @avatax_origin["Line2"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address2') %>
       </p>
       <p>
         <label><%= Spree.t('city') %></label><br />
-        <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
       </p>
-      <p>
+       <p>
         <label><%= t('country') %></label><br />
         <span id="scountry">
-          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:id)), {:class => 'select2 avatax'} %>
+          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:id)), {:class => 'select2 avatax', id: 'country'} %>
         </span>
       </p>
       <p>
         <label><%= Spree.t('state') %></label><br />
         <span id="sstate">
-          <%= select_tag 'address[Region]', options_from_collection_for_select(Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:states), 'id', 'name', Spree::State.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax'} %>
+          <%= select_tag 'address[Region]', options_from_collection_for_select(Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:states), 'id', 'name', Spree::State.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
         </span>
       </p>
       <p>
         <label><%= Spree.t('zipcode') %></label><br />
-        <%= text_field_tag('address[PostalCode]', @avatax_origin["PostalCode"], :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('address[PostalCode]', @avatax_origin["PostalCode"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'zipcode') %>
       </p>
 
+      <a href="#" class="button address_validator" style="float: right;">Validate</a>
     </fieldset>
     <fieldset>
     <legend><%= t('log_files') %></legend>
