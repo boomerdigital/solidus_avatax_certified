@@ -3,13 +3,8 @@ Spree::CheckoutController.class_eval do
     mytax = TaxSvc.new
     address = params['address']
 
-    if address['Country'].to_i != 0
-      address['Country'] = Spree::Country.find(address['Country']).try(:iso)
-    end
-
-    if address['Region'].to_i != 0
-      address['Region'] = Spree::State.find(address['Region']).try(:abbr)
-    end
+    address['Country'] = Spree::Country.find_by(id: address['Country']).try(:iso)
+    address['Region'] = Spree::State.find_by(id: address['Region']).try(:abbr)
 
     response = mytax.validate_address(address)
 
