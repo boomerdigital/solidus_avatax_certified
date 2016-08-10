@@ -1,2 +1,4 @@
-// Placeholder manifest file.
-// the installer will append this file to the app vendored assets here: vendor/assets/javascripts/spree/frontend/all.js'
+//= require spree/frontend/address_validator
+//= require spree/frontend/flash
+
+Spree.routes.validate_address = Spree.pathFor("checkout/validate_address")

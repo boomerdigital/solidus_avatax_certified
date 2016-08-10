@@ -50,6 +50,10 @@
     <td><%= Spree::AvalaraPreference.refuse_checkout_address_validation_error.value %></td>
   </tr>
   <tr>
+    <th scope="row">Customer can Validate Address in Checkout</th>
+    <td><%= Spree::AvalaraPreference.customer_can_validate.value %></td>
+  </tr>
+  <tr>
     <th scope="row"><%= Spree.t(:avatax_address_validation_enabled_countries) %>:</th>
     <% address_validated_countries = Spree::AvalaraPreference.validation_enabled_countries_array %>
     <td>
@@ -75,8 +79,8 @@
     <th scope="row"><%= Spree.t(:business_address) %>:</th>
 
     <td><table>
-      <tr><td><%= Spree.t(:address1) %>: <%= @avatax_origin["Address1"]  %> </td></tr>
-      <tr><td><%= Spree.t(:address2) %>: <%= @avatax_origin["Address2"]  %></td></tr>
+      <tr><td><%= Spree.t(:address1) %>: <%= @avatax_origin["Line1"]  %> </td></tr>
+      <tr><td><%= Spree.t(:address2) %>: <%= @avatax_origin["Line2"]  %></td></tr>
       <tr><td><%= Spree.t(:city) %>: <%= @avatax_origin["City"]  %></td></tr>
       <tr><td><%= Spree.t(:state) %>: <%= @avatax_origin["Region"]  %></td></tr>
       <tr><td><%= Spree.t(:zipcode) %>: <%= @avatax_origin["PostalCode"]  %></td></tr>

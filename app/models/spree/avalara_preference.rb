@@ -61,6 +61,10 @@ module Spree
       find_by(name: 'address_validation_enabled_countries').value.split(',')
     end
 
+    def self.customer_can_validate
+      find_by(name: 'customer_can_validate')
+    end
+
     def is_true?
       ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES.include?(value)
     end
