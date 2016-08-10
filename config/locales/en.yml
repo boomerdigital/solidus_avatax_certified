@@ -2,6 +2,34 @@ en:
   spree:
     vat_identification_number: VAT Identification Number
     avalara_transaction_calculator: Avalara Transaction Calculator
-    avalara:
-      settings: Avalara Settings
-      entity_use_codes: Avalara Entity Use Codes
+    avalara_entity_use_codes: Avalara Entity Use Codes
+    new_avalara_entity_use_code: New Avalara Entity Use Code
+    back_to_avalara_entity_use_codes_list: Back to Avalara Entity Use Codes List
+    editing_avalara_entity_use_code: Editing Avalara Entity Use Code
+    use_code: Use Code
+    use_code_description: Use Code Description
+    avalara_settings: Avalara Settings
+    edit_avalara_settings: Edit Avalara Settings
+    avatax_company_code: Avatax Company Code
+    avatax_license_key: Avatax License Key
+    avatax_account: Avatax Account
+    avatax_endpoint: Avatax Endpoint
+    avatax_tax_service_path: Avatax Tax Service Path
+    avatax_address_service_path: Avatax Address Service Path
+    enable_avatax_logging: Enable Avatax Logging
+    enable_avatax_log_to_stdout: Enable Logging to STDOUT
+    enable_avatax_address_validation: Enable Address Validation
+    avatax_address_validation_enabled_countries: Address Validation Enabled Countries
+    enable_avatax_tax_calculation: Enable Avatax Tax Calculation
+
+    enable_avatax_document_committing: Enable Avatax Document Committing
+    business_address: Business Address
+    country_code: 'Country Code (eg: US, GB ect)'
+    avatax_api_keys: Avatax API keys
+    avatax_endpoint_urls: Avatax Endpoint URLs
+    avatax_logging: Avatax Logging
+    avatax_address_validation: Avatax Address Validation
+    log_files: Log Files
+    avatax_tax_calculation: Avatax Tax Calculation
+    avatax_document_committing: Avatax Document Committing
+    save_preferences: Save Preferences

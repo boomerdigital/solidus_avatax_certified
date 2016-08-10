@@ -1,9 +1,16 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
+<%= render 'spree/admin/shared/taxes_tabs' %>
 
-<h1><%= t('avalara_entity_use_codes') %></h1>
+<% content_for :page_title do %>
+  <%= Spree.t(:editing_avalara_entity_use_code) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back_to_avalara_entity_use_codes_list), admin_avalara_entity_use_codes_path, :class => 'button' %></li>
+<% end %>
+
 <%= render 'spree/shared/error_messages', :target => @avalara_entity_use_code %>
 
 <%= form_for [:admin, @avalara_entity_use_code], :method => :put do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
-    <p class="form-buttons" data-hook="buttons"><%= button t(:update) %></p>
+    <p class="form-buttons" data-hook="buttons"><%= button Spree.t(:update) %></p>
 <% end %>

@@ -1,63 +1,66 @@
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-<h1><%= t('avalara.settings') %></h1>
+<%= render 'spree/admin/shared/taxes_tabs' %>
+
+<% content_for :page_title do %>
+  <%= Spree.t(:avalara_settings) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back), admin_avatax_settings_path, :class => 'button' %></li>
+<% end %>
 
 <%= form_tag(admin_avatax_settings_path, :method => :put, :id => :avatax_settings_form) do %>
 
 <div class="yui-g">
   <div class="yui-u first">
     <fieldset>
-      <legend><%= t('avatax_api_login_and_key') %></legend>
+      <legend><%= Spree.t('avatax_api_keys') %></legend>
       <p>
-        <label><%= t('avatax_company_code') %></label><br />
+        <label><%= Spree.t('avatax_company_code') %></label><br />
         <%= text_field_tag('settings[company_code]', Spree::AvalaraPreference.company_code.value, :maxlength => 256, :class => 'avatax') %>
       </p>
 
       <p>
-        <label><%= t('avatax_account') %></label><br />
+        <label><%= Spree.t('avatax_account') %></label><br />
         <%= text_field_tag('settings[account]', Spree::AvalaraPreference.account.value, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
-        <label><%= t('avatax_license_key') %></label><br />
+        <label><%= Spree.t('avatax_license_key') %></label><br />
         <%= text_field_tag('settings[license_key]', Spree::AvalaraPreference.license_key.value, :maxlength => 256, :class => 'avatax') %>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend><%= t('avatax_endpoint_urls') %></legend>
+      <legend><%= Spree.t('avatax_endpoint_urls') %></legend>
       <p>
-        <label><%= t('avatax_endpoint') %></label><br />
+        <label><%= Spree.t('avatax_endpoint') %></label><br />
         <%= text_field_tag('settings[endpoint]', Spree::AvalaraPreference.endpoint.value, :size => 46, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
-        <label><%= t('avatax_servicepath_tax') %></label><br />
+        <label><%= Spree.t('avatax_tax_service_path') %></label><br />
         <input type="text" placeholder="<%= AVATAX_SERVICEPATH_TAX %>", readonly>
       </p>
       <p>
-        <label><%= t('avatax_servicepath_address') %></label><br />
+        <label><%= Spree.t('avatax_address_service_path') %></label><br />
         <input type="text" placeholder="<%= AVATAX_SERVICEPATH_ADDRESS %>", readonly>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend><%= t('avatax_log') %></legend>
+      <legend><%= Spree.t('avatax_logging') %></legend>
       <p>
-        <label><%= t('enable_avatax_logging') %></label><br />
+        <label><%= Spree.t('enable_avatax_logging') %></label><br />
         <%= check_box_tag('settings[log]','yes' , Spree::AvalaraPreference.log.value, :class => 'avatax') %>
       </p>
-    </fieldset>
-
-    <fieldset>
-      <legend><%= t('avatax_log_to_stdout') %></legend>
       <p>
-        <label><%= t('avatax_log_to_stdout') %></label><br />
+        <label><%= Spree.t('enable_avatax_log_to_stdout') %></label><br />
         <%= check_box_tag('settings[log_to_stdout]','yes' , Spree::AvalaraPreference.log_to_stdout.value, :class => 'avatax') %>
       </p>
     </fieldset>
 
     <fieldset>
-      <legend><%= t('avatax_address_validation') %></legend>
+      <legend><%= Spree.t('avatax_address_validation') %></legend>
       <p>
-        <label><%= t('enable_avatax_address_validation') %></label><br />
+        <label><%= Spree.t('enable_avatax_address_validation') %></label><br />
         <%= check_box_tag('settings[address_validation]','yes' , Spree::AvalaraPreference.address_validation.value, :class => 'avatax') %>
       </p>
       <p>
@@ -71,31 +74,31 @@
     </fieldset>
 
     <fieldset>
-      <legend><%= t('avatax_address_validation_enabled_countries') %></legend>
+      <legend><%= Spree.t('avatax_address_validation_enabled_countries') %></legend>
       <p>
         <% current_countries = Spree::Country.where(name: Spree::AvalaraPreference.validation_enabled_countries_array) %>
-        <label><%= t('enable_avatax_address_validation_for_these_countries') %></label><br />
+        <label><%= Spree.t('avatax_address_validation_enabled_countries') %></label><br />
         <%= select_tag('settings[address_validation_enabled_countries]', options_from_collection_for_select(Spree::Country.all, "name", "name", selected: current_countries), multiple: true, class: "select2 fullwidth") %>
       </p>
     </fieldset>
     <fieldset>
-      <legend><%= t('avatax_tax_calculation') %></legend>
+      <legend><%= Spree.t('avatax_tax_calculation') %></legend>
       <p>
-        <label><%= t('enable_avatax_tax_calculation') %></label><br />
+        <label><%= Spree.t('enable_avatax_tax_calculation') %></label><br />
         <%= check_box_tag('settings[tax_calculation]','yes' , Spree::AvalaraPreference.tax_calculation.value, :class => 'avatax') %>
       </p>
     </fieldset>
 
         <fieldset>
-      <legend><%= t('avatax_document_committing') %></legend>
+      <legend><%= Spree.t('avatax_document_committing') %></legend>
       <p>
-        <label><%= t('enable_avatax_document_committing') %></label><br />
+        <label><%= Spree.t('enable_avatax_document_committing') %></label><br />
         <%= check_box_tag('settings[document_commit]','yes' , Spree::AvalaraPreference.document_commit.value, :class => 'avatax') %>
       </p>
     </fieldset>
 
     <fieldset id='business-address'>
-      <legend><%= t('business_address') %></legend>
+      <legend><%= Spree.t('business_address') %></legend>
       <p>
         <label><%= Spree.t('address1') %></label><br />
         <%= text_field_tag('address[Line1]', @avatax_origin["Line1"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address1') %>
@@ -109,7 +112,7 @@
         <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
       </p>
        <p>
-        <label><%= t('country') %></label><br />
+        <label><%= Spree.t('country') %></label><br />
         <span id="scountry">
           <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:id)), {:class => 'select2 avatax', id: 'country'} %>
         </span>
@@ -128,7 +131,7 @@
       <a href="#" class="button address_validator" style="float: right;">Validate</a>
     </fieldset>
     <fieldset>
-    <legend><%= t('log_files') %></legend>
+    <legend><%= Spree.t('log_files') %></legend>
     <p>Log files are located in the log directory of your spree website.</p>
     <table>
     <tr>
@@ -166,7 +169,7 @@
   </div>
 </div>
 
-<p class="form-buttons"><%= button t('save_preferences') %></p>
+<p class="form-buttons"><%= button Spree.t('save_preferences') %></p>
 
 <% end %>
 

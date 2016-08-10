@@ -117,8 +117,7 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
       let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
 
       before do
-        order.shipments.first.selected_shipping_rate.update_attributes(tax_rate: shipping_rate)
-        order.reload
+        @shipment = build_shipment(order)
         order.state = 'delivery'
       end
 
@@ -138,5 +137,12 @@ describe Spree::Calculator::AvalaraTransaction, :type => :model do
         end
       end
     end
+  end
+
+  def build_shipment(order)
+    order.shipments.first.shipping_method.update_attributes(tax_category: Spree::TaxCategory.find_by_name('Shipping'))
+    order.shipments.first.selected_shipping_rate.update_attributes(tax_rate_id: shipping_rate.id)
+    order.reload
+    order.shipments.first
   end
 end

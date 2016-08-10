@@ -4,7 +4,7 @@ Spree::Shipment.class_eval do
     key = ['Spree::Shipment']
     key << self.id
     key << self.cost
-    key << self.stock_location.cache_key
+    key << self.stock_location.try(:cache_key)
     key << self.promo_total
     key.join('-')
   end

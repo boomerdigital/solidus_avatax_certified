@@ -8,13 +8,12 @@ describe SolidusAvataxCertified::Line, :type => :model do
   let(:included_in_price) { false }
   let!(:rate) { create(:tax_rate, :tax_category => tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
   let!(:calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-  let(:address){ FactoryGirl.create(:address, city: 'Tuscaloosa', address1: '220 Paul W Bryant Dr') }
-  let(:order) { FactoryGirl.create(:order_with_line_items, ship_address: address) }
+  let(:order) { FactoryGirl.create(:order_with_line_items, line_items_count: 2) }
   let(:shipped_order) { FactoryGirl.create(:shipped_order) }
   let(:stock_location) { FactoryGirl.create(:stock_location) }
 
   before do
-    order.shipments.first.selected_shipping_rate.update_attributes(tax_rate: rate)
+    order.shipments.first.selected_shipping_rate.update_attributes(tax_rate_id: rate.id)
   end
 
   let(:sales_lines) { SolidusAvataxCertified::Line.new(order, 'SalesOrder') }
@@ -26,8 +25,8 @@ describe SolidusAvataxCertified::Line, :type => :model do
     it 'should have lines be an array' do
       expect(sales_lines.lines).to be_kind_of(Array)
     end
-    it 'lines should be a length of 2' do
-      expect(sales_lines.lines.length).to eq(2)
+    it 'lines should be a length of 3' do
+      expect(sales_lines.lines.length).to eq(3)
     end
   end
 
