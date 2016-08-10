@@ -11,10 +11,15 @@ Spree.ready ($) ->
   ), showTime
 
 window.show_flash = (type, message) ->
-  $flashWrapper = $(".js-flash-wrapper")
-  if $flashWrapper.length == 0
-    $('.address_validator').before("<div class=\"js-flash-wrapper\" />")
-  $flashWrapper.empty()
-  flash_div = $("<div class=\"flash #{type}\" />")
-  $flashWrapper.prepend(flash_div)
-  flash_div.html(message).show().delay(showTime).fadeOut(fadeOutTime)
+  $addressValidator = $('.address_validator')
+
+  if type == 'success'
+    $addressValidator.attr('disabled', true).text(message).addClass('flash success disabled')
+  else
+    $flashWrapper = $(".js-flash-wrapper")
+    if $flashWrapper.length == 0
+      $addressValidator.before("<div class=\"js-flash-wrapper\" />")
+    $flashWrapper.empty()
+    flash_div = $("<div class=\"flash #{type}\" />")
+    $flashWrapper.prepend(flash_div)
+    flash_div.html(message).show().delay(showTime).fadeOut(fadeOutTime)
