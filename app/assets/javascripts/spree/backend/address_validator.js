@@ -1,7 +1,7 @@
-$(document).ready(function() {
+Spree.ready(function(){
   validator = new AddressValidator();
   validator.bindListeners();
-});
+})
 
 function AddressValidator(){
   this.lineHash = {
