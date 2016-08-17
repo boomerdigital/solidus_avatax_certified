@@ -58,7 +58,7 @@ AddressValidator.prototype = {
     return address;
   },
   getKeyByValue: function(value) {
-    return Object.keys(this.lineHash).find(key => this.lineHash[key] === value);
+    return Object.keys(this.lineHash).find(function(key){ return this[key] === value}.bind(this.lineHash));
   },
   showFlash: function(data){
     var resultCode = data.ResultCode.toLowerCase();
