@@ -109,15 +109,16 @@
         <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
       </p>
        <p>
+        <% curr_country = Spree::Country.find_by(iso: @avatax_origin["Country"]) ||  Spree::Country.find_by(iso: 'US') %>
         <label><%= t('country') %></label><br />
         <span id="scountry">
-          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:id)), {:class => 'select2 avatax', id: 'country'} %>
+          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', curr_country.try(:id)), {:class => 'select2 avatax', id: 'country'} %>
         </span>
       </p>
       <p>
         <label><%= Spree.t('state') %></label><br />
         <span id="sstate">
-          <%= select_tag 'address[Region]', options_from_collection_for_select(Spree::Country.find_by(iso: @avatax_origin["Country"]).try(:states), 'id', 'name', Spree::State.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
+          <%= select_tag 'address[Region]', options_from_collection_for_select(curr_country.try(:states), 'id', 'name',curr_country.states.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
         </span>
       </p>
       <p>
