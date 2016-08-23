@@ -33,6 +33,10 @@ AddressValidator.prototype = {
       var controller = this;
       var wrapper = controller.addressWrapper();
 
+      if (data['ResultCode'] === 'Error') {
+        return this.showFlash(data);
+      }
+
       $.each(["Line1", "Line2", "City", "PostalCode"], function(index, value){
         var keyVal = controller.getKeyByValue(value);
         $(wrapper + " input[id*='" + keyVal + "']").val(data.Address[value]);
@@ -69,7 +73,8 @@ AddressValidator.prototype = {
     if(resultCode === "success") {
       window.show_flash("success", "Address Validation Successful");
     } else {
-      window.show_flash("error", "Address Validation Error: " + data.Summary);
+      details = $(data['Messages']).map(function(){return this['Summary']}).get().join(' ');
+      window.show_flash("error", "Address Validation Error: " + details);
     }
   },
   addressWrapper: function(){
