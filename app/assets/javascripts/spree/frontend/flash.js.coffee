@@ -19,7 +19,8 @@ window.show_flash = (type, message) ->
     $flashWrapper = $(".js-flash-wrapper")
     if $flashWrapper.length == 0
       $addressValidator.before("<div class=\"js-flash-wrapper\" />")
+      $flashWrapper = $(".js-flash-wrapper")
     $flashWrapper.empty()
-    flash_div = $("<div class=\"flash #{type}\" />")
+    flash_div = $("<div class='flash " + type + "' />")
     $flashWrapper.prepend(flash_div)
     flash_div.html(message).show().delay(showTime).fadeOut(fadeOutTime)
