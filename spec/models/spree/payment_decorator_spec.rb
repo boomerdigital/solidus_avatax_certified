@@ -1,11 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Payment, :type => :model do
-  subject(:order) do
-    order = FactoryGirl.create(:completed_order_with_totals)
-    Spree::AvalaraTransaction.create(order: order)
-    order
-  end
+  subject(:order) { create(:completed_avalara_order) }
 
   let(:gateway) do
     gateway = Spree::Gateway::Bogus.new(:active => true)
@@ -60,6 +56,7 @@ describe Spree::Payment, :type => :model do
     before do
       order.update_attributes(additional_tax_total: 1.to_f)
     end
+
     it 'should update the amount to be the order total' do
       initial_amount = payment.amount
       payment.avalara_finalize

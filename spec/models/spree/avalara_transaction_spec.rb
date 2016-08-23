@@ -115,10 +115,9 @@ describe Spree::AvalaraTransaction, :type => :model do
   end
 
   context 'return orders' do
-    let(:refund_reason) { create(:refund_reason) }
-    let(:reimbursement) { create(:reimbursement) }
-    let(:order) { reimbursement.order }
-    let(:refund) {Spree::Refund.create(payment: order.payments.first, amount: BigDecimal.new(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement)}
+    let(:order) { create(:completed_avalara_order) }
+    let(:reimbursement) { create(:reimbursement, order: order) }
+    let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
     before do
       order.avalara_capture_finalize

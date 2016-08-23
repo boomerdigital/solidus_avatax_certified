@@ -5,7 +5,7 @@ describe Spree::Order, type: :model do
   it { should have_one :avalara_transaction }
 
   let(:order) { FactoryGirl.create(:avalara_order, ship_address: create(:address)) }
-  let(:completed_order) { create(:completed_order_with_totals) }
+  let(:completed_order) { create(:completed_avalara_order) }
   let(:variant) { create(:variant) }
 
   describe "#avalara_tax_enabled?" do
