@@ -66,7 +66,7 @@ module Spree
     end
 
     def is_true?
-      ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES.include?(value)
+       ActiveRecord::Type::Boolean.new.cast(value)
     end
   end
 end
