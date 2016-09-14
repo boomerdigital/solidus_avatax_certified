@@ -2,7 +2,7 @@ module Spree
   module Admin
     class AvataxSettingsController < Spree::Admin::BaseController
 
-      before_filter :load_avatax_origin, only: [:show, :edit]
+      before_action :load_avatax_origin, only: [:show, :edit]
 
       def show
       end
