@@ -46,7 +46,7 @@ module Spree
     end
 
 
-    def cache_key(order)
+    def long_cache_key(order)
       key = order.avatax_cache_key
       key << (order.ship_address.try(:cache_key) || order.bill_address.try(:cache_key)).to_s
       order.line_items.each do |line_item|
@@ -63,13 +63,11 @@ module Spree
 
     # long keys blow up in dev with the default ActiveSupport::Cache::FileStore
     # This transparently shrinks 'em
-    def cache_key_with_short_hash(order)
-      long_key   = cache_key_without_short_hash(order)
+    def cache_key(order)
+      long_key   = long_cache_key(order)
       short_key  = Digest::SHA1.hexdigest(long_key)
       "avtx_#{short_key}"
     end
-
-    alias_method_chain :cache_key, :short_hash
 
     def tax_for_item(item, avalara_response)
       prev_tax_amount = prev_tax_amount(item)
