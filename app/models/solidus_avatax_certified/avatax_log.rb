@@ -57,5 +57,13 @@ module SolidusAvataxCertified
         end
       end
     end
+
+    def error(log_info = nil)
+      if enabled?
+        unless log_info.nil?
+          logger.error "[AVATAX] #{log_info}"
+        end
+      end
+    end
   end
 end
