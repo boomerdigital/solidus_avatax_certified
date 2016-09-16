@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe SolidusAvataxCertified::Address, :type => :model do
   let(:country){ FactoryGirl.create(:country) }
-  let(:address){ FactoryGirl.create(:address, city: 'Tuscaloosa', address1: '220 Paul W Bryant Dr') }
-  let(:order) { FactoryGirl.create(:order_with_line_items, ship_address: address) }
+  let(:order) { FactoryGirl.create(:avalara_order, ship_address: create(:address)) }
 
   before do
     Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
@@ -123,11 +122,42 @@ describe SolidusAvataxCertified::Address, :type => :model do
       result = address_lines.validate
       expect(address_lines.validate).to eq("Address validation disabled")
     end
+  end
 
-    it 'fails when information is incorrect' do
-      order.ship_address.update_attributes(city: nil)
+  describe 'multiple stock locations' do
+    let(:stock_loc_2) { create(:stock_location) }
+    let(:var1) {
+      variant = create(:variant)
+      variant.stock_items.destroy_all
+      variant.stock_items.create(stock_location_id: Spree::StockLocation.first.id, backorderable: true)
+      variant
+    }
+    let(:var2) {
+      variant = create(:variant)
+      variant.stock_items.destroy_all
+      variant.stock_items.create(stock_location_id: stock_loc_2.id, backorderable: true)
+      variant
+    }
+    let(:line_item1) { create(:line_item, variant: var1) }
+    let(:line_item2) { create(:line_item, variant: var2) }
+    let(:order) { create(:order_with_line_items, line_items: [line_item1, line_item2]) }
 
-      expect(address_lines.validate['ResultCode']).to eq('Error')
+    before do
+      order.create_proposed_shipments
+      order.reload
+      order.shipments.reload
+    end
+
+    it 'should have 4 addresses' do
+      address_lines = SolidusAvataxCertified::Address.new(order)
+
+      expect(address_lines.addresses.length).to eq(4)
+    end
+
+    it 'should have correct address codes' do
+      address_lines = SolidusAvataxCertified::Address.new(order)
+
+      expect(address_lines.addresses.last[:AddressCode]).to eq(order.shipments.last.stock_location_id.to_s)
     end
   end
 end
