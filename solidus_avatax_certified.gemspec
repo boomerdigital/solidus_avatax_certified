@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = gem_version
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
-  s.required_ruby_version = '>= 2.2.2'
+  s.required_ruby_version = '>= 2.1.0'
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'
