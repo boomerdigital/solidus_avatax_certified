@@ -68,11 +68,6 @@ Spree::Order.class_eval do
     user ? user.avalara_entity_use_code.try(:use_code) : ''
   end
 
-  def stock_locations
-    stock_loc_ids = shipments.pluck(:stock_location_id).uniq
-    Spree::StockLocation.where(id: stock_loc_ids)
-  end
-
   def address_validation_enabled?
     return false if ship_address.nil?
 
