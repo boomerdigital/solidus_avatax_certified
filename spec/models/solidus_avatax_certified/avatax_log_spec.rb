@@ -11,7 +11,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
   describe '#enabled?' do
     it 'returns a boolean value' do
       Spree::AvalaraPreference.log.update_attributes(value: 'true')
-      
+
       expect(logger.enabled?).to be_truthy
     end
   end
@@ -53,7 +53,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
       expect(logger.logger).to receive(:info).with('[AVATAX] Hyah!')
       expect(logger.logger).to receive(:debug).with("[AVATAX] [\"Heuh!\"]")
-      
+
       logger.info_and_debug('Hyah!', ['Heuh!'])
     end
 
@@ -69,7 +69,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
       logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info')
 
       expect(logger.logger).to receive(:debug).with("[AVATAX] [\"Heuh!\"]")
-      
+
       logger.debug(['Heuh!'])
     end
 
@@ -77,6 +77,21 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
       Spree::AvalaraPreference.log.update_attributes(value: 'false')
 
       expect(logger.debug(['Heuh!'])).to be_nil
+    end
+  end
+
+  describe '#error' do
+    it 'logs error with given message' do
+      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test error')
+
+      expect(logger.logger).to receive(:error).with('[AVATAX] Hyah!')
+      logger.error('Hyah!')
+    end
+
+    it 'returns nil if logger is not enabled' do
+      Spree::AvalaraPreference.log.update_attributes(value: 'false')
+
+      expect(logger.error('this_wont_change')).to be_nil
     end
   end
 end
