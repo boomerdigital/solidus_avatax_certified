@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe SolidusAvataxCertified::Line, :type => :model do
 
-  let(:order) { FactoryGirl.create(:avalara_order) }
+  let(:order) { FactoryGirl.create(:avalara_order, line_items_count: 2) }
   let(:shipped_order) { FactoryGirl.create(:shipped_order) }
   let(:stock_location) { FactoryGirl.create(:stock_location) }
 
@@ -16,6 +16,8 @@ describe SolidusAvataxCertified::Line, :type => :model do
       expect(sales_lines.lines).to be_kind_of(Array)
     end
     it 'lines should be a length of 3' do
+      # 2 line items
+      # 1 shipment
       expect(sales_lines.lines.length).to eq(3)
     end
   end
