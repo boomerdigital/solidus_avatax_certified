@@ -66,7 +66,11 @@ module Spree
     end
 
     def is_true?
-       ActiveRecord::Type::Boolean.new.cast(value)
+     if value.blank?
+        nil
+      else
+        [true, 1, "1", "t", "T", "true", "TRUE", "on", "ON"].include?(value)
+      end
     end
   end
 end
