@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Payment, :type => :model do
-  subject(:order) { create(:completed_avalara_order) }
+  subject(:order) { create(:avalara_order) }
 
   let(:gateway) do
     gateway = Spree::Gateway::Bogus.new(:active => true)
