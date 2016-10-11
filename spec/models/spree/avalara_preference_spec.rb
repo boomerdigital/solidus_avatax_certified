@@ -164,10 +164,10 @@ describe Spree::AvalaraPreference, type: :model do
       expect(Spree::AvalaraPreference.tax_calculation.is_true?).to be_in([true, false])
     end
 
-    it 'should return nil if value is an empty string' do
+    it 'should return false if value is an empty string' do
       Spree::AvalaraPreference.origin_address.update_attributes(value: "")
 
-      expect(Spree::AvalaraPreference.origin_address.is_true?).to eq(nil)
+      expect(Spree::AvalaraPreference.origin_address.is_true?).to be_falsey
     end
   end
 end
