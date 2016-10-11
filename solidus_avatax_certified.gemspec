@@ -1,6 +1,5 @@
 # encoding: UTF-8
 gem_version = File.read(File.expand_path('../GEM_VERSION',__FILE__)).strip
-solidus_version = File.read(File.expand_path('../SOLIDUS_VERSION',__FILE__)).strip
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
