@@ -22,7 +22,7 @@ module Spree
       def erase_data
         File.open("log/#{params['log_name']}.log", 'w') {}
 
-        render body: nil
+        head :ok
       end
 
       def ping_my_service
