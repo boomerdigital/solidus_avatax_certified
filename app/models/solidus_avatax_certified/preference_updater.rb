@@ -42,7 +42,9 @@ module SolidusAvataxCertified
     end
 
     def update_validation_enabled_countries
-      update_value(Spree::AvalaraPreference.validation_enabled_countries, @avatax_preferences['address_validation_enabled_countries'].join(','))
+      if @avatax_preferences['address_validation_enabled_countries'].present?
+        update_value(Spree::AvalaraPreference.validation_enabled_countries, @avatax_preferences['address_validation_enabled_countries'].join(','))
+      end
     end
 
     def update_value(preference, param)

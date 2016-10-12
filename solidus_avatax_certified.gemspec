@@ -1,6 +1,5 @@
 # encoding: UTF-8
 gem_version = File.read(File.expand_path('../GEM_VERSION',__FILE__)).strip
-solidus_version = File.read(File.expand_path('../SOLIDUS_VERSION',__FILE__)).strip
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
@@ -19,7 +18,7 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.requirements << "none"
 
-  s.add_dependency "solidus", "~> #{solidus_version}"
+  s.add_dependency "solidus_core", [">= 1.0.0", "< 3"]
   s.add_dependency "json", "~> 1.8"
   s.add_dependency "addressable", "~> 2.4"
   s.add_dependency "rest-client", "~> 1.7"

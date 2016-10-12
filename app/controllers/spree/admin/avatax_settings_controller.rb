@@ -2,7 +2,7 @@ module Spree
   module Admin
     class AvataxSettingsController < Spree::Admin::BaseController
 
-      before_filter :load_avatax_origin, only: [:show, :edit]
+      before_action :load_avatax_origin, only: [:show, :edit]
 
       def show
       end
@@ -22,7 +22,7 @@ module Spree
       def erase_data
         File.open("log/#{params['log_name']}.log", 'w') {}
 
-        render nothing: true
+        render body: nil
       end
 
       def ping_my_service

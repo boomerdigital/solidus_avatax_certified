@@ -66,7 +66,7 @@ module Spree
     end
 
     def is_true?
-      ActiveRecord::ConnectionAdapters::Column::TRUE_VALUES.include?(value)
+      [true, 1, "1", "t", "T", "true", "TRUE", "on", "ON"].include?(value)
     end
   end
 end
