@@ -42,7 +42,7 @@ module Spree
 
       def validate_address
         mytax = TaxSvc.new
-        address = params['address'].permit(:Line1, :Line2, :City, :PostalCode, :Country, :Region).to_h
+        address = permitted_address_validation_attrs
 
         address['Country'] = Spree::Country.find_by(id: address['Country']).try(:iso)
         address['Region'] = Spree::State.find_by(id: address['Region']).try(:abbr)
@@ -72,6 +72,10 @@ module Spree
         else
           @avatax_origin = JSON.parse(Spree::AvalaraPreference.origin_address.value)
         end
+      end
+
+      def permitted_address_validation_attrs
+        params['address'].permit(:Line1, :Line2, :City, :PostalCode, :Country, :Region).to_h
       end
     end
   end
