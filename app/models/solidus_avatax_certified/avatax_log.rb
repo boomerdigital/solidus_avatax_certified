@@ -8,7 +8,7 @@ module SolidusAvataxCertified
         info(log_info) unless log_info.nil?
       else
         log_info = "-#{file_name} #{log_info}"
-        @logger = Logger.new(STDOUT)
+        @logger ||= Logger.new(STDOUT)
       end
     end
 
