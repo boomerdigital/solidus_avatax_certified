@@ -42,7 +42,7 @@ module Spree
 
       def validate_address
         mytax = TaxSvc.new
-        address = params['address']
+        address = params['address'].permit(:Line1, :Line2, :City, :PostalCode, :Country, :Region).to_h
 
         address['Country'] = Spree::Country.find_by(id: address['Country']).try(:iso)
         address['Region'] = Spree::State.find_by(id: address['Region']).try(:abbr)
