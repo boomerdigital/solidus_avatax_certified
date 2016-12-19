@@ -14,7 +14,6 @@ module Spree
       prev_tax_amount = prev_tax_amount(item)
 
       return prev_tax_amount unless Spree::AvalaraPreference.tax_calculation.is_true?
-      return prev_tax_amount if %w(address cart).include?(order.state)
       return prev_tax_amount if item_address.nil?
       return prev_tax_amount unless calculable.zone.include?(item_address)
 
