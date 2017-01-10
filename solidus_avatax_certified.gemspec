@@ -37,4 +37,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara-accessible'
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency 'shoulda-matchers', '~> 2.7'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end
