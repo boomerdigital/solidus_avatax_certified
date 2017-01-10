@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R344254544","DocDate":"2017-01-10","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #56 - 3303","TaxCode":"P0000000","ItemCode":"SKU-56","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-LI","Description":"Product
+        #57 - 509","TaxCode":"P0000000","ItemCode":"SKU-57","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"3-LI","Description":"Product
+        #58 - 9584","TaxCode":"P0000000","ItemCode":"SKU-58","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"4-LI","Description":"Product
+        #59 - 3430","TaxCode":"P0000000","ItemCode":"SKU-59","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"5-LI","Description":"Product
+        #60 - 1783","TaxCode":"P0000000","ItemCode":"SKU-60","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"1-FR","ItemCode":"UPS
+        Ground","Qty":1,"Amount":100.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R344254544","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2024'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 10 Jan 2017 08:56:35 GMT
+      Content-Length:
+      - '736'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44ed4f30fb9c05bd9fde811f863e92fcf42107374b5299b6a6850f05f8e5e556f8006213bdee3ed37b8d0c7a771f48f6166;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ++ure/v3d///7+vn7xNGv5i72d3QfbO7vbuzv44k2xyJs2W6zCr97s
+        HDy6/+mje5+O79/fOXiw+1Pctmqz8nhRrZctWu/u74/37tsvnhbN1HwloPHp
+        6bt8sWqLahl+/CZ7l01KxqcDhr7Bp/fHD4LPTrJyui5pCLPg2+zd82KZN/TZ
+        9xIiDP54UdFfH+1uPz/TFoYiL3fk0Y+zSVEW7TW+aet1jk+fEP6zrL5+nl/m
+        Jb74qWLF/fRH0R8tIMqIHo4/3cNHrwhd/L0z3tmnfk0z+ejegf4Zjsz74mne
+        ZkVpx3aC7mrG96vXaPIqv1CMjp/j7++s66J5c73iPl+3BNF+akiws4uPCPbX
+        QJUBvcgW3O74+fGT4y+O8Tk1c5+mr98cvzlN3xz/3h/9kuT7yS9JRoS5m5W9
+        H80KdW4+NST4uZ6Vez+aFercfGpI8HM9K/s/mhXq3HxqSPBzPSv3fzQr1Ln5
+        1JDg53pWdrefvdJ3DErPXlF39OjHP4uz8ul4l1/bMNZ74wNuQn+G0+J98UOZ
+        lvfAlSG5GbjlvHw/kSbHs1lNTqlzzfQDg9pT8joB7UQn5Ytq2V5Ui5xGjE+7
+        g39ZkZNampfvfbq7w25tlybUsXx0xtTd27m/9+DhQ3zDozHv7+zu7uze39Vx
+        K2b44jh9Wpyf53W+bNNXVTajQYHRtIV5nalqEP9u1syL5UVLaODTzYgTQtKn
+        YImPnp7g7w7i3CZAmTDWB18pQvzFpzs76ct8uWyuy8tsWWTp8WWevvguoW7m
+        IuL5/5Lk/wEo/Z15RwwAAA==
+    http_version: 
+  recorded_at: Tue, 10 Jan 2017 08:56:36 GMT
+recorded_with: VCR 3.0.3

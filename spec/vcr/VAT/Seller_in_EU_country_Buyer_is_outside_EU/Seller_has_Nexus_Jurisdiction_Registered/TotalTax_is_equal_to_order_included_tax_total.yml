@@ -1,0 +1,190 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=A%20Different%20Road&Line2=&PostalCode=36104&Region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 13 Jan 2017 16:48:33 GMT
+      Content-Length:
+      - '336'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e2862b235aa601a110ce620a3fb2613c6e9b08775a0cc083c4c7887e3060fbf82dbf13a16be415192e467e9be9b0319d5;
+        Path=/
+    body:
+      encoding: UTF-8
+      string: |
+        {
+        "ResultCode": "Error",
+        "Messages": [
+        {
+        "Summary": "The address number is out of range",
+        "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database.",
+        "RefersTo": "Address.Line1",
+        "Severity": "Error",
+        "Source": "Avalara.AvaTax.Services.Address"}
+        ]
+        }
+    http_version: 
+  recorded_at: Fri, 13 Jan 2017 16:48:33 GMT
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R962449723","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":null,"Line2":null,"City":"Florence","Region":"","PostalCode":null,"Country":"IT"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"150
+        Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #13 - 4907","TaxCode":"PC030000","ItemCode":"SKU-13","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
+        Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R962449723","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1113'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 13 Jan 2017 16:48:35 GMT
+      Content-Length:
+      - '655'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e64e23b78a4a0a2f8181ec499563348f374215e9f148cfa3c27604480c469e384676616c2f14b6e181f2bcb6510c4db3e;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ++evjp3v7+wwd79/SLp1nLX+zt7D7Y3tnd3uUv3hSLvGmzxSr86s3u
+        p4/2Dx7duz/e2/n03v2D/Z/ixlWblceLar1s0Xz34Xhv337+tGim5psd++np
+        u3yxaotqGX78JnuXTUrGJ4RCX+DDnfGDT/3PTrJyui5pBLPg2+zd82KZN/TZ
+        9xKiC/54UdFfH+1uPz/TFoYgL0927u3Qox9nk6Is2mt809brHJ8+IfRnWX39
+        PL/MS3zxU8XqPr7oD6I/WECUAT0cf7qHj14Ruvh7Z7yzT/2aZvLRvQP9szsy
+        +8XTvM2K0o7tBN3VjO9Xr9HkVX6hGB0/x9/fWddF8+Z6xX2+bgmi/dSQYGcX
+        HxHsr4EqA3qRLbjd8fPjJ8dfHONzauY+TV+/OX5zmr45/r0/+iXJ95NfkowI
+        czcre9vPXuk7BqVnr6g7evTjH80KffAeqDIgR/9bzsr3E2lyPJvVpDmcAOkH
+        9OdHx+nT4vw8r/Nlm76qshmg6tcG8aekOfDxic7YF9WyvagWOdEDn3ZJ87Ii
+        RVOal+99ursjYp+9E6KdMa33du7vPXj4EN/w4Ez7nd3dnd37u0oGeQOfE5mF
+        zRQ5fLZ7fyd9WUyn2awoS0ZGvzTAmOIG7WdlRaOc8sR4SJ+9wQch0oSc9N9H
+        euchfxHgTCAcsSP695ck/w8I0mI5zQUAAA==
+    http_version: 
+  recorded_at: Fri, 13 Jan 2017 16:48:35 GMT
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R962449723","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":null,"Line2":null,"City":"Florence","Region":"","PostalCode":null,"Country":"IT"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"150
+        Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #13 - 4907","TaxCode":"PC030000","ItemCode":"SKU-13","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
+        Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R962449723","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1113'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 13 Jan 2017 16:48:36 GMT
+      Content-Length:
+      - '654'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44ecc58c378eb2d36bd7e0ce1b061cd4003c15310b3fd917bf1a75f193e8db6375deab684e65e84fb209ae37f05d53013e0;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ++evjp3v7+wwd79/SLp1nLX+zt7D7Y3tnd3uUv3hSLvGmzxSr86s3u
+        p4/2Dx7d+3S8v7Oz9+DTvZ/ixlWblceLar1s0Xz34Xhv337+tGim5psd++np
+        u3yxaotqGX78JnuXTUrGJ4RCX+DDnfGDT/3PTrJyui5pBLPg2+zd82KZN/TZ
+        9xKiC/54UdFfH+1uPz/TFoYgL0927u3Qox9nk6Is2mt809brHJ8+IfRnWX39
+        PL/MS3zxU8XqPr7oD6I/WECUAT0cf7qHj14Ruvh7Z7xDRLQdy0f3DvTP7sjs
+        F0/zNitKO7YTdFczvl+9RpNX+YVidPwcf39nXRfNm+sV9/m6JYj2U0OCnV18
+        RLC/BqoM6EW24HbHz4+fHH9xjM+pmfs0ff3m+M1p+ub49/7olyTfT35JMiLM
+        3azsbT97pe8YlJ69ou7o0Y9/NCv0wXugyoAc/W85K99PpMnxbFaT5nACpB/Q
+        nx8dp0+L8/O8zpdt+qrKZoCqXxvEn5LmwMcnOmNfVMv2olrkRA982iXNy4oU
+        TWlevvfp7o6IffZOiHbGtN7bub/34OFDfMODM+13dnd3du/vKhnkDXxOZBY2
+        U+Tw2e79nfRlMZ1ms6IsGRn90gBjihu0n5UVjXLKE+MhffYGH4RIE3LSfx/p
+        nYf8RYAzgXDEjujfX5L8PzqiD7bNBQAA
+    http_version: 
+  recorded_at: Fri, 13 Jan 2017 16:48:36 GMT
+recorded_with: VCR 3.0.3

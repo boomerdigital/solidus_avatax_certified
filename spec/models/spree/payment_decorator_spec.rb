@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::Payment, :type => :model do
+describe Spree::Payment, :vcr do
   subject(:order) { create(:avalara_order) }
 
   let(:gateway) do

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "VAT" do
+describe "VAT", :vcr do
   let!(:it) { create(:country, iso: 'IT', name: 'Italy') }
   let!(:nl) { create(:country, iso: 'NL', name: 'Netherlands') }
   let!(:fr) { create(:country, iso: 'FR', name: 'France') }

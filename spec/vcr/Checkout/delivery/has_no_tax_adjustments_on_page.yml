@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=A%20Different%20Road&Line2=&PostalCode=36104&Region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 13 Jan 2017 16:46:28 GMT
+      Content-Length:
+      - '336'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44eab9833c296146cff152e60410575a024557265017a1c355f770d993d6aa4343ee1df664333d0dd188f3c47f1f2ff655a;
+        Path=/
+    body:
+      encoding: UTF-8
+      string: |
+        {
+        "ResultCode": "Error",
+        "Messages": [
+        {
+        "Summary": "The address number is out of range",
+        "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database.",
+        "RefersTo": "Address.Line1",
+        "Severity": "Error",
+        "Source": "Avalara.AvaTax.Services.Address"}
+        ]
+        }
+    http_version: 
+  recorded_at: Fri, 13 Jan 2017 16:46:28 GMT
+- request:
+    method: get
+    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=A%20Different%20Road&Line2=&PostalCode=36104&Region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 13 Jan 2017 16:46:32 GMT
+      Content-Length:
+      - '336'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e3225766f4508588e5e42e95e49e5c9f9db38973feda5cedc0dbcc8f14462abf06a2800727ea1ab40dbba7e1330a2a7b0;
+        Path=/
+    body:
+      encoding: UTF-8
+      string: |
+        {
+        "ResultCode": "Error",
+        "Messages": [
+        {
+        "Summary": "The address number is out of range",
+        "RefersTo": "Address.Line1",
+        "Severity": "Error",
+        "Source": "Avalara.AvaTax.Services.Address",
+        "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database."}
+        ]
+        }
+    http_version: 
+  recorded_at: Fri, 13 Jan 2017 16:46:32 GMT
+recorded_with: VCR 3.0.3

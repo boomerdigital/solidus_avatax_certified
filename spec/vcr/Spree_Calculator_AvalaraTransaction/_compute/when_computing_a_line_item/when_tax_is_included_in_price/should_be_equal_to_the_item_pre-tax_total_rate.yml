@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R874217982","DocDate":"2017-01-10","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #1 - 4842","TaxCode":"P0000000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-LI","Description":"Product
+        #2 - 5977","TaxCode":"P0000000","ItemCode":"SKU-2","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"3-LI","Description":"Product
+        #3 - 4829","TaxCode":"P0000000","ItemCode":"SKU-3","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"4-LI","Description":"Product
+        #4 - 386","TaxCode":"P0000000","ItemCode":"SKU-4","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"5-LI","Description":"Product
+        #5 - 8214","TaxCode":"P0000000","ItemCode":"SKU-5","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R874217982","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1791'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 10 Jan 2017 08:56:00 GMT
+      Content-Length:
+      - '684'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44ec2a65c3fb05480547444263c6529f7e70f2b399ec36b8ec3d5270889117a4763f97f69608d659151604e9809a3a5ae08;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1fZq1/Onezu6D7Z3d7d0dfPGmWORNmy1W4Vdvdg4e3f/00c7OeOfhgwef
+        Pvwpblu1WXm8qNbLFq33D8a79uOnRTM1XwhgfHr6Ll+s2qJahh+/yd5lk5Kx
+        CYDQ5/hsd/zQ/+gkK6frkrCf+V9m7+IDopGa8b86eLC/t/vg4cEevqA3nhfL
+        vKFvvpcQrfDHi4r++mh3+/mZtjCvvtyRRz/OJkVZtNf4pq3XOT59QqOdZfX1
+        8/wyL/HFTxWr+/iiP+Y+bQBRxv9w/Clj90oHQwTfp35NM/no3oH+GZLC++Jp
+        3mZFacd2gu5qxver12jyKr9QjI6f4+/vrOuieXO94j5ftwTRfmpIsCPz8rVQ
+        ZUAvsgW3O35+/OT4i2N8Ts3cp+nrN8dvTtM3x7/3R78k+X7yS5IRYe5mZe9H
+        s0Kdm08NCX6uZ+Xej2aFOjefGhL8XM/K/o9mhTo3nxoS/FzPyv0fzQp1bj41
+        JPjhz8r3E2lyPJvV5A85F0A/oD8/Ok6fFufneZ0v2/RVlc0AVb82iD8lRwkf
+        n+iMfVEt24tqkRM98GmXNC8r8qtK8/K9T3d39vFxl2KEl3x0xrTf27m/9+Ah
+        uzg8WPP+zu7uzu79XZBF2EyRw3e7n+7spC/z5bK5Li+zZZGlx5d5+uK7AKLN
+        DBimvRnAd7NmXiwvWkIHn24eACFGfdPHgi0+enqCvzsD4DYB6oS5PoQ65uP/
+        AYL81a2pCgAA
+    http_version: 
+  recorded_at: Tue, 10 Jan 2017 08:56:00 GMT
+recorded_with: VCR 3.0.3

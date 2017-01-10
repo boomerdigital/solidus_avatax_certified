@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Checkout", type: :feature, inaccessible: true do
+describe "Checkout", :vcr, type: :feature, inaccessible: true do
   let(:product) { Spree::Product.first }
   let!(:order) { create(:avalara_order, state: 'address') }
   let!(:user) { order.user }
