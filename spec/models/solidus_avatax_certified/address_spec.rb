@@ -55,7 +55,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
     end
   end
 
-  describe "#validate" do
+  describe '#validate', :vcr do
     it "validates address with success" do
       result = address_lines.validate
       expect(address_lines.validate["ResultCode"]).to eq("Success")

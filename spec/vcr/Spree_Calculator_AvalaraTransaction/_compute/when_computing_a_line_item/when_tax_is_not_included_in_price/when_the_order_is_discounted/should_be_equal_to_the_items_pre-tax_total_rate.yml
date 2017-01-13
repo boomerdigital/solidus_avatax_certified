@@ -1,0 +1,75 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R062522947","DocDate":"2017-01-10","Discount":"10.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #41 - 5135","TaxCode":"P0000000","ItemCode":"SKU-41","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"2-LI","Description":"Product
+        #42 - 8753","TaxCode":"P0000000","ItemCode":"SKU-42","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"3-LI","Description":"Product
+        #43 - 2092","TaxCode":"P0000000","ItemCode":"SKU-43","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"4-LI","Description":"Product
+        #44 - 9278","TaxCode":"P0000000","ItemCode":"SKU-44","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"5-LI","Description":"Product
+        #45 - 6044","TaxCode":"P0000000","ItemCode":"SKU-45","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R062522947","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1803'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 10 Jan 2017 08:56:21 GMT
+      Content-Length:
+      - '679'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44ee4cefec25cf045cdce0f903ab66eba9a264f554ba4ac17adb576f6a5830df8ebe0aa16d9e8e6c9fbc81db8cefb5bd879;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ++2vl07/7e3sP9B/rF06zlL/Z2dh9s7+xu7+7gizfFIm/abLEKv3qz
+        c/Do/qeP9nbHe/d3Hjzc2/0pbly1WXm8qNbLFs3vCwR8+LRopuZjBYyPT9/l
+        i1VbVEt87j5+k73LJiVjsx98ik92x5/6H51k5XRdEu4z/8vs3fNimTf00fcS
+        Igj+eFHRXx/tbj8/0xaGEi935NGPs0lRFu01vmnrdY5PnxDqs6y+fp5f5iW+
+        +KlidR9f9PH3B7qHDxiijOUAf78iVPHHznhnnzrll6iNfHTPvBKOyvviad5m
+        RWkHdoK+akb2q9do8iq/UHSOn+Pv76zronlzveI+X7cE0X5qxr+zi48I9vvi
+        yVBeZAtud/z8+MnxF8f4nJq5T9PXb47fnKZvjn/vj35J8v3klyQjQtvNx96P
+        5sN8asb/czof9340H+ZTM/6f0/nY/9F8mE/N+H9O5+P+j+bDfGrG/0Oej+8n
+        0uR4NqvJrXFGXj8waD0lvwXQTnQyvqiW7UW1yGm0+LQ78JcVuTmlefnep7s7
+        +/i4Sw/qWD46Y8ru7dzfe/DwIb7h0Zj3d3Z3d3bv7+q4FTN8cZw+Lc7P8zpf
+        tumrKpvRoMBg2sK8zhQ1iH83a+bF8qIlNPDpZsQJIelTsMRHT0/wdwdxbhOg
+        TBjrg68UIf7i052d9GW+XDbX5WW2LLL0+DJPX3yXUDdzEfEdf0ny/wCCPmj+
+        iQoAAA==
+    http_version: 
+  recorded_at: Tue, 10 Jan 2017 08:56:21 GMT
+recorded_with: VCR 3.0.3

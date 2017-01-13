@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Spree::Calculator::AvalaraTransaction, :type => :model do
+describe Spree::Calculator::AvalaraTransaction, :vcr do
   let!(:country) { create(:country) }
   let!(:zone) { create(:zone, :name => 'North America', :default_tax => true, :zone_members => []) }
   let(:zone_member) { Spree::ZoneMember.create() }
