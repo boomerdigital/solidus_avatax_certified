@@ -60,6 +60,7 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
         }
       }
     end
+
     subject { put :update, params: params }
 
     it { is_expected.to redirect_to(spree.admin_avatax_settings_path) }
