@@ -26,7 +26,7 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
 
       expect(File.read('log/test.log')).to eq('Hyah!')
 
-      get :erase_data, { params: { log_name: 'test' } }
+      get :erase_data, { log_name: 'test' }
 
       expect(File.read('log/test.log')).to eq('')
     end
@@ -57,7 +57,7 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
         }
       }
     end
-    subject { process :update, method: :put, params: params }
+    subject { put :update, params }
 
     it { is_expected.to redirect_to(spree.admin_avatax_settings_path) }
   end
