@@ -4,7 +4,8 @@ describe Spree::Payment, :vcr do
   subject(:order) { create(:avalara_order) }
 
   let(:gateway) do
-    gateway = Spree::Gateway::Bogus.new(:active => true)
+    gateway = Spree::Gateway::Bogus.new( :active => true, :name => 'Bogus gateway')
+    allow(gateway).to receive_messages :environment => 'test'
     allow(gateway).to receive_messages :source_required => true
     gateway
   end
