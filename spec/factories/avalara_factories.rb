@@ -180,4 +180,13 @@ FactoryGirl.modify do
       end
     end
   end
+
+  # Adding this modifier since US country name changes between solidus versions
+  factory :country, class: Spree::Country do
+    iso_name 'UNITED STATES'
+    name 'United States'
+    iso 'US'
+    iso3 'USA'
+    numcode 840
+  end
 end
