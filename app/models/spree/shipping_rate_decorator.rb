@@ -3,8 +3,13 @@ Spree::ShippingRate.class_eval do
     Spree::TaxRate.find(tax_rate_id) if tax_rate_id
   end
 
+  # Solidusv1.0-v1.2 uses display_amount while newer versions use display_base_price
   def display_price
-    price = display_amount.to_s
+    price = if respond_to?(:display_amount)
+      display_amount
+    else
+      display_base_price
+    end.to_s
 
     return price if Spree::AvalaraPreference.tax_calculation.is_true?
     return price if taxes.empty? || amount == 0
