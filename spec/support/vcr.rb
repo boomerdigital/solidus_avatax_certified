@@ -6,4 +6,5 @@ VCR.configure do |config|
   config.ignore_localhost = true
   config.configure_rspec_metadata!
   config.default_cassette_options = { match_requests_on: [:method, :host], record: :new_episodes }
+  config.filter_sensitive_data("[Company]") { ENV["AVATAX_COMPANY_CODE"] }
 end

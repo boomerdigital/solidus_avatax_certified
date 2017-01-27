@@ -8,7 +8,7 @@ http_interactions:
       string: '{"DocCode":"R035379833.1","DocDate":"2017-01-10","Commit":true,"DocType":"ReturnInvoice","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
         Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-RA","ItemCode":"12kfjas0","Qty":1,"Amount":-10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Refund","TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R035379833","DetailLevel":"Tax","CurrencyCode":"USD","TaxOverride":{"TaxOverrideType":"TaxDate","Reason":"Refund
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-RA","ItemCode":"12kfjas0","Qty":1,"Amount":-10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Refund","TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R035379833","DetailLevel":"Tax","CurrencyCode":"USD","TaxOverride":{"TaxOverrideType":"TaxDate","Reason":"Refund
         for return #8","TaxDate":"2017-01-10"}}'
     headers:
       Accept:
@@ -63,6 +63,6 @@ http_interactions:
         87zOl236qspmgKpfG9SfEmfj4xOdti+qZXtRLXKiCD7tEudlRYJQmpfvfbq7
         s4+PuzQjvOSjMyb/3s79vQcPH+IbHqx5f2d3d2f3/i7o8kuSUYj7w9376ev0
         O9n0bVMt09eMpH5tXv+yLi7w8c897piQ/wd2yle/WwQAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:42:06 GMT
 recorded_with: VCR 3.0.3

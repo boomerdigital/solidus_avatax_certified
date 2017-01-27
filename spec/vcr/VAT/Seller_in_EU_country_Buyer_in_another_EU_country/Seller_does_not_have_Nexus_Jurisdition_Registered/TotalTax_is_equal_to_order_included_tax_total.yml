@@ -10,7 +10,7 @@ http_interactions:
         Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #1 - 3189","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R439473665","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R439473665","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -65,7 +65,7 @@ http_interactions:
         CtYr2sag/pRUBj4+0Sl7mRFC/IGOlT6TGX9ZkXIpzXsP7u/s7OJjwkNodsaU
         3tu5v3PAWoCHZpoTCOEk7R6f7d7fSV8W02k2K8qSiapfmpcYvkHsWVnV+XLK
         /OThJqQPcQMOhtZd3B7yFwFuBMLRNKJaf0ny/wBT0gRxqAUAAA==
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:47:59 GMT
 - request:
     method: post
@@ -77,7 +77,7 @@ http_interactions:
         Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #1 - 3189","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R439473665","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R439473665","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -132,6 +132,6 @@ http_interactions:
         VrBe0TYG9aekMvDxiU7Zy4wQ4g90rPSZzPjLipRLad57cH9nZxcfEx5CszOm
         9N7O/Z0D1gI8NNOcQAgnaff4bPf+TvqymE6zWVGWTFT90rzE8A1iz8qqzpdT
         5icPNyF9iBtwMLTu4vaQvwhwIxCOphHV+kuS/webV821qAUAAA==
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:48:00 GMT
 recorded_with: VCR 3.0.3

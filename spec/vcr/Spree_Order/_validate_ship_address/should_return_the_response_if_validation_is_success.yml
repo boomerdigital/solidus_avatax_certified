@@ -62,7 +62,7 @@ http_interactions:
         O9n0bVMt09ctoOrXBuunxJf4+ERn64tq2V5Ui5yIgU+7dHlZERuX5uV7n+7u
         8BC65CK85KMzpvvezv29Bw8f4hserHl/Z3d3Z/f+LqjyS5LRe+P+ZV1c4OOf
         e9zNZESk/5ck/w9vhM1hSwQAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:05 GMT
 - request:
     method: post
@@ -131,7 +131,7 @@ http_interactions:
         LC8rUkSlefnep7s7zFKEhxDsjMm8t3N/78HDh/iGB2fa7+zu7uze31UqyBv4
         nEgsDKbI4bPdT3d20pf5ctlcl5fZssjS48s8ffFdvKnNDFimohnAd7NmXiwv
         WoKMTzcPgBAVXDoD4M8C1AlzffCVtMXnT08IdczH/wOrkvRB2gUAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:05 GMT
 - request:
     method: get
@@ -187,6 +187,6 @@ http_interactions:
         "PostNet": "361045716999",
         "AddressType": "H"}
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:06 GMT
 recorded_with: VCR 3.0.3

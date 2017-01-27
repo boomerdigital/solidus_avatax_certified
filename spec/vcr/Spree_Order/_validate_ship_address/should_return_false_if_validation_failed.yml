@@ -62,7 +62,7 @@ http_interactions:
         X6ffyaZvm2qZvm4BVb82WD8lvsTHJzpbX1TL9qJa5EQMfNqly8uK2Lg0L9/7
         dHeHh9AlF+ElH50x3fd27u89ePgQ3/Bgzfs7u7s7u/d3QZVfkozeG/cv6+IC
         H//c424mIyL9vyT5fwAEjUWdSwQAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:06 GMT
 - request:
     method: post
@@ -131,7 +131,7 @@ http_interactions:
         LC8rUiulefnep7s7zFJdahFe8tEZk31v5/7eg4cP8Q0P1ry/s7u7s3t/F1QR
         BlPk8N3upzs76ct8uWyuy8tsWWTp8WWevvgugGgzA4apaAbw3ayZF8uLltDB
         p5sHQIhR3/SxYIuPnp7g784AuE2AOmGuD6Fu5iKijH9J8v8AymLSctoFAAA=
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:07 GMT
 - request:
     method: get
@@ -182,6 +182,6 @@ http_interactions:
         "Source": "Avalara.AvaTax.Services.Address"}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 17:56:07 GMT
 recorded_with: VCR 3.0.3

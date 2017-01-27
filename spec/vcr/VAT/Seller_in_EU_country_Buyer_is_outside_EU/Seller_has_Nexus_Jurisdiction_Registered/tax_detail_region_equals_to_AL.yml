@@ -49,7 +49,7 @@ http_interactions:
         "Source": "Avalara.AvaTax.Services.Address"}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:48:38 GMT
 - request:
     method: post
@@ -61,7 +61,7 @@ http_interactions:
         Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #14 - 9765","TaxCode":"PC030000","ItemCode":"SKU-14","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R628115850","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R628115850","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -118,7 +118,7 @@ http_interactions:
         hw/xDQ/WvL+zu7uze38XZBE2U+Tw3e79nfRlMZ1ms6IsGRn90rzMFDdoPysr
         GuWUJ8ZD+uwNPgiRJmSoP/q4j+TOQ/4iwJFAKLFf5c26bM3nr9fTKWHz0S9J
         /h+lRMdKzQUAAA==
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:48:39 GMT
 - request:
     method: post
@@ -130,7 +130,7 @@ http_interactions:
         Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #14 - 9765","TaxCode":"PC030000","ItemCode":"SKU-14","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R628115850","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R628115850","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -186,6 +186,6 @@ http_interactions:
         RYqmNC/f+3R3R8Q+eydEO2Na7+3c33vw8CG+4cGZ9ju7uzu793eVDPIGPicy
         C5spcvhs9/5O+rKYTrNZUZaMjH5pgDHFDdrPyopGOeWJ8ZA+e4MPQqQJOem/
         j/TOQ/4iwJlAOGJH9O8vSf4fNaQXzc0FAAA=
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:48:40 GMT
 recorded_with: VCR 3.0.3

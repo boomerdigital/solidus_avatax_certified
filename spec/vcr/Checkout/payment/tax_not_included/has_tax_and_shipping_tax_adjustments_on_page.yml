@@ -49,7 +49,7 @@ http_interactions:
         "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database."}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:44:58 GMT
 - request:
     method: get
@@ -100,7 +100,7 @@ http_interactions:
         "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database."}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:45:02 GMT
 - request:
     method: post
@@ -113,7 +113,7 @@ http_interactions:
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #5 - 1384","TaxCode":"PC030000","ItemCode":"SKU-5","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"3-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R140177445","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R140177445","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -169,6 +169,6 @@ http_interactions:
         Sz46Y7rv7dzfe/DwIb7hwZr3d3Z3d3bv74Iqwl+KHL7b/XRnJ32ZL5fNdXmZ
         LYssPb7M0xffBRBtZsAw4c0Avps182J50RI6+HTzAAgx6ps+Fmzx0dMT/N0Z
         ALcJUCfM9SHUzVxEFPEvSf4ftpyIedYFAAA=
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:45:05 GMT
 recorded_with: VCR 3.0.3
