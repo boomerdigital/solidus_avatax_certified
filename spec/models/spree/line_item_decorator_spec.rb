@@ -2,8 +2,7 @@ require 'spec_helper'
 
 describe Spree::LineItem, type: :model do
 
-  let(:order) { create :order_with_line_items, line_items_count: 1 }
-  let(:line_item) { order.line_items.first }
+  let(:line_item) { build(:line_item, id: 1, quantity: 1, price: 10.0, promo_total: 0.0) }
 
   describe '#to_hash' do
     it 'should create hash of line item information' do
@@ -17,8 +16,6 @@ describe Spree::LineItem, type: :model do
 
   describe '#avatax_cache_key' do
     it 'should respond with a cache key' do
-      line_item = build(:line_item, id: 1, quantity: 1, price: 10.0, promo_total: 0.0)
-
       expected_response = 'Spree::LineItem-1-1-10.0-0.0'
 
       expect(line_item.avatax_cache_key).to eq(expected_response)
