@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Line, :type => :model do
-  let(:country){ FactoryGirl.create(:country) }
-  let!(:zone) { create(:zone, :name => 'North America', :default_tax => true, :zone_members => []) }
-  let(:zone_member) { Spree::ZoneMember.create() }
-  let!(:tax_category) { Spree::TaxCategory.create(name: 'Shipping', tax_code: 'FR000000') }
+  let(:country){ build(:country) }
+  let!(:zone) { build(:zone, :name => 'North America', :default_tax => true, :zone_members => []) }
+  let(:zone_member) { build(:zone_member) }
+  let!(:tax_category) { create(:tax_category, name: 'Shipping', tax_code: 'FR000000') }
   let(:included_in_price) { false }
   let!(:rate) { create(:tax_rate, :tax_category => tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
   let!(:calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-  let(:order) { FactoryGirl.create(:order_with_line_items, line_items_count: 2) }
-  let(:shipped_order) { FactoryGirl.create(:shipped_order) }
-  let(:stock_location) { FactoryGirl.create(:stock_location) }
+  let(:order) { create(:order_with_line_items, line_items_count: 2) }
+  let(:shipped_order) { create(:shipped_order) }
+  let(:stock_location) { create(:stock_location) }
 
   before do
     order.shipments.first.selected_shipping_rate.update_attributes(tax_rate_id: rate.id)
@@ -72,9 +72,9 @@ describe SolidusAvataxCertified::Line, :type => :model do
   context 'return invoice' do
     let(:authorization) { generate(:refund_transaction_id) }
     let(:payment_amount) { 10*2 }
-    let(:payment_method) { create(:credit_card_payment_method) }
-    let(:payment) { create(:payment, amount: payment_amount, payment_method: payment_method, order: order) }
-    let(:refund_reason) { create(:refund_reason) }
+    let(:payment_method) { build(:credit_card_payment_method) }
+    let(:payment) { build(:payment, amount: payment_amount, payment_method: payment_method, order: order) }
+    let(:refund_reason) { build(:refund_reason) }
     let(:gateway_response) {
       ActiveMerchant::Billing::Response.new(
         gateway_response_success,
@@ -89,7 +89,7 @@ describe SolidusAvataxCertified::Line, :type => :model do
     let(:gateway_response_options) { {} }
 
     let(:refund) {Spree::Refund.new(payment: payment, amount: BigDecimal.new(10), reason: refund_reason, transaction_id: nil)}
-    let(:shipped_order) { FactoryGirl.create(:shipped_order) }
+    let(:shipped_order) { build(:shipped_order) }
     let(:return_lines) { SolidusAvataxCertified::Line.new(shipped_order, 'ReturnOrder', refund) }
 
     describe 'build_lines' do

@@ -7,8 +7,8 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should validate_uniqueness_of :order_id }
   it { should have_db_index :order_id }
 
-  let(:country) { create(:country) }
-  let(:state) { create(:state) }
+  let(:country) { build(:country) }
+  let(:state) { build(:state) }
   let(:order) { create(:avalara_order) }
 
   context 'captured orders' do
@@ -41,7 +41,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       context 'promo' do
-        let(:promotion) { create(:promotion, :with_order_adjustment) }
+        let(:promotion) { build(:promotion, :with_order_adjustment) }
 
         before do
           create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
