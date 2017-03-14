@@ -14,8 +14,10 @@ describe Spree::Order do
 
   describe "#cancel_avalara", :vcr do
     before do
-      completed_order.avalara_capture_finalize
-      @response = completed_order.cancel_avalara
+      VCR.use_cassette("Spree_Order/_cancel_avalara") do
+        completed_order.avalara_capture_finalize
+        @response = completed_order.cancel_avalara
+      end
     end
 
     it 'should be successful' do
