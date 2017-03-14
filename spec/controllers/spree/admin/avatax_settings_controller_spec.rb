@@ -15,6 +15,9 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
   end
 
   describe '/avatax_settings/get_file_post_order_to_avalara' do
+    before { File.new("#{Rails.root}/log/post_order_to_avalara.log", 'w') }
+    after { File.delete("#{Rails.root}/log/post_order_to_avalara.log") }
+
     subject { get :get_file_post_order_to_avalara }
     it { should be_success }
   end
