@@ -16,19 +16,19 @@ describe Spree::Admin::AvalaraEntityUseCodesController do
   end
 
   describe '#show' do
-    subject { get :show, { id: avalara_entity_use_code.id } }
+    subject { get :show, params: { id: avalara_entity_use_code.id } }
 
     it { is_expected.to be_success }
   end
 
   describe '#new' do
-    subject {get :new }
+    subject { get :new }
 
     it { is_expected.to be_success }
   end
 
   describe '#edit' do
-    subject { get :edit, { id: avalara_entity_use_code.id} }
+    subject { get :edit, params: { id: avalara_entity_use_code.id} }
 
     it { is_expected.to be_success }
   end
@@ -42,7 +42,7 @@ describe Spree::Admin::AvalaraEntityUseCodesController do
         }
       }
     end
-    subject { put :update, params }
+    subject { put :update, params: params }
 
     it { is_expected.to redirect_to(spree.admin_avalara_entity_use_codes_path) }
 
