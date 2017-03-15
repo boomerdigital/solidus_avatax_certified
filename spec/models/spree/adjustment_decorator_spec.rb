@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe Spree::Adjustment, type: :model do
-  let(:order) { create(:avalara_order) }
+  let(:order) { build(:avalara_order) }
+
   describe 'not_tax' do
     it 'does not include adjustments with source_type of Spree::TaxRate' do
       tax_adjustment = create(:adjustment, source_type: 'Spree::TaxRate', order: order)
@@ -14,7 +15,7 @@ describe Spree::Adjustment, type: :model do
 
   describe '#avatax_cache_key' do
     it 'should respond with a cache key' do
-      adjustment = create(:adjustment, id: 1, amount: 20.0, order: order)
+      adjustment = build(:adjustment, id: 1, amount: 20.0, order: order)
 
       expected_response = 'Spree::Adjustment-1-20.0'
 

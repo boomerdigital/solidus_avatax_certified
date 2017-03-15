@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Address, :type => :model do
-  let(:address){ FactoryGirl.create(:address, city: 'Tuscaloosa', address1: '220 Paul W Bryant Dr') }
-  let(:order) { FactoryGirl.create(:order_with_line_items, ship_address: address) }
+  let(:address){ build(:address, city: 'Tuscaloosa', address1: '220 Paul W Bryant Dr') }
+  let(:order) { build(:order_with_line_items, ship_address: address) }
 
   before do
     Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')

@@ -1,11 +1,10 @@
 require 'spec_helper'
 
-describe Spree::Order, :vcr do
+describe Spree::Order do
 
   it { should have_one :avalara_transaction }
-  let(:order) { FactoryGirl.create(:avalara_order, ship_address: create(:address)) }
+  let(:order) { build(:avalara_order, ship_address: build(:address)) }
   let(:completed_order) { create(:completed_avalara_order) }
-  let(:variant) { create(:variant) }
 
   describe "#avalara_tax_enabled?" do
     it "should return true" do
@@ -13,10 +12,12 @@ describe Spree::Order, :vcr do
     end
   end
 
-  describe "#cancel_avalara" do
+  describe "#cancel_avalara", :vcr do
     before do
-      completed_order.avalara_capture_finalize
-      @response = completed_order.cancel_avalara
+      VCR.use_cassette("Spree_Order/_cancel_avalara") do
+        completed_order.avalara_capture_finalize
+        @response = completed_order.cancel_avalara
+      end
     end
 
     it 'should be successful' do
@@ -45,7 +46,7 @@ describe Spree::Order, :vcr do
     end
   end
 
-  describe "#avalara_capture" do
+  describe "#avalara_capture", :vcr do
     it "should response with Hash object" do
       expect(order.avalara_capture).to be_kind_of(Hash)
     end
@@ -57,7 +58,7 @@ describe Spree::Order, :vcr do
     end
   end
 
-  describe "#avalara_capture_finalize" do
+  describe "#avalara_capture_finalize", :vcr do
     it "should response with Hash object" do
       expect(order.avalara_capture_finalize).to be_kind_of(Hash)
     end
@@ -91,7 +92,7 @@ describe Spree::Order, :vcr do
   end
 
   describe '#customer_usage_type' do
-    let(:use_code) { create(:avalara_entity_use_code) }
+    let(:use_code) { build(:avalara_entity_use_code) }
 
     before do
       order.user.update_attributes(avalara_entity_use_code: use_code)
@@ -106,7 +107,7 @@ describe Spree::Order, :vcr do
     end
   end
 
-  describe '#validate_ship_address' do
+  describe '#validate_ship_address', :vcr do
     it 'should return the response if validation is success' do
       Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
       response = order.validate_ship_address

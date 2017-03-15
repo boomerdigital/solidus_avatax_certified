@@ -36,7 +36,7 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
 
-require 'factories/avalara_factories'
+Dir[File.join(File.dirname(__FILE__), 'factories/*.rb')].each { |f| require f }
 
 require 'capybara-screenshot/rspec'
 Capybara.save_and_open_page_path = ENV['CIRCLE_ARTIFACTS'] if ENV['CIRCLE_ARTIFACTS']

@@ -7,14 +7,16 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should validate_uniqueness_of :order_id }
   it { should have_db_index :order_id }
 
-  let(:country) { create(:country) }
-  let(:state) { create(:state) }
+  let(:country) { build(:country) }
+  let(:state) { build(:state) }
   let(:order) { create(:avalara_order) }
 
   context 'captured orders' do
 
-    before :each do
-      order.avalara_capture
+    before do
+      VCR.use_cassette("Spree_AvalaraTransaction/_avalara_capture") do
+        order.avalara_capture
+      end
     end
 
     describe '#lookup_avatax' do
@@ -40,38 +42,36 @@ describe Spree::AvalaraTransaction, :vcr do
         end
       end
 
-      context 'promo' do
-        let(:promotion) { create(:promotion, :with_order_adjustment) }
+    end
 
-        before do
+    context 'promo' do
+      let(:promotion) { create(:promotion, :with_order_adjustment) }
+
+      before do
+        VCR.use_cassette("Spree_AvalaraTransaction/_avalara_capture_promotion") do
           create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
           order.update!
         end
-        it 'applies discount' do
-          expect(order.avalara_transaction.commit_avatax('SalesInvoice')['TotalDiscount']).to eq('10')
-        end
+      end
+      it 'applies discount' do
+        expect(order.avalara_transaction.commit_avatax('SalesInvoice')['TotalDiscount']).to eq('10')
+      end
+    end
+
+    context 'included_in_price' do
+      before do
+        Spree::TaxRate.where(name: 'Tax').update_all(included_in_price: true)
+        order.reload
       end
 
-      context 'included_in_price' do
-        before do
-          Spree::TaxRate.where(name: 'Tax').update_all(included_in_price: true)
-          order.reload
-        end
-
-        it 'calculates the included tax amount from item total' do
-          expect(order.avalara_transaction.commit_avatax('SalesOrder')['TotalTax']).to eq('0.58')
-        end
+      it 'calculates the included tax amount from item total' do
+        expect(order.avalara_transaction.commit_avatax('SalesOrder')['TotalTax']).to eq('0.58')
       end
     end
 
     describe '#commit_avatax_final' do
       it 'should commit avatax final' do
         expect(order.avalara_transaction.commit_avatax_final('SalesInvoice')['TotalTax']).to eq('0.6')
-      end
-
-      it 'should receive post_order_to_avalara' do
-        expect(order.avalara_transaction).to receive(:post_order_to_avalara)
-        order.avalara_transaction.commit_avatax_final('SalesInvoice')
       end
 
       it 'should fail to commit to avatax if settings are false' do
@@ -105,11 +105,26 @@ describe Spree::AvalaraTransaction, :vcr do
         order.avalara_transaction.cancel_order
       end
 
-      it 'should receive error' do
-        order = create(:order)
-        order.avalara_transaction = Spree::AvalaraTransaction.create
-        expect(order.avalara_transaction).to receive(:cancel_order_to_avalara).and_return('Error in Tax')
-        order.avalara_transaction.cancel_order
+      context 'when successful' do
+        before do
+          VCR.use_cassette("Spree_AvalaraTransaction/_cancel_avalara") do
+            order.avalara_capture_finalize
+            @response = order.avalara_transaction.cancel_order
+          end
+        end
+
+        it 'should receive ResultCode of Success' do
+          expect(@response['ResultCode']).to eq('Success')
+        end
+      end
+
+      context 'error' do
+        it 'should receive error' do
+          order = create(:order)
+          order.avalara_transaction = Spree::AvalaraTransaction.create
+          expect(order.avalara_transaction).to receive(:cancel_order_to_avalara).and_return('Error in Tax')
+          order.avalara_transaction.cancel_order
+        end
       end
     end
   end

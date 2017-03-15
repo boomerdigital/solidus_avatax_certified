@@ -17,7 +17,7 @@ describe Spree::LineItem, type: :model do
 
   describe '#avatax_cache_key' do
     it 'should respond with a cache key' do
-      line_item = create(:line_item, id: 1, quantity: 1, price: 10.0, promo_total: 0.0)
+      line_item = build(:line_item, id: 1, quantity: 1, price: 10.0, promo_total: 0.0)
 
       expected_response = 'Spree::LineItem-1-1-10.0-0.0'
 

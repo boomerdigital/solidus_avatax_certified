@@ -1,0 +1,125 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R668918862","DocDate":"2017-03-14","Discount":"0.0","Commit":true,"DocType":"SalesInvoice","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
+        #3 - 8100","TaxCode":"PC030000","ItemCode":"SKU-3","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
+        Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R668918862","DetailLevel":"Tax","CurrencyCode":"USD"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '1144'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 14 Mar 2017 18:59:49 GMT
+      Content-Length:
+      - '669'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e7b5894bf47d33febc8a0dab0ec8199dee938d8e5d4c94f69fe15f9418ab2d35eecec288c15859fcc56a4db8661c8b028;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ+++vTTg4e7Bwef7ukXT7OWv9jb2X2wvXNve3cfX7wpFnnTZotV+NWb
+        3YNH9x8+ur8zvvcpN6varDxeVOtli4a79+2HT4tmaj7esZ+evssXq7aoluHH
+        b7J32aRkNDwQ9Ck+2Rm7ruijk6ycrktCeuZ/mb17Xizzhj76XkKUwB8vKvrr
+        o93t52fawpDg5cnOvR169ONsUpRFe41v2nqd49MnhPksq6+f55d5iS9+qlgx
+        Xn38++MERB0Lf/CKcMVfO+OdfeqVP6NG8pEQm3DrjMp8/jRvs6K04zpBVzXj
+        +tVrNHmVXyg2x8/x93fWddG8uV5xj69bAmg/NcPf2cVHBPt90WQoL7IFNzt+
+        fvzk+ItjfE6t3Kfp6zfHb07TN8e/90e/JPl+8kuSEaHtT8ezV/qOwefZK+qN
+        Hv34Z286+JWNw2SZoL+6s2E+/2HMxi2xZCCO7LecjO8n0uR4NqtJNziB0Q/o
+        z4+O06fF+Xle58s2fVVlM0DVrw3ST0k34OMTnagvqmV7US1yogU+7ZLlZUWq
+        pDQv3/t0d4f5qUstwks+OmOy7+3c33vw8CG+4cGa93d2d3d27++CKsJdihy+
+        2/10Zyd9mS+XzXV5mS2LLD2+zNMX3wUQbWbAMBXNAL6bNfNiedESOvh08wAI
+        MeqbPhZs8dHTE/zdGQC3CVAnzPUh1M1cRBTwL0n+HxkX0hbOBQAA
+    http_version: 
+  recorded_at: Tue, 14 Mar 2017 18:59:52 GMT
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/cancel
+    body:
+      encoding: UTF-8
+      string: '{"CompanyCode":"54321","DocType":"SalesInvoice","DocCode":"R668918862","CancelCode":"DocVoided"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '96'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Tue, 14 Mar 2017 18:59:49 GMT
+      Content-Length:
+      - '212'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e2cc20a879dc3fc529319487d41138ab7a29ec2b5bb9d63fbaefb24ecfe04fa35e62f3c77c6df14f61b6300a181de0427;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tFJtpzm5Zvs3au8WZftR49S+vBpNT2b
+        0a8f7R3sfvrpp3s7ux+Nko/e1NmyyaZtUS352/u7u7sH9+8/3Hlw/9PdB58+
+        oCYC5KSa5fT9R6/X02neNB/9kuSXJP8PCXS182sAAAA=
+    http_version: 
+  recorded_at: Tue, 14 Mar 2017 18:59:52 GMT
+recorded_with: VCR 3.0.3
