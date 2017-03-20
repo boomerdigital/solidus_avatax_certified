@@ -6,8 +6,12 @@ FactoryGirl.define do
     order
     stock_location
 
+    transient do
+      tax_included false
+    end
+
     after(:create) do |shipment, evalulator|
-      shipment.add_shipping_method(create(:avalara_shipping_method), true)
+      shipment.add_shipping_method(create(:avalara_shipping_method, tax_included: evalulator.tax_included), true)
 
       shipment.order.line_items.each do |line_item|
         line_item.quantity.times do

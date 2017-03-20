@@ -14,6 +14,7 @@ FactoryGirl.define do
       line_items_quantity 1
       shipment_cost 5
       tax_category Spree::TaxCategory.first
+      tax_included false
     end
 
     before(:create) do |order, evaluator|
@@ -24,9 +25,9 @@ FactoryGirl.define do
         create(:global_zone, default_tax: true)
       end
       if Spree::TaxCategory.first.nil?
-        create(:clothing_tax_rate, tax_category: create(:tax_category))
+        create(:clothing_tax_rate, tax_category: create(:tax_category), included_in_price: evaluator.tax_included)
       else
-        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first)
+        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first, included_in_price: evaluator.tax_included)
       end
     end
 
@@ -34,7 +35,7 @@ FactoryGirl.define do
       create_list(:line_item, evaluator.line_items_count, order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category, quantity: evaluator.line_items_quantity)
       order.line_items.reload
 
-      create(:avalara_shipment, order: order, cost: evaluator.shipment_cost )
+      create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
       order.shipments.reload
 
       order.update!
