@@ -8,7 +8,7 @@ http_interactions:
       string: '{"DocCode":"R262699912","DocDate":"2017-01-10","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
         Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"}],"Lines":[{"LineNo":"2-LI","Description":"Product
-        #140 - 1898","TaxCode":"PC030000","ItemCode":"SKU-140","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        #140 - 1898","TaxCode":"PC030000","ItemCode":"SKU-140","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -62,7 +62,7 @@ http_interactions:
         T4vz87zOl236qspmgKpfG6yfElPi4xOdqi+qZXtRLXIiBj7t0uVlRTxcmpfv
         fbq7w0Pokovwko/OmO57O/f3Hjx8iG94sOb9nd3dnd37u6DKL0lGIe4Pd++n
         r9PvZNO3TbVMXzOS+rV5/cu6uMDHP/e4m8mIiP4vSf4fQl6EWUgEAAA=
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:41:56 GMT
 - request:
     method: post
@@ -75,7 +75,7 @@ http_interactions:
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"2-LI","Description":"Product
         #140 - 1898","TaxCode":"PC030000","ItemCode":"SKU-140","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -131,7 +131,7 @@ http_interactions:
         LlleVqRQSvPyvU93d5ifutQivOSjMyb73s79vQcPH+IbHqx5f2d3d2f3/i6o
         ItylyOG73U93dtKX+XLZXJeX2bLI0uPLPH3xXQDRZgYMU9EM4LtZMy+WFy2h
         g083D4AQo77pY8EWHz09wd+dAXCbAHXCXB9C3cxFRA3/kuT/AWsNuVzUBQAA
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:41:58 GMT
 - request:
     method: post
@@ -144,7 +144,7 @@ http_interactions:
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"2-LI","Description":"Product
         #140 - 1898","TaxCode":"PC030000","ItemCode":"SKU-140","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":2,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -200,7 +200,7 @@ http_interactions:
         ktK8fO/T3R3mpy61CC/56IzJvrdzf+/Bw4f4hgdr3t/Z3d3Zvb8Lqgh3KXL4
         bvfTnZ30Zb5cNtflZbYssvT4Mk9ffBdAtJkBw1Q0A/hu1syL5UVL6ODTzQMg
         xKhv+liwxUdPT/B3ZwDcJkCdMNeHUDdzEVHAvyT5fwB7FIulzgUAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:42:00 GMT
 - request:
     method: post
@@ -210,7 +210,7 @@ http_interactions:
       string: '{"DocCode":"R262699912.","DocDate":"2017-01-10","Commit":true,"DocType":"ReturnInvoice","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
         Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"-RA","ItemCode":"fake-refund-transaction-1","Qty":1,"Amount":-15.6,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Refund","TaxIncluded":true}],"CustomerCode":2,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD","TaxOverride":{"TaxOverrideType":"TaxDate","Reason":"Refund
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"-RA","ItemCode":"fake-refund-transaction-1","Qty":1,"Amount":-15.6,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Refund","TaxIncluded":true}],"CustomerCode":2,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R262699912","DetailLevel":"Tax","CurrencyCode":"USD","TaxOverride":{"TaxOverrideType":"TaxDate","Reason":"Refund
         for return #5","TaxDate":"2017-01-08"}}'
     headers:
       Accept:
@@ -265,6 +265,6 @@ http_interactions:
         NgNU/drg/ZT4Eh+f6Hx9US3bi2qREznwaZcyLyti49K8fO/T3Z19fNwlGOEl
         H50x6fd27u89ePgQ3/Bgzfs7u7s7u/d3QZZfkoxC3B/u3k9fp9/Jpm+bapm+
         ZiT1a/P6l3VxgY9/7nE3k9GV/p2Dj35J8v8AgZk9v0wEAAA=
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:42:02 GMT
 recorded_with: VCR 3.0.3

@@ -15,7 +15,7 @@ http_interactions:
         #54 - 301","TaxCode":"P0000000","ItemCode":"SKU-54","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"5-LI","Description":"Product
         #55 - 1428","TaxCode":"P0000000","ItemCode":"SKU-55","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"UPS
         Ground","Qty":1,"Amount":100.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R645619095","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R645619095","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -72,6 +72,6 @@ http_interactions:
         xlTd27m/9+DhQ3zDozHv7+zu7uzeJzrwoBUzfHGcPi3Oz/M6X7bpqyqb0aDA
         W9rCvM4ENYh/N2vmxfKiJTTw6WbECSHpU7DER09P8HcHcW4ToEwY64OvFCH+
         4tOdnfRlvlw21+Vltiyy9PgyT198l1A3cxFx339J8v8AYBGFNgwMAAA=
-    http_version: 
+    http_version:
   recorded_at: Tue, 10 Jan 2017 08:56:32 GMT
 recorded_with: VCR 3.0.3

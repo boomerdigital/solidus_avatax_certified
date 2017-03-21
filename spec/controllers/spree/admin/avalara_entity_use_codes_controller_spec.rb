@@ -42,6 +42,7 @@ describe Spree::Admin::AvalaraEntityUseCodesController do
         }
       }
     end
+
     subject { put :update, params: params }
 
     it { is_expected.to redirect_to(spree.admin_avalara_entity_use_codes_path) }

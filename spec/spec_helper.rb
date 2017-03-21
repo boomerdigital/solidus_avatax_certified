@@ -22,6 +22,7 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
 require 'shoulda/matchers'
+require 'webmock/rspec'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

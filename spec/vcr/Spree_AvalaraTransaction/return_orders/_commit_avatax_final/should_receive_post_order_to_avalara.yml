@@ -62,7 +62,7 @@ http_interactions:
         p8X5eV7nyzZ9VWUzQNWvDdZPiSnx8YlO1RfVsr2oFjkRA5926fKyIh4uzcv3
         Pt3d4SF0yUV4yUdnTPe9nft7Dx4+xDc8WPP+zu7uzu79XVDllySjEPeHu/fT
         1+l3sunbplqmrxlJ/dq8/mVdXODjn3vczWRERP+XJP8P/E8BwUgEAAA=
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 19:31:09 GMT
 - request:
     method: post
@@ -131,7 +131,7 @@ http_interactions:
         dsnysiKFUpqX7326u8P81KUW4SUfnTHZ93bu7z14+BDf8GDN+zu7uzu793dB
         FeEuRQ7f7X66s5O+zJfL5rq8zJZFlh5f5umL7wKINjNgmIpmAN/NmnmxvGgJ
         HXy6eQCEGPVNHwu2+OjpCf7uDIDbBKgT5voQ6mYuImr4lyT/DyZiJrjUBQAA
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 19:31:09 GMT
 - request:
     method: post
@@ -200,6 +200,6 @@ http_interactions:
         aV6+9+nuDvMT4SEEO2My7+3c33vw8CG+4cGZ9ju7uzu793eVCvIGPicSC3cp
         cvhs99OdnfRlvlw21+Vltiyy9PgyT198F29qMwOWqWgG8N2smRfLi5Yg49PN
         AyBEBZfOAPizAHXCXB98JW3x+dMTQt3MRUQB/5Lk/wEYjVHvzgUAAA==
-    http_version: 
+    http_version:
   recorded_at: Tue, 14 Mar 2017 19:31:10 GMT
 recorded_with: VCR 3.0.3

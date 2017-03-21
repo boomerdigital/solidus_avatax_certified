@@ -49,7 +49,7 @@ http_interactions:
         "Source": "Avalara.AvaTax.Services.Address"}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:46:18 GMT
 - request:
     method: get
@@ -100,7 +100,7 @@ http_interactions:
         "Source": "Avalara.AvaTax.Services.Address"}
         ]
         }
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:46:22 GMT
 - request:
     method: post
@@ -113,7 +113,7 @@ http_interactions:
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
         #14 - 189","TaxCode":"PC030000","ItemCode":"SKU-14","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"3-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R141016784","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R141016784","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -169,6 +169,6 @@ http_interactions:
         LmleVqSaSvPyvU93d1iIuxQjvOSjM6b93s79vQcPH+IbHqx5f2eXFMH9XZBF
         2EyRw3e7n+7spC/z5bK5Li+zZZGlx5d5+uK7AKLNDBimvRnAd7NmXiwvWkIH
         n24eACFGfdPHgi0+enqCvzsD4DYB6oS5PoQ65uP/ATVW5ajsBQAA
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:46:24 GMT
 recorded_with: VCR 3.0.3

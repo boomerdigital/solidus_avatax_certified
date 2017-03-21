@@ -8,7 +8,7 @@ http_interactions:
       string: '{"DocCode":"R913512615","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
         Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #4 - 8896","TaxCode":"PC030000","ItemCode":"SKU-4","Qty":2,"Amount":20.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        #4 - 8896","TaxCode":"PC030000","ItemCode":"SKU-4","Qty":2,"Amount":20.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -62,7 +62,7 @@ http_interactions:
         8zpftumrKpsBqn5tsH5KTImPT3SqvqiW7UW1yIkY+LRLl5cV8XBpXr736e7O
         Pj7ukovwko/OmO57O/f3Hjx8iG94sOb9nd3dnd37u6DKL0lGIe4Pd++nr9Pv
         ZNO3TbVMXzOS+rV5/cu6uMDHP/e4m8mIiP4vSf4fLvTfRkgEAAA=
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:42:02 GMT
 - request:
     method: post
@@ -76,7 +76,7 @@ http_interactions:
         #4 - 8896","TaxCode":"PC030000","ItemCode":"SKU-4","Qty":2,"Amount":20.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"2-LI","Description":"Product
         #5 - 2306","TaxCode":"PC030000","ItemCode":"SKU-5","Qty":2,"Amount":20.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -133,7 +133,7 @@ http_interactions:
         8GDN+zu7uzu793dBFeEuRQ7f7X66s5O+zJfL5rq8zJZFlh5f5umL7wKINjNg
         mIpmAN/NmnmxvGgJHXy6eQCEGPVNHwu2+OjpCf7uDIDbBKgT5voQ6mYuIlbx
         lyT/D/UlXQ5jBwAA
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:42:04 GMT
 - request:
     method: post
@@ -143,7 +143,7 @@ http_interactions:
       string: '{"DocCode":"R423519618","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"3366
         Speedway Blvd","Line2":"","City":"Lincoln","Region":"Alabama","Country":"US","PostalCode":"35096"}],"Lines":[{"LineNo":"3-LI","Description":"Product
-        #6 - 1959","TaxCode":"PC030000","ItemCode":"SKU-6","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":"","Discounted":false,"TaxIncluded":false}],"CustomerCode":"acreilly3@gmail.com","CompanyCode":"54321","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R423519618","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        #6 - 1959","TaxCode":"PC030000","ItemCode":"SKU-6","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":"","Discounted":false,"TaxIncluded":false}],"CustomerCode":"acreilly3@gmail.com","CompanyCode":"[Company]","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R423519618","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -198,7 +198,7 @@ http_interactions:
         e/d3Hn6Kj7vUIrTkozMm+97u3v7DT/fwDY/VvL+zu7u3u39vd2+HxjQKUX+4
         ez99nX4nm75tqmX6mjHUr83rX9bFBT42iH9RLduLapETwvj0Btw/3d1h6gui
         +CiO+879vQcPH+KbLu47u/d3MaFuLiKS/0uS/wf9O2cyRwQAAA==
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:42:05 GMT
 - request:
     method: post
@@ -209,7 +209,7 @@ http_interactions:
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"3366
         Speedway Blvd","Line2":"","City":"Lincoln","Region":"Alabama","Country":"US","PostalCode":"35096"},{"AddressCode":"3","Line1":"1600
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"3-LI","Description":"Product
-        #6 - 1959","TaxCode":"PC030000","ItemCode":"SKU-6","Qty":1,"Amount":10.0,"OriginCode":"3","DestinationCode":"Dest","CustomerUsageType":"","Discounted":false,"TaxIncluded":false}],"CustomerCode":"acreilly3@gmail.com","CompanyCode":"54321","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R423519618","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        #6 - 1959","TaxCode":"PC030000","ItemCode":"SKU-6","Qty":1,"Amount":10.0,"OriginCode":"3","DestinationCode":"Dest","CustomerUsageType":"","Discounted":false,"TaxIncluded":false}],"CustomerCode":"acreilly3@gmail.com","CompanyCode":"[Company]","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R423519618","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -264,7 +264,7 @@ http_interactions:
         3v2dh5/i4y61CC356IzJvre7t//w0z18w2M17+/s7u7t7t/b3duhMY1C1Hc/
         3dlJX+bLZXNdXmbLIkuPL/P0xXcBRJsZMCxeBvvvZs28WF60hA4+3TyAvZ37
         MiGCLT56eoK/OwPgNgHqu7s0lfwQ6mYqIoL/S5L/B55iNvJGBAAA
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:42:06 GMT
 - request:
     method: post
@@ -278,7 +278,7 @@ http_interactions:
         #4 - 8896","TaxCode":"PC030000","ItemCode":"SKU-4","Qty":2,"Amount":20.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":"A","Discounted":false,"TaxIncluded":false},{"LineNo":"2-LI","Description":"Product
         #5 - 2306","TaxCode":"PC030000","ItemCode":"SKU-5","Qty":2,"Amount":20.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":"A","Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":"A","Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":"A","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"[Company]","CustomerUsageType":"A","ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R913512615","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -334,6 +334,6 @@ http_interactions:
         SyvCSz46Y5Lv7dzfe/DwIb7hwZr3d3Z3d3bv74ImwleKHL7b/XRnJ32ZL5fN
         dXmZLYssPb7M0xffBRBtZsDs4TMzgO9mzbxYXrSEDj7dPABCjPqmjwVbfPT0
         BH93BsBtAtQJc30IdTMXEcP3S5L/B1OBBmtGBwAA
-    http_version: 
+    http_version:
   recorded_at: Fri, 13 Jan 2017 16:42:07 GMT
 recorded_with: VCR 3.0.3
