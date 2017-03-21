@@ -7,8 +7,6 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should validate_uniqueness_of :order_id }
   it { should have_db_index :order_id }
 
-  let(:country) { build(:country) }
-  let(:state) { build(:state) }
   let(:order) { create(:avalara_order) }
 
   context 'captured orders' do

@@ -12,20 +12,19 @@ describe Spree::Order do
     end
   end
 
-  describe "#cancel_avalara", :vcr do
-    before do
-      VCR.use_cassette("Spree_Order/_cancel_avalara") do
-        completed_order.avalara_capture_finalize
-        @response = completed_order.cancel_avalara
+  describe "#cancel_avalara" do
+
+    describe 'successful response', :vcr do
+      it 'return a hash with a ResultCode of Success' do
+        VCR.use_cassette("Spree_Order/_capture_finalize") do
+          completed_order.avalara_capture_finalize
+        end
+
+        response = completed_order.cancel_avalara
+
+        expect(response["ResultCode"]).to eq("Success")
+        expect(response).to be_kind_of(Hash)
       end
-    end
-
-    it 'should be successful' do
-      expect(@response["ResultCode"]).to eq("Success")
-    end
-
-    it "should return hash" do
-      expect(@response).to be_kind_of(Hash)
     end
 
     it 'should receive cancel_order when cancel_avalara is called' do
@@ -59,14 +58,20 @@ describe Spree::Order do
   end
 
   describe "#avalara_capture_finalize", :vcr do
+    subject { completed_order.avalara_capture_finalize }
+
+    before do
+      VCR.use_cassette("Spree_Order/_capture_finalize") do
+        completed_order.avalara_capture_finalize
+      end
+    end
+
     it "should response with Hash object" do
-      expect(order.avalara_capture_finalize).to be_kind_of(Hash)
+      expect(subject).to be_kind_of(Hash)
     end
-    it "creates new avalara_transaction" do
-      expect{order.avalara_capture_finalize}.to change{Spree::AvalaraTransaction.count}.by(1)
-    end
+
     it 'should have a ResultCode of success' do
-      expect(order.avalara_capture_finalize['ResultCode']).to eq('Success')
+      expect(subject['ResultCode']).to eq('Success')
     end
 
     # Spec fails when using VCR since dates are involved.

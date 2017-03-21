@@ -87,10 +87,9 @@ describe Spree::Calculator::AvalaraTransaction do
           let!(:promotion) { create(:promotion_with_item_adjustment, adjustment_rate: 2) }
 
           before do
-            order.line_items.each do |li|
-              create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
-            end
-            order.update!
+            create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: line_item)
+            line_item.reload
+            order.reload.update!
           end
 
           it 'should be equal to the items pre-tax total * rate' do
@@ -103,20 +102,24 @@ describe Spree::Calculator::AvalaraTransaction do
     context 'when given a shipment' do
       let(:shipping_rate) { Spree::TaxRate.find_by(name: 'Shipping Tax') }
       let(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(calculable: shipping_rate) }
-
       let!(:shipment) { order.shipments.first }
 
-      it 'should be equal 4.0' do
-        expect(shipping_calculator.compute(shipment)).to eq(4.0)
+      describe 'computing normal shipment' do
+        it 'should be equal 4.0' do
+          expect(shipping_calculator.compute(shipment)).to eq(4.0)
+        end
       end
 
-      it 'takes discounts into consideration' do
-        shipment.update_attributes(promo_total: -1)
-        expect(shipping_calculator.compute(shipment)).to eq(3.96)
+      describe 'with promotion' do
+        it 'should equal 3.96' do
+          shipment.update_attributes(promo_total: -1)
+          expect(shipping_calculator.compute(shipment)).to eq(3.96)
+        end
       end
 
-      context 'included_in_price' do
+      describe 'when tax is included in price' do
         let(:included_in_price) { true }
+
         it 'should be equal to 3.85' do
           expect(shipping_calculator.compute(shipment)).to eq(3.85)
         end
