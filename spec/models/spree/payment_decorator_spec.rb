@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::Payment, :vcr do
-  subject(:order) { create(:avalara_order) }
+  let(:order) { create(:avalara_order) }
 
   let(:gateway) do
     gateway = Spree::Gateway::Bogus.new( :active => true, :name => 'Bogus gateway')
@@ -83,17 +83,24 @@ describe Spree::Payment, :vcr do
     end
 
     context 'uncommitted order' do
-      it 'should recieve error message' do
-        response = payment.cancel_avalara
-        expect(response['ResultCode']).to eq('Error')
+      let!(:order) { create(:avalara_order) }
+
+      describe 'should fail' do
+        it 'ResultCode returns Error' do
+          response = payment.cancel_avalara
+          expect(response['ResultCode']).to eq('Error')
+        end
       end
     end
 
     context 'committed order' do
-      it 'should receive result of success' do
-        payment.avalara_finalize
-        response = payment.cancel_avalara
-        expect(response['ResultCode']).to eq('Success')
+      let!(:order) { create(:completed_avalara_order) }
+
+      describe 'should be successful' do
+        it 'ResultCode returns Success' do
+          response = payment.cancel_avalara
+          expect(response['ResultCode']).to eq('Success')
+        end
       end
     end
   end
