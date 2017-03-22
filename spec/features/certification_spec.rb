@@ -7,15 +7,13 @@ describe "Certification", :vcr do
   let(:use_code) { create(:avalara_entity_use_code) }
 
   context 'Transactions have been voided/cancelled.' do
-    let(:completed_order) { create(:completed_avalara_order) }
+    let!(:completed_order) { create(:completed_avalara_order) }
 
-    it 'should be successful' do
-      response = VCR.use_cassette("Spree_Order/_cancel_avalara") do
-        completed_order.avalara_capture_finalize
-        completed_order.cancel_avalara
+    describe 'should be successful' do
+      it 'returns ResultCode with value Success' do
+        response = completed_order.cancel_avalara
+        expect(response["ResultCode"]).to eq("Success")
       end
-
-      expect(response["ResultCode"]).to eq("Success")
     end
   end
 
