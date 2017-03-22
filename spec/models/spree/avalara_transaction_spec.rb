@@ -144,27 +144,44 @@ describe Spree::AvalaraTransaction, :vcr do
     let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
     before do
-      order.avalara_capture_finalize
-      order.reload
+      VCR.use_cassette("order_capture_finalize") do
+        order.avalara_capture_finalize
+        order.reload
+      end
     end
 
     describe '#commit_avatax' do
-      it 'should receive post_return_to_avalara' do
-        expect(order.avalara_transaction).to receive(:post_return_to_avalara)
-        order.avalara_transaction.commit_avatax('ReturnOrder', refund)
+      subject do
+        VCR.use_cassette("order_return_capture") do
+          order.avalara_transaction.commit_avatax('ReturnOrder', refund)
+        end
+      end
+
+      it 'should receive a ResultCode of Success' do
+        expect(subject['ResultCode']).to eq('Success')
+      end
+
+      it 'should have a TotalTax equal to additional_tax_total' do
+        expect(subject['TotalTax']).to eq("#{-order.additional_tax_total.to_f}")
       end
     end
 
     describe '#commit_avatax_final' do
+      subject do
+        VCR.use_cassette("order_return_capture") do
+          order.avalara_transaction.commit_avatax_final('ReturnOrder', refund)
+        end
+      end
+
       it 'should commit avatax final' do
-        response = order.avalara_transaction.commit_avatax_final('ReturnOrder', refund)
-        expect(response).to be_kind_of(Hash)
-        expect(response['ResultCode']).to eq('Success')
+        expect(subject).to be_kind_of(Hash)
+        expect(subject['ResultCode']).to eq('Success')
+        expect(subject['TotalTax']).to eq("#{-order.additional_tax_total.to_f}")
       end
 
       it 'should receive post_order_to_avalara' do
         expect(order.avalara_transaction).to receive(:post_return_to_avalara)
-        order.avalara_transaction.commit_avatax_final('ReturnOrder', refund)
+        subject
       end
     end
   end
