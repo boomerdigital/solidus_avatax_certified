@@ -44,10 +44,18 @@ FactoryGirl.define do
 
     factory :completed_avalara_order do
       state 'complete'
+      shipment_state 'shipped'
+      payment_state 'paid'
 
       after(:create) do |order|
         # order.refresh_shipment_rates
         order.update_column(:completed_at, Time.now)
+        payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
+
+        order.update!
+        order.next
+
+        payment.avalara_finalize
       end
     end
   end
