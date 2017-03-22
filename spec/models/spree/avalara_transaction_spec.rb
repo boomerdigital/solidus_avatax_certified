@@ -7,30 +7,38 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should validate_uniqueness_of :order_id }
   it { should have_db_index :order_id }
 
-  let(:order) { create(:avalara_order) }
+  let(:included_in_price) { false }
+  let(:order) { create(:avalara_order, tax_included: included_in_price) }
 
   context 'captured orders' do
 
     before do
-      VCR.use_cassette("Spree_AvalaraTransaction/_avalara_capture") do
+      VCR.use_cassette("order_capture") do
         order.avalara_capture
       end
     end
 
     describe '#lookup_avatax' do
+      subject do
+        VCR.use_cassette("order_capture") do
+          order.avalara_transaction.lookup_avatax
+        end
+      end
+
       it 'should look up avatax' do
-        expect(order.avalara_transaction.lookup_avatax['TotalTax']).to eq('0.6')
+        expect(subject['TotalTax']).to eq('0.6')
       end
     end
 
     describe '#commit_avatax' do
-      it 'should commit avatax' do
-        expect(order.avalara_transaction.commit_avatax('SalesOrder')['TotalTax']).to eq('0.6')
+      subject do
+        VCR.use_cassette("order_capture") do
+          order.avalara_transaction.commit_avatax('SalesOrder')
+        end
       end
 
-      it 'should receive post_order_to_avalara' do
-        expect(order.avalara_transaction).to receive(:post_order_to_avalara)
-        order.avalara_transaction.commit_avatax('SalesOrder')
+      it 'should commit avatax' do
+        expect(subject['TotalTax']).to eq('0.6')
       end
 
       context 'tax calculation disabled' do
@@ -39,17 +47,14 @@ describe Spree::AvalaraTransaction, :vcr do
           expect(order.avalara_transaction.commit_avatax('SalesOrder')[:TotalTax]).to eq('0.00')
         end
       end
-
     end
 
     context 'promo' do
       let(:promotion) { create(:promotion, :with_order_adjustment) }
 
       before do
-        VCR.use_cassette("Spree_AvalaraTransaction/_avalara_capture_promotion") do
-          create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
-          order.update!
-        end
+        create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
+        order.update!
       end
       it 'applies discount' do
         expect(order.avalara_transaction.commit_avatax('SalesInvoice')['TotalDiscount']).to eq('10')
@@ -57,31 +62,40 @@ describe Spree::AvalaraTransaction, :vcr do
     end
 
     context 'included_in_price' do
-      before do
-        Spree::TaxRate.where(name: 'Tax').update_all(included_in_price: true)
-        order.reload
+      let(:included_in_price) { true }
+
+      subject do
+        VCR.use_cassette("tax_included_order") do
+          order.avalara_transaction.commit_avatax('SalesOrder')
+        end
       end
 
       it 'calculates the included tax amount from item total' do
-        expect(order.avalara_transaction.commit_avatax('SalesOrder')['TotalTax']).to eq('0.58')
+        expect(subject['TotalTax']).to eq('0.57')
       end
     end
 
     describe '#commit_avatax_final' do
+      subject do
+        VCR.use_cassette("order_capture_finalize") do
+          order.avalara_transaction.commit_avatax_final('SalesInvoice')
+        end
+      end
+
       it 'should commit avatax final' do
-        expect(order.avalara_transaction.commit_avatax_final('SalesInvoice')['TotalTax']).to eq('0.6')
+        expect(subject['TotalTax']).to eq('0.6')
       end
 
       it 'should fail to commit to avatax if settings are false' do
         Spree::AvalaraPreference.document_commit.update_attributes(value: 'false')
 
-        expect(order.avalara_transaction.commit_avatax_final('SalesInvoice')).to eq('avalara document committing disabled')
+        expect(subject).to eq('avalara document committing disabled')
       end
 
       context 'tax calculation disabled' do
         it 'should respond with total tax of 0' do
           Spree::AvalaraPreference.tax_calculation.update_attributes(value: 'false')
-          expect(order.avalara_transaction.commit_avatax_final('SalesInvoice')[:TotalTax]).to eq('0.00')
+          expect(subject[:TotalTax]).to eq('0.00')
         end
       end
 
@@ -98,21 +112,18 @@ describe Spree::AvalaraTransaction, :vcr do
     end
 
     describe '#cancel_order' do
-      it 'should receive cancel_order_to_avalara' do
-        expect(order.avalara_transaction).to receive(:cancel_order_to_avalara)
-        order.avalara_transaction.cancel_order
-      end
 
-      context 'when successful' do
-        before do
-          VCR.use_cassette("Spree_AvalaraTransaction/_cancel_avalara") do
+      describe 'when successful' do
+        let(:order) { create(:completed_avalara_order) }
+        subject do
+          VCR.use_cassette("order_cancel") do
             order.avalara_capture_finalize
-            @response = order.avalara_transaction.cancel_order
+            order.avalara_transaction.cancel_order
           end
         end
 
         it 'should receive ResultCode of Success' do
-          expect(@response['ResultCode']).to eq('Success')
+          expect(subject['ResultCode']).to eq('Success')
         end
       end
 

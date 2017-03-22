@@ -1,35 +1,34 @@
 require 'spec_helper'
 
-describe Spree::Order do
+describe Spree::Order, :vcr do
 
   it { should have_one :avalara_transaction }
   let(:order) { build(:avalara_order, ship_address: build(:address)) }
+  let(:avalara_order) { create(:avalara_order) }
   let(:completed_order) { create(:completed_avalara_order) }
 
   describe "#avalara_tax_enabled?" do
     it "should return true" do
-      expect(order.avalara_tax_enabled?).to eq(true)
+      expect(Spree::Order.new.avalara_tax_enabled?).to eq(true)
     end
   end
 
-  describe "#cancel_avalara" do
-
-    describe 'successful response', :vcr do
-      it 'return a hash with a ResultCode of Success' do
-        VCR.use_cassette("Spree_Order/_capture_finalize") do
-          completed_order
-        end
-
-        response = completed_order.cancel_avalara
-
-        expect(response["ResultCode"]).to eq("Success")
-        expect(response).to be_kind_of(Hash)
+  describe '#cancel_avalara' do
+    subject do
+      VCR.use_cassette("order_cancel") do
+        avalara_order.avalara_capture_finalize
+        avalara_order.cancel_avalara
       end
     end
 
+    it 'return a hash with a ResultCode of Success' do
+      expect(subject["ResultCode"]).to eq("Success")
+      expect(subject).to be_kind_of(Hash)
+    end
+
     it 'should receive cancel_order when cancel_avalara is called' do
-      expect(completed_order.avalara_transaction).to receive(:cancel_order)
-      completed_order.cancel_avalara
+      expect(avalara_order.avalara_transaction).to receive(:cancel_order)
+      subject
     end
 
     context 'state machine event cancel' do
@@ -45,24 +44,29 @@ describe Spree::Order do
     end
   end
 
-  describe "#avalara_capture", :vcr do
+  describe "#avalara_capture" do
+    subject do
+      VCR.use_cassette("order_capture") do
+        avalara_order.avalara_capture
+      end
+    end
+
     it "should response with Hash object" do
-      expect(order.avalara_capture).to be_kind_of(Hash)
+      expect(subject).to be_kind_of(Hash)
     end
     it "creates new avalara_transaction" do
-      expect{order.avalara_capture}.to change{Spree::AvalaraTransaction.count}.by(1)
+      expect{subject}.to change{Spree::AvalaraTransaction.count}.by(1)
     end
     it 'should have a ResultCode of success' do
-      expect(order.avalara_capture['ResultCode']).to eq('Success')
+      expect(subject['ResultCode']).to eq('Success')
     end
   end
 
-  describe "#avalara_capture_finalize", :vcr do
-    subject { completed_order.avalara_capture_finalize }
+  describe "#avalara_capture_finalize" do
 
-    before do
-      VCR.use_cassette("Spree_Order/_capture_finalize") do
-        completed_order.avalara_capture_finalize
+    subject do
+      VCR.use_cassette("order_capture_finalize") do
+        avalara_order.avalara_capture_finalize
       end
     end
 
@@ -112,7 +116,7 @@ describe Spree::Order do
     end
   end
 
-  describe '#validate_ship_address', :vcr do
+  describe '#validate_ship_address' do
     it 'should return the response if validation is success' do
       Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
       response = order.validate_ship_address
