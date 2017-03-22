@@ -17,7 +17,7 @@ describe Spree::Order do
     describe 'successful response', :vcr do
       it 'return a hash with a ResultCode of Success' do
         VCR.use_cassette("Spree_Order/_capture_finalize") do
-          completed_order.avalara_capture_finalize
+          completed_order
         end
 
         response = completed_order.cancel_avalara
