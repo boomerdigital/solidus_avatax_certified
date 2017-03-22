@@ -46,45 +46,36 @@ describe Spree::Refund, :vcr do
     order.reload
   end
 
-
-  context 'transaction id exists' do
-    let(:transaction_id) { '12kfjas0' }
-    subject { create(:refund, payment: payment, amount: amount, reason: refund_reason, transaction_id: transaction_id) }
-    describe '#avalara_tax_enabled?' do
-      it 'should return true' do
-        expect(subject.avalara_tax_enabled?).to eq(true)
-      end
-    end
-  end
-
   describe '#avalara_tax_enabled?' do
-    let(:transaction_id) { '12kfjas0' }
-    subject { create(:refund, payment: payment, amount: amount, reason: refund_reason, transaction_id: transaction_id) }
     it 'should return true' do
-      expect(subject.avalara_tax_enabled?).to eq(true)
+      expect(Spree::Refund.new.avalara_tax_enabled?).to eq(true)
     end
   end
 
   describe '#avalara_capture_finalize' do
+    subject do
+      VCR.use_cassette('order_return_capture') do
+        refund.save
+      end
+    end
     it 'should recieve avalara_capture_finalize and return hash' do
       expect(refund).to receive(:avalara_capture_finalize).and_return(Hash)
-      refund.save
+      subject
     end
   end
 
   context 'full refund' do
+    let(:order) { create(:completed_avalara_order) }
+    let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
+
+    subject do
+      order.reload
+      refund.avalara_capture_finalize
+    end
+
     it 'returns correct tax calculations' do
-      order = create(:avalara_order)
-      order.update_attributes(state: 'complete', completed_at: 2.days.ago)
-      order.avalara_capture_finalize
-
-      payment = create(:payment, order: order, amount: order.total.to_f)
-      refund = build(:refund, payment: payment, amount: order.total.to_f)
-
-      response = refund.avalara_capture_finalize
-
-      expect(response['TotalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
-      expect(response['TotalTax'].to_f.abs).to eq(order.additional_tax_total)
+      expect(subject['TotalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
+      expect(subject['TotalTax'].to_f.abs).to eq(order.additional_tax_total)
     end
   end
 end
