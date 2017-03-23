@@ -56,8 +56,15 @@ describe Spree::AvalaraTransaction, :vcr do
         create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
         order.update!
       end
+
+      subject do
+        VCR.use_cassette('order_capture_with_promo', allow_playback_repeats: true) do
+          order.avalara_transaction.commit_avatax('SalesOrder')
+        end
+      end
+
       it 'applies discount' do
-        expect(order.avalara_transaction.commit_avatax('SalesInvoice')['TotalDiscount']).to eq('10')
+        expect(subject['TotalDiscount']).to eq('10')
       end
     end
 
@@ -77,7 +84,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
     describe '#commit_avatax_final' do
       subject do
-        VCR.use_cassette("order_capture_finalize") do
+        VCR.use_cassette("order_capture_finalize", allow_playback_repeats: true) do
           order.avalara_transaction.commit_avatax_final('SalesInvoice')
         end
       end
@@ -101,15 +108,23 @@ describe Spree::AvalaraTransaction, :vcr do
 
       context 'with CustomerUsageType' do
         let(:use_code) { create(:avalara_entity_use_code) }
+
         before do
           order.user.update_attributes(avalara_entity_use_code: use_code)
         end
 
+        subject do
+          VCR.use_cassette('capture_with_customer_usage_type') do
+            order.avalara_transaction.commit_avatax('SalesInvoice')
+          end
+        end
+
         it 'does not add additional tax' do
-          expect(order.avalara_transaction.commit_avatax('SalesInvoice')['TotalTax']).to eq('0')
+          expect(subject['TotalTax']).to eq('0')
         end
       end
     end
+
 
     describe '#cancel_order' do
 

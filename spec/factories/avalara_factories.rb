@@ -58,6 +58,11 @@ FactoryGirl.modify do
         address.association(:country, iso: country_iso_code)
       end
     end
+
+  end
+
+  factory :ship_address, parent: :address do
+    address1 '915 S Jackson St'
   end
 
   # Adding this modifier since US country name changes between solidus versions

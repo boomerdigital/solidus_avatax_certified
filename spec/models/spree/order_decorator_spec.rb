@@ -46,7 +46,7 @@ describe Spree::Order, :vcr do
 
   describe "#avalara_capture" do
     subject do
-      VCR.use_cassette("order_capture") do
+      VCR.use_cassette("order_capture", allow_playback_repeats: true) do
         avalara_order.avalara_capture
       end
     end
@@ -65,7 +65,7 @@ describe Spree::Order, :vcr do
   describe "#avalara_capture_finalize" do
 
     subject do
-      VCR.use_cassette("order_capture_finalize") do
+      VCR.use_cassette("order_capture_finalize", allow_playback_repeats: true) do
         avalara_order.avalara_capture_finalize
       end
     end
