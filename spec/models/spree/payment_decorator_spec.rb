@@ -26,7 +26,7 @@ describe Spree::Payment, :vcr do
     payment.source = card
     payment.order = order
     payment.payment_method = gateway
-    payment.amount = 5
+    payment.amount = order.total
     payment
   end
 
@@ -47,25 +47,34 @@ describe Spree::Payment, :vcr do
 
 
   describe '#purchase!' do
+    subject do
+      VCR.use_cassette("order_capture_finalize") do
+        order.avalara_capture_finalize
+        payment.purchase!
+      end
+    end
+
     it 'receive avalara_finalize' do
       expect(payment).to receive(:avalara_finalize)
-      payment.purchase!
+      subject
     end
   end
 
   describe '#avalara_finalize' do
-    before do
-      order.update_attributes(additional_tax_total: 1.to_f)
+    subject do
+      VCR.use_cassette("order_capture_finalize") do
+        order.avalara_capture_finalize
+        payment.avalara_finalize
+      end
     end
 
     it 'should update the amount to be the order total' do
+      payment.update_attributes(amount: 5)
       initial_amount = payment.amount
-      payment.avalara_finalize
+
+      subject
+
       expect(payment.amount).not_to eq(initial_amount)
-    end
-    it 'should receive avalara_capture_finalize on order' do
-      expect(payment.order).to receive(:avalara_capture_finalize)
-      payment.avalara_finalize
     end
   end
 
@@ -77,11 +86,6 @@ describe Spree::Payment, :vcr do
   end
 
   describe '#cancel_avalara' do
-    it 'should receive cancel order on avalara transaction' do
-      expect(payment.order.avalara_transaction).to receive(:cancel_order)
-      payment.cancel_avalara
-    end
-
     context 'uncommitted order' do
       let!(:order) { create(:avalara_order) }
 
@@ -94,12 +98,18 @@ describe Spree::Payment, :vcr do
     end
 
     context 'committed order' do
-      let!(:order) { create(:completed_avalara_order) }
+      let(:order) { create(:completed_avalara_order) }
+
+      subject do
+        VCR.use_cassette("order_cancel") do
+          order.avalara_capture_finalize
+          payment.cancel_avalara
+        end
+      end
 
       describe 'should be successful' do
         it 'ResultCode returns Success' do
-          response = payment.cancel_avalara
-          expect(response['ResultCode']).to eq('Success')
+          expect(subject['ResultCode']).to eq('Success')
         end
       end
     end
