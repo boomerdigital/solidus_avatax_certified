@@ -36,11 +36,6 @@ describe Spree::Order, :vcr do
         expect(completed_order).to receive(:cancel_avalara)
         completed_order.cancel!
       end
-
-      it 'avalara_transaction should recieve cancel_order when event cancel is called' do
-        expect(completed_order.avalara_transaction).to receive(:cancel_order)
-        completed_order.cancel!
-      end
     end
   end
 
