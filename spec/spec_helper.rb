@@ -70,7 +70,7 @@ RSpec.configure do |config|
   end
 
   config.before :each do
-    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
+    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
     MyConfigPreferences.set_preferences
   end
