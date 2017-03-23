@@ -55,15 +55,20 @@ describe SolidusAvataxCertified::Address, :type => :model do
   end
 
   describe '#validate', :vcr do
+    subject do
+      VCR.use_cassette('address_validation_success') do
+        address_lines.validate
+      end
+    end
+
     it "validates address with success" do
-      result = address_lines.validate
-      expect(address_lines.validate["ResultCode"]).to eq("Success")
+      expect(subject["ResultCode"]).to eq("Success")
     end
 
     it "does not validate when config settings are false" do
       Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
-      result = address_lines.validate
-      expect(address_lines.validate).to eq("Address validation disabled")
+
+      expect(subject).to eq("Address validation disabled")
     end
 
     it 'fails when information is incorrect' do

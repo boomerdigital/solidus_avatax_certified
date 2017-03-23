@@ -1,119 +1,17 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=A%20Different%20Road&Line2=&PostalCode=36104&Region=AL
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 500
-      message: Internal Server Error
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Fri, 13 Jan 2017 16:44:21 GMT
-      Content-Length:
-      - '336'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e82c36d2fa036e0a8bd60ee5801fe93a2d74374529565929a038ace7e912d80c7b05450c98d596c1c46535b181faf4514;
-        Path=/
-    body:
-      encoding: UTF-8
-      string: |
-        {
-        "ResultCode": "Error",
-        "Messages": [
-        {
-        "Summary": "The address number is out of range",
-        "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database.",
-        "RefersTo": "Address.Line1",
-        "Severity": "Error",
-        "Source": "Avalara.AvaTax.Services.Address"}
-        ]
-        }
-    http_version: 
-  recorded_at: Fri, 13 Jan 2017 16:44:22 GMT
-- request:
-    method: get
-    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=A%20Different%20Road&Line2=&PostalCode=36104&Region=AL
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 500
-      message: Internal Server Error
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Fri, 13 Jan 2017 16:44:26 GMT
-      Content-Length:
-      - '336'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e5d6bd45077ac621d4cb7c5c4ab65e7d95dfc3430cc519836dfb688e347e034d048a3d5a6254383b8f16727dc3b21258c;
-        Path=/
-    body:
-      encoding: UTF-8
-      string: |
-        {
-        "ResultCode": "Error",
-        "Messages": [
-        {
-        "Summary": "The address number is out of range",
-        "Details": "The address was found but the street number in the input address was not between the low and high range of the post office database.",
-        "RefersTo": "Address.Line1",
-        "Severity": "Error",
-        "Source": "Avalara.AvaTax.Services.Address"}
-        ]
-        }
-    http_version: 
-  recorded_at: Fri, 13 Jan 2017 16:44:26 GMT
-- request:
     method: post
     uri: https://development.avalara.net/1.0/tax/get
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R935474323","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
+      string: '{"DocCode":"R802256563","DocDate":"2017-03-23","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"1","Line1":"1600
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #2 - 4140","TaxCode":"PC030000","ItemCode":"SKU-2","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"3-FR","ItemCode":"Avalara
+        #7 - 3542","TaxCode":"PC030000","ItemCode":"SKU-7","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"2-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R935474323","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R802256563","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -145,11 +43,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Fri, 13 Jan 2017 16:44:27 GMT
+      - Thu, 23 Mar 2017 18:57:52 GMT
       Content-Length:
-      - '653'
+      - '654'
       Set-Cookie:
-      - TS017f1821=01a8ddc44e7faa5f0377931b4175f93772e34c0749483153bf0a2af098ff30b28217882fab548e059afe26c80e60d5b3ea064b9b8b;
+      - TS017f1821=01a8ddc44e9c65dd90234f0581810b7b0b0d8d9817112b57c9fa22b84e877047e20225047c7091f15d0bb31d7df70cb3fa811cdc7e;
         Path=/
     body:
       encoding: ASCII-8BIT
@@ -157,18 +55,18 @@ http_interactions:
         H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
         kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
         AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1fZq1/Onezu6D7Z3d7d17+OJNscibNluswq/e7H76aH//0d7BeG/nwb1P
-        9x/+FDeu2qw8XlTrZSvN7YdPi2ZqPnafnr7LF6u2qJbhx2+yd9mkVGT8T/HJ
-        zvjA/+gkK6frklCf+V9m7+KjoWGawb96eO/+/oP9e3v8Bb3xvFjmDX3zvYQI
-        hT9eVPTXR7vbz8+0hXn15cnOvR169ONsUpRFe41v2nqd49MnNNZZVl8/zy/z
-        El/8VLG6jy/6I+5TBhBl9Lv8wSsdys54Z5965c+okXy0r3916WA+f5q3WVHa
-        cZ2gq5px/eo1mrzKLxSb4+f4+zvrumjeXK+4x9ctAbSfmuHv7OIjgv2+aDKU
-        F9mCmx0/P35y/MUxPqdW7tP09ZvjN6fpm+Pf+6Nfknw/+SXJiNB203Fv+9kr
-        fcfg8+wV9UaPfvyj6WCUbkaToTjC33I6vp9Ik+PZrCbl4URGPzBoPSW1AWgn
-        OhdfVMv2olrkNFp82h34y4q0TGlevvfp7g7j2KUHdSwfnTFh93bu7z14+BDf
-        8GjM+zu7uzu793d12IoZvjhOnxbn53mdL9v0VZXNaFDgL21hXmeKGsS/mzXz
-        YnnREhr4dDPihJD0KVjio6cn+LuDOLcJUCaM9cFXihB/8enOTvoyXy6b6/Iy
-        WxZZenyZpy++S6hjPv4fmsaLd9YFAAA=
+        6Gk1NZ++OtjZ27v/6f1P7+kXT7OWv9jb2X2wvXNve4+/eFMs8qbNFqvwqze7
+        B4/uP3h0f298f+fe/Xt7D36KG1dtVh4vqvWyleb2w6dFMzUfu09P3+WLVVtU
+        y/DjN9m7bFIqMv6n+GRnfOB/dJKV03VJqM/8L7N3z4tl3tBH30uIHvjjRUV/
+        fbS7/fxMWxhCvDzZubdDj36cTYqyaK/xTVuvc3z6hDCfZfX18/wyL/HF8WxW
+        K0X7Q+gPFUBlOLv8wStCF3/tjHf2qWP+jBrJR/v6V3dg5vOneZsVpR3aCbqq
+        Gd2vXqPJq/xCsTl+jr+/s66L5s31int83RJA+6mhwM4uPiLY74smQ3mRLbjZ
+        8fPjJ8dfHONzauU+TV+/OX5zmr45/r0/+iXJ95NfkowIbTcje9vPXuk7Bp9n
+        r6g3evTjH83I7dFkKI72t5yR7yfSRKnoBEc/oD8/erh7P32dfiebvm2qZfq6
+        BVT92mD9lDQFPj7R2fqiWrYX1SInYuDTLl1eVqRYSvPyvU93d3gIXXIRXvLR
+        GdN9b+f+3oOHD/END9a8v7O7u7N7fxdUERZT5PDd7qc7O+nLfLlsrsvLbFlk
+        6fFlnr74LoBoMwOGCW8G8N2smRfLi5bQwaebB0CIUd/0sWCLj56e4O/OALhN
+        gDphrg+hbuYioo5/SfL/AAi70oHcBQAA
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 16:44:28 GMT
+  recorded_at: Thu, 23 Mar 2017 18:57:54 GMT
 recorded_with: VCR 3.0.3

@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://development.avalara.net/1.0/address/validate?City=Tuscaloosa&Country=US&Line1=220%20Paul%20W%20Bryant%20Dr&Line2=&PostalCode=36104&Region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Thu, 23 Mar 2017 18:10:54 GMT
+      Content-Length:
+      - '314'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44ed319cbbe93799858e6b40f6c1ba0f06971f0d433c43c576a1507e8bf78984d29bbcedb05e4db9f7076f24389ed2f5ef4;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+        "ResultCode": "Success",
+        "Address": {
+        "Line1": "220 Paul W Bryant Dr E",
+        "City": "Tuscaloosa",
+        "Region": "AL",
+        "PostalCode": "35401-2007",
+        "Country": "US",
+        "County": "TUSCALOOSA",
+        "FipsCode": "0112577256",
+        "CarrierRoute": "C009",
+        "PostNet": "354012007206",
+        "AddressType": "S"}
+        }
+    http_version: 
+  recorded_at: Thu, 23 Mar 2017 18:10:56 GMT
+recorded_with: VCR 3.0.3

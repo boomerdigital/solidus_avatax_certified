@@ -14,6 +14,7 @@ FactoryGirl.define do
       line_items_quantity 1
       shipment_cost 5
       tax_category Spree::TaxCategory.first
+      tax_included false
     end
 
     before(:create) do |order, evaluator|
@@ -24,9 +25,9 @@ FactoryGirl.define do
         create(:global_zone, default_tax: true)
       end
       if Spree::TaxCategory.first.nil?
-        create(:clothing_tax_rate, tax_category: create(:tax_category))
+        create(:clothing_tax_rate, tax_category: create(:tax_category), included_in_price: evaluator.tax_included)
       else
-        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first)
+        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first, included_in_price: evaluator.tax_included)
       end
     end
 
@@ -34,7 +35,7 @@ FactoryGirl.define do
       create_list(:line_item, evaluator.line_items_count, order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category, quantity: evaluator.line_items_quantity)
       order.line_items.reload
 
-      create(:avalara_shipment, order: order, cost: evaluator.shipment_cost )
+      create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
       order.shipments.reload
 
       order.update!
@@ -42,11 +43,19 @@ FactoryGirl.define do
     end
 
     factory :completed_avalara_order do
-      state 'complete'
+      shipment_state 'shipped'
+      payment_state 'paid'
 
       after(:create) do |order|
         # order.refresh_shipment_rates
         order.update_column(:completed_at, Time.now)
+        order.update_column(:state, 'complete')
+        payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
+
+        order.update!
+        order.next
+
+        payment.avalara_finalize
       end
     end
   end

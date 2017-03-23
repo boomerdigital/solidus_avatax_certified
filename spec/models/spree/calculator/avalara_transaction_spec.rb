@@ -1,20 +1,11 @@
 require 'spec_helper'
 
-describe Spree::Calculator::AvalaraTransaction, :vcr do
-  let!(:country) { create(:country) }
-  let!(:zone) { create(:zone, :name => 'North America', :default_tax => true, :zone_members => []) }
-  let(:zone_member) { Spree::ZoneMember.create() }
-  let!(:tax_category) { Spree::TaxCategory.create(name: 'Clothing', tax_code: 'P0000000') }
+describe Spree::Calculator::AvalaraTransaction do
   let(:included_in_price) { false }
-  let!(:rate) { create(:tax_rate, :tax_category => tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
-  let!(:calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-  let(:order) { create(:order_with_line_items, line_items_count: 5) }
+  let!(:order) { create(:avalara_order, line_items_price: 10, shipment_cost: 100, tax_included: included_in_price) }
+  let(:tax_category) { Spree::TaxCategory.find_or_create_by(name: 'Clothing', tax_code: 'P0000000') }
+  let(:calculator) { Spree::TaxRate.find_by(name: 'Tax').calculator }
   let(:line_item) { order.line_items.first }
-
-  before :each do
-    zone.zone_members.create!(zoneable: country)
-    order.state = 'delivery'
-  end
 
   describe '#description' do
     it 'responds with avalara_transaction' do
@@ -22,13 +13,10 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
     end
   end
 
-  context '#compute' do
+  context '#compute', :vcr do
     context 'when given an order' do
-      let!(:line_item_1) { line_item }
-      let!(:line_item_2) { create(:line_item, :price => 10, :quantity => 3, :tax_category => tax_category) }
-
       before do
-        allow(order).to receive_messages :line_items => [line_item_1, line_item_2]
+        allow(order).to receive_messages :line_items => [line_item]
       end
 
       context 'when computing an order' do
@@ -83,7 +71,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
         end
 
         context 'when the order is discounted' do
-          let(:promotion) { create(:promotion, :with_order_adjustment) }
+          let(:promotion) { create(:promotion, :with_order_adjustment, weighted_order_adjustment_amount: 2) }
 
           before do
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
@@ -94,14 +82,14 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
             expect(calculator.compute(line_item)).to eq(0.32)
           end
         end
+
         context 'when the line item is discounted' do
           let!(:promotion) { create(:promotion_with_item_adjustment, adjustment_rate: 2) }
 
           before do
-            order.line_items.each do |li|
-              create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
-            end
-            order.update!
+            create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: line_item)
+            line_item.reload
+            order.reload.update!
           end
 
           it 'should be equal to the items pre-tax total * rate' do
@@ -112,37 +100,30 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
     end
 
     context 'when given a shipment' do
-      let!(:shipping_tax_category) { Spree::TaxCategory.create(name: 'Shipping', tax_code: 'FR000000') }
-      let!(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(:calculable => rate ) }
-      let!(:shipping_rate) { create(:tax_rate, :tax_category => shipping_tax_category, :amount => 0.00, :included_in_price => included_in_price, zone: zone) }
+      let(:shipping_rate) { Spree::TaxRate.find_by(name: 'Shipping Tax') }
+      let(:shipping_calculator) { Spree::Calculator::AvalaraTransaction.new(calculable: shipping_rate) }
+      let!(:shipment) { order.shipments.first }
 
-      before do
-        @shipment = build_shipment(order)
-        order.state = 'delivery'
+      describe 'computing normal shipment' do
+        it 'should be equal 4.0' do
+          expect(shipping_calculator.compute(shipment)).to eq(4.0)
+        end
       end
 
-      it 'should be equal 4.0' do
-        expect(shipping_calculator.compute(order.shipments.first)).to eq(4.0)
+      describe 'with promotion' do
+        it 'should equal 3.96' do
+          shipment.update_attributes(promo_total: -1)
+          expect(shipping_calculator.compute(shipment)).to eq(3.96)
+        end
       end
 
-      it 'takes discounts into consideration' do
-        order.shipments.first.update_attributes(promo_total: -1)
-        expect(shipping_calculator.compute(order.shipments.first)).to eq(3.96)
-      end
-
-      context 'included_in_price' do
+      describe 'when tax is included in price' do
         let(:included_in_price) { true }
+
         it 'should be equal to 3.85' do
-          expect(shipping_calculator.compute(order.shipments.first)).to eq(3.85)
+          expect(shipping_calculator.compute(shipment)).to eq(3.85)
         end
       end
     end
-  end
-
-  def build_shipment(order)
-    order.shipments.first.shipping_method.update_attributes(tax_category: Spree::TaxCategory.find_by_name('Shipping'))
-    order.shipments.first.selected_shipping_rate.update_attributes(tax_rate_id: shipping_rate.id)
-    order.reload
-    order.shipments.first
   end
 end

@@ -29,11 +29,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Tue, 10 Jan 2017 09:38:14 GMT
+      - Thu, 23 Mar 2017 18:10:54 GMT
       Content-Length:
       - '373'
       Set-Cookie:
-      - TS017f1821=01a8ddc44ed33383c96981e90229cb9cb3de41ea5d86e5b033bf0628544e4b17d5d45cc4a993f8b96f64c42e51d6d8c6f227a74097;
+      - TS017f1821=01a8ddc44ecc54844194119d45cac1e4482250d17bb22af5a5fcd94b66cce4d353c22d13ac7d1f0b18626bcc9bcde3701b81b09560;
         Path=/
     body:
       encoding: UTF-8
@@ -44,11 +44,11 @@ http_interactions:
         {
         "Summary": "An exact street name match could not be found",
         "Details": "An exact street name match could not be found and phonetically matching the street name resulted in either no matches or matches to more than one street name.",
+        "RefersTo": "Address.Line1",
         "Severity": "Error",
-        "Source": "Avalara.AvaTax.Services.Address",
-        "RefersTo": "Address.Line1"}
+        "Source": "Avalara.AvaTax.Services.Address"}
         ]
         }
     http_version: 
-  recorded_at: Tue, 10 Jan 2017 09:38:14 GMT
+  recorded_at: Thu, 23 Mar 2017 18:10:56 GMT
 recorded_with: VCR 3.0.3

@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://development.avalara.net/1.0/tax/get
+    body:
+      encoding: UTF-8
+      string: '{"DocCode":"R289947659.","DocDate":"2017-03-22","Commit":false,"DocType":"ReturnOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
+        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
+        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"-RA","ItemCode":"fake-refund-transaction-1","Qty":1,"Amount":-15.6,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Refund","TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R289947659","DetailLevel":"Tax","CurrencyCode":"USD","TaxOverride":{"TaxOverrideType":"TaxDate","Reason":"Refund
+        for return #1","TaxDate":"2017-03-22"}}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '972'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - text/json; charset=utf-8
+      Content-Encoding:
+      - gzip
+      Vary:
+      - Accept-Encoding
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Wed, 22 Mar 2017 21:14:11 GMT
+      Content-Length:
+      - '576'
+      Set-Cookie:
+      - TS017f1821=01a8ddc44e532db1bec3d4df49d13d5a0e13543bc102f5e72b076f4e93e17845923d490459427fd4460712f72860ed33a4bc3505bb;
+        Path=/
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
+        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
+        6Gk1NZ++2jt4+HD/waf3H471m6dZy9/s7ew+2N65t723hy/eFIu8abPFKvzq
+        zd7uo939R7u74wc7u/cfPvj0p7hx1Wbl8aJaL1s03969bz99WjRT8/mO/fT0
+        Xb5YtUW1DD9+k73LJiVj48Ogj/mjnfGn/mcnWTldl4T9LPg2e/e8WOYNffa9
+        hIiCP15U9NdH26+OtYEhxssdefTjbFKURXuNb9p6nePTJ4T7LKuvn+eXeYkv
+        fqpYMWL9EfRHCojBaF4RsvhzZ7yzT92aVvjIQ39wXE/zNitKO7IT9FYzul+9
+        RpNX+YUidPwcf39nXRfNm+sV9/m6JYj2U0OBnV18RLDfH1OG8yJbcLvj58dP
+        jr8w9HWfpq/fHL85Td8c/94f/ZLk+wn+L02OZ7OauNPNk35Af350nD4tzs/z
+        Ol+26asqmwGqfm3wfkrMiY9PdL6+qJbtRbXIiRz4tEuZlxXxcmlevvfp7s4+
+        Pu4SjPCSj86Y9Hs79/cePHyIb3iw5v2d3V1i/l2Q5ZckoxD3h7v309fpd7Lp
+        26Zapq8ZSf3avP5lXVzg45973M1kRFTAL0n+H14GiAlRBAAA
+    http_version: 
+  recorded_at: Wed, 22 Mar 2017 21:14:11 GMT
+recorded_with: VCR 3.0.3
