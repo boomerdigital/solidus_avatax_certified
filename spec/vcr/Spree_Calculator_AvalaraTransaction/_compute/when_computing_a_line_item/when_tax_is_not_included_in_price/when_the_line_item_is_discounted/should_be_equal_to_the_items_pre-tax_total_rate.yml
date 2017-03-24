@@ -5,146 +5,13 @@ http_interactions:
     uri: https://development.avalara.net/1.0/tax/get
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R092628552","DocDate":"2017-03-21","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 9574","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R092628552","DetailLevel":"Tax","CurrencyCode":"USD"}'
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '796'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Tue, 21 Mar 2017 16:31:08 GMT
-      Content-Length:
-      - '577'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e4eaee899f569209e32fe5f5dd90b4b16529bffa6d0afa842e0f38c85c9f4f893a5830213593553c6cac5d86e2ea49105;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++2nm49+newf37e/rF06zlL/Z2dh9s79zb3tvFF2+KRd602WIVfvVm
-        99NH93Yf7RyMH9zbvbf38OCnuHHVZuXxolovWzTf3bEfPi2aqfnYfXr6Ll+s
-        2qJahh+/yd5lk5KR8UDQp/hkZ7zvf3SSldN1SajP/C+zd8+LZd7QR99LiB74
-        40VFf320u/38TFsYQrw82bm3Q49+nE2Ksmiv8U1br3N8+oQwn2X19fP8Mi/x
-        xU8Vq/v4oo9/f5yA6I/lFeGKv3bGO/vUK39GjeQjg/3QqJ7mbVaUdlwn6Kpm
-        XL96jSav8gvF5vg5/v7Oui6aN9cr7vF1SwDtp2b4OzLN748mQ3mRLbjZ8fPj
-        J8dfHONzauU+TV+/OX5zmr45/r0/+iXJ9xP8X5ocz2Y1MaWbI/2A/vzoOH1a
-        nJ/ndb5s01dVNgNU/dpg/ZSYEh+f6FR9US3bi2qREzHw6U10IQTkozMm8N7O
-        /b0HDx/iGx6V6WVnd3dn9/6uDv9lRYJQmu/ufbq7s0+DGoW4P9y9n75Ov5NN
-        3zbVMn3NSOrX5s0v6+ICH//c424mIyL6vyT5fwDYUw3PSAQAAA==
-    http_version: 
-  recorded_at: Tue, 21 Mar 2017 16:31:08 GMT
-- request:
-    method: post
-    uri: https://development.avalara.net/1.0/tax/get
-    body:
-      encoding: UTF-8
-      string: '{"DocCode":"R092628552","DocDate":"2017-03-21","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
+      string: '{"DocCode":"R505247679","DocDate":"2017-03-24","Discount":"2.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"915
+        S Jackson St","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 9574","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
+        #1 - 3022","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":100.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R092628552","DetailLevel":"Tax","CurrencyCode":"USD"}'
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1145'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Tue, 21 Mar 2017 16:31:10 GMT
-      Content-Length:
-      - '674'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e764ae77b513641ab6110ddcbfcea9122ae3f57f127a00b1a23ecbda05ca5165a3a4346823ebb50411da63f941953f25e;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++2nm49+newf37e/rF06zlL/Z2dh9s79zb3tvFF2+KRd602WIVfvVm
-        99NH93Yf7e6O9x4c7D98+OCnuHHVZuXxolovWzTf3d2xnz4tmqn53H16+i5f
-        rNqiWoYfv8neZZOSsfFh0Mf4aH+87390kpXTdUnIz/wvs3fPi2Xe0EffS4gi
-        +ONFRX99tLv9/ExbGFK8PNm5t0OPfpxNirJor/FNW69zfPqEUJ9l9fXz/DIv
-        8cVPFav7+KI/gP5AAVEHwx+8Ilzx1854Z5965c+okXxksA9H5T5/mrdZUdpx
-        naCrmnH96jWavMovFJvj5/j7O+u6aN5cr7jH1y0BtJ+a4e/IRL8/mgzlRbbg
-        ZsfPj58cf3GMz6mV+zR9/eb4zWn65vj3/uiXJN9PfkkyIrT96Xj2St8x+Dx7
-        Rb3Rox//bE4Hf7JhoDxM+j2cDfPpD2cuGJ+bcGQgjui3nIrvJ9LkeDarSUM4
-        cdEP6M+PjtOnxfl5XufLNn1VZTNA1a8N0k9JQ+DjE52mL6ple1EtcqIFPu2S
-        5WVFCqU0L9/7dHeHh9ClFuElH50x0fd27u89ePgQ3/Bgzfs7pCF27xOZdmhQ
-        4C1FDt/tfrqzk77Ml8vmurzMlkWWHl/m6YvvAog2M2BYC5oBfDdr5sXyoiV0
-        8OnmARBi1Dd9LNjio6cn+LszAG4ToE6Y60Oom7mIqOFfkvw/4IL6PNQFAAA=
-    http_version: 
-  recorded_at: Tue, 21 Mar 2017 16:31:11 GMT
-- request:
-    method: post
-    uri: https://development.avalara.net/1.0/tax/get
-    body:
-      encoding: UTF-8
-      string: '{"DocCode":"R092628552","DocDate":"2017-03-21","Discount":"2.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 9574","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":100.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R092628552","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R505247679","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -176,11 +43,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Tue, 21 Mar 2017 16:31:12 GMT
+      - Fri, 24 Mar 2017 17:34:45 GMT
       Content-Length:
-      - '684'
+      - '670'
       Set-Cookie:
-      - TS017f1821=01a8ddc44e01aee4209800a624db9cb2920b5f18783b27e68d7ef3f5fbbd09e210e1c4a86f3e600738529a61c1e4c7d057c720db0c;
+      - TS017f1821=01a8ddc44ed8f3d835f6ee3f4ea7d1a3e33a51b813fd0212cd3db307b27d96fbb2a11004c43cc6cc9ad40f71f9983d5539ded323f4;
         Path=/
     body:
       encoding: ASCII-8BIT
@@ -188,89 +55,18 @@ http_interactions:
         H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
         kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
         AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++2nm49+newf37e/rF06zlL/Z2dh9s79zb3tvFF2+KRd602WIVfvVm
-        99NH93Yf7e6NHz7Y3X9w795PceOqzcrjRbVetmi+u7tjP31aNFPzOffIn56+
-        yxertqiW+Ng1fpO9yyYlY7O7c+B/jI/2x/ccBPrsJCun65KwnwXfZu+eF8u8
-        oc++lxBN8MeLiv76aHf7+Zm2MMR4ebJzb4ce/TibFGXRXuObtl7n+PQJIT/L
-        6uvn+WVe4oufKlb38UV/CP2hAqIMhwfzinDFHzvjnX3qlF+iNvKRxT4clvfF
-        07zNitIO7AR91YzsV6/R5FV+oegcP8ff31nXRfPmesV9vm4Jov3UjH9H5vr9
-        8WQoL7IFtzt+fvzk+ItjfE7N3Kfp6zfHb07TN8e/90e/JPl+8kuSEaHtz8ez
-        V/qOwefZK+qOHv34m5sP/oAhyjh3pY8NI93X38PpMJ/+MObiljgyEEf0W07F
-        9xNpcjyb1aQknLzoB/TnR8fp0+L8PK/zZZu+qrIZoOrXBumnpCTw8YlO0xfV
-        sr2oFjnRAp92yfKyIp1Smpfvfbq7w0PoUovwko/OmOh7O/f3Hjx8iG94sOb9
-        HVI0u/eJTDs0KPCWIofvdj/d2Ulf5stlc11eZssiS48v8/TFdwFEmxkwzNBm
-        AN/NmnmxvGgJHXy6eQCEGPVNHwu2+OjpCf7uDIDbBKgT5voQ6mYuIpr4lyT/
-        D5IkuY7XBQAA
-    http_version: 
-  recorded_at: Tue, 21 Mar 2017 16:31:13 GMT
-- request:
-    method: post
-    uri: https://development.avalara.net/1.0/tax/get
-    body:
-      encoding: UTF-8
-      string: '{"DocCode":"R470436094","DocDate":"2017-03-21","Discount":"2.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #21 - 5806","TaxCode":"PC030000","ItemCode":"SKU-21","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":true,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":100.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R470436094","DetailLevel":"Tax","CurrencyCode":"USD"}'
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1146'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Tue, 21 Mar 2017 21:38:08 GMT
-      Content-Length:
-      - '682'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e55b7585fbff19b71ba1421888ebd7aef370f65f86fae1c201bb3140b3e98a287d8591ed028980f2c0ceb4aa36a0926ad;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++2n+ws3/v052H+/rF06zlL/Z2dh9s79zb3tvFF2+KRd602WIVfvVm
-        b/fRvYNHOwfjTx/s3fv0009/ihtXbVYeL6r1skXz3d0d++nTopmaz/fsp6fv
-        8sWqLaolPnaN32TvsknJ2OzuHPgf46P98T0HgT47ycrpuiTsZ8G32bvnxTJv
-        6LPvJUQT/PGior8+2t1+fqYtDDFenuzc26FHP84mRVm01/imrdc5Pn1CyM+y
-        +vp5fpmX+OJ4NquVqv1R9EcLoDIiHs8rQhd/7Ix39qlffonayEd2AOHIvC+e
-        5m1WlHZsJ+irZny/eo0mr/ILRef4Of7+zroumjfXK+7zdUsQ7aeGBDsy3e+P
-        J0N5kS243fHz4yfHXxzjc2rmPk1fvzl+c5q+Of69P/olyfeTX5KMCG1/Sp69
-        0ncMPs9eUXf06Mff6JTwBwxUhror3WwYLAsJ/R7OiPn0hzEdt8SRgTi633I2
-        vp9IE6Wgkxr9gP786OHu/fR1+p1s+raplunrFlD1a4P0U1IV+PhEZ+qLatle
-        VIucaIFPu2R5WZFmKc3L9z7d3eEhdKlFeMlHZ0z0vZ37ew8ePsQ3PFjz/g6p
-        m937RKYdGhTYS5HDd7uf7uykL/PlsrkuL7NlkaXHl3n64rsAos0MGOZpM4Dv
-        Zs28WF60hA4+3TwAQoz6po8FW3z09AR/dwbAbQLUCXN9CHUzFxF9/EuS/wcE
-        rOWu3QUAAA==
-    http_version: 
-  recorded_at: Tue, 21 Mar 2017 21:38:07 GMT
+        6Gk1NZ++ur9zf2//wacPHuoXT7OWv9jb2X2wvXNve28fX7wpFnnTZotV+NWb
+        3QeP7u0/2r8/3t158PD+/d2f4sZVm5XHi2q9bNF8d3fHfvq0aKbm8z376em7
+        fLFqi2qJj13jN9m7bFIyNrs7B/7H+Gh/fM9BoM9OsnK6Lgn7WfBt9u55scwb
+        +ux7CdEEf7yo6K+Pdrefn2kLQ4yXJzv3dujRj7NJURbtNb5p63WOT58Q8rOs
+        vn6eX+YlvjiezWqlan8U/dECqIyIx/OK0MUfO+OdfeqXX6I28pEdQDgy74un
+        eZsVpR3bCfqqGd+vXqPJq/xC0Tl+jr+/s66L5s31ivt83RJE+6khwc4uPiLY
+        74snQ3mRLbjd8fPjJ8dfHONzauY+TV+/OX5zmr45/r0/+iXJ95NfkowIbX9K
+        nr3Sdww+z15Rd/Tox9/olPAHDFSGuivdbBisyAJhF8yI+fSHMR23xJGBOLrf
+        cja+n0gTpaCTGv3AYPWUdAGg3ThCgiUfnTGh9kjXPHjImoYRNPB2SEXs3qeh
+        8Ti0M3zxcPd++jr9TjZ921TL9DV3+rIiRVSaV+99urvDIz5RtviiWrYX1SIn
+        tIS9FJx5gZl1A+JPT/B3B3HGK0CZMNYHX2kf/MWnOzvpy3y5bK7Ly2xZZOnx
+        ZZ6++C6ahagTNeRtg/p3s2ZeLC9aQsTNRUQf/5Lk/wFJj17m3QUAAA==
+    http_version:
+  recorded_at: Fri, 24 Mar 2017 17:34:45 GMT
 recorded_with: VCR 3.0.3
