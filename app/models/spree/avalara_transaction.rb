@@ -60,30 +60,13 @@ module Spree
       end
     end
 
-    def post_order_to_avalara(commit = false, invoice_detail = nil)
+    def post_order_to_avalara(commit = false, doc_type = nil)
       logger.info "Begin post order #{order.number} to avalara"
 
-      avatax_address = SolidusAvataxCertified::Address.new(order)
-      avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail)
-
-      doc_date = order.completed? ? order.completed_at.strftime('%F') : Date.today.strftime('%F')
-
-      gettaxes = {
-        DocCode: order.number,
-        DocDate: doc_date,
-        Discount: order.all_adjustments.promotion.eligible.sum(:amount).abs.to_s,
-        Commit: commit,
-        DocType: invoice_detail ? invoice_detail : 'SalesOrder',
-        Addresses: avatax_address.addresses,
-        Lines: avatax_line.lines
-      }.merge(base_tax_hash)
-
-      if !business_id_no.blank?
-        gettaxes[:BusinessIdentificationNo] = business_id_no
-      end
+      request = SolidusAvataxCertified::Request::GetTax.new(order, commit: commit, doc_type: doc_type).generate
 
       mytax = TaxSvc.new
-      tax_result = mytax.get_tax(gettaxes)
+      tax_result = mytax.get_tax(request)
 
       return { TotalTax: '0.00' } if tax_result == 'error in Tax'
       return tax_result if tax_result['ResultCode'] == 'Success'
