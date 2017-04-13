@@ -20,8 +20,6 @@ module SolidusAvataxCertified
       origin_address
       order_ship_address unless @ship_address.nil?
       origin_ship_addresses
-
-      logger.debug @addresses
     end
 
     def origin_address
@@ -86,10 +84,6 @@ module SolidusAvataxCertified
 
     def stock_loc_ids
       order.shipments.pluck(:stock_location_id).uniq
-    end
-
-    def logger
-      @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_addresses', 'SolidusAvataxCertified::Address', "Building Addresses for Order#: #{order.number}")
     end
   end
 end

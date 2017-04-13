@@ -1,4 +1,3 @@
-require 'logging'
 require_dependency 'spree/order'
 
 module Spree
@@ -6,7 +5,6 @@ module Spree
     belongs_to :order
     validates :order, presence: true
     validates :order_id, uniqueness: true
-    # has_many :adjustments, as: :source
 
     def lookup_avatax
       post_order_to_avalara(false, 'SalesOrder')
@@ -36,8 +34,8 @@ module Spree
           { TotalTax: '0.00' }
         end
       else
-        logger.debug 'avalara document committing disabled'
-        'avalara document committing disabled'
+        logger.info 'Avalara Document Committing Disabled'
+        'Avalara Document Committing Disabled'
       end
     end
 
@@ -48,7 +46,7 @@ module Spree
     private
 
     def cancel_order_to_avalara(doc_type = 'SalesInvoice')
-      logger.info('cancel order to avalara')
+      logger.info "Begin cancel order #{order.number} to avalara..."
 
       cancel_tax_request = {
         CompanyCode: Spree::AvalaraPreference.company_code.value,
@@ -60,8 +58,6 @@ module Spree
       mytax = TaxSvc.new
       cancel_tax_result = mytax.cancel_tax(cancel_tax_request)
 
-      logger.debug cancel_tax_result
-
       if cancel_tax_result == 'Error in Cancel Tax'
         return 'Error in Cancel Tax'
       else
@@ -70,7 +66,8 @@ module Spree
     end
 
     def post_order_to_avalara(commit = false, invoice_detail = nil)
-      logger.info('post order to avalara')
+      logger.info "Begin post order #{order.number} to avalara"
+
       avatax_address = SolidusAvataxCertified::Address.new(order)
       avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail)
 
@@ -90,20 +87,15 @@ module Spree
         gettaxes[:BusinessIdentificationNo] = business_id_no
       end
 
-      logger.debug gettaxes
-
       mytax = TaxSvc.new
-
       tax_result = mytax.get_tax(gettaxes)
-
-      logger.info_and_debug('tax result', tax_result)
 
       return { TotalTax: '0.00' } if tax_result == 'error in Tax'
       return tax_result if tax_result['ResultCode'] == 'Success'
     end
 
     def post_return_to_avalara(commit = false, invoice_detail = nil, refund = nil)
-      logger.info('starting post return order to avalara')
+      logger.info "Begin post return order #{order.number} to avalara"
 
       avatax_address = SolidusAvataxCertified::Address.new(order)
       avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail, refund)
@@ -129,13 +121,8 @@ module Spree
 
       gettaxes[:TaxOverride] = taxoverride
 
-      logger.debug gettaxes
-
       mytax = TaxSvc.new
-
       tax_result = mytax.get_tax(gettaxes)
-
-      logger.info_and_debug('tax result', tax_result)
 
       return { TotalTax: '0.00' } if tax_result == 'error in Tax'
       return tax_result if tax_result['ResultCode'] == 'Success'
@@ -175,7 +162,7 @@ module Spree
     end
 
     def logger
-      @logger ||= SolidusAvataxCertified::AvataxLog.new('post_order_to_avalara', __FILE__)
+      @logger ||= SolidusAvataxCertified::AvataxLog.new('Spree::AvalaraTransaction class')
     end
   end
 end

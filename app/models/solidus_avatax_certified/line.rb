@@ -21,8 +21,6 @@ module SolidusAvataxCertified
         item_lines_array
         shipment_lines_array
       end
-
-      logger.debug @lines
     end
 
     def item_line(line_item)
@@ -134,10 +132,6 @@ module SolidusAvataxCertified
 
     def discounted?(line_item)
       line_item.adjustments.promotion.eligible.any? || order.adjustments.promotion.eligible.any?
-    end
-
-    def logger
-      @logger ||= SolidusAvataxCertified::AvataxLog.new('avalara_order_lines', 'SolidusAvataxCertified::Line', "Building Lines for Order#: #{order.number}")
     end
 
     def tax_included_in_price?(item)
