@@ -13,14 +13,14 @@ describe Spree::AvalaraTransaction, :vcr do
   context 'captured orders' do
 
     before do
-      VCR.use_cassette("order_capture") do
+      VCR.use_cassette('order_capture', allow_playback_repeats: true) do
         order.avalara_capture
       end
     end
 
     describe '#lookup_avatax' do
       subject do
-        VCR.use_cassette("order_capture") do
+        VCR.use_cassette('order_capture', allow_playback_repeats: true) do
           order.avalara_transaction.lookup_avatax
         end
       end
@@ -32,7 +32,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
     describe '#commit_avatax' do
       subject do
-        VCR.use_cassette("order_capture") do
+        VCR.use_cassette('order_capture', allow_playback_repeats: true) do
           order.avalara_transaction.commit_avatax('SalesOrder')
         end
       end
@@ -131,7 +131,7 @@ describe Spree::AvalaraTransaction, :vcr do
       describe 'when successful' do
         let(:order) { create(:completed_avalara_order) }
         subject do
-          VCR.use_cassette("order_cancel") do
+          VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
             order.avalara_capture_finalize
             order.avalara_transaction.cancel_order
           end
@@ -159,7 +159,7 @@ describe Spree::AvalaraTransaction, :vcr do
     let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
     before do
-      VCR.use_cassette("order_capture_finalize") do
+      VCR.use_cassette('order_capture_finalize', allow_playback_repeats: true) do
         order.avalara_capture_finalize
         order.reload
       end
@@ -167,7 +167,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
     describe '#commit_avatax' do
       subject do
-        VCR.use_cassette("order_return_capture") do
+        VCR.use_cassette('order_return_capture', allow_playback_repeats: true) do
           order.avalara_transaction.commit_avatax('ReturnOrder', refund)
         end
       end
@@ -183,7 +183,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
     describe '#commit_avatax_final' do
       subject do
-        VCR.use_cassette("order_return_capture") do
+        VCR.use_cassette('order_return_capture', allow_playback_repeats: true) do
           order.avalara_transaction.commit_avatax_final('ReturnOrder', refund)
         end
       end

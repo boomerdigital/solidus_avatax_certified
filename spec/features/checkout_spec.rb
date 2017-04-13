@@ -149,7 +149,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true do
   end
 
   def visit_delivery
-    VCR.use_cassette('address_validation_success') do
+    VCR.use_cassette('address_validation_success', allow_playback_repeats: true) do
       visit_address
       fill_in_address
       click_button 'Save and Continue'
