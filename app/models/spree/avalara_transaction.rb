@@ -72,35 +72,13 @@ module Spree
       return tax_result if tax_result['ResultCode'] == 'Success'
     end
 
-    def post_return_to_avalara(commit = false, invoice_detail = nil, refund = nil)
+    def post_return_to_avalara(commit = false, doc_type = nil, refund = nil)
       logger.info "Begin post return order #{order.number} to avalara"
 
-      avatax_address = SolidusAvataxCertified::Address.new(order)
-      avatax_line = SolidusAvataxCertified::Line.new(order, invoice_detail, refund)
-
-      taxoverride = {
-        TaxOverrideType: 'TaxDate',
-        Reason: refund.try(:reason).try(:name).limit(255) || 'Return',
-        TaxDate: order.completed_at.strftime('%F')
-      }
-
-      gettaxes = {
-        DocCode: order.number.to_s + '.' + refund.id.to_s,
-        DocDate: Date.today.strftime('%F'),
-        Commit: commit,
-        DocType: invoice_detail ? invoice_detail : 'ReturnOrder',
-        Addresses: avatax_address.addresses,
-        Lines: avatax_line.lines
-      }.merge(base_tax_hash)
-
-      if !business_id_no.blank?
-        gettaxes[:BusinessIdentificationNo] = business_id_no
-      end
-
-      gettaxes[:TaxOverride] = taxoverride
+      request = SolidusAvataxCertified::Request::ReturnTax.new(order, commit: commit, doc_type: doc_type, refund: refund).generate
 
       mytax = TaxSvc.new
-      tax_result = mytax.get_tax(gettaxes)
+      tax_result = mytax.get_tax(request)
 
       return { TotalTax: '0.00' } if tax_result == 'error in Tax'
       return tax_result if tax_result['ResultCode'] == 'Success'
