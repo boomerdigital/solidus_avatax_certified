@@ -37,11 +37,11 @@ module SolidusAvataxCertified
       end
 
       def address_lines
-        @address_lines ||= SolidusAvataxCertified::Address.new(order)
+        @address_lines ||= SolidusAvataxCertified::Address.new(order).addresses
       end
 
       def sales_lines
-        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type)
+        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type).lines
       end
 
       def company_code

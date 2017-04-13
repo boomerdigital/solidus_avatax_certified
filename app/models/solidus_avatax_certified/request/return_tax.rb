@@ -43,7 +43,7 @@ module SolidusAvataxCertified
       end
 
       def sales_lines
-        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type, @refund)
+        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type, @refund).lines
       end
     end
   end
