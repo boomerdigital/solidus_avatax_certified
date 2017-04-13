@@ -1,9 +1,9 @@
 module SolidusAvataxCertified
   class AvataxLog
-    def initialize(path_name, file_name, log_info = nil, schedule = nil)
+    def initialize(file_name, log_info = nil, schedule = nil)
       if !Spree::AvalaraPreference.log_to_stdout.is_true?
         schedule = 'weekly' unless schedule != nil
-        @logger ||= Logger.new("#{Rails.root}/log/#{path_name}.log", schedule)
+        @logger ||= Logger.new("#{Rails.root}/log/avatax.log", schedule)
         progname(file_name.split('/').last.chomp('.rb'))
         info(log_info) unless log_info.nil?
       else
@@ -26,11 +26,9 @@ module SolidusAvataxCertified
       end
     end
 
-    def info(log_info = nil)
+    def info(message, obj = nil)
       if enabled?
-        unless log_info.nil?
-          logger.info "[AVATAX] #{log_info}"
-        end
+        logger.info "[AVATAX] #{message} #{obj}"
       end
     end
 
@@ -46,23 +44,15 @@ module SolidusAvataxCertified
     end
 
 
-    def debug(obj, text = nil)
+    def debug(obj, message='')
       if enabled?
-        logger.debug "[AVATAX] #{obj.inspect}"
-        if text.nil?
-          obj
-        else
-          logger.debug "[AVATAX] text"
-          text
-        end
+        logger.debug "[AVATAX] #{message} #{obj.inspect}"
       end
     end
 
-    def error(log_info = nil)
+    def error(obj, message='')
       if enabled?
-        unless log_info.nil?
-          logger.error "[AVATAX] #{log_info}"
-        end
+        logger.error "[AVATAX] #{message} #{obj}"
       end
     end
   end
