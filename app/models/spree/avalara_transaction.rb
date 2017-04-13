@@ -48,15 +48,10 @@ module Spree
     def cancel_order_to_avalara(doc_type = 'SalesInvoice')
       logger.info "Begin cancel order #{order.number} to avalara..."
 
-      cancel_tax_request = {
-        CompanyCode: Spree::AvalaraPreference.company_code.value,
-        DocType: doc_type,
-        DocCode: order.number,
-        CancelCode: 'DocVoided'
-      }
+      request = SolidusAvataxCertified::Request::CancelTax.new(order, doc_type: doc_type).generate
 
       mytax = TaxSvc.new
-      cancel_tax_result = mytax.cancel_tax(cancel_tax_request)
+      cancel_tax_result = mytax.cancel_tax(request)
 
       if cancel_tax_result == 'Error in Cancel Tax'
         return 'Error in Cancel Tax'
