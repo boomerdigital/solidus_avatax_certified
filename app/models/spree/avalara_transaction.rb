@@ -84,31 +84,6 @@ module Spree
       return tax_result if tax_result['ResultCode'] == 'Success'
     end
 
-    def base_tax_hash
-      {
-        CustomerCode: customer_code,
-        CompanyCode: Spree::AvalaraPreference.company_code.value,
-        CustomerUsageType: order.customer_usage_type,
-        ExemptionNo: order.user.try(:exemption_number),
-        Client:  avatax_client_version,
-        ReferenceCode: order.number,
-        DetailLevel: 'Tax',
-        CurrencyCode: order.currency
-      }
-    end
-
-    def customer_code
-      order.user ? order.user.id : order.email
-    end
-
-    def business_id_no
-      order.user.try(:vat_id)
-    end
-
-    def avatax_client_version
-      AVATAX_CLIENT_VERSION || 'a0o33000004FH8l'
-    end
-
     def document_committing_enabled?
       Spree::AvalaraPreference.document_commit.is_true?
     end
