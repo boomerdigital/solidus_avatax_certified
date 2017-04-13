@@ -11,34 +11,31 @@ class TaxSvc
     log(__method__, request_hash)
     RestClient.log = logger.logger
     res = response('get', request_hash)
-    logger.info_and_debug('RestClient call', res)
 
     if res['ResultCode'] != 'Success'
-      logger.info 'Avatax Error'
-      logger.debug res, 'error in Tax'
-      raise 'error in Tax'
-    else
-      res
+      raise res.inspect
     end
+
+    logger.debug(res, 'Get Tax Response')
+    res
   rescue => e
-    logger.info 'Rest Client Error'
-    logger.debug e, 'error in Tax'
-    'error in Tax'
+    logger.error(e, 'Get Tax Error')
+    'Error in Tax'
   end
 
   def cancel_tax(request_hash)
     log(__method__, request_hash)
     res = response('cancel', request_hash)['CancelTaxResult']
-    logger.debug res
 
     if res['ResultCode'] != 'Success'
-      logger.info_and_debug("Avatax Error: Order ##{res['Messages'][0]['Details']}", res)
+      raise res.inspect
     end
 
+    logger.debug(res, 'Cancel Tax Response')
     res
   rescue => e
-    logger.debug e, 'Error in Cancel Tax'
-    'Error in Cancel Tax'
+    logger.error e, 'Cancel Tax Error'
+    res
   end
 
   def estimate_tax(coordinates, sale_amount)
@@ -60,8 +57,8 @@ class TaxSvc
       JSON.parse(res.body)
     end
   rescue => e
-    logger.debug e, 'error in Estimate Tax'
-    'error in Estimate Tax'
+    logger.error e, 'Estimate Tax Error'
+    'Estimate Tax Error'
   end
 
   def ping
@@ -70,25 +67,28 @@ class TaxSvc
   end
 
   def validate_address(address)
-    uri = URI(address_service_url + address.to_query)
-    http = Net::HTTP.new(uri.host, uri.port)
-    http.use_ssl = true
-    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    http.open_timeout = 1
-    http.read_timeout = 1
-    res = http.get(uri.request_uri, 'Authorization' => credential)
+    begin
+      uri = URI(address_service_url + address.to_query)
+      http = Net::HTTP.new(uri.host, uri.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      http.open_timeout = 1
+      http.read_timeout = 1
+      res = http.get(uri.request_uri, 'Authorization' => credential)
 
-    logger.debug res
+      logger.debug res, 'Address Validation Response'
 
-    JSON.parse(res.body)
-  rescue => e
-    "error in address validation: #{e}"
+      JSON.parse(res.body)
+    rescue => e
+      logger.error(e, 'Address Validation Error')
+      "Address Validation Error: #{e}"
+    end
   end
 
   protected
 
   def logger
-    SolidusAvataxCertified::AvataxLog.new('tax_svc', 'tax_service', 'call to tax service')
+    @logger ||= SolidusAvataxCertified::AvataxLog.new('TaxSvc class', 'Call to tax service')
   end
 
   private
@@ -135,9 +135,7 @@ class TaxSvc
   end
 
   def log(method, request_hash = nil)
-    logger.info method.to_s + ' call'
     return if request_hash.nil?
-    logger.debug request_hash
-    logger.debug JSON.generate(request_hash)
+    logger.debug(request_hash, "#{method.to_s} request hash")
   end
 end

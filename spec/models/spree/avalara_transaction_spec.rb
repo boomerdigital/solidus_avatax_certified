@@ -96,7 +96,7 @@ describe Spree::AvalaraTransaction, :vcr do
       it 'should fail to commit to avatax if settings are false' do
         Spree::AvalaraPreference.document_commit.update_attributes(value: 'false')
 
-        expect(subject).to eq('avalara document committing disabled')
+        expect(subject).to eq('Avalara Document Committing Disabled')
       end
 
       context 'tax calculation disabled' do

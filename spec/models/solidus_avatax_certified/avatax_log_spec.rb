@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::AvataxLog, :type => :model do
-  let(:logger) { SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info') }
+  let(:logger) { SolidusAvataxCertified::AvataxLog.new('test_file.rb', 'test info') }
+  let(:request_hash) { attributes_for(:request_hash) }
 
 
   before do
@@ -20,7 +21,6 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
     it 'sets the logger progname' do
       Spree::AvalaraPreference.log_to_stdout.update_attributes(value: 'false')
       Spree::AvalaraPreference.log.update_attributes(value: 'true')
-      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info')
 
       expect{ logger.progname('changed') }.to change{ logger.progname }.from('test_file').to('changed')
     end
@@ -34,9 +34,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
   describe '#info' do
     it 'logs info with given message' do
-      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info')
-
-      expect(logger.logger).to receive(:info).with('[AVATAX] Hyah!')
+      expect(logger.logger).to receive(:info).with('[AVATAX] Hyah! ')
       logger.info('Hyah!')
     end
 
@@ -49,8 +47,6 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
   describe '#info_and_debug' do
     it 'recieves info and debug messages' do
-      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info')
-
       expect(logger.logger).to receive(:info).with('[AVATAX] Hyah!')
       expect(logger.logger).to receive(:debug).with("[AVATAX] [\"Heuh!\"]")
 
@@ -66,11 +62,9 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
   describe '#debug' do
     it 'receives debug with message' do
-      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test info')
+      expect(logger.logger).to receive(:debug).with("[AVATAX] Heuh #{request_hash}")
 
-      expect(logger.logger).to receive(:debug).with("[AVATAX] [\"Heuh!\"]")
-
-      logger.debug(['Heuh!'])
+      logger.debug(request_hash, 'Heuh')
     end
 
     it 'returns nil if logger is not enabled' do
@@ -78,14 +72,13 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
       expect(logger.debug(['Heuh!'])).to be_nil
     end
+
   end
 
   describe '#error' do
     it 'logs error with given message' do
-      logger = SolidusAvataxCertified::AvataxLog.new('test_log', 'test_file.rb', 'test error')
-
-      expect(logger.logger).to receive(:error).with('[AVATAX] Hyah!')
-      logger.error('Hyah!')
+      expect(logger.logger).to receive(:error).with("[AVATAX] Hyah! #{request_hash}")
+      logger.error(request_hash, 'Hyah!')
     end
 
     it 'returns nil if logger is not enabled' do
