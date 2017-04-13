@@ -8,34 +8,41 @@ require 'logging'
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
-    log(__method__, request_hash)
-    RestClient.log = logger.logger
-    res = response('get', request_hash)
+      log(__method__, request_hash)
+      RestClient.log = logger.logger
 
-    if res['ResultCode'] != 'Success'
-      raise res.inspect
+    begin
+      response = SolidusAvataxCertified::Response::GetTax.new(request('get', request_hash))
+
+      if response.error?
+        raise response.tax_result
+      end
+
+      logger.debug(response.tax_result, 'Get Tax Response')
+    rescue => e
+      logger.error(e, 'Get Tax Error')
     end
 
-    logger.debug(res, 'Get Tax Response')
-    res
-  rescue => e
-    logger.error(e, 'Get Tax Error')
-    'Error in Tax'
+    response
   end
 
   def cancel_tax(request_hash)
     log(__method__, request_hash)
-    res = response('cancel', request_hash)['CancelTaxResult']
 
-    if res['ResultCode'] != 'Success'
-      raise res.inspect
+    begin
+      response = SolidusAvataxCertified::Response::CancelTax.new(request('cancel', request_hash))
+      tax_result = response.tax_result
+
+      if response.error?
+        raise tax_result
+      end
+
+      logger.debug(tax_result, 'Cancel Tax Response')
+    rescue => e
+      logger.error e, 'Cancel Tax Error'
     end
 
-    logger.debug(res, 'Cancel Tax Response')
-    res
-  rescue => e
-    logger.error e, 'Cancel Tax Error'
-    res
+    response
   end
 
   def estimate_tax(coordinates, sale_amount)
@@ -74,15 +81,15 @@ class TaxSvc
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.open_timeout = 1
       http.read_timeout = 1
-      res = http.get(uri.request_uri, 'Authorization' => credential)
+      request = http.get(uri.request_uri, 'Authorization' => credential)
+      response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
 
-      logger.debug res, 'Address Validation Response'
-
-      JSON.parse(res.body)
+      logger.debug response.validation_result, 'Address Validation Response'
     rescue => e
       logger.error(e, 'Address Validation Error')
-      "Address Validation Error: #{e}"
     end
+
+    response.validation_result
   end
 
   protected
@@ -117,7 +124,7 @@ class TaxSvc
     Spree::AvalaraPreference.account.value
   end
 
-  def response(uri, request_hash)
+  def request(uri, request_hash)
     res = RestClient::Request.execute(method: :post,
                                 timeout: 1,
                                 open_timeout: 1,

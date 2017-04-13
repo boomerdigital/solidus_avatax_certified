@@ -56,13 +56,7 @@ module Spree
       }
 
       mytax = TaxSvc.new
-      cancel_tax_result = mytax.cancel_tax(cancel_tax_request)
-
-      if cancel_tax_result == 'Error in Cancel Tax'
-        return 'Error in Cancel Tax'
-      else
-        return cancel_tax_result
-      end
+      mytax.cancel_tax(cancel_tax_request).tax_result
     end
 
     def post_order_to_avalara(commit = false, invoice_detail = nil)
@@ -88,10 +82,10 @@ module Spree
       end
 
       mytax = TaxSvc.new
-      tax_result = mytax.get_tax(gettaxes)
+      response = mytax.get_tax(gettaxes)
 
-      return { TotalTax: '0.00' } if tax_result == 'error in Tax'
-      return tax_result if tax_result['ResultCode'] == 'Success'
+      return { TotalTax: '0.00' } if response.error?
+      response.tax_result
     end
 
     def post_return_to_avalara(commit = false, invoice_detail = nil, refund = nil)
@@ -122,10 +116,10 @@ module Spree
       gettaxes[:TaxOverride] = taxoverride
 
       mytax = TaxSvc.new
-      tax_result = mytax.get_tax(gettaxes)
+      response = mytax.get_tax(gettaxes)
 
-      return { TotalTax: '0.00' } if tax_result == 'error in Tax'
-      return tax_result if tax_result['ResultCode'] == 'Success'
+      return { TotalTax: '0.00' } if response.error?
+      response.tax_result
     end
 
     def base_tax_hash

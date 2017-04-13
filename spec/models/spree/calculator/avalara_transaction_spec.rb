@@ -2,18 +2,19 @@ require 'spec_helper'
 
 describe Spree::Calculator::AvalaraTransaction do
   let(:included_in_price) { false }
-  let!(:order) { create(:avalara_order, line_items_price: 10, shipment_cost: 100, tax_included: included_in_price) }
   let(:tax_category) { Spree::TaxCategory.find_or_create_by(name: 'Clothing', tax_code: 'P0000000') }
   let(:calculator) { Spree::TaxRate.find_by(name: 'Tax').calculator }
   let(:line_item) { order.line_items.first }
 
   describe '#description' do
     it 'responds with avalara_transaction' do
-      expect(calculator.description).to eq('Avalara Transaction Calculator')
+      expect(Spree::Calculator::AvalaraTransaction.new.description).to eq('Avalara Transaction Calculator')
     end
   end
 
   context '#compute', :vcr do
+    let!(:order) { create(:avalara_order, line_items_price: 10, shipment_cost: 100, tax_included: included_in_price) }
+
     context 'when given an order' do
       before do
         allow(order).to receive_messages :line_items => [line_item]
