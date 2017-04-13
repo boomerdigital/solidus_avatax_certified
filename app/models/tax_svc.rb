@@ -81,15 +81,15 @@ class TaxSvc
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.open_timeout = 1
       http.read_timeout = 1
-      res = http.get(uri.request_uri, 'Authorization' => credential)
+      request = http.get(uri.request_uri, 'Authorization' => credential)
+      response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
 
-      logger.debug res, 'Address Validation Response'
-
-      JSON.parse(res.body)
+      logger.debug response.validation_result, 'Address Validation Response'
     rescue => e
       logger.error(e, 'Address Validation Error')
-      "Address Validation Error: #{e}"
     end
+
+    response.validation_result
   end
 
   protected

@@ -3,8 +3,7 @@ module SolidusAvataxCertified
     class Base
       attr_reader :tax_result
       # To Do
-      # 1. Create Response model specific to Address Validation
-      # 2. Create way to display errors cleanly
+      # 1. Create way to display errors cleanly
 
       def initialize(tax_result)
         @tax_result = tax_result
