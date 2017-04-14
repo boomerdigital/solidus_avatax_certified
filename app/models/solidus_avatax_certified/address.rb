@@ -79,7 +79,7 @@ module SolidusAvataxCertified
 
     def validation_response(address)
       validator = TaxSvc.new
-      validator.validate_address(address)
+      validator.validate_address(address).validation_result
     end
 
     def stock_loc_ids

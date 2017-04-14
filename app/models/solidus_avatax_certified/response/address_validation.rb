@@ -1,12 +1,15 @@
 module SolidusAvataxCertified
   module Response
     class AddressValidation < SolidusAvataxCertified::Response::Base
-      attr_reader :validation_result
+      alias :validation_result :result
 
-      def initialize(validation_result)
-        @validation_result = JSON.parse(validation_result)
+      def initialize(result)
+        @result = JSON.parse(result)
       end
 
+      def description
+        'Address Validation'
+      end
     end
   end
 end
