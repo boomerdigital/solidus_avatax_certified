@@ -7,20 +7,12 @@ module Spree
       def show
       end
 
-      def get_file_txt_tax_svc
-        send_file "#{Rails.root}/log/tax_svc.log"
-      end
-
-      def get_file_post_order_to_avalara
-        send_file "#{Rails.root}/log/post_order_to_avalara.log"
-      end
-
-      def get_file_avalara_order
-        send_file "#{Rails.root}/log/avalara_order.log"
+      def download_avatax_log
+        send_file "#{Rails.root}/log/avatax.log"
       end
 
       def erase_data
-        File.open("log/#{params['log_name']}.log", 'w') {}
+        File.open("log/avatax.log", 'w') {}
 
         head :ok
       end

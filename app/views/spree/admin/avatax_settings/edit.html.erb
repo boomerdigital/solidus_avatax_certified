@@ -132,34 +132,18 @@
       <a href="#" class="button address_validator" style="float: right;">Validate</a>
     </fieldset>
     <fieldset>
-    <legend><%= Spree.t('log_files') %></legend>
-    <p>Log files are located in the log directory of your spree website.</p>
+    <legend><%= Spree.t('avatax_log') %></legend>
+    <p>The avatax log is located in the log directory of your spree app.</p>
     <table>
     <tr>
    <td>
     <table>
       <tr>
-        <td>Tax Service calls - tax_svc.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_txt_tax_svc}) %>
+        <td>Avatax Log -  avatax.log</td>
+        <td><%= link_to("Download", { controller: :avatax_settings, action: :download_avatax_log }) %>
         </td>
         <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "tax_svc"}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Avalara Function calls -  post_order_to_avalara.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_post_order_to_avalara}) %>
-        </td>
-        <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "post_order_to_avalara"}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Spree Order Item integration calls - avalara_order.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_avalara_order}) %>
-        </td>
-        <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "avalara_order"}) %>
+          <%= link_to("Clear Data", { controller: :avatax_settings, action: :erase_data, remote: true }) %>
         </td>
       </tr>
     </table>
