@@ -99,23 +99,12 @@
 
 
   <tr>
-   <th>View Log Files</th>
+   <th><%= Spree.t('avatax_log') %></th>
    <td>
-    Log files are located in the log directory of your spree website.
+    The avatax log is located in the log directory of your spree app.
     <table>
-      <tr>
-        <td>Tax Service calls - tax_svc.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_txt_tax_svc}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Avalara Function calls -  post_order_to_avalara.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_post_order_to_avalara}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Spree Order Item integration calls - avalara_order.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_avalara_order}) %>
+        <td>Avatax Log -  avatax.log</td>
+        <td><%= link_to("Download", { controller: :avatax_settings, action: :download_avatax_log }) %>
         </td>
       </tr>
     </table>
