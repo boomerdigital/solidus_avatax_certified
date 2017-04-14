@@ -159,6 +159,14 @@ describe Spree::AvalaraPreference, type: :model do
     end
   end
 
+  describe '#raise_exceptions' do
+    it 'should return object with same name' do
+      raise_exceptions = Spree::AvalaraPreference.find_by(name: 'raise_exceptions')
+
+      expect(Spree::AvalaraPreference.raise_exceptions).to eq(raise_exceptions)
+    end
+  end
+
   describe '#is_true?' do
     it 'should return true if value is a string of true or false' do
       expect(Spree::AvalaraPreference.tax_calculation.is_true?).to be_in([true, false])

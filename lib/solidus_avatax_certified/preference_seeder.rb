@@ -1,6 +1,6 @@
 module SolidusAvataxCertified
   class PreferenceSeeder
-    BOOLEAN_PREFERENCES = ['log', 'address_validation', 'tax_calculation', 'document_commit', 'log_to_stdout', 'refuse_checkout_address_validation_error', 'customer_can_validate'].freeze
+    BOOLEAN_PREFERENCES = ['tax_calculation', 'document_commit', 'log', 'log_to_stdout', 'address_validation', 'refuse_checkout_address_validation_error', 'customer_can_validate', 'raise_exceptions'].freeze
     STORABLE_ENV_PREFERENCES = ['company_code', 'endpoint', 'account', 'license_key'].freeze
 
     class << self
@@ -31,7 +31,7 @@ module SolidusAvataxCertified
 
       def boolean_prefs
         BOOLEAN_PREFERENCES.each do |preference|
-          if ['refuse_checkout_address_validation_error', 'log_to_stdout'].include?(preference)
+          if ['refuse_checkout_address_validation_error', 'log_to_stdout', 'raise_exceptions'].include?(preference)
             pref = Spree::AvalaraPreference.new(name: preference, value: 'false', object_type: 'boolean')
           else
             pref = Spree::AvalaraPreference.new(name: preference, value: 'true', object_type: 'boolean')

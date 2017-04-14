@@ -46,31 +46,13 @@
     </fieldset>
 
     <fieldset>
-      <legend><%= Spree.t('avatax_logging') %></legend>
-      <p>
-        <label><%= Spree.t('enable_avatax_logging') %></label><br />
-        <%= check_box_tag('settings[log]', true, Spree::AvalaraPreference.log.is_true?, :class => 'avatax') %>
-      </p>
-      <p>
-        <label><%= Spree.t('enable_avatax_log_to_stdout') %></label><br />
-        <%= check_box_tag('settings[log_to_stdout]', true, Spree::AvalaraPreference.log_to_stdout.is_true?, :class => 'avatax') %>
-      </p>
-    </fieldset>
+      <% Spree::AvalaraPreference.booleans.each do |bool| %>
+        <p>
+          <label><%= Spree.t(bool.name) %></label><br />
+          <%= check_box_tag("settings[#{bool.name}]", bool.value, bool.is_true?, :class => 'avatax') %>
+        </p>
+      <% end %>
 
-    <fieldset>
-      <legend><%= Spree.t('avatax_address_validation') %></legend>
-      <p>
-        <label><%= Spree.t('enable_avatax_address_validation') %></label><br />
-        <%= check_box_tag('settings[address_validation]', true, Spree::AvalaraPreference.address_validation.is_true?, :class => 'avatax') %>
-      </p>
-      <p>
-        <label>Refuse Checkout if Address Validation Fails</label><br />
-        <%= check_box_tag('settings[refuse_checkout_address_validation_error]', true, Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?, :class => 'avatax') %>
-      </p>
-      <p>
-        <label>Customer can validate address in checkout</label><br />
-        <%= check_box_tag('settings[customer_can_validate]', true, Spree::AvalaraPreference.customer_can_validate.is_true?, :class => 'avatax') %>
-      </p>
     </fieldset>
 
     <fieldset>
@@ -79,21 +61,6 @@
         <% current_countries = Spree::Country.where(name: Spree::AvalaraPreference.validation_enabled_countries_array) %>
         <label><%= Spree.t('avatax_address_validation_enabled_countries') %></label><br />
         <%= select_tag('settings[address_validation_enabled_countries]', options_from_collection_for_select(Spree::Country.all, "name", "name", selected: current_countries), multiple: true, class: "select2 fullwidth") %>
-      </p>
-    </fieldset>
-    <fieldset>
-      <legend><%= Spree.t('avatax_tax_calculation') %></legend>
-      <p>
-        <label><%= Spree.t('enable_avatax_tax_calculation') %></label><br />
-        <%= check_box_tag('settings[tax_calculation]', true, Spree::AvalaraPreference.tax_calculation.is_true?, :class => 'avatax') %>
-      </p>
-    </fieldset>
-
-        <fieldset>
-      <legend><%= Spree.t('avatax_document_committing') %></legend>
-      <p>
-        <label><%= Spree.t('enable_avatax_document_committing') %></label><br />
-        <%= check_box_tag('settings[document_commit]', true, Spree::AvalaraPreference.document_commit.is_true?, :class => 'avatax') %>
       </p>
     </fieldset>
 

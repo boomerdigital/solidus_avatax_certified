@@ -34,12 +34,24 @@
     <td><%= AVATAX_SERVICEPATH_ADDRESS %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_logging) %>:</th>
+    <th scope="row"><%= Spree.t(:enable_avatax_tax_calculation) %>:</th>
+    <td><%= Spree::AvalaraPreference.tax_calculation.value %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= Spree.t(:enable_avatax_document_committing) %>:</th>
+    <td><%= Spree::AvalaraPreference.document_commit.value %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= Spree.t(:log) %>:</th>
     <td><%= Spree::AvalaraPreference.log.value %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_log_to_stdout) %>:</th>
+    <th scope="row"><%= Spree.t(:log_to_stdout) %>:</th>
     <td><%= Spree::AvalaraPreference.log_to_stdout.value %></td>
+  </tr>
+  <tr>
+    <th scope="row"><%= Spree.t(:raise_exceptions) %>:</th>
+    <td><%= Spree::AvalaraPreference.raise_exceptions.value %></td>
   </tr>
   <tr>
     <th scope="row"><%= Spree.t(:enable_avatax_address_validation) %>:</th>
@@ -65,14 +77,6 @@
       </ul>
       <% end %>
     </td>
-  </tr>
-  <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_tax_calculation) %>:</th>
-    <td><%= Spree::AvalaraPreference.tax_calculation.value %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_document_committing) %>:</th>
-    <td><%= Spree::AvalaraPreference.document_commit.value %></td>
   </tr>
 
   <tr>
