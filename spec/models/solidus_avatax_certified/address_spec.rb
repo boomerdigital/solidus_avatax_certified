@@ -84,6 +84,12 @@ describe SolidusAvataxCertified::Address, :type => :model do
       it 'fails when information is incorrect' do
         expect(subject['ResultCode']).to eq('Error')
       end
+
+      it 'raises exception if preference is set to true' do
+        Spree::AvalaraPreference.raise_exceptions.update_attributes(value: 'true')
+
+        expect { subject }.to raise_exception(SolidusAvataxCertified::RequestError)
+      end
     end
   end
 end

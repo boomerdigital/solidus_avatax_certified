@@ -8,41 +8,20 @@ require 'logging'
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
-      log(__method__, request_hash)
-      RestClient.log = logger.logger
+    log(__method__, request_hash)
+    RestClient.log = logger.logger
 
-    begin
-      response = SolidusAvataxCertified::Response::GetTax.new(request('get', request_hash))
+    response = SolidusAvataxCertified::Response::GetTax.new(request('get', request_hash))
 
-      if response.error?
-        raise response.tax_result
-      end
-
-      logger.debug(response.tax_result, 'Get Tax Response')
-    rescue => e
-      logger.error(e, 'Get Tax Error')
-    end
-
-    response
+    handle_response(response)
   end
 
   def cancel_tax(request_hash)
     log(__method__, request_hash)
 
-    begin
-      response = SolidusAvataxCertified::Response::CancelTax.new(request('cancel', request_hash))
-      tax_result = response.tax_result
+    response = SolidusAvataxCertified::Response::CancelTax.new(request('cancel', request_hash))
 
-      if response.error?
-        raise tax_result
-      end
-
-      logger.debug(tax_result, 'Cancel Tax Response')
-    rescue => e
-      logger.error e, 'Cancel Tax Error'
-    end
-
-    response
+    handle_response(response)
   end
 
   def estimate_tax(coordinates, sale_amount)
@@ -82,17 +61,32 @@ class TaxSvc
       http.open_timeout = 1
       http.read_timeout = 1
       request = http.get(uri.request_uri, 'Authorization' => credential)
-      response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
-
-      logger.debug response.validation_result, 'Address Validation Response'
     rescue => e
-      logger.error(e, 'Address Validation Error')
+      raise if raise_exceptions?
     end
 
-    response.validation_result
+    response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
+    handle_response(response)
   end
 
   protected
+
+  def handle_response(response)
+    result = response.result
+    begin
+      if response.error?
+        raise SolidusAvataxCertified::RequestError.new(result)
+      end
+
+      logger.debug(result, response.description + ' Response')
+
+    rescue SolidusAvataxCertified::RequestError => e
+      logger.error(e.message, response.description + ' Error')
+      raise if raise_exceptions?
+    end
+
+    response
+  end
 
   def logger
     @logger ||= SolidusAvataxCertified::AvataxLog.new('TaxSvc class', 'Call to tax service')
@@ -118,6 +112,10 @@ class TaxSvc
 
   def license_key
     Spree::AvalaraPreference.license_key.value
+  end
+
+  def raise_exceptions?
+    Spree::AvalaraPreference.raise_exceptions.is_true?
   end
 
   def account_number
