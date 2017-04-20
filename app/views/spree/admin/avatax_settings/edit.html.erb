@@ -49,11 +49,11 @@
       <legend><%= Spree.t('avatax_logging') %></legend>
       <p>
         <label><%= Spree.t('enable_avatax_logging') %></label><br />
-        <%= check_box_tag('settings[log]','yes' , Spree::AvalaraPreference.log.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[log]', true, Spree::AvalaraPreference.log.is_true?, :class => 'avatax') %>
       </p>
       <p>
         <label><%= Spree.t('enable_avatax_log_to_stdout') %></label><br />
-        <%= check_box_tag('settings[log_to_stdout]','yes' , Spree::AvalaraPreference.log_to_stdout.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[log_to_stdout]', true, Spree::AvalaraPreference.log_to_stdout.is_true?, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -61,15 +61,15 @@
       <legend><%= Spree.t('avatax_address_validation') %></legend>
       <p>
         <label><%= Spree.t('enable_avatax_address_validation') %></label><br />
-        <%= check_box_tag('settings[address_validation]','yes' , Spree::AvalaraPreference.address_validation.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[address_validation]', true, Spree::AvalaraPreference.address_validation.is_true?, :class => 'avatax') %>
       </p>
       <p>
         <label>Refuse Checkout if Address Validation Fails</label><br />
-        <%= check_box_tag('settings[refuse_checkout_address_validation_error]','yes' , Spree::AvalaraPreference.refuse_checkout_address_validation_error.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[refuse_checkout_address_validation_error]', true, Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?, :class => 'avatax') %>
       </p>
       <p>
         <label>Customer can validate address in checkout</label><br />
-        <%= check_box_tag('settings[customer_can_validate]','yes' , Spree::AvalaraPreference.customer_can_validate.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[customer_can_validate]', true, Spree::AvalaraPreference.customer_can_validate.is_true?, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -85,7 +85,7 @@
       <legend><%= Spree.t('avatax_tax_calculation') %></legend>
       <p>
         <label><%= Spree.t('enable_avatax_tax_calculation') %></label><br />
-        <%= check_box_tag('settings[tax_calculation]','yes' , Spree::AvalaraPreference.tax_calculation.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[tax_calculation]', true, Spree::AvalaraPreference.tax_calculation.is_true?, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -93,7 +93,7 @@
       <legend><%= Spree.t('avatax_document_committing') %></legend>
       <p>
         <label><%= Spree.t('enable_avatax_document_committing') %></label><br />
-        <%= check_box_tag('settings[document_commit]','yes' , Spree::AvalaraPreference.document_commit.value, :class => 'avatax') %>
+        <%= check_box_tag('settings[document_commit]', true, Spree::AvalaraPreference.document_commit.is_true?, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -132,34 +132,18 @@
       <a href="#" class="button address_validator" style="float: right;">Validate</a>
     </fieldset>
     <fieldset>
-    <legend><%= Spree.t('log_files') %></legend>
-    <p>Log files are located in the log directory of your spree website.</p>
+    <legend><%= Spree.t('avatax_log') %></legend>
+    <p>The avatax log is located in the log directory of your spree app.</p>
     <table>
     <tr>
    <td>
     <table>
       <tr>
-        <td>Tax Service calls - tax_svc.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_txt_tax_svc}) %>
+        <td>Avatax Log -  avatax.log</td>
+        <td><%= link_to("Download", { controller: :avatax_settings, action: :download_avatax_log }) %>
         </td>
         <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "tax_svc"}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Avalara Function calls -  post_order_to_avalara.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_post_order_to_avalara}) %>
-        </td>
-        <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "post_order_to_avalara"}) %>
-        </td>
-      </tr>
-      <tr>
-        <td>Spree Order Item integration calls - avalara_order.log</td>
-        <td><%= link_to("Download", {controller: :avatax_settings, action: :get_file_avalara_order}) %>
-        </td>
-        <td>
-          <%= link_to("Clear Data", {controller: :avatax_settings, action: :erase_data, remote: true, log_name: "avalara_order"}) %>
+          <%= link_to("Clear Data", { controller: :avatax_settings, action: :erase_data, remote: true }) %>
         </td>
       </tr>
     </table>

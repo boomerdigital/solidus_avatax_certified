@@ -29,7 +29,7 @@ en:
     avatax_endpoint_urls: Avatax Endpoint URLs
     avatax_logging: Avatax Logging
     avatax_address_validation: Avatax Address Validation
-    log_files: Log Files
+    avatax_log: Avatax Log
     avatax_tax_calculation: Avatax Tax Calculation
     avatax_document_committing: Avatax Document Committing
     save_preferences: Save Preferences

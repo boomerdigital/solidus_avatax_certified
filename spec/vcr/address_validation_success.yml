@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://development.avalara.net/1.0/address/validate?City=Tuscaloosa&Country=US&Line1=220%20Paul%20W%20Bryant%20Dr&Line2=&PostalCode=36104&Region=AL
+    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=915%20S%20Jackson%20St&Line2=&PostalCode=36104&Region=AL
     body:
       encoding: US-ASCII
       string: ''
@@ -31,29 +31,29 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 23 Mar 2017 18:10:54 GMT
+      - Thu, 13 Apr 2017 17:19:07 GMT
       Content-Length:
-      - '314'
+      - '313'
       Set-Cookie:
-      - TS017f1821=01a8ddc44ed319cbbe93799858e6b40f6c1ba0f06971f0d433c43c576a1507e8bf78984d29bbcedb05e4db9f7076f24389ed2f5ef4;
+      - TS017f1821=01a8ddc44ec103b000d83d883af46f1eaefcc8d795050678fbda324f8ffeb03c73e78358a05e3e1de2a5d61eb643795505ae630711;
         Path=/
     body:
       encoding: ASCII-8BIT
       string: |
         {
-        "ResultCode": "Success",
         "Address": {
-        "Line1": "220 Paul W Bryant Dr E",
-        "City": "Tuscaloosa",
+        "County": "MONTGOMERY",
+        "FipsCode": "0110151000",
+        "CarrierRoute": "C037",
+        "PostNet": "361045716999",
+        "AddressType": "H",
+        "Line1": "915 S Jackson St",
+        "City": "Montgomery",
         "Region": "AL",
-        "PostalCode": "35401-2007",
-        "Country": "US",
-        "County": "TUSCALOOSA",
-        "FipsCode": "0112577256",
-        "CarrierRoute": "C009",
-        "PostNet": "354012007206",
-        "AddressType": "S"}
-        }
+        "PostalCode": "36104-5716",
+        "Country": "US"}
+        ,
+        "ResultCode": "Success"}
     http_version: 
-  recorded_at: Thu, 23 Mar 2017 18:10:56 GMT
+  recorded_at: Thu, 13 Apr 2017 17:19:07 GMT
 recorded_with: VCR 3.0.3

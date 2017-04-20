@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Address, :type => :model do
-  let(:address){ build(:address, city: 'Tuscaloosa', address1: '220 Paul W Bryant Dr') }
+  let(:address){ build(:address) }
   let(:order) { build(:order_with_line_items, ship_address: address) }
 
   before do
@@ -56,7 +56,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
 
   describe '#validate', :vcr do
     subject do
-      VCR.use_cassette('address_validation_success') do
+      VCR.use_cassette('address_validation_success', allow_playback_repeats: true) do
         address_lines.validate
       end
     end
@@ -71,10 +71,19 @@ describe SolidusAvataxCertified::Address, :type => :model do
       expect(subject).to eq("Address validation disabled")
     end
 
-    it 'fails when information is incorrect' do
-      order.ship_address.update_attributes(city: nil)
+    context 'error' do
+      let(:order) { create(:order_with_line_items) }
 
-      expect(address_lines.validate['ResultCode']).to eq('Error')
+      subject do
+        VCR.use_cassette('address_validation_failure', allow_playback_repeats: true) do
+          order.ship_address.update_attributes(city: nil, zipcode: nil)
+          address_lines.validate
+        end
+      end
+
+      it 'fails when information is incorrect' do
+        expect(subject['ResultCode']).to eq('Error')
+      end
     end
   end
 end
