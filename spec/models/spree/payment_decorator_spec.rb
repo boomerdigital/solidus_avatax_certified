@@ -64,17 +64,14 @@ describe Spree::Payment, :vcr do
     subject do
       VCR.use_cassette('order_capture_finalize', allow_playback_repeats: true) do
         order.avalara_capture_finalize
-        payment.avalara_finalize
+        payment.complete!
       end
     end
 
-    it 'should update the amount to be the order total' do
-      payment.update_attributes(amount: 5)
-      initial_amount = payment.amount
+    it 'should receive avalara_finalize' do
+      expect(payment).to receive(:avalara_finalize)
 
       subject
-
-      expect(payment.amount).not_to eq(initial_amount)
     end
   end
 
