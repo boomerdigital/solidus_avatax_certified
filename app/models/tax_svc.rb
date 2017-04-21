@@ -62,7 +62,7 @@ class TaxSvc
       http.read_timeout = 1
       request = http.get(uri.request_uri, 'Authorization' => credential)
     rescue => e
-      raise if raise_exceptions?
+      logger.error(e, 'Request Timeout')
     end
 
     response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
@@ -122,21 +122,25 @@ class TaxSvc
     Spree::AvalaraPreference.account.value
   end
 
-  def request(uri, request_hash)
-    res = RestClient::Request.execute(method: :post,
-                                timeout: 1,
-                                open_timeout: 1,
-                                url: service_url + uri,
-                                payload:  JSON.generate(request_hash),
-                                headers: {
-                                  authorization: credential,
-                                  content_type: 'application/json'
-                                }
-    )  do |response, request, result|
-      response
-    end
+  def request(uri, request_hash, url=service_url)
+    begin
+      res = RestClient::Request.execute(method: :post,
+                                  timeout: 1,
+                                  open_timeout: 1,
+                                  url: url + uri,
+                                  payload:  JSON.generate(request_hash),
+                                  headers: {
+                                    authorization: credential,
+                                    content_type: 'application/json'
+                                  }
+      )  do |response, request, result|
+        response
+      end
 
-    JSON.parse(res)
+      JSON.parse(res)
+    rescue => e
+      logger.error(e, 'RestClient')
+    end
   end
 
   def log(method, request_hash = nil)
