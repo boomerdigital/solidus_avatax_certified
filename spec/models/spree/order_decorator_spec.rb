@@ -37,6 +37,22 @@ describe Spree::Order, :vcr do
         completed_order.cancel!
       end
     end
+
+    context 'error' do
+      subject do
+        avalara_order.cancel_avalara
+      end
+
+      it 'should receive ResultCode of Error' do
+        expect(subject['ResultCode']).to eq('Error')
+      end
+
+      it 'should raise exception if preference is enabled' do
+        Spree::AvalaraPreference.raise_exceptions.update_attributes(value: 'true')
+
+        expect{ subject }.to raise_exception(SolidusAvataxCertified::RequestError)
+      end
+    end
   end
 
   describe "#avalara_capture" do
@@ -126,13 +142,23 @@ describe Spree::Order, :vcr do
       expect(response['ResultCode']).to eq('Success')
     end
 
-    it 'should return false if validation failed' do
-      Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'true')
-      order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
-      response = order.validate_ship_address
+    context 'validation failed' do
+      it 'should return false' do
+        Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'true')
+        order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
+        response = order.validate_ship_address
 
-      expect(response).to eq(false)
+        expect(response).to eq(false)
+      end
+
+      it 'raise exceptions if raise_exceptions preference is enabled' do
+        Spree::AvalaraPreference.raise_exceptions.update_attributes(value: 'true')
+        order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
+
+        expect{ order.validate_ship_address }.to raise_exception(SolidusAvataxCertified::RequestError)
+      end
     end
+
   end
 
   describe '#address_validation_enabled?' do

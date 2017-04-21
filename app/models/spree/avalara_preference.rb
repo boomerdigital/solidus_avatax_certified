@@ -65,6 +65,10 @@ module Spree
       find_by(name: 'customer_can_validate')
     end
 
+    def self.raise_exceptions
+      find_by(name: 'raise_exceptions')
+    end
+
     def is_true?
       [true, 1, "1", "t", "T", "true", "TRUE", "on", "ON"].include?(value)
     end

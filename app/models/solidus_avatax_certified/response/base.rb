@@ -1,20 +1,24 @@
 module SolidusAvataxCertified
   module Response
     class Base
-      attr_reader :tax_result
+      attr_accessor :result
       # To Do
       # 1. Create way to display errors cleanly
 
-      def initialize(tax_result)
-        @tax_result = tax_result
+      def initialize(result)
+        @result = result
       end
 
       def success?
-        tax_result['ResultCode'] == 'Success'
+        result['ResultCode'] == 'Success'
       end
 
       def error?
         !success? rescue true
+      end
+
+      def description
+        raise 'Method needs to be implemented in subclass.'
       end
     end
   end
