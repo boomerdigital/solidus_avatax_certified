@@ -122,12 +122,12 @@ class TaxSvc
     Spree::AvalaraPreference.account.value
   end
 
-  def request(uri, request_hash, url=service_url)
+  def request(uri, request_hash)
     begin
       res = RestClient::Request.execute(method: :post,
                                   timeout: 1,
                                   open_timeout: 1,
-                                  url: url + uri,
+                                  url: service_url + uri,
                                   payload:  JSON.generate(request_hash),
                                   headers: {
                                     authorization: credential,
