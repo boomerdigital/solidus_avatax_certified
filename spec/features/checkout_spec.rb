@@ -103,16 +103,14 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true do
   end
 
   context 'complete order', js: true do
-    let(:payment_method) { create(:credit_card_payment_method) }
-    let!(:credit_card) do
-      create(:credit_card, user_id: order.user.id, payment_method: payment_method, gateway_customer_profile_id: "BGS-WEFWF")
-    end
+    let!(:payment_method) { create(:check_payment_method) }
+
     before do
       allow(order).to receive_messages(:available_payment_methods => [ payment_method ])
       visit_delivery
       click_button 'Save and Continue'
-      click_button "Save and Continue"
-      click_button "Place Order"
+      click_button 'Save and Continue'
+      click_button 'Place Order'
     end
 
     it 'has tax and shipping tax adjustments on page' do
