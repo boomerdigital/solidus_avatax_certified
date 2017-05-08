@@ -23,6 +23,7 @@ require 'database_cleaner'
 require 'ffaker'
 require 'shoulda/matchers'
 require 'capybara-screenshot/rspec'
+require 'webmock/rspec'
 
 require 'spree/testing_support/preferences'
 require 'spree/testing_support/authorization_helpers'
@@ -69,8 +70,8 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
-  config.before :each do
-    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
+  config.before :each do |example|
+    DatabaseCleaner.strategy = example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
     MyConfigPreferences.set_preferences
   end

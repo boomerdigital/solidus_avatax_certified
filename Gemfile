@@ -10,4 +10,7 @@ end
 
 gem "rails-controller-testing", group: :test
 
+gem 'pg'
+gem 'mysql2'
+
 gemspec
