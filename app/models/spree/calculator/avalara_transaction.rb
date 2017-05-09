@@ -42,8 +42,8 @@ module Spree
     def can_calculate_tax?(order)
       address = order.tax_address
 
-      return false unless Spree::AvalaraPreference.tax_calculation.is_true?
-      return false if %w(cart address delivery).include?(order.state)
+      return false unless Spree::Avatax::Config.tax_calculation
+      return false if %w(address cart delivery).include?(order.state)
       return false if address.nil?
       return false unless calculable.zone.include?(address)
 

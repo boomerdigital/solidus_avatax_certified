@@ -43,7 +43,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       context 'tax calculation disabled' do
         it 'should respond with total tax of 0' do
-          Spree::AvalaraPreference.tax_calculation.update_attributes(value: 'false')
+          Spree::Avatax::Config.tax_calculation = false
           expect(order.avalara_transaction.commit_avatax('SalesOrder')[:TotalTax]).to eq('0.00')
         end
       end
@@ -94,14 +94,14 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'should fail to commit to avatax if settings are false' do
-        Spree::AvalaraPreference.document_commit.update_attributes(value: 'false')
+        Spree::Avatax::Config.document_commit = false
 
         expect(subject).to eq('Avalara Document Committing Disabled')
       end
 
       context 'tax calculation disabled' do
         it 'should respond with total tax of 0' do
-          Spree::AvalaraPreference.tax_calculation.update_attributes(value: 'false')
+          Spree::Avatax::Config.tax_calculation = false
           expect(subject[:TotalTax]).to eq('0.00')
         end
       end

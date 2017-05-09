@@ -10,7 +10,7 @@ Spree::Order.class_eval do
                                       :if => :address_validation_enabled?
 
   def avalara_tax_enabled?
-    Spree::AvalaraPreference.tax_calculation.is_true?
+    Spree::Avatax::Config.tax_calculation
   end
 
   def cancel_avalara
@@ -41,7 +41,7 @@ Spree::Order.class_eval do
     response = avatax_address.validate
 
     return response if response['ResultCode'] == 'Success'
-    return response if !Spree::AvalaraPreference.refuse_checkout_address_validation_error.is_true?
+    return response if !Spree::Avatax::Config.refuse_checkout_address_validation_error
 
     messages = response['Messages'].each do |message|
       errors.add(:address_validation_failure, message['Summary'])

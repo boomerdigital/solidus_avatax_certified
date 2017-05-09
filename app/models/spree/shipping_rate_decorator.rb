@@ -11,7 +11,7 @@ Spree::ShippingRate.class_eval do
       display_base_price
     end.to_s
 
-    return price if Spree::AvalaraPreference.tax_calculation.is_true?
+    return price if Spree::Avatax::Config.tax_calculation
     return price if taxes.empty? || amount == 0
 
     tax_explanations = taxes.map(&:label).join(tax_label_separator)

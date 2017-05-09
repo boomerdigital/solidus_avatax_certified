@@ -65,7 +65,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
         end
 
         it 'should be equal to the previous tax total if preference tax_calculation is false' do
-          Spree::AvalaraPreference.tax_calculation.update_attributes(value: 'false')
+          Spree::Avatax::Config.tax_calculation = false
 
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)

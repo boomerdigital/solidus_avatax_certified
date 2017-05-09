@@ -10,7 +10,7 @@ module SolidusAvataxCertified
     def initialize(order)
       @order = order
       @ship_address = order.ship_address
-      @origin_address = JSON.parse(Spree::AvalaraPreference.origin_address.value)
+      @origin_address = JSON.parse(Spree::Avatax::Config.origin)
       @addresses = []
 
       build_addresses

@@ -1,6 +1,6 @@
 Spree::Address.class_eval do
   def validation_enabled?
-    Spree::AvalaraPreference.address_validation.is_true? && country_validation_enabled?
+    Spree::Avatax::Config.address_validation && country_validation_enabled?
   end
 
   def country_validation_enabled?
@@ -8,6 +8,6 @@ Spree::Address.class_eval do
   end
 
   def self.validation_enabled_countries
-    Spree::AvalaraPreference.validation_enabled_countries_array
+    Spree::Avatax::Config.address_validation_enabled_countries
   end
 end
