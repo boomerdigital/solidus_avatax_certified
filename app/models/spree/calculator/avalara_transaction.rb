@@ -10,16 +10,13 @@ module Spree
 
     def compute_shipment_or_line_item(item)
       order = item.order
-      item_address = order.ship_address || order.billing_address
-      prev_tax_amount = prev_tax_amount(item)
 
-      return prev_tax_amount unless Spree::AvalaraPreference.tax_calculation.is_true?
-      return prev_tax_amount if %w(address cart).include?(order.state)
-      return prev_tax_amount if item_address.nil?
-      return prev_tax_amount unless calculable.zone.include?(item_address)
-
-      avalara_response = get_avalara_response(order)
-      tax_for_item(item, avalara_response)
+      if can_calculate_tax?(order)
+        avalara_response = get_avalara_response(order)
+        tax_for_item(item, avalara_response)
+      else
+        prev_tax_amount(item)
+      end
     end
 
     alias_method :compute_shipment, :compute_shipment_or_line_item
@@ -37,6 +34,17 @@ module Spree
       else
         item.additional_tax_total
       end
+    end
+
+    def can_calculate_tax?(order)
+      address = order.ship_address
+
+      return false unless Spree::AvalaraPreference.tax_calculation.is_true?
+      return false if %w(address cart).include?(order.state)
+      return false if address.nil?
+      return false unless calculable.zone.include?(address)
+
+      true
     end
 
     def get_avalara_response(order)
