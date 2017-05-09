@@ -9,23 +9,22 @@
 <% end %>
 
 <%= form_tag(admin_avatax_settings_path, :method => :put, :id => :avatax_settings_form) do %>
-
 <div class="yui-g">
   <div class="yui-u first">
     <fieldset>
       <legend><%= Spree.t('avatax_api_keys') %></legend>
       <p>
         <label><%= Spree.t('avatax_company_code') %></label><br />
-        <%= text_field_tag('settings[company_code]', Spree::AvalaraPreference.company_code.value, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('settings[company_code]', Spree::Avatax::Config.company_code, :maxlength => 256, :class => 'avatax') %>
       </p>
 
       <p>
         <label><%= Spree.t('avatax_account') %></label><br />
-        <%= text_field_tag('settings[account]', Spree::AvalaraPreference.account.value, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('settings[account]', Spree::Avatax::Config.account, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
         <label><%= Spree.t('avatax_license_key') %></label><br />
-        <%= text_field_tag('settings[license_key]', Spree::AvalaraPreference.license_key.value, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('settings[license_key]', Spree::Avatax::Config.license_key, :maxlength => 256, :class => 'avatax') %>
       </p>
     </fieldset>
 
@@ -33,7 +32,7 @@
       <legend><%= Spree.t('avatax_endpoint_urls') %></legend>
       <p>
         <label><%= Spree.t('avatax_endpoint') %></label><br />
-        <%= text_field_tag('settings[endpoint]', Spree::AvalaraPreference.endpoint.value, :size => 46, :maxlength => 256, :class => 'avatax') %>
+        <%= text_field_tag('settings[endpoint]', Spree::Avatax::Config.endpoint, :size => 46, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
         <label><%= Spree.t('avatax_tax_service_path') %></label><br />
@@ -46,19 +45,49 @@
     </fieldset>
 
     <fieldset>
-      <% Spree::AvalaraPreference.booleans.each do |bool| %>
-        <p>
-          <label><%= Spree.t(bool.name) %></label><br />
-          <%= check_box_tag("settings[#{bool.name}]", bool.value, bool.is_true?, :class => 'avatax') %>
-        </p>
-      <% end %>
+      <p>
+        <label><%= Spree.t(:avatax_tax_calculation) %>:</label>
+        <%= check_box_tag "settings[tax_calculation]", true, Spree::Avatax::Config.tax_calculation, class: 'avatax' %>
+      </p>
+
+      <p>
+        <label><%= Spree.t(:avatax_document_committing) %>:</label>
+        <%= check_box_tag "settings[document_commit]", true, Spree::Avatax::Config.document_commit, class: 'avatax' %>
+      </p>
+    </fieldset>
+
+    <fieldset>
+      <p>
+        <label><%= Spree.t(:log) %>:</label>
+        <%= check_box_tag "settings[log]", true, Spree::Avatax::Config.log, class: 'avatax' %>
+      </p>
+      <p>
+        <label><%= Spree.t(:log_to_stdout) %>:</label>
+        <%= check_box_tag "settings[log_to_stdout]", true, Spree::Avatax::Config.log_to_stdout, class: 'avatax' %>
+      </p>
+      <p>
+        <label><%= Spree.t(:raise_exceptions) %>:</label>
+        <%= check_box_tag "settings[raise_exceptions]", true, Spree::Avatax::Config.raise_exceptions, class: 'avatax' %>
+      </p>
+      <p>
+        <label><%= Spree.t(:enable_avatax_address_validation) %>:</label>
+        <%= check_box_tag "settings[address_validation]", true, Spree::Avatax::Config.address_validation, class: 'avatax' %>
+      </p>
+      <p>
+        <label>Refuse Checkout if Address Validation Fails</label>
+        <%= check_box_tag "settings[refuse_checkout_address_validation_error]", true, Spree::Avatax::Config.refuse_checkout_address_validation_error, class: 'avatax' %>
+      </p>
+      <p>
+        <label>Customer can Validate Address in Checkout</label>
+        <%= check_box_tag "settings[customer_can_validate]", true, Spree::Avatax::Config.customer_can_validate, class: 'avatax' %>
+      </p>
 
     </fieldset>
 
     <fieldset>
       <legend><%= Spree.t('avatax_address_validation_enabled_countries') %></legend>
       <p>
-        <% current_countries = Spree::Country.where(name: Spree::AvalaraPreference.validation_enabled_countries_array) %>
+        <% current_countries = Spree::Country.where(name: Spree::Avatax::Config.address_validation_enabled_countries) %>
         <label><%= Spree.t('avatax_address_validation_enabled_countries') %></label><br />
         <%= select_tag('settings[address_validation_enabled_countries]', options_from_collection_for_select(Spree::Country.all, "name", "name", selected: current_countries), multiple: true, class: "select2 fullwidth") %>
       </p>

@@ -1,7 +1,7 @@
 module SolidusAvataxCertified
   class AvataxLog
     def initialize(file_name, log_info = nil, schedule = nil)
-      if !Spree::AvalaraPreference.log_to_stdout.is_true?
+      if !Spree::Avatax::Config.log_to_stdout
         schedule = 'weekly' unless schedule != nil
         @logger ||= Logger.new("#{Rails.root}/log/avatax.log", schedule)
         progname(file_name.split('/').last.chomp('.rb'))
@@ -17,7 +17,7 @@ module SolidusAvataxCertified
     end
 
     def enabled?
-      Spree::AvalaraPreference.log.is_true? || Spree::AvalaraPreference.log_to_stdout.is_true?
+      Spree::Avatax::Config.log || Spree::Avatax::Config.log_to_stdout
     end
 
     def progname(progname = nil)

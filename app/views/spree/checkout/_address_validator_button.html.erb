@@ -1,3 +1,3 @@
-<% if Spree::AvalaraPreference.customer_can_validate.is_true? %>
+<% if Spree::Avatax::Config.customer_can_validate %>
   <button class='button address_validator'>Validate Ship Address</button>
 <% end %>

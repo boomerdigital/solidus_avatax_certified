@@ -3,7 +3,7 @@ Spree::Refund.class_eval do
   after_create :avalara_capture_finalize, if: :avalara_tax_enabled?
 
   def avalara_tax_enabled?
-    Spree::AvalaraPreference.tax_calculation.is_true?
+    Spree::Avatax::Config.tax_calculation
   end
 
   def avalara_capture_finalize

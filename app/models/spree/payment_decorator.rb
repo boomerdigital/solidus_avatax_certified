@@ -3,7 +3,7 @@ Spree::Payment.class_eval do
   self.state_machine.after_transition to: :void, do: :cancel_avalara
 
   def avalara_tax_enabled?
-    Spree::AvalaraPreference.tax_calculation.is_true?
+    Spree::Avatax::Config.tax_calculation
   end
 
   def cancel_avalara

@@ -59,10 +59,10 @@ module Spree
       private
 
       def load_avatax_origin
-        if Spree::AvalaraPreference.origin_address.value.blank?
+        if Spree::Avatax::Config.origin.blank?
           @avatax_origin = {}
         else
-          @avatax_origin = JSON.parse(Spree::AvalaraPreference.origin_address.value)
+          @avatax_origin = JSON.parse(Spree::Avatax::Config.origin)
         end
       end
 
