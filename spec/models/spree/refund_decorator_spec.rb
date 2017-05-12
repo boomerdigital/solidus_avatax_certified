@@ -54,7 +54,7 @@ describe Spree::Refund, :vcr do
 
   describe '#avalara_capture_finalize' do
     subject do
-      VCR.use_cassette('order_return_capture') do
+      VCR.use_cassette('order_return_capture', allow_playback_repeats: true) do
         refund.save
       end
     end

@@ -3,16 +3,6 @@ require 'spec_helper'
 describe Spree::Adjustment, type: :model do
   let(:order) { build(:avalara_order) }
 
-  describe 'not_tax' do
-    it 'does not include adjustments with source_type of Spree::TaxRate' do
-      tax_adjustment = create(:adjustment, source_type: 'Spree::TaxRate', order: order)
-      non_tax_adjustment = create(:adjustment, source_type: 'Spree::Promotion', order: order)
-
-      expect(Spree::Adjustment.not_tax).to_not include(tax_adjustment)
-      expect(Spree::Adjustment.not_tax).to include(non_tax_adjustment)
-    end
-  end
-
   describe '#avatax_cache_key' do
     it 'should respond with a cache key' do
       adjustment = build(:adjustment, id: 1, amount: 20.0, order: order)

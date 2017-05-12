@@ -140,6 +140,7 @@ class TaxSvc
       JSON.parse(res)
     rescue => e
       logger.error(e, 'RestClient')
+      e
     end
   end
 
