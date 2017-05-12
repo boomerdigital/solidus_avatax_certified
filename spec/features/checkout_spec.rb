@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Checkout", :vcr, type: :feature, inaccessible: true do
+describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
   let(:product) { Spree::Product.first }
   let(:included_in_price) { false }
   let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10, tax_included: included_in_price) }
