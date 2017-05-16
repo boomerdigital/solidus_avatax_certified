@@ -60,12 +60,14 @@ class TaxSvc
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.open_timeout = 1
       http.read_timeout = 1
-      request = http.get(uri.request_uri, 'Authorization' => credential)
+      request = JSON.parse(http.get(uri.request_uri, 'Authorization' => credential).body)
     rescue => e
       logger.error(e, 'Request Timeout')
+
+      request = { 'ResultCode' => 'Error', 'Message' => e }
     end
 
-    response = SolidusAvataxCertified::Response::AddressValidation.new(request.body)
+    response = SolidusAvataxCertified::Response::AddressValidation.new(request)
     handle_response(response)
   end
 
