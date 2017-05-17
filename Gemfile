@@ -4,8 +4,11 @@ branch = ENV.fetch('SOLIDUS_BRANCH', 'v2.0')
 gem "solidus", github: "solidusio/solidus", branch: branch
 gem "solidus_auth_devise", github: "solidusio/solidus_auth_devise"
 
+gem 'pg'
+gem 'mysql2'
+
 group :test, :development do
-  gem "pry"
+  gem 'pry'
 end
 
 if branch == 'master' || branch >= "v2.0"
