@@ -27,6 +27,7 @@ describe Spree::Payment, :vcr do
     payment.order = order
     payment.payment_method = gateway
     payment.amount = order.total
+    payment.save
     payment
   end
 
