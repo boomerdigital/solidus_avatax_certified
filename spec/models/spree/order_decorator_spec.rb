@@ -48,7 +48,7 @@ describe Spree::Order, :vcr do
       end
 
       it 'should raise exception if preference is enabled' do
-        Spree::AvalaraPreference.raise_exceptions.update_attributes(value: 'true')
+        Spree::Avatax::Config.raise_exceptions = true
 
         expect{ subject }.to raise_exception(SolidusAvataxCertified::RequestError)
       end
@@ -129,14 +129,14 @@ describe Spree::Order, :vcr do
 
   describe '#validate_ship_address' do
     it 'should return the response if validation is success' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
+      Spree::Avatax::Config.address_validation = true
       response = order.validate_ship_address
 
       expect(response['ResultCode']).to eq('Success')
     end
 
     it 'should return the response if refuse checkout on address validation is disabled' do
-      Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'false')
+      Spree::Avatax::Config.refuse_checkout_address_validation_error = false
       response = order.validate_ship_address
 
       expect(response['ResultCode']).to eq('Success')
@@ -144,7 +144,7 @@ describe Spree::Order, :vcr do
 
     context 'validation failed' do
       it 'should return false' do
-        Spree::AvalaraPreference.refuse_checkout_address_validation_error.update_attributes(value: 'true')
+        Spree::Avatax::Config.refuse_checkout_address_validation_error = true
         order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
         response = order.validate_ship_address
 
@@ -152,7 +152,7 @@ describe Spree::Order, :vcr do
       end
 
       it 'raise exceptions if raise_exceptions preference is enabled' do
-        Spree::AvalaraPreference.raise_exceptions.update_attributes(value: 'true')
+        Spree::Avatax::Config.raise_exceptions = true
         order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
 
         expect{ order.validate_ship_address }.to raise_exception(SolidusAvataxCertified::RequestError)
@@ -169,20 +169,20 @@ describe Spree::Order, :vcr do
     end
 
     it 'returns true if preference is true and country validation is enabled' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
-      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'United States,Canada')
+      Spree::Avatax::Config.address_validation = true
+      Spree::Avatax::Config.address_validation_enabled_countries = ['United States', 'Canada']
 
       expect(order.address_validation_enabled?).to be_truthy
     end
 
     it 'returns false if address validation preference is false' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
+      Spree::Avatax::Config.address_validation = false
 
       expect(order.address_validation_enabled?).to be_falsey
     end
 
     it 'returns false if enabled country is not present' do
-      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'Canada')
+      Spree::Avatax::Config.address_validation_enabled_countries = ['Canada']
 
       expect(order.address_validation_enabled?).to be_falsey
     end

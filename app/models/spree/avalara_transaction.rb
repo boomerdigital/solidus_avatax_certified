@@ -79,11 +79,11 @@ module Spree
     end
 
     def document_committing_enabled?
-      Spree::AvalaraPreference.document_commit.is_true?
+      Spree::Avatax::Config.document_commit
     end
 
     def tax_calculation_enabled?
-      Spree::AvalaraPreference.tax_calculation.is_true?
+      Spree::Avatax::Config.tax_calculation
     end
 
     def logger

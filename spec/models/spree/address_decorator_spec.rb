@@ -5,20 +5,20 @@ describe Spree::Address, type: :model do
 
   describe '#validation_enabled?' do
     it 'returns true if preference is true and country validation is enabled' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'true')
-      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'United States,Canada')
+      Spree::Avatax::Config.address_validation = true
+      Spree::Avatax::Config.address_validation_enabled_countries = ['United States', 'Canada']
 
       expect(address.validation_enabled?).to be_truthy
     end
 
     it 'returns false if address validation preference is false' do
-      Spree::AvalaraPreference.address_validation.update_attributes(value: 'false')
+      Spree::Avatax::Config.address_validation = false
 
       expect(address.validation_enabled?).to be_falsey
     end
 
     it 'returns false if enabled country is not present' do
-      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'Canada')
+      Spree::Avatax::Config.address_validation_enabled_countries = ['Canada']
 
       expect(address.validation_enabled?).to be_falsey
     end
@@ -36,7 +36,7 @@ describe Spree::Address, type: :model do
     end
 
     it 'includes United States' do
-      Spree::AvalaraPreference.validation_enabled_countries.update_attributes(value: 'United States,Canada')
+      Spree::Avatax::Config.address_validation_enabled_countries = ['United States', 'Canada']
 
       expect(Spree::Address.validation_enabled_countries).to include('United States')
     end

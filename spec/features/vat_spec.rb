@@ -140,7 +140,7 @@ describe "VAT", :vcr do
 
 
   def set_seller_location
-    Spree::AvalaraPreference.origin_address.update_attributes(value: "{\"Address1\":\"34 Borgo degli Albizi\",\"Address2\":\"\",\"City\":\"Florence\",\"Region\":\"\",\"Zip5\":\"50122\",\"Zip4\":\"\",\"Country\":\"IT\"}")
+    Spree::Avatax::Config.origin = "{\"Address1\":\"34 Borgo degli Albizi\",\"Address2\":\"\",\"City\":\"Florence\",\"Region\":\"\",\"Zip5\":\"50122\",\"Zip4\":\"\",\"Country\":\"IT\"}"
     Spree::StockLocation.update_all(address1: '150 Piccadilly', city: 'Florence', country_id: it.id)
   end
 
