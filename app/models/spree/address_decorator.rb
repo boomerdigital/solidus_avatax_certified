@@ -1,4 +1,6 @@
 Spree::Address.class_eval do
+  include ToAvataxHash
+
   def validation_enabled?
     Spree::Avatax::Config.address_validation && country_validation_enabled?
   end

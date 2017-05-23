@@ -62,7 +62,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
     end
 
     it "validates address with success" do
-      expect(subject["ResultCode"]).to eq("Success")
+      expect(subject.success?).to be_truthy
     end
 
     it "does not validate when config settings are false" do
@@ -82,7 +82,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
       end
 
       it 'fails when information is incorrect' do
-        expect(subject['ResultCode']).to eq('Error')
+        expect(subject.error?).to be_truthy
       end
 
       it 'raises exception if preference is set to true' do
