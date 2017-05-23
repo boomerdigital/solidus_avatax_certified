@@ -3,6 +3,7 @@ source "https://rubygems.org"
 branch = ENV.fetch('SOLIDUS_BRANCH', 'v2.0')
 gem "solidus", github: "solidusio/solidus", branch: branch
 gem "solidus_auth_devise", github: "solidusio/solidus_auth_devise"
+gem 'avatax-ruby', github: 'skukx/avatax', require: 'avatax'
 
 group :test, :development do
   gem "pry"
