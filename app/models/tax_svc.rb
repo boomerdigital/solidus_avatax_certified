@@ -124,6 +124,22 @@ class TaxSvc
     Spree::Avatax::Config.account
   end
 
+  def username
+    Spree::Avatax::Config.username
+  end
+
+  def password
+    Spree::Avatax::Config.password
+  end
+
+  def client
+    @client ||= Avatax::Client.new(
+      username: username,
+      password: password,
+      env: Spree::AvataxConfiguration.environment
+    )
+  end
+
   def request(uri, request_hash)
     begin
       res = RestClient::Request.execute(method: :post,
