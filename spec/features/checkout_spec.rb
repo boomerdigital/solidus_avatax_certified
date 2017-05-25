@@ -1,8 +1,9 @@
 require 'spec_helper'
 
-describe "Checkout", :vcr, type: :feature, inaccessible: true do
+describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
   let(:product) { Spree::Product.first }
-  let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10) }
+  let(:included_in_price) { false }
+  let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10, tax_included: included_in_price) }
   let!(:user) { order.user }
 
   before do
@@ -58,6 +59,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true do
     end
 
     context 'tax included' do
+      let(:included_in_price) { true }
       before do
         Spree::TaxRate.update_all(included_in_price: true)
         order.reload
@@ -101,16 +103,14 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true do
   end
 
   context 'complete order', js: true do
-    let(:payment_method) { create(:credit_card_payment_method) }
-    let!(:credit_card) do
-      create(:credit_card, user_id: order.user.id, payment_method: payment_method, gateway_customer_profile_id: "BGS-WEFWF")
-    end
+    let!(:payment_method) { create(:check_payment_method) }
+
     before do
       allow(order).to receive_messages(:available_payment_methods => [ payment_method ])
       visit_delivery
       click_button 'Save and Continue'
-      click_button "Save and Continue"
-      click_button "Place Order"
+      click_button 'Save and Continue'
+      click_button 'Place Order'
     end
 
     it 'has tax and shipping tax adjustments on page' do

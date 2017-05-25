@@ -36,11 +36,14 @@ module Spree
       end
     end
 
+    # Tax Adjustments are not created or calculated until on payment page.
+    # 1. We do not want to calculate tax until address is filled in and shipment type has been selected.
+    # 2. VAT tax adjustments set included on adjustment creation, if the tax initially returns 0, included is set to false causing incorrect calculations.
     def can_calculate_tax?(order)
-      address = order.ship_address
+      address = order.tax_address
 
       return false unless Spree::Avatax::Config.tax_calculation
-      return false if %w(address cart).include?(order.state)
+      return false if %w(address cart delivery).include?(order.state)
       return false if address.nil?
       return false unless calculable.zone.include?(address)
 
