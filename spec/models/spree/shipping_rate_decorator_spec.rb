@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spree::ShippingRate, type: :model do
   let!(:shipping_tax_category) { create(:tax_category, name: 'Shipping', tax_code: 'FR000000') }
   let!(:zone) { create(:zone, name: 'North America', default_tax: true, zone_members: []) }
-  let!(:tax_rate) { create(:tax_rate, tax_category: shipping_tax_category, amount: 0.00, included_in_price: false, zone: zone) }
+  let!(:tax_rate) { create(:tax_rate, tax_categories: [shipping_tax_category], amount: 0.00, included_in_price: false, zone: zone) }
 
   let(:shipment) { build(:shipment) }
   let(:shipping_method) { build(:shipping_method) }

@@ -14,7 +14,7 @@ FactoryGirl.define do
         create(:country)
       end
       shipping_tax_rate = create(:shipping_tax_rate, included_in_price: evaluator.tax_included)
-      shipping_method.tax_category = shipping_tax_rate.tax_category
+      shipping_method.tax_category = shipping_tax_rate.tax_categories.first
       if shipping_method.shipping_categories.empty?
         shipping_method.shipping_categories << (Spree::ShippingCategory.first || create(:shipping_category))
       end

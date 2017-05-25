@@ -25,9 +25,9 @@ FactoryGirl.define do
         create(:global_zone, default_tax: true)
       end
       if Spree::TaxCategory.first.nil?
-        create(:clothing_tax_rate, tax_category: create(:tax_category), included_in_price: evaluator.tax_included)
+        create(:clothing_tax_rate, tax_categories: [create(:tax_category)], included_in_price: evaluator.tax_included)
       else
-        create(:clothing_tax_rate, tax_category: Spree::TaxCategory.first, included_in_price: evaluator.tax_included)
+        create(:clothing_tax_rate, tax_categories: [Spree::TaxCategory.first], included_in_price: evaluator.tax_included)
       end
     end
 
