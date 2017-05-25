@@ -1,17 +1,20 @@
 # encoding: UTF-8
-gem_version = File.read(File.expand_path('../GEM_VERSION',__FILE__)).strip
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require 'solidus_avatax_certified/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_avatax_certified'
-  s.version     = gem_version
+  s.version     = SolidusAvataxCertified::VERSION
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
   s.required_ruby_version = '>= 2.1'
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'
-  s.homepage  = 'http://www.boomer.digital'
+  s.homepage  = 'http://www.boomerdigital.net'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
