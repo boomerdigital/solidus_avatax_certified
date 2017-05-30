@@ -5,7 +5,7 @@ http_interactions:
     uri: https://development.avalara.net/1.0/tax/get
     body:
       encoding: UTF-8
-      string: '{"Commit":false,"CustomerCode":"1","DocDate":"2014-11-03","CompanyCode":"54321","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","DocCode":"R731071205","ReferenceCode":"R731071205","DetailLevel":"Tax","DocType":"SalesOrder","Discount":"0.00","Addresses":[{"AddressCode":"9","Line1":"31
+      string: '{"Commit":true,"CustomerCode":"1","DocDate":"2017-05-30","CompanyCode":"54321","CustomerUsageType":"","ExemptionNo":null,"Client":"a0o33000004FH8l","DocCode":"testcancel123","ReferenceCode":"R731071205","DetailLevel":"Tax","DocType":"SalesInvoice","Discount":"0.00","Addresses":[{"AddressCode":"9","Line1":"31
         South St","City":"Morristown","PostalCode":"07960","Country":"US"},{"AddressCode":"Dest","Line1":"73
         Glenmere Drive","Line2":"","City":"Chatham","Region":"NJ","Country":"US","PostalCode":"07928"},{"AddressCode":"Orig","Line1":"73
         Glenmere Drive","City":"Chatham","PostalCode":"07928","Country":"United States"}],"Lines":[{"LineNo":"1-LI","ItemCode":"ROR-00013","Qty":3,"Amount":62.97,"OriginCode":"9","DestinationCode":"Dest","Description":"Ruby
@@ -20,7 +20,7 @@ http_interactions:
       Content-Type:
       - application/json
       Content-Length:
-      - '818'
+      - '822'
       User-Agent:
       - Ruby
   response:
@@ -41,11 +41,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Thu, 13 Apr 2017 01:43:31 GMT
+      - Tue, 30 May 2017 18:50:51 GMT
       Content-Length:
-      - '584'
+      - '587'
       Set-Cookie:
-      - TS017f1821=01a8ddc44e15e27ec194c2693a23bc8081a959081d3bfacfe3afa73064ee32e644b816031a37a9986c471f7d2146119e3e4a3a18db;
+      - TS017f1821=01a8ddc44ebfc6d46c1c725bdedf19237178aef4fc1465f4cf0f099d70f6605f400a5eaac1f2ec42dc5bfa99ba3df258d0f174a8c9;
         Path=/
     body:
       encoding: ASCII-8BIT
@@ -53,69 +53,68 @@ http_interactions:
         H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
         kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
         AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++enBvd+fB7t7Off3iadbyF3s7u/vbu7vbO/fwxZtikTdttljpVw+2
-        d+jbe292dh/t33t0b2+8t7fzcP/g3k9x46rNyuNFtV62aP7p3vjhA/v506KZ
-        mm927Ken7/LFqi2qJT4OX3iTvcsmJePk2tOHvQ9OsnK6Lgn9mfsqe/e8WOYN
-        ffC9hCiCP15U9NdHu9vPz7SFIcXLHXn042xSlEV7jW/aep3j0yeE+Cyrr5/n
-        l3mJL45ns1ppGh9Bf7QA7I3mFeFr/6Av/d/jA3qat1lR2iGdAHzNaH71Gk1e
-        5ReKxYvv4O/vrOuieXO94m5etwTOfmpGfm8fHxHs26HG777IFvzti9Pvpt85
-        ffX69PfBV9TMfvGd9PWb4zen6Zvj3/ujX5J8P8H/pYmSzc2LfkB/fvTgXvp5
-        mS8XeZ2nT+vikrHV7w2+T4kX8fGJzs/JPGvn2YI/6pLjZUV8W5o3dx483DvA
-        x10qEVby0RkTe2939+Depw/xDY/WvH9vnxiEHxrSKMT83m76ulq38/Q1I6ff
-        mDcZlkH4i6omoG11teRPb8T5U6a7IIiPvj7OZgoiYv5Lkv8HUFFwCjQEAAA=
+        6Gk1NZ+2edNOs+U0L3f37ul3T7OWv9vb2X2wvXN/+94OvnhTLKhttliFX73Z
+        PXh0f+fR/d3xvQMG8KZqs/J4Ua2XLVp+ujd++MB+/rRopuYbgYpPT9/li1Vb
+        VMvw4zfZu2xSMiohFPoCH+6P77ke6bOTrJyuS0J+FnybvXteLPOGPvteQlTB
+        Hy8q+uuj3e3nZ9rCkOPljjz6cTYpyqK9xjdtvc7x6RNCf5bV18/zy7zEF8ez
+        Wa107Y+jP14A7YzpFaGMD3bGO58ePLhv2uEjbxCDo3uat1lR2vGdoL+acf7q
+        NZq8yi8UpRffwd/fWddF8+Z6xX2+bgmi/dSQ4d4+PiLYXwdXhvQiW3C7F6ff
+        Tb9z+ur16e+Dr6il/eI76es3x29O0zfHv/dHvyT5foL/SxOlqJsy/YD+/OjB
+        vfTzMl8u8jpPn9bFJeOu3xvsnxKf4uMTnbqTedbOswV/1CXOy4p4ujRv7jx4
+        uHeAj7s0I6zkozOm/t7u7sG9Tx/iGx6tef/ePvEOPzSkUYj5vd30dbVu5+lr
+        Rk6/MW8yLIPwF1VNQNvqasmf3ojzpzwNgiA++vo4mymIqIBfkvw/UJzKNFME
+        AAA=
     http_version: 
-  recorded_at: Thu, 13 Apr 2017 01:43:32 GMT
+  recorded_at: Tue, 30 May 2017 18:50:51 GMT
 - request:
     method: post
-    uri: https://development.avalara.net/1.0/tax/cancel
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/testcancel123/void
     body:
       encoding: UTF-8
-      string: '{"CompanyCode":"54321","DocType":"SalesInvoice","DocCode":"R731071205","CancelCode":"DocVoided"}'
+      string: '{"code":"DocVoided"}'
     headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      User-Agent:
+      - Faraday v0.12.1
       Content-Type:
       - application/json
-      Content-Length:
-      - '96'
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
       message: OK
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/236180/transactions/304442841"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0468721'
+      Databasecalls:
+      - '4'
+      Databaseduration:
+      - '00:00:00.0156173'
       Date:
-      - Thu, 13 Apr 2017 01:43:32 GMT
-      Content-Length:
-      - '211'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44eea31decb1fc8caec14f69f713d8a5ce645e03a0aa8b46ab1a3f8b2661699a35da2355ff9495b9e9f752728df962c04ad;
-        Path=/
+      - Tue, 30 May 2017 18:50:52 GMT
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tFJtpzm5Zvs3au8WZftR49S+vBpNT2b
-        0a8ffXpvZ//hwcNPPxolH72ps2WTTduiWvKX93fvPdi9v7+79+mnB7sP7x9Q
-        E4FxUs1y+v6j1+vpNG+aj35J8kuS/wd6jEoqagAAAA==
+      encoding: UTF-8
+      string: '{"id":304442841,"code":"testcancel123","companyId":236180,"date":"2017-05-30","paymentDate":"1900-01-01","status":"Cancelled","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R731071205","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":62.9700,"totalExempt":0.0000,"totalTax":4.3300,"totalTaxable":62.9700,"totalTaxCalculated":4.3300,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"NJ","country":"US","version":1,"softwareVersion":"17.4.2.1","exchangeRateEffectiveDate":"1900-01-01","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-05-30T18:50:52.27","modifiedUserId":37777,"taxDate":"2017-05-30T00:00:00","lines":[{"id":1098612319,"transactionId":304442841,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Ruby
+        on Rails Jr. Spaghetti","destinationAddressId":774405689,"originAddressId":774405690,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":true,"itemCode":"ROR-00013","lineAmount":62.9700,"quantity":3.0000,"ref1":"","ref2":"","reportingDate":"2017-05-30","revAccount":"","sourcing":"Destination","tax":4.3300,"taxableAmount":62.9700,"taxCalculated":4.3300,"taxCode":"P0000000","taxCodeId":8087,"taxDate":"2017-05-30","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":1998454340,"transactionLineId":1098612319,"transactionId":304442841,"addressId":774405689,"country":"US","region":"NJ","stateFIPS":"34","exemptAmount":0.0000,"exemptReasonId":4,"inState":true,"jurisCode":"34","jurisName":"NEW
+        JERSEY","jurisdictionId":34,"signatureCode":"BEJY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.068750,"rateRuleId":1344046,"rateSourceId":3,"serCode":"
+        ","sourcing":"Destination","tax":4.3300,"taxableAmount":62.9700,"taxType":"Sales","taxName":"NJ
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2118369,"taxCalculated":4.3300,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":62.9700,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":684128294,"documentLineId":1098612319,"documentAddressId":774405689,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":684128293,"documentLineId":1098612319,"documentAddressId":774405690,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":774405689,"transactionId":304442841,"boundaryLevel":"Address","line1":"73
+        Glenmere Dr","line2":"","line3":"","city":"Chatham","region":"NJ","postalCode":"07928-1306","country":"US","taxRegionId":2118369,"latitude":"40.721499","longitude":"-74.411611"},{"id":774405690,"transactionId":304442841,"boundaryLevel":"Address","line1":"31
+        South St","line2":"","line3":"","city":"Morristown","region":"NJ","postalCode":"07960-7200","country":"US","taxRegionId":2118369,"latitude":"40.795358","longitude":"-74.480129"}],"locationTypes":[],"summary":[{"country":"US","region":"NJ","jurisType":"State","jurisCode":"34","jurisName":"NEW
+        JERSEY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"NJ
+        STATE TAX","rateType":"General","taxable":62.97,"rate":0.068750,"tax":4.33,"taxCalculated":4.33,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Thu, 13 Apr 2017 01:43:32 GMT
+  recorded_at: Tue, 30 May 2017 18:50:52 GMT
 recorded_with: VCR 3.0.3
