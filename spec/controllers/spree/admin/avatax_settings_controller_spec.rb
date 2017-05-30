@@ -36,8 +36,14 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
   end
 
   describe '/avatax_settings/ping_my_service' do
+    subject do
+      VCR.use_cassette('ping', allow_playback_repeats: true) do
+        get :ping_my_service
+      end
+    end
+
     it 'flashes message' do
-      subject { get :ping_my_service }
+      subject
       response.should be_success
       flash.should_not be_nil
     end

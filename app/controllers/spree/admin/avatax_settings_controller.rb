@@ -19,8 +19,9 @@ module Spree
 
       def ping_my_service
         mytax = TaxSvc.new
-        pingResult = mytax.ping
-        if pingResult['ResultCode'] == 'Success'
+        response = mytax.ping
+
+        if response.success?
           flash[:success] = 'Ping Successful'
 
         else
@@ -28,7 +29,8 @@ module Spree
         end
 
         respond_to do |format|
-          format.js
+          format.html { render :layout => !request.xhr? }
+          format.js { render :layout => false }
         end
       end
 

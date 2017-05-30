@@ -56,9 +56,14 @@ RSpec.describe TaxSvc, :vcr do
   end
 
   describe '#ping' do
-    it 'should return estimate' do
-      result = taxsvc.ping
-      expect(result['ResultCode']).to eq('Success')
+    subject do
+      VCR.use_cassette('ping', allow_playback_repeats: true) do
+        taxsvc.ping
+      end
+    end
+
+    it 'should return successful' do
+      expect(subject.success?).to be_truthy
     end
   end
 end
