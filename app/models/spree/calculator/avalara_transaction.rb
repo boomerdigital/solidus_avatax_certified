@@ -66,7 +66,7 @@ module Spree
       order.shipments.each do |shipment|
         key << shipment.avatax_cache_key
       end
-      order.all_adjustments.not_tax do |adj|
+      order.all_adjustments.non_tax do |adj|
         key << adj.avatax_cache_key
       end
       key
