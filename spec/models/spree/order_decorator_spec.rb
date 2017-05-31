@@ -21,8 +21,8 @@ describe Spree::Order, :vcr do
       end
     end
 
-    it 'return a hash with a ResultCode of Success' do
-      expect(subject["ResultCode"]).to eq("Success")
+    it 'return a hash with a status of cancelled' do
+      expect(subject['status']).to eq('Cancelled')
       expect(subject).to be_kind_of(Hash)
     end
 
@@ -43,8 +43,8 @@ describe Spree::Order, :vcr do
         avalara_order.cancel_avalara
       end
 
-      it 'should receive ResultCode of Error' do
-        expect(subject['ResultCode']).to eq('Error')
+      it 'should receive error key' do
+        expect(subject['error']).to be_present
       end
 
       it 'should raise exception if preference is enabled' do

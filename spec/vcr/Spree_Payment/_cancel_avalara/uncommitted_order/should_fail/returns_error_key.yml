@@ -5,13 +5,13 @@ http_interactions:
     uri: https://development.avalara.net/1.0/tax/get
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R297662021","DocDate":"2017-05-31","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+      string: '{"DocCode":"R642660330","DocDate":"2017-05-31","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #5 - 2683","TaxCode":"PC030000","ItemCode":"SKU-5","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
+        #2 - 1348","TaxCode":"PC030000","ItemCode":"SKU-2","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R297662021","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R642660330","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -43,35 +43,36 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Wed, 31 May 2017 20:13:00 GMT
+      - Wed, 31 May 2017 20:12:01 GMT
       Content-Length:
-      - '666'
+      - '694'
       Set-Cookie:
-      - TS017f1821=01a8ddc44edcde8d763929bb690a823eec54fc0b4254d52d6b79f82d18a1d7e7c05647e1810e7f0f98d40cece200eb81ca4ea30225;
+      - TS017f1821=01a8ddc44e7a99e05f0e31239b029538b44d5c112465f759046176581abcc7068b2050c7c5f69b989a0ff09b2de2fbd1a7cc5a4201;
         Path=/
     body:
       encoding: ASCII-8BIT
       string: !binary |-
         H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
         kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++2nv44NNP93b2dvWLp1nLX+zt7D7Y3rm/fY+/eFMs8qbNFqvwqzd7
-        O4927z3a2Rnf/3SXPr3/U9y4arPyeFGtly2a7963Hz4tmqn5eMd+evouX6za
-        olqGH7/J3mWTkpHxQNCn+GRn/Kn/0UlWTtcloT7zv8zePS+WeUMffS8heuCP
-        FxX99dHu9vMzbWEI8fJk594OPfpxNinKor3GN229zvHpE8J8ltXXz/PLvMQX
-        x7NZrRTtD6E/VADV4fAHrwhd/LUz3tmnjvkzaiQf7etf3YGZz5/mbVaUdmgn
-        6KpmdL96jSav8gvF5vg5/v7Oui6aN9cr7vF1SwDtp4YCOzLT748mQ3mRLbjZ
-        8fPjJ8dfHONzauU+TV+/OX5zmr45/r0/+iXJ95NfkowIbX9Gnr3Sdww+z15R
-        b/Toxz+rM8L8tXGke/pXd0LM5z+MCbkllgzEUf6W8/H9RJooDZ3Y6Af050cP
-        d++nr9PvZNO3TbVMX7eAql8bpJ+SnsDHJzpXX1TL9qJa5EQLfNoly8uK1Epp
-        Xr5HWoRZqkstwks+OmOy7+3c33vw8CG+4cGa93d2SQvd3wVVhMEUOXy3++nO
-        TvoyXy6b6/IyWxZZenyZpy++CyDazIBhKpoBfDdr5sXyoiV08OnmARBi1Dd9
-        LNjio6cn+LszgIf7feQJd30IeTMbEXX8S5L/BwKCyEncBQAA
+        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tHTanpSzfKPHqUfvfp0f+/TT3fu3dv5
+        aMRfPM1a/mJvZ/fB9s797Xu7+OJNscibNluswq/e7O082t17tLM3/vT+/Xv7
+        u5/+FDeu2qw8XlTrZYvmu/fth0+LZmo+5g7509N3+WLVFtUy/PhN9i6blIyM
+        B4I+xSc740/9j06ycrouCfWZ/2X2bmA02bvnxTJv6JvvJUQP/PGior8+2t1+
+        fqYtDIVenuzc26FHP84mRVm01/imrdc5Pn1CQ5pl9fXz/DIv8cXxbFbnTYPv
+        +A0dBIN4pRjtjHf2CSp/Ro3ko3381ScSIdMZHzeM0I1GnLdZUdqh0Sfv2/+r
+        /EJhHj/H3ydApuYRf/UaH3xnXRfNm+sVw3ndAqD59EW24E+Pnx8/Of7i2H5u
+        iLlj6O8apq/fHL85Td8c/94f/ZLk+8kvSUaEtj8jz17pOwbIs1eENz368XvO
+        SJ9qMYIbojHjbaTZnv7VnSLzeWdCetTskpvpFaeuIYCl4ntiyUAc5e0UUSv3
+        aW8+vp9IE6WhExv9gP786OHu/fR1+p1s+raplunrFlD1a4P0U1Ig+PhE5+qL
+        atleVIucaIFPu2R5WZG+Kc3L9z7d3YkyJ+ElH50x2fd27u89ePgQ3/Bgzfs7
+        u7s7u/d3QRVhMEUO3+1+urOTvsyXy+a6vMyWRZYeX+bpi+8CiDYzYJiKZgDf
+        zZp5sbxoCR18unkAhBj1TR8Ltvjo6Qn+7gzg4X4fecJdH0KeZ+NV3qzL1nz/
+        ej2dEpIf/ZLk/wGt5l+l3AUAAA==
     http_version: 
-  recorded_at: Wed, 31 May 2017 20:13:00 GMT
+  recorded_at: Wed, 31 May 2017 20:12:02 GMT
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R297662021/void
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R642660330/void
     body:
       encoding: UTF-8
       string: '{"code":"DocVoided"}'
@@ -98,18 +99,18 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0312503'
+      - '00:00:00'
       Databasecalls:
-      - '4'
+      - '1'
       Databaseduration:
-      - '00:00:00.0156250'
+      - '00:00:00'
       Date:
-      - Wed, 31 May 2017 20:13:01 GMT
+      - Wed, 31 May 2017 20:12:03 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"EntityNotFoundError","message":"Document with ID
-        ''54321:R297662021'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
-        with ID ''54321:R297662021'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
+        ''54321:R642660330'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
+        with ID ''54321:R642660330'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Wed, 31 May 2017 20:13:01 GMT
+  recorded_at: Wed, 31 May 2017 20:12:03 GMT
 recorded_with: VCR 3.0.3

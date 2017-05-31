@@ -40,18 +40,16 @@ module Spree
     end
 
     def cancel_order
-      cancel_order_to_avalara('SalesInvoice') if tax_calculation_enabled?
+      cancel_order_to_avalara if tax_calculation_enabled?
     end
 
     private
 
-    def cancel_order_to_avalara(doc_type = 'SalesInvoice')
+    def cancel_order_to_avalara
       logger.info "Begin cancel order #{order.number} to avalara..."
 
-      request = SolidusAvataxCertified::Request::CancelTax.new(order, doc_type: doc_type).generate
-
       mytax = TaxSvc.new
-      mytax.cancel_tax(request).tax_result
+      mytax.cancel_tax(order.number).tax_result
     end
 
     def post_order_to_avalara(commit = false, doc_type = nil)
