@@ -33,17 +33,11 @@ class TaxSvc
 
   def validate_address(address)
     begin
-      uri = URI(address_service_url + address.to_query)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      http.open_timeout = 1
-      http.read_timeout = 1
-      request = JSON.parse(http.get(uri.request_uri, 'Authorization' => credential).body)
+      request = client.addresses.validate(address).body
     rescue => e
-      logger.error(e, 'Request Timeout')
+      logger.error(e)
 
-      request = { 'ResultCode' => 'Error', 'Message' => e }
+      request = { 'error' => { 'message' => e } }
     end
 
     response = SolidusAvataxCertified::Response::AddressValidation.new(request)

@@ -132,14 +132,14 @@ describe Spree::Order, :vcr do
       Spree::Avatax::Config.address_validation = true
       response = order.validate_ship_address
 
-      expect(response['ResultCode']).to eq('Success')
+      expect(response['error']).to_not be_present
     end
 
     it 'should return the response if refuse checkout on address validation is disabled' do
       Spree::Avatax::Config.refuse_checkout_address_validation_error = false
       response = order.validate_ship_address
 
-      expect(response['ResultCode']).to eq('Success')
+      expect(response['error']).to_not be_present
     end
 
     context 'validation failed' do
