@@ -40,12 +40,13 @@ Spree::Order.class_eval do
     avatax_address = SolidusAvataxCertified::Address.new(self)
     response = avatax_address.validate
 
-    return response if response['ResultCode'] == 'Success'
+    return response.result if response.success?
     return response if !Spree::Avatax::Config.refuse_checkout_address_validation_error
 
-    messages = response['Messages'].each do |message|
-      errors.add(:address_validation_failure, message['Summary'])
+    response.summary_messages.each do |msg|
+      errors.add(:address_validation_failure, msg)
     end
+
    return false
   end
 

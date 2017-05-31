@@ -97,32 +97,32 @@
       <legend><%= Spree.t('business_address') %></legend>
       <p>
         <label><%= Spree.t('address1') %></label><br />
-        <%= text_field_tag('address[Line1]', @avatax_origin["Line1"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address1') %>
+        <%= text_field_tag('address[line1]', @avatax_origin["line1"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address1') %>
       </p>
       <p>
         <label><%= Spree.t('address2') %></label><br />
-        <%= text_field_tag('address[Line2]', @avatax_origin["Line2"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address2') %>
+        <%= text_field_tag('address[line2]', @avatax_origin["line2"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address2') %>
       </p>
       <p>
         <label><%= Spree.t('city') %></label><br />
-        <%= text_field_tag('address[City]', @avatax_origin["City"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
+        <%= text_field_tag('address[city]', @avatax_origin["city"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
       </p>
        <p>
         <label><%= Spree.t('country') %></label><br />
-        <% curr_country = Spree::Country.find_by(iso: @avatax_origin["Country"]) ||  Spree::Country.find_by(iso: 'US') %>
+        <% curr_country = Spree::Country.find_by(iso: @avatax_origin["country"]) ||  Spree::Country.find_by(iso: 'US') %>
         <span id="scountry">
-          <%= select_tag 'address[Country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', curr_country.try(:id)), {:class => 'select2 avatax', id: 'country'} %>
+          <%= select_tag 'address[country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', curr_country.try(:id)), {:class => 'select2 avatax', id: 'country'} %>
         </span>
       </p>
       <p>
         <label><%= Spree.t('state') %></label><br />
         <span id="sstate">
-          <%= select_tag 'address[Region]', options_from_collection_for_select(curr_country.try(:states), 'id', 'name',curr_country.states.find_by(abbr: @avatax_origin["Region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
+          <%= select_tag 'address[region]', options_from_collection_for_select(curr_country.try(:states), 'id', 'name',curr_country.states.find_by(abbr: @avatax_origin["region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
         </span>
       </p>
       <p>
         <label><%= Spree.t('zipcode') %></label><br />
-        <%= text_field_tag('address[PostalCode]', @avatax_origin["PostalCode"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'zipcode') %>
+        <%= text_field_tag('address[postalCode]', @avatax_origin["postalCode"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'zipcode') %>
       </p>
 
       <a href="#" class="button address_validator" style="float: right;">Validate</a>
