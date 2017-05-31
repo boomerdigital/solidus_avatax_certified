@@ -37,7 +37,7 @@ AddressValidator.prototype = {
 
       $.each(["Line1", "Line2", "City", "PostalCode"], function(index, value){
         var keyVal = controller.getKeyByValue(value);
-        $(wrapper + " input[id*='" + keyVal + "']").val(data.Address[value]);
+        $(wrapper + " input[id*='" + keyVal + "']").val(data.result.Address[value]);
       }.bind(address));
 
       this.showFlash(data);

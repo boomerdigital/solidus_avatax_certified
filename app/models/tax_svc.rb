@@ -24,32 +24,11 @@ class TaxSvc
     handle_response(response)
   end
 
-  def estimate_tax(coordinates, sale_amount)
-    if tax_calculation_enabled?
-      log(__method__)
-
-      return nil if coordinates.nil?
-      sale_amount = 0 if sale_amount.nil?
-      coor = coordinates[:latitude].to_s + ',' + coordinates[:longitude].to_s
-
-      uri = URI(service_url + coor + '/get?saleamount=' + sale_amount.to_s)
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-      http.open_timeout = 1
-      http.read_timeout = 1
-
-      res = http.get(uri.request_uri, 'Authorization' => credential, 'Content-Type' => 'application/json')
-      JSON.parse(res.body)
-    end
-  rescue => e
-    logger.error e, 'Estimate Tax Error'
-    'Estimate Tax Error'
-  end
-
   def ping
     logger.info 'Ping Call'
-    estimate_tax({ latitude: '40.714623', longitude: '-74.006605' }, 0)
+
+    # Testing if configuration is set up properly, ping will fail if it is not
+    client.tax_rates.get(:by_postal_code, { country: 'US', postalCode: '07801' })
   end
 
   def validate_address(address)
@@ -124,6 +103,22 @@ class TaxSvc
     Spree::Avatax::Config.account
   end
 
+  def username
+    Spree::Avatax::Config.username
+  end
+
+  def password
+    Spree::Avatax::Config.password
+  end
+
+  def client
+    @client ||= Avatax::Client.new(
+      username: username,
+      password: password,
+      env: Spree::AvataxConfiguration.environment
+    )
+  end
+
   def request(uri, request_hash)
     begin
       res = RestClient::Request.execute(method: :post,
@@ -142,6 +137,7 @@ class TaxSvc
       JSON.parse(res)
     rescue => e
       logger.error(e, 'RestClient')
+      e
     end
   end
 

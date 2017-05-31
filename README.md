@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/boomerdigital/solidus_avatax_certified.svg?branch=v2.1)](https://travis-ci.org/boomerdigital/solidus_avatax_certified)
+[![Build Status](https://travis-ci.org/boomerdigital/solidus_avatax_certified.svg?branch=v2.3)](https://travis-ci.org/boomerdigital/solidus_avatax_certified)
 
 SolidusAvataxCertified
 ===========

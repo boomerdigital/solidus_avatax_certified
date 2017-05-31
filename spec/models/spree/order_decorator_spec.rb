@@ -15,7 +15,7 @@ describe Spree::Order, :vcr do
 
   describe '#cancel_avalara' do
     subject do
-      VCR.use_cassette("order_cancel") do
+      VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
         avalara_order.avalara_capture_finalize
         avalara_order.cancel_avalara
       end

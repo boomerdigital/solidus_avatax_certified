@@ -114,7 +114,7 @@ describe Spree::AvalaraTransaction, :vcr do
         end
 
         subject do
-          VCR.use_cassette('capture_with_customer_usage_type') do
+          VCR.use_cassette('capture_with_customer_usage_type', allow_playback_repeats: true) do
             order.avalara_transaction.commit_avatax('SalesInvoice')
           end
         end

@@ -70,7 +70,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
-  config.before :each do |example|
+  config.before :each do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
     MyConfigPreferences.set_preferences

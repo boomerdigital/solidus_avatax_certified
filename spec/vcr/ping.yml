@@ -1,0 +1,42 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/taxrates/bypostalcode?country=US&postalCode=07801
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Authorization:
+      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0312519'
+      Databasecalls:
+      - '2'
+      Databaseduration:
+      - '00:00:00.0156215'
+      Date:
+      - Tue, 30 May 2017 20:28:21 GMT
+    body:
+      encoding: UTF-8
+      string: '{"totalRate":0.068750,"rates":[{"rate":0.068750,"name":"NJ STATE TAX","type":"State"}]}'
+    http_version: 
+  recorded_at: Tue, 30 May 2017 20:28:21 GMT
+recorded_with: VCR 3.0.3
