@@ -5,12 +5,12 @@ Spree.ready(function(){
 
 function AddressValidator(){
   this.lineHash = {
-    address1: "Line1",
-    address2: "Line2",
-    city: "City",
-    zipcode: "PostalCode",
-    country: "Country",
-    state: "Region"
+    address1: "line1",
+    address2: "line2",
+    city: "city",
+    zipcode: "postalCode",
+    country: "country",
+    state: "region"
   };
 }
 
@@ -18,8 +18,8 @@ AddressValidator.prototype = {
   bindListeners: function(){
     $(".address_validator").on("click", this.validate.bind(this));
   },
-  validate: function(){
-    event.preventDefault();
+  validate: function(e){
+    e.preventDefault();
     $("#checkout_form_address").validate().form();
     var address = this.formatAddress();
 
@@ -33,13 +33,15 @@ AddressValidator.prototype = {
       var controller = this;
       var wrapper = controller.addressWrapper();
 
-      if (data['ResultCode'] === 'Error') {
+      if (data.responseCode === 'error') {
         return this.showFlash(data);
       }
 
-      $.each(["Line1", "Line2", "City", "PostalCode"], function(index, value){
+      var validatedAddress = data.validatedAddresses[0];
+
+      $.each(["line1", "line2", "city", "postalCode"], function(index, value){
         var keyVal = controller.getKeyByValue(value);
-        $(wrapper + " input[id*='" + keyVal + "']").val(data.result.Address[value]);
+        $(wrapper + " input[id*='" + keyVal + "']").val(validatedAddress[value]);
       }.bind(address));
 
       this.showFlash(data);
@@ -68,13 +70,11 @@ AddressValidator.prototype = {
     return Object.keys(this.lineHash).find(function(key){ return this[key] === value}.bind(this.lineHash));
   },
   showFlash: function(data){
-    var resultCode = data.ResultCode.toLowerCase();
-
-    if(resultCode === "success") {
-      window.show_flash("success", "Address Validation Successful");
-    } else {
-      details = $(data['Messages']).map(function(){return this['Summary']}).get().join(' ');
+    if(data.responseCode === 'error') {
+      var details = data.errorMessages.join(', ');
       window.show_flash("error", "Address Validation Error: " + details);
+    } else {
+      window.show_flash("success", "Address Validation Successful");
     }
   },
   addressWrapper: function(){

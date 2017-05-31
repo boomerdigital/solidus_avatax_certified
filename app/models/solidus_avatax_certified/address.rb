@@ -25,12 +25,12 @@ module SolidusAvataxCertified
     def origin_address
       addresses << {
         AddressCode: 'Orig',
-        Line1: @origin_address['Line1'],
-        Line2: @origin_address['Line2'],
-        City: @origin_address['City'],
-        Region: @origin_address['Region'],
-        PostalCode: @origin_address['PostalCode'],
-        Country: @origin_address['Country']
+        Line1: @origin_address['line1'],
+        Line2: @origin_address['line2'],
+        City: @origin_address['city'],
+        Region: @origin_address['region'],
+        PostalCode: @origin_address['postalCode'],
+        Country: @origin_address['country']
       }
     end
 
@@ -63,23 +63,14 @@ module SolidusAvataxCertified
       return 'Address validation disabled' unless @ship_address.validation_enabled?
       return @ship_address if @ship_address.nil?
 
-      address_hash = {
-        Line1: @ship_address.address1,
-        Line2: @ship_address.address2,
-        City: @ship_address.city,
-        Region: @ship_address.state.try(:abbr),
-        Country: @ship_address.country.try(:iso),
-        PostalCode: @ship_address.zipcode
-      }
-
-      validation_response(address_hash)
+      validation_response(@ship_address.to_avatax_hash)
     end
 
     private
 
     def validation_response(address)
       validator = TaxSvc.new
-      validator.validate_address(address).validation_result
+      validator.validate_address(address)
     end
 
     def stock_loc_ids

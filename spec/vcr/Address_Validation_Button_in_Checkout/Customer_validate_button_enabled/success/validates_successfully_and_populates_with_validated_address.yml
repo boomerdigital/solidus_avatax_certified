@@ -5,7 +5,7 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
-      string: '{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}'
+      string: '{"line1":"915 S Jackson St","line2":"","city":"Montgomery","postalCode":"36104","country":"US","region":"AL"}'
     headers:
       User-Agent:
       - Faraday v0.12.1
@@ -29,17 +29,17 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0624980'
+      - '00:00:00.0781252'
       Databasecalls:
       - '3'
       Databaseduration:
-      - '00:00:00.0156247'
+      - '00:00:00.0156244'
       Date:
-      - Tue, 23 May 2017 11:23:18 GMT
+      - Wed, 24 May 2017 14:34:03 GMT
     body:
       encoding: UTF-8
       string: '{"address":{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"HighRiseOrBusinessComplex","line1":"915
         S JACKSON ST","line2":"","line3":"","city":"MONTGOMERY","region":"AL","country":"US","postalCode":"36104-5716","latitude":32.365963,"longitude":-86.296036}],"coordinates":{"latitude":32.365963,"longitude":-86.296036},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"1","jurisdictionName":"ALABAMA","jurisdictionType":"State","signatureCode":"AAKB"},{"avalaraId":"10130011","jurisdictionName":"MONTGOMERY","jurisdictionType":"City","signatureCode":"ADKT"},{"avalaraId":"10132098","jurisdictionName":"MONTGOMERY","jurisdictionType":"County","signatureCode":"ADKI"}]}'
     http_version: 
-  recorded_at: Tue, 23 May 2017 11:23:19 GMT
+  recorded_at: Wed, 24 May 2017 14:34:03 GMT
 recorded_with: VCR 3.0.3

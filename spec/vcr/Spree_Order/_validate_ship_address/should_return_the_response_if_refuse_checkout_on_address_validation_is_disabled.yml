@@ -1,59 +1,45 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://development.avalara.net/1.0/address/validate?City=Montgomery&Country=US&Line1=915%20S%20Jackson%20St&Line2=&PostalCode=36104&Region=AL
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}'
     headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
-      User-Agent:
-      - Ruby
   response:
     status:
       code: 200
       message: OK
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0624932'
+      Databasecalls:
+      - '3'
+      Databaseduration:
+      - '00:00:00.0156266'
       Date:
-      - Wed, 22 Mar 2017 20:06:38 GMT
-      Content-Length:
-      - '313'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44efb8033ad89e63c833339b1a141f3eaaca8eea1c8c8d8fc6aec461610f50e4a54bdb18eedc131c6b52df0df90a958bb40;
-        Path=/
+      - Tue, 23 May 2017 13:49:03 GMT
     body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-        "ResultCode": "Success",
-        "Address": {
-        "Line1": "915 S Jackson St",
-        "City": "Montgomery",
-        "Region": "AL",
-        "PostalCode": "36104-5716",
-        "Country": "US",
-        "County": "MONTGOMERY",
-        "FipsCode": "0110151000",
-        "CarrierRoute": "C037",
-        "PostNet": "361045716999",
-        "AddressType": "H"}
-        }
+      encoding: UTF-8
+      string: '{"address":{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"HighRiseOrBusinessComplex","line1":"915
+        S JACKSON ST","line2":"","line3":"","city":"MONTGOMERY","region":"AL","country":"US","postalCode":"36104-5716","latitude":32.365963,"longitude":-86.296036}],"coordinates":{"latitude":32.365963,"longitude":-86.296036},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"1","jurisdictionName":"ALABAMA","jurisdictionType":"State","signatureCode":"AAKB"},{"avalaraId":"10130011","jurisdictionName":"MONTGOMERY","jurisdictionType":"City","signatureCode":"ADKT"},{"avalaraId":"10132098","jurisdictionName":"MONTGOMERY","jurisdictionType":"County","signatureCode":"ADKI"}]}'
     http_version: 
-  recorded_at: Wed, 22 Mar 2017 20:06:39 GMT
+  recorded_at: Tue, 23 May 2017 13:49:03 GMT
 recorded_with: VCR 3.0.3
