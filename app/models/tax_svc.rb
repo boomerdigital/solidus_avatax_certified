@@ -16,10 +16,11 @@ class TaxSvc
     handle_response(response)
   end
 
-  def cancel_tax(request_hash)
-    log(__method__, request_hash)
+  def cancel_tax(transaction_code)
+    log(__method__, transaction_code)
 
-    response = SolidusAvataxCertified::Response::CancelTax.new(request('cancel', request_hash))
+    req = client.transactions.void(company_code, transaction_code)
+    response = SolidusAvataxCertified::Response::CancelTax.new(req.body)
 
     handle_response(response)
   end
@@ -103,6 +104,10 @@ class TaxSvc
 
   def password
     Spree::Avatax::Config.password
+  end
+
+  def company_code
+    Spree::Avatax::Config.company_code
   end
 
   def client

@@ -8,7 +8,7 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should have_db_index :order_id }
 
   let(:included_in_price) { false }
-  let(:order) { create(:avalara_order, tax_included: included_in_price) }
+  let(:order) { build(:avalara_order, tax_included: included_in_price) }
 
   context 'captured orders' do
 
@@ -137,8 +137,8 @@ describe Spree::AvalaraTransaction, :vcr do
           end
         end
 
-        it 'should receive ResultCode of Success' do
-          expect(subject['ResultCode']).to eq('Success')
+        it 'should receive status of cancelled' do
+          expect(subject['status']).to eq('Cancelled')
         end
       end
 

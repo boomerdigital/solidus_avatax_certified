@@ -5,13 +5,13 @@ http_interactions:
     uri: https://development.avalara.net/1.0/tax/get
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R735760137","DocDate":"2017-05-31","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
+      string: '{"DocCode":"R065710094","DocDate":"2017-05-31","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"915
         S Jackson St","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
         Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #5 - 9380","TaxCode":"PC030000","ItemCode":"SKU-5","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
+        #4 - 3295","TaxCode":"PC030000","ItemCode":"SKU-4","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
         Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R735760137","DetailLevel":"Tax","CurrencyCode":"USD"}'
+        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R065710094","DetailLevel":"Tax","CurrencyCode":"USD"}'
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -43,11 +43,11 @@ http_interactions:
       X-Powered-By:
       - ASP.NET
       Date:
-      - Wed, 31 May 2017 20:02:08 GMT
+      - Wed, 31 May 2017 20:02:06 GMT
       Content-Length:
-      - '670'
+      - '673'
       Set-Cookie:
-      - TS017f1821=01a8ddc44ef585b165e7a5f8ec3d1c2a8988bc6b1dd15a6c80f8c6091718c0da9ec4bf1b8946f7d48fac407588255eeac5e872a524;
+      - TS017f1821=01a8ddc44e910b651b93713b876b9b0fac754993c5b59295433319f5596f56c787dca7f720070207d832d52d78ee46b76387192d45;
         Path=/
     body:
       encoding: ASCII-8BIT
@@ -55,23 +55,23 @@ http_interactions:
         H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
         kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
         AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++enDv/oNPd3bvPdAvnmYtf7G3s/tge+f+9r1dfPGmWORNmy1W4Vdv
-        9nYe7ew92nk43t15sHPw6e5PceOqzcrjRbVetmi+e99++LRopubjHfvp6bt8
-        sWqLahl+/CZ7l01KRsYDQZ/ik53xp/5HJ1k5XZeE+sz/Mnv3vFjmDX30vYTo
-        gT9eVPTXR7vbz8+0hSHEy5Odezv06MfZpCiL9hrftPU6x6dPCPNZVl8/zy/z
-        El8cz2a1UrQ/hP5QAVSHwx+8InTx1854Z5865s+okXy0r391B2Y+f5q3WVHa
-        oZ2gq5rR/eo1mrzKLxSb4+f4+zvrumjeXK+4x9ctAbSfGgrsyEy/P5oM5UW2
-        4GbHz4+fHH9xjM+plfs0ff3m+M1p+ub49/7olyTfT35JMiK0/Rl59krfMfg8
-        e0W90aMf/6zOCPPXxpHu6V/dCTGf/zAm5JZYMhBH+VvOx/cTaaI0dGKjH9Cf
-        Hz3cvZ++Tr+TTd821TJ93QKqfm2Qfkp6Ah+f6Fx9US3bi2qREy3waZcsLytS
-        K6V5+d6nuzvMUl1qEV7y0RmTfW/n/t6Dhw/xDQ/WvL+zu7uze38XVBEGU+Tw
-        3e6nOzvpy3y5bK7Ly2xZZOnxZZ6++C6AaDMDhqloBvDdrJkXy4uW0MGnmwdA
-        iFHf9LFgi4+enuDvzgAe7veRJ9z1IeTNbETU8S9J/h9WbHlg3AUAAA==
+        6Gk1NZ++2vn0/oPdnZ2H+/rF06zlL/Z2dh9s79zfvreLL94Ui7xps8Uq/OrN
+        3s6jnb1HOw/Gn+7u7Xz6cO+nuHHVZuXxolovWzTfvW8/fFo0U/Pxjv309F2+
+        WLVFtQw/fpO9yyYlI+OBoE/xyc74U/+jk6ycrktCfeZ/mb17Xizzhj76XkL0
+        wB8vKvrro93t52fawhDi5cnOvR169ONsUpRFe41v2nqd49MnhPksq6+f55d5
+        iS+OZ7NaKdofQn+oAKrD4Q9eEbr4a2e8s08d82fUSD7i6aC/ugMznz/N26wo
+        7dBO0FXN6H71Gk1e5ReKzfFz/P2ddV00b65X3OPrlgDaTw0FdmSm3x9NhvIi
+        W3Cz4+fHT46/OMbn1Mp9mr5+c/zmNH1z/Ht/9EuS7ye/JBkR2v6MPHul7xh8
+        nr2i3ujRj39WZ4T5a+NI9/Sv7oSYz38YE3JLLBmIo/wt5+P7iTRRGjqx0Q/o
+        z48e7t5PX6ffyaZvm2qZvm4BVb82SD8lPYGPT3SuvqiW7UW1yIkW+LRLlpcV
+        qZXSvHzv090dZqkutQgv+eiMyb63c3/vwcOH+IYHa97f2d3d2b1P6myHBgUG
+        U+Tw3e6nOzvpy3y5bK7Ly2xZZOnxZZ6++C6AaDMDhqloBvDdrJkXy4uW0MGn
+        mwdAiFHf9LFgi4+enuDvzgAe7veRJ9z1IeTNbETU8S9J/h/MpJk/3AUAAA==
     http_version: 
-  recorded_at: Wed, 31 May 2017 20:02:09 GMT
+  recorded_at: Wed, 31 May 2017 20:02:07 GMT
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R735760137/void
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R065710094/void
     body:
       encoding: UTF-8
       string: '{"code":"DocVoided"}'
@@ -98,18 +98,18 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0156294'
+      - '00:00:00.0156262'
       Databasecalls:
       - '4'
       Databaseduration:
-      - '00:00:00'
+      - '00:00:00.0156262'
       Date:
-      - Wed, 31 May 2017 20:02:09 GMT
+      - Wed, 31 May 2017 20:02:08 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"EntityNotFoundError","message":"Document with ID
-        ''54321:R735760137'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
-        with ID ''54321:R735760137'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
+        ''54321:R065710094'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
+        with ID ''54321:R065710094'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Wed, 31 May 2017 20:02:09 GMT
+  recorded_at: Wed, 31 May 2017 20:02:08 GMT
 recorded_with: VCR 3.0.3

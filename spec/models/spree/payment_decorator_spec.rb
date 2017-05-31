@@ -88,9 +88,9 @@ describe Spree::Payment, :vcr do
       let!(:order) { create(:avalara_order) }
 
       describe 'should fail' do
-        it 'ResultCode returns Error' do
+        it 'returns error key' do
           response = payment.cancel_avalara
-          expect(response['ResultCode']).to eq('Error')
+          expect(response['error']).to be_present
         end
       end
     end
@@ -106,8 +106,8 @@ describe Spree::Payment, :vcr do
       end
 
       describe 'should be successful' do
-        it 'ResultCode returns Success' do
-          expect(subject['ResultCode']).to eq('Success')
+        it 'status returns Cancelled' do
+          expect(subject['status']).to eq('Cancelled')
         end
       end
     end

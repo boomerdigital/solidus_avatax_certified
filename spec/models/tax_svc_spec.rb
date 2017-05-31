@@ -33,25 +33,17 @@ RSpec.describe TaxSvc, :vcr do
   end
 
   describe '#cancel_tax' do
-    it 'should raise error' do
-      result = taxsvc.cancel_tax({
-        :CompanyCode=> '54321',
-        :DocType => 'SalesInvoice',
-        :CancelCode => 'DocVoided'
-        })
-      expect(result.tax_result['ResultCode']).to eq('Error')
+    let(:request_hash) {  attributes_for(:request_hash, Commit: true, DocDate: Date.today.strftime('%F'), DocType: 'SalesInvoice', DocCode: 'testcancel123') }
+
+    it 'should raise error if no transaction_code is passed' do
+      expect { taxsvc.cancel_tax(nil) }.to raise_error
     end
 
     it 'respond with success' do
       success_res = taxsvc.get_tax(request_hash)
-      result = taxsvc.cancel_tax({
-        :CompanyCode=> '54321',
-        :DocType => 'SalesInvoice',
-        :DocCode => request_hash[:DocCode],
-        :CancelCode => 'DocVoided'
-      })
+      result = taxsvc.cancel_tax(request_hash[:DocCode])
 
-      expect(result.tax_result['ResultCode']).to eq('Success')
+      expect(result.tax_result['status']).to eq('Cancelled')
     end
   end
 
