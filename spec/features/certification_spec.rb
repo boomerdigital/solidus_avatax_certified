@@ -10,9 +10,10 @@ describe "Certification", :vcr do
     let!(:completed_order) { create(:completed_avalara_order) }
 
     describe 'should be successful' do
-      it 'returns ResultCode with value Success' do
+      it 'returns status of Cancelled' do
         response = completed_order.cancel_avalara
-        expect(response["ResultCode"]).to eq("Success")
+
+        expect(response['status']).to eq('Cancelled')
       end
     end
   end
