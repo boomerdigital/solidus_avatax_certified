@@ -8,7 +8,7 @@ describe Spree::AvalaraTransaction, :vcr do
   it { should have_db_index :order_id }
 
   let(:included_in_price) { false }
-  let(:order) { build(:avalara_order, tax_included: included_in_price) }
+  let(:order) { create(:avalara_order, tax_included: included_in_price) }
 
   context 'captured orders' do
 
@@ -26,7 +26,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'should look up avatax' do
-        expect(subject['TotalTax']).to eq('0.6')
+        expect(subject['totalTax']).to eq(0.4)
       end
     end
 
@@ -38,7 +38,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'should commit avatax' do
-        expect(subject['TotalTax']).to eq('0.6')
+        expect(subject['totalTax']).to eq(0.4)
       end
 
       context 'tax calculation disabled' do
@@ -64,7 +64,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'applies discount' do
-        expect(subject['TotalDiscount']).to eq('10')
+        expect(subject['lines'][0]['discountAmount']).to eq(10.0)
       end
     end
 
@@ -78,7 +78,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'calculates the included tax amount from item total' do
-        expect(subject['TotalTax']).to eq('0.57')
+        expect(subject['totalTax']).to eq(0.57)
       end
     end
 
@@ -90,7 +90,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'should commit avatax final' do
-        expect(subject['TotalTax']).to eq('0.6')
+        expect(subject['totalTax']).to eq(0.4)
       end
 
       it 'should fail to commit to avatax if settings are false' do
@@ -120,7 +120,7 @@ describe Spree::AvalaraTransaction, :vcr do
         end
 
         it 'does not add additional tax' do
-          expect(subject['TotalTax']).to eq('0')
+          expect(subject['totalTax']).to eq(0)
         end
       end
     end
@@ -172,12 +172,12 @@ describe Spree::AvalaraTransaction, :vcr do
         end
       end
 
-      it 'should receive a ResultCode of Success' do
-        expect(subject['ResultCode']).to eq('Success')
+      it 'should receive totalTax key' do
+        expect(subject['totalTax']).to be_present
       end
 
-      it 'should have a TotalTax equal to additional_tax_total' do
-        expect(subject['TotalTax']).to eq("#{-order.additional_tax_total.to_f}")
+      it 'should have a totalTax equal to additional_tax_total' do
+        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
       end
     end
 
@@ -190,8 +190,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       it 'should commit avatax final' do
         expect(subject).to be_kind_of(Hash)
-        expect(subject['ResultCode']).to eq('Success')
-        expect(subject['TotalTax']).to eq("#{-order.additional_tax_total.to_f}")
+        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
       end
 
       it 'should receive post_order_to_avalara' do

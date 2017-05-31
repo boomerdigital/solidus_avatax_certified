@@ -68,8 +68,8 @@ describe Spree::Order, :vcr do
     it "creates new avalara_transaction" do
       expect{subject}.to change{Spree::AvalaraTransaction.count}.by(1)
     end
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
   end
 
@@ -85,8 +85,8 @@ describe Spree::Order, :vcr do
       expect(subject).to be_kind_of(Hash)
     end
 
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
 
     # Spec fails when using VCR since dates are involved.

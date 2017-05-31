@@ -12,20 +12,15 @@ RSpec.describe SolidusAvataxCertified::Request::ReturnTax do
     end
 
     it 'Commit has value of false' do
-      expect(subject.generate[:Commit]).to be false
+      expect(subject.generate[:createTransactionModel][:commit]).to be false
     end
 
     it 'has ReferenceCode from base_tax_hash' do
-      expect(subject.generate[:ReferenceCode]).to eq(order.number)
+      expect(subject.generate[:createTransactionModel][:referenceCode]).to eq(order.number)
     end
 
     it 'has TaxOverride' do
-      expect(subject.generate[:TaxOverride]).to be_present
-    end
-
-    it 'calls check_vat_id' do
-      expect(subject).to receive(:check_vat_id)
-      subject.generate
+      expect(subject.generate[:createTransactionModel][:taxOverride]).to be_present
     end
   end
 end

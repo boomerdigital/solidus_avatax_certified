@@ -14,8 +14,8 @@ describe SolidusAvataxCertified::Address, :type => :model do
     it 'should have order' do
       expect(address_lines.order).to eq(order)
     end
-    it 'should have addresses be an array' do
-      expect(address_lines.addresses).to be_kind_of(Array)
+    it 'should have addresses be a Hash' do
+      expect(address_lines.addresses).to be_kind_of(Hash)
     end
   end
 
@@ -28,29 +28,19 @@ describe SolidusAvataxCertified::Address, :type => :model do
         expect(address_lines).to receive(:order_ship_address)
         address_lines.build_addresses
     end
-    it 'receives origin_ship_addresses' do
-        expect(address_lines).to receive(:origin_ship_addresses)
-        address_lines.build_addresses
-    end
   end
 
   describe '#origin_address' do
-    it 'returns an array' do
-      expect(address_lines.origin_address).to be_kind_of(Array)
-    end
-
-    it 'has the origin address return a hash' do
-      expect(address_lines.origin_address[0]).to be_kind_of(Hash)
+    it 'returns a hash with correct keys' do
+      expect(address_lines.origin_address).to be_kind_of(Hash)
+      expect(address_lines.origin_address[:line1]).to be_present
     end
   end
 
   describe '#order_ship_address' do
-    it 'returns an array' do
-      expect(address_lines.order_ship_address).to be_kind_of(Array)
-    end
-
-    it 'has the origin address return a hash' do
-      expect(address_lines.order_ship_address[0]).to be_kind_of(Hash)
+    it 'returns a Hash with correct keys' do
+      expect(address_lines.order_ship_address).to be_kind_of(Hash)
+      expect(address_lines.order_ship_address[:line1]).to be_present
     end
   end
 

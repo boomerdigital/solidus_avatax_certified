@@ -9,9 +9,10 @@ require 'logging'
 class TaxSvc
   def get_tax(request_hash)
     log(__method__, request_hash)
-    RestClient.log = logger.logger
 
-    response = SolidusAvataxCertified::Response::GetTax.new(request('get', request_hash))
+    req = client.transactions.create_or_adjust(request_hash)
+
+    response = SolidusAvataxCertified::Response::GetTax.new(req.body)
 
     handle_response(response)
   end

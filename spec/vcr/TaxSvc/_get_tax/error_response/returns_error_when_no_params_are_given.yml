@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Date:
+      - Wed, 31 May 2017 23:46:20 GMT
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"ServerConfiguration","message":"An invalid exception
+        handler routine has been detected.","target":"AvaTaxApiServer","details":[{"code":"UnhandledException","number":50,"message":"An
+        invalid exception handler routine has been detected.","description":"This
+        error has been logged and reported to Avalara system administrators.  ","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/UnhandledException","severity":"Exception"}]}}'
+    http_version: 
+  recorded_at: Wed, 31 May 2017 23:46:21 GMT
+recorded_with: VCR 3.0.3

@@ -10,7 +10,7 @@ module SolidusAvataxCertified
       end
 
       def success?
-        result['ResultCode'] == 'Success'
+        result['totalTax'].present?
       end
 
       def error?
