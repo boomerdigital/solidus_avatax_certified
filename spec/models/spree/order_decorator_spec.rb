@@ -187,4 +187,15 @@ describe Spree::Order, :vcr do
       expect(order.address_validation_enabled?).to be_falsey
     end
   end
+
+  describe '#can_commit?' do
+    it 'returns false when order is not complete' do
+      expect(order.can_commit?).to be false
+    end
+
+    it 'returns true when order is completed and has a completed payment' do
+      order = create(:order_ready_to_ship)
+      expect(order.can_commit?).to be true
+    end
+  end
 end

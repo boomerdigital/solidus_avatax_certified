@@ -6,7 +6,7 @@ module SolidusAvataxCertified
       def initialize(order, opts={})
         @order = order
         @doc_type = opts[:doc_type]
-        @commit = opts[:commit]
+        @commit = can_commit?(opts[:commit])
         @request = {}
       end
 
@@ -42,6 +42,11 @@ module SolidusAvataxCertified
 
       def business_id_no
         order.user.try(:vat_id)
+      end
+
+      def can_commit?(commit)
+        return commit unless order.can_commit?
+        true
       end
 
       def customer_code
