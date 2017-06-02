@@ -1,8 +1,3 @@
-require 'json'
-require 'net/http'
-require 'addressable/uri'
-require 'base64'
-require 'rest-client'
 require 'logging'
 
 # Avatax tax calculation API calls
@@ -75,28 +70,12 @@ class TaxSvc
     Spree::Avatax::Config.tax_calculation
   end
 
-  def credential
-    'Basic ' + Base64.encode64(account_number + ':' + license_key)
-  end
-
-  def service_url
-    Spree::Avatax::Config.endpoint + AVATAX_SERVICEPATH_TAX
-  end
-
-  def address_service_url
-    Spree::Avatax::Config.endpoint + AVATAX_SERVICEPATH_ADDRESS + 'validate?'
-  end
-
   def license_key
     Spree::Avatax::Config.license_key
   end
 
   def raise_exceptions?
     Spree::Avatax::Config.raise_exceptions
-  end
-
-  def account_number
-    Spree::Avatax::Config.account
   end
 
   def username
@@ -115,30 +94,9 @@ class TaxSvc
     @client ||= Avatax::Client.new(
       username: username,
       password: password,
-      env: Spree::AvataxConfiguration.environment
+      env: Spree::AvataxConfiguration.environment,
+      headers: AVATAX_HEADERS
     )
-  end
-
-  def request(uri, request_hash)
-    begin
-      res = RestClient::Request.execute(method: :post,
-                                  timeout: 1,
-                                  open_timeout: 1,
-                                  url: service_url + uri,
-                                  payload:  JSON.generate(request_hash),
-                                  headers: {
-                                    authorization: credential,
-                                    content_type: 'application/json'
-                                  }
-      )  do |response, request, result|
-        response
-      end
-
-      JSON.parse(res)
-    rescue => e
-      logger.error(e, 'RestClient')
-      e
-    end
   end
 
   def log(method, request_hash = nil)
