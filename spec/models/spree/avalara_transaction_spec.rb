@@ -44,7 +44,7 @@ describe Spree::AvalaraTransaction, :vcr do
       context 'tax calculation disabled' do
         it 'should respond with total tax of 0' do
           Spree::Avatax::Config.tax_calculation = false
-          expect(order.avalara_transaction.commit_avatax('SalesOrder')[:TotalTax]).to eq('0.00')
+          expect(order.avalara_transaction.commit_avatax('SalesOrder')[:totalTax]).to eq(0.0)
         end
       end
     end
@@ -102,7 +102,7 @@ describe Spree::AvalaraTransaction, :vcr do
       context 'tax calculation disabled' do
         it 'should respond with total tax of 0' do
           Spree::Avatax::Config.tax_calculation = false
-          expect(subject[:TotalTax]).to eq('0.00')
+          expect(subject[:totalTax]).to eq(0.0)
         end
       end
 

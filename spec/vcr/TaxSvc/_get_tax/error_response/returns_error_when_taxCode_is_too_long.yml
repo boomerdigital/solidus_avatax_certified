@@ -10,6 +10,8 @@ http_interactions:
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
         S Jackson St","line2":null,"city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R250707809","currencyCode":"USD"}}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
@@ -32,18 +34,18 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0312513'
+      - '00:00:00'
       Databasecalls:
-      - '3'
+      - '0'
       Databaseduration:
-      - '00:00:00.0156282'
+      - '00:00:00'
       Date:
-      - Wed, 31 May 2017 23:46:22 GMT
+      - Fri, 02 Jun 2017 18:38:18 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"GetTaxError","message":"Lines[0].TaxCode length must
         be between 0 and 25 characters.","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Lines[0].TaxCode
         length must be between 0 and 25 characters.","description":"","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Lines[0].TaxCode","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Wed, 31 May 2017 23:46:22 GMT
+  recorded_at: Fri, 02 Jun 2017 18:38:18 GMT
 recorded_with: VCR 3.0.3

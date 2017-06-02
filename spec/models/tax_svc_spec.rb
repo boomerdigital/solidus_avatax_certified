@@ -40,7 +40,7 @@ RSpec.describe TaxSvc, :vcr do
       req[:createTransactionModel][:commit] = true
       req[:createTransactionModel][:date] = Date.today.strftime('%F')
       req[:createTransactionModel][:type] = 'SalesInvoice'
-      req[:createTransactionModel][:code] = '123testcancel'
+      req[:createTransactionModel][:code] = "testcancel-#{rand(0..100000)}"
       req
     }
 
@@ -50,7 +50,7 @@ RSpec.describe TaxSvc, :vcr do
 
     it 'respond with success' do
       success_res = taxsvc.get_tax(request_hash)
-      result = taxsvc.cancel_tax('123testcancel')
+      result = taxsvc.cancel_tax(request_hash[:createTransactionModel][:code])
 
       expect(result.tax_result['status']).to eq('Cancelled')
     end

@@ -7,6 +7,8 @@ http_interactions:
       encoding: UTF-8
       string: "{}"
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
@@ -35,7 +37,7 @@ http_interactions:
       Databaseduration:
       - '00:00:00'
       Date:
-      - Wed, 31 May 2017 23:46:20 GMT
+      - Fri, 02 Jun 2017 18:38:16 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"ServerConfiguration","message":"An invalid exception
@@ -43,5 +45,5 @@ http_interactions:
         invalid exception handler routine has been detected.","description":"This
         error has been logged and reported to Avalara system administrators.  ","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/UnhandledException","severity":"Exception"}]}}'
     http_version: 
-  recorded_at: Wed, 31 May 2017 23:46:21 GMT
+  recorded_at: Fri, 02 Jun 2017 18:38:17 GMT
 recorded_with: VCR 3.0.3

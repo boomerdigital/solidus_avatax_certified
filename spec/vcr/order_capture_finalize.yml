@@ -5,11 +5,13 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R255391595","date":"2017-05-31","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #6 - 1246","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"customerUsageType":null,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+      string: '{"createTransactionModel":{"code":"R313394894","date":"2017-06-02","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #6 - 9090","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R255391595","currencyCode":"USD"}}'
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R313394894","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
@@ -34,36 +36,36 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0625098'
+      - '00:00:00.0511838'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Wed, 31 May 2017 22:06:02 GMT
+      - Fri, 02 Jun 2017 18:35:57 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6MCwiY29kZSI6IlIyNTUzOTE1OTUiLCJjb21wYW55SWQiOjAsImRh
-        dGUiOiIyMDE3LTA1LTMxIiwicGF5bWVudERhdGUiOiIyMDE3LTA1LTMxIiwi
+        eyJpZCI6MCwiY29kZSI6IlIzMTMzOTQ4OTQiLCJjb21wYW55SWQiOjAsImRh
+        dGUiOiIyMDE3LTA2LTAyIiwicGF5bWVudERhdGUiOiIyMDE3LTA2LTAyIiwi
         c3RhdHVzIjoiVGVtcG9yYXJ5IiwidHlwZSI6IlNhbGVzT3JkZXIiLCJjdXJy
         ZW5jeUNvZGUiOiJVU0QiLCJjdXN0b21lclZlbmRvckNvZGUiOiIxIiwicmVj
-        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMjU1MzkxNTk1Iiwi
+        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMzEzMzk0ODk0Iiwi
         dG90YWxBbW91bnQiOjEwLjAsInRvdGFsRXhlbXB0IjowLjAsInRvdGFsVGF4
         IjowLjQsInRvdGFsVGF4YWJsZSI6MTAuMCwidG90YWxUYXhDYWxjdWxhdGVk
         IjowLjQsImFkanVzdG1lbnRSZWFzb24iOiJOb3RBZGp1c3RlZCIsImxvY2tl
         ZCI6ZmFsc2UsInZlcnNpb24iOjEsImV4Y2hhbmdlUmF0ZUVmZmVjdGl2ZURh
-        dGUiOiIyMDE3LTA1LTMxIiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
+        dGUiOiIyMDE3LTA2LTAyIiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
         SW1wb3J0ZXJPZlJlY29yZCI6ZmFsc2UsIm1vZGlmaWVkRGF0ZSI6IjIwMTct
-        MDUtMzFUMjI6MDY6MDMuMjUzNTUxMloiLCJtb2RpZmllZFVzZXJJZCI6Mzc3
+        MDYtMDJUMTg6MzU6NTcuODIyNDQzN1oiLCJtb2RpZmllZFVzZXJJZCI6Mzc3
         NzcsInRheERhdGUiOiIwMDAxLTAxLTAxVDAwOjAwOjAwIiwibGluZXMiOlt7
         ImlkIjowLCJ0cmFuc2FjdGlvbklkIjowLCJsaW5lTnVtYmVyIjoiMS1MSSIs
         ImRlc2NyaXB0aW9uIjoiIiwiZGlzY291bnRBbW91bnQiOjAuMCwiZXhlbXB0
         QW1vdW50IjowLjAsImV4ZW1wdENlcnRJZCI6MCwiaXNJdGVtVGF4YWJsZSI6
         dHJ1ZSwiaXRlbUNvZGUiOiIiLCJsaW5lQW1vdW50IjoxMC4wLCJxdWFudGl0
-        eSI6MC4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNS0zMSIsInRheCI6MC40
+        eSI6MC4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNi0wMiIsInRheCI6MC40
         LCJ0YXhhYmxlQW1vdW50IjoxMC4wLCJ0YXhDYWxjdWxhdGVkIjowLjQsInRh
-        eENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA1LTMxIiwidGF4
+        eENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA2LTAyIiwidGF4
         SW5jbHVkZWQiOmZhbHNlLCJkZXRhaWxzIjpbeyJpZCI6MCwidHJhbnNhY3Rp
         b25MaW5lSWQiOjAsInRyYW5zYWN0aW9uSWQiOjAsImNvdW50cnkiOiJVUyIs
         InJlZ2lvbiI6IkFMIiwiZXhlbXB0QW1vdW50IjowLjAsImp1cmlzQ29kZSI6
@@ -102,7 +104,7 @@ http_interactions:
         MDAwMzk5MlxuICAgIFJlYXNvbjogSkFBUyBlbmFibGVkIGZvciBBTFxuICAg
         IFZhbGlkYXRlU3RhdHVzOiBOb3JtYWxIaXRcbiAgICBUYXhSZWdpb25JZDog
         OTQ5XG4iLCJyZWZlcnNUbyI6IkFkZHJlc3Nlc1swXSAtIFRheERhdGU6IDIw
-        MTctMDUtMzEgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291
+        MTctMDYtMDIgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291
         cmNlIjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4LlN0ZXBzIn0seyJz
         dW1tYXJ5IjoiVXNpbmcgSkFBUyIsImRldGFpbHMiOiJcbiAgICBBZGRyZXNz
         OiA5MTUgUyBKYWNrc29uIFN0LCBNb250Z29tZXJ5LCBBTCAzNjEwNC01NzE2
@@ -115,7 +117,7 @@ http_interactions:
         OVxuICAgIFJlYXNvbjogSkFBUyBlbmFibGVkIGZvciBBTFxuICAgIFZhbGlk
         YXRlU3RhdHVzOiBOb3JtYWxIaXRcbiAgICBUYXhSZWdpb25JZDogMjA1Mjc5
         OVxuIiwicmVmZXJzVG8iOiJBZGRyZXNzZXNbMV0gLSBUYXhEYXRlOiAyMDE3
-        LTA1LTMxIDAwOjAwOjAwWiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNvdXJj
+        LTA2LTAyIDAwOjAwOjAwWiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNvdXJj
         ZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheC5TdGVwcyJ9LHsic3Vt
         bWFyeSI6IkFkZHJlc3NMb2NhdGlvblR5cGU6IFNoaXBGcm9tIiwiZGV0YWls
         cyI6IlxuICAgIEFkZHJlc3M6IDE2MDAgUGVubnN5bHZhbmlhIEF2ZSBOVywg
@@ -273,142 +275,143 @@ http_interactions:
         In0seyJzdW1tYXJ5IjoiVGF4IFJ1bGVzIiwiZGV0YWlscyI6IkRvY3VtZW50
         XG4gICAgQ29tcGFueUlkOiAyMzYxODBcbiAgICBDdXJyZW5jeUNvZGU6IFVT
         RFxuICAgIEN1c3RvbWVyVmVuZG9yQ29kZTogMVxuICAgIEN1c3RvbWVyVXNh
-        Z2VUeXBlOiBcbiAgICBEb2N1bWVudENvZGU6IFIyNTUzOTE1OTVcbiAgICBE
-        b2N1bWVudERhdGU6IDUvMzEvMjAxN1xuICAgIERvY3VtZW50SWQ6IDBcbiAg
-        ICBEb2N1bWVudExpbmVDb3VudDogMVxuICAgIERvY3VtZW50U3RhdHVzSWQ6
-        IDBcbiAgICBEb2N1bWVudFR5cGVJZDogMFxuICAgIEV4ZW1wdE5vOiBcbiAg
-        ICBCdXNpbmVzcyBJZGVudGlmaWNhdGlvbiBObzogXG4gICAgSXNSZWNvbmNp
-        bGVkOiBGYWxzZVxuICAgIExvY2F0aW9uQ29kZTogXG4gICAgTW9kaWZpZWRE
-        YXRlOiA1LzMxLzIwMTcgMTA6MDY6MDMgUE1cbiAgICBNb2RpZmllZFVzZXJJ
-        ZDogMzc3NzdcbiAgICBQYXltZW50RGF0ZTogMS8xLzE5MDBcbiAgICBQdXJj
-        aGFzZU9yZGVyTm86IFxuICAgIFJlZmVyZW5jZUNvZGU6IFxuICAgIFNhbGVz
-        cGVyc29uQ29kZTogXG4gICAgVGF4RGF0ZTogNS8zMS8yMDE3XG4gICAgVGF4
-        T3ZlcnJpZGVUeXBlSWQ6IDBcbiAgICBUYXhPdmVycmlkZUFtb3VudDogMFxu
-        ICAgIFRheE92ZXJyaWRlUmVhc29uOiBcbiAgICBUb3RhbEFtb3VudDogMTBc
-        biAgICBUb3RhbFRheDogMC40MDAwXG4gICAgVG90YWxUYXhDYWxjdWxhdGVk
-        OiAwLjQwMDBcbiAgICBWQVROdW1iZXJUeXBlIE5vIHJlZ2lzdHJhdGlvblxu
-        ICAgIERvY3VtZW50QWRkcmVzc1swXTogXG4gICAgICAgIExpbmUxOiA5MTUg
-        UyBKYWNrc29uIFN0XG4gICAgICAgIENpdHk6IE1vbnRnb21lcnlcbiAgICAg
-        ICAgUmVnaW9uOiBBTFxuICAgICAgICBDb3VudHk6IE1PTlRHT01FUllcbiAg
-        ICAgICAgQ291bnRyeTogVVNcbiAgICAgICAgQm91bmRhcnlJZDogMjA1Mjc5
-        OVxuICAgICAgICBCb3VuZGFyeUxldmVsSWQ6IDBcbiAgICAgICAgQm91bmRh
-        cnlTb3VyY2U6IFRheFJlZ2lvbkdlb21ldHJ5XG4gICAgICAgIENpdHlTaWdu
-        YXR1cmU6IEFES1RcbiAgICAgICAgRG9jdW1lbnRBZGRyZXNzSWQ6IDBcbiAg
-        ICAgICAgR2VvY29kZVR5cGVJZDogU3RyZWV0TGV2ZWxcbiAgICAgICAgSnVy
-        aXNDb2RlOiAwMTEwMTUxMDAwXG4gICAgICAgIFBvc3RhbENvZGU6IDM2MTA0
-        LTU3MTZcbiAgICAgICAgVGF4UmVnaW9uSWQ6IDIwNTI3OTlcbiAgICAgICAg
-        VmFsaWRhdGVTdGF0dXNJZDogTm9ybWFsSGl0XG4gICAgICAgIEFkZHJlc3NM
-        aW5lMTogOTE1IFMgSmFja3NvbiBTdFxuICAgICAgICBBZGRyZXNzTGluZTI6
-        IFxuICAgICAgICBBZGRyZXNzTGluZTM6IFxuICAgIERvY3VtZW50QWRkcmVz
-        c1sxXTogXG4gICAgICAgIExpbmUxOiAxNjAwIFBlbm5zeWx2YW5pYSBBdmUg
-        TldcbiAgICAgICAgQ2l0eTogV2FzaGluZ3RvblxuICAgICAgICBSZWdpb246
-        IERDXG4gICAgICAgIENvdW50eTogRElTVFJJQ1QgT0YgQ09MVU1CSUFcbiAg
-        ICAgICAgQ291bnRyeTogVVNcbiAgICAgICAgQm91bmRhcnlJZDogOTQ5XG4g
+        Z2VUeXBlOiBcbiAgICBEb2N1bWVudENvZGU6IFIzMTMzOTQ4OTRcbiAgICBE
+        b2N1bWVudERhdGU6IDYvMi8yMDE3XG4gICAgRG9jdW1lbnRJZDogMFxuICAg
+        IERvY3VtZW50TGluZUNvdW50OiAxXG4gICAgRG9jdW1lbnRTdGF0dXNJZDog
+        MFxuICAgIERvY3VtZW50VHlwZUlkOiAwXG4gICAgRXhlbXB0Tm86IFxuICAg
+        IEJ1c2luZXNzIElkZW50aWZpY2F0aW9uIE5vOiBcbiAgICBJc1JlY29uY2ls
+        ZWQ6IEZhbHNlXG4gICAgTG9jYXRpb25Db2RlOiBcbiAgICBNb2RpZmllZERh
+        dGU6IDYvMi8yMDE3IDY6MzU6NTcgUE1cbiAgICBNb2RpZmllZFVzZXJJZDog
+        Mzc3NzdcbiAgICBQYXltZW50RGF0ZTogMS8xLzE5MDBcbiAgICBQdXJjaGFz
+        ZU9yZGVyTm86IFxuICAgIFJlZmVyZW5jZUNvZGU6IFxuICAgIFNhbGVzcGVy
+        c29uQ29kZTogXG4gICAgVGF4RGF0ZTogNi8yLzIwMTdcbiAgICBUYXhPdmVy
+        cmlkZVR5cGVJZDogMFxuICAgIFRheE92ZXJyaWRlQW1vdW50OiAwXG4gICAg
+        VGF4T3ZlcnJpZGVSZWFzb246IFxuICAgIFRvdGFsQW1vdW50OiAxMFxuICAg
+        IFRvdGFsVGF4OiAwLjQwMDBcbiAgICBUb3RhbFRheENhbGN1bGF0ZWQ6IDAu
+        NDAwMFxuICAgIFZBVE51bWJlclR5cGUgTm8gcmVnaXN0cmF0aW9uXG4gICAg
+        RG9jdW1lbnRBZGRyZXNzWzBdOiBcbiAgICAgICAgTGluZTE6IDkxNSBTIEph
+        Y2tzb24gU3RcbiAgICAgICAgQ2l0eTogTW9udGdvbWVyeVxuICAgICAgICBS
+        ZWdpb246IEFMXG4gICAgICAgIENvdW50eTogTU9OVEdPTUVSWVxuICAgICAg
+        ICBDb3VudHJ5OiBVU1xuICAgICAgICBCb3VuZGFyeUlkOiAyMDUyNzk5XG4g
         ICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDogMFxuICAgICAgICBCb3VuZGFyeVNv
         dXJjZTogVGF4UmVnaW9uR2VvbWV0cnlcbiAgICAgICAgQ2l0eVNpZ25hdHVy
-        ZTogXG4gICAgICAgIERvY3VtZW50QWRkcmVzc0lkOiAwXG4gICAgICAgIEdl
-        b2NvZGVUeXBlSWQ6IFN0cmVldExldmVsXG4gICAgICAgIEp1cmlzQ29kZTog
-        MTEwMDAwMDAwMFxuICAgICAgICBQb3N0YWxDb2RlOiAyMDUwMC0wMDAzXG4g
-        ICAgICAgIFRheFJlZ2lvbklkOiA5NDlcbiAgICAgICAgVmFsaWRhdGVTdGF0
-        dXNJZDogTm9ybWFsSGl0XG4gICAgICAgIEFkZHJlc3NMaW5lMTogMTYwMCBQ
-        ZW5uc3lsdmFuaWEgQXZlIE5XXG4gICAgICAgIEFkZHJlc3NMaW5lMjogXG4g
-        ICAgICAgIEFkZHJlc3NMaW5lMzogXG4gICAgTGluZVswXTogXG4gICAgICAg
-        IEFjY291bnRpbmdNZXRob2RJZDogMCAoQWNjcnVhbClcbiAgICAgICAgQm91
-        bmRhcnlMZXZlbElkOiAwXG4gICAgICAgIEJvdW5kYXJ5T3ZlcnJpZGVJZDog
-        MFxuICAgICAgICBDdXN0b21lclVzYWdlVHlwZTogXG4gICAgICAgIERlc2Ny
-        aXB0aW9uOiBQcm9kdWN0ICM2IC0gMTI0NlxuICAgICAgICBEZXN0aW5hdGlv
-        bkFkZHJlc3NJZDogMFxuICAgICAgICBEaXNjb3VudEFtb3VudDogMFxuICAg
-        ICAgICBEaXNjb3VudFR5cGVJZDogMFxuICAgICAgICBEb2N1bWVudExpbmVJ
-        ZDogMFxuICAgICAgICBFeGVtcHRBbW91bnQ6IDBcbiAgICAgICAgRXhlbXB0
-        Q2VydElkOiAwXG4gICAgICAgIEV4ZW1wdE5vOiBcbiAgICAgICAgQnVzaW5l
-        c3MgSWRlbnRpZmljYXRpb24gTm86IFxuICAgICAgICBJblN0YXRlOiBGYWxz
-        ZVxuICAgICAgICBJc1BoeXNpY2FsOiBUcnVlXG4gICAgICAgIElzU3N0cDog
-        RmFsc2VcbiAgICAgICAgSXRlbUNvZGU6IFNLVS02XG4gICAgICAgIExpbmVB
-        bW91bnQ6IDEwXG4gICAgICAgIExpbmVObzogMS1MSVxuICAgICAgICBPcmln
-        aW5BZGRyZXNzSWQ6IDBcbiAgICAgICAgUXVhbnRpdHk6IDFcbiAgICAgICAg
-        UmVmMTogXG4gICAgICAgIFJlZjI6IFxuICAgICAgICBSZXZBY2NvdW50OiBc
-        biAgICAgICAgU291cmNpbmc6IERcbiAgICAgICAgSXNJdGVtVGF4YWJsZTog
-        VHJ1ZVxuICAgICAgICBSZXBvcnRpbmdEYXRlOiA1LzMxLzIwMTdcbiAgICAg
-        ICAgVGF4OiAwLjQwMDBcbiAgICAgICAgVGF4YWJsZUFtb3VudDogMTBcbiAg
-        ICAgICAgVGF4Q2FsY3VsYXRlZDogMC40MDAwXG4gICAgICAgIFRheERhdGU6
-        IDUvMzEvMjAxN1xuICAgICAgICBUYXhDb2RlOiBQQzAzMDAwMFxuICAgICAg
-        ICBUYXhDb2RlSWQ6IDgxMDcgKFBDMDMwMDAwKVxuICAgICAgICBUYXhPdmVy
-        cmlkZVR5cGVJZDogMFxuICAgICAgICBUYXhPdmVycmlkZUFtb3VudDogMFxu
-        ICAgICAgICBUYXhPdmVycmlkZVJlYXNvbjogXG4gICAgICAgIFZBVENvZGU6
-        IFxuICAgICAgICBWQVROdW1iZXJUeXBlOiBObyByZWdpc3RyYXRpb25cbiAg
-        ICAgICAgRGV0YWlsWzBdOiBBTCBTVEEgMDFcbiAgICAgICAgICAgIERvY3Vt
-        ZW50TGluZURldGFpbElkOiAwXG4gICAgICAgICAgICBBZGRyZXNzSWQ6IDBc
-        biAgICAgICAgICAgIENvdW50cnk6IFVTXG4gICAgICAgICAgICBFeGVtcHRB
-        bW91bnQ6IDBcbiAgICAgICAgICAgIEV4ZW1wdFVuaXRzOiAwXG4gICAgICAg
-        ICAgICBFeGVtcHRSZWFzb25JZDogNCAoTm9FeGVtcHQpXG4gICAgICAgICAg
-        ICBJblN0YXRlOiBGYWxzZVxuICAgICAgICAgICAgSnVyaXNDb2RlOiAwMVxu
-        ICAgICAgICAgICAgSnVyaXNkaWN0aW9uSWQ6IDFcbiAgICAgICAgICAgIEp1
-        cmlzTmFtZTogQUxBQkFNQVxuICAgICAgICAgICAgSnVyaXNUeXBlSWQ6IFNU
-        QVxuICAgICAgICAgICAgTm9uVGF4YWJsZUFtb3VudDogMFxuICAgICAgICAg
-        ICAgTm9uVGF4YWJsZVVuaXRzOiAwXG4gICAgICAgICAgICBOb25UYXhhYmxl
-        UnVsZUlkOiAwXG4gICAgICAgICAgICBOb25UYXhhYmxlVHlwZUlkOiAwXG4g
-        ICAgICAgICAgICBPcHRpb25zOiBcbiAgICAgICAgICAgIFJhdGU6IDAuMDQw
-        MDAwXG4gICAgICAgICAgICBSYXRlUnVsZUlkOiAxMDM5OTkzXG4gICAgICAg
-        ICAgICBSYXRlU291cmNlSWQ6IFN5c3RlbVxuICAgICAgICAgICAgUmVnaW9u
-        OiBBTFxuICAgICAgICAgICAgU0VSQ29kZTogICAgICBcbiAgICAgICAgICAg
-        IFNvdXJjaW5nOiBEXG4gICAgICAgICAgICBTdGF0ZUNvZGU6IDAxXG4gICAg
-        ICAgICAgICBTdGF0ZUFzc2lnbmVkTm86IFxuICAgICAgICAgICAgVGF4QXV0
-        aG9yaXR5SWQ6IDI3MVxuICAgICAgICAgICAgVGF4OiAwLjQwMDBcbiAgICAg
-        ICAgICAgIFRheGFibGVBbW91bnQ6IDEwXG4gICAgICAgICAgICBUYXhhYmxl
-        VW5pdHM6IDEwXG4gICAgICAgICAgICBVbml0T2ZCYXNpczogUGVyQ3VycmVu
-        Y3lVbml0XG4gICAgICAgICAgICBVbml0T2ZCYXNpc0lkOiAxM1xuICAgICAg
-        ICAgICAgVGF4Q2FsY3VsYXRlZDogMC40MDAwXG4gICAgICAgICAgICBUYXhO
-        YW1lOiBBTCBTVEFURSBUQVhcbiAgICAgICAgICAgIFRheE92ZXJyaWRlOiAw
-        XG4gICAgICAgICAgICBUYXhUeXBlR3JvdXBJZDogMVxuICAgICAgICAgICAg
-        VGF4VHlwZUlkOiBTXG4gICAgICAgICAgICBUYXhTdWJUeXBlSWQ6IDFcbiAg
-        ICAgICAgICAgIFJhdGVUeXBlSWQ6IEdcbiAgICAgICAgICAgIElzRmVlOiBG
-        YWxzZVxuICAgICAgICAgICAgVGF4VHlwZU1hcHBpbmdJZDogMVxuICAgICAg
-        ICAgICAgUmF0ZVR5cGVUYXhUeXBlTWFwcGluZ0lkOiA0MVxuICAgICAgICAg
-        ICAgVGF4UmVnaW9uSWQ6IDIwNTI3OTlcbiAgICAgICAgICAgKkNhcDogMFxu
-        ICAgICAgICAgICAqVGhyZXNob2xkOiAwXG4gICAgICAgICAgICBUYXhBdXRo
-        b3JpdHlUeXBlSWQ6IDQ1XG4gICAgICAgICAgICBUYXhBdXRob3JpdHlJZDog
-        MjcxXG4gICAgICAgICAgICBUYXhBdXRob3JpdHlOYW1lOiAyNzFcbiAgICAg
-        ICAgICAgIFJlcG9ydExldmVsOiAxXG4iLCJyZWZlcnNUbyI6IiIsInNldmVy
-        aXR5IjoiU3VjY2VzcyIsInNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZp
-        Y2VzLlRheCJ9LHsic3VtbWFyeSI6IlNvdXJjaW5nUnVsZXMgYXBwbGllZCBm
-        b3IgdGhlIHRyYW5zYWN0aW9uLCBYTUwgZm9ybWF0IiwiZGV0YWlscyI6Ijw/
-        eG1sIHZlcnNpb249XCIxLjBcIiBlbmNvZGluZz1cInV0Zi0xNlwiPz48QXJy
-        YXlPZlNvdXJjaW5nUnVsZUFwcGxpZWQgeG1sbnM6eHNkPVwiaHR0cDovL3d3
-        dy53My5vcmcvMjAwMS9YTUxTY2hlbWFcIiB4bWxuczp4c2k9XCJodHRwOi8v
-        d3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZVwiPjxTb3VyY2lu
-        Z1J1bGVBcHBsaWVkPjxMaW5lTm8+MS1MSTwvTGluZU5vPjxTb3VyY2luZ1J1
-        bGVJZF9Tb3VyY2luZz42PC9Tb3VyY2luZ1J1bGVJZF9Tb3VyY2luZz48U291
-        cmNpbmc+RDwvU291cmNpbmc+PFNvdXJjaW5nUnVsZUlkX1JhdGVUeXBlPjA8
-        L1NvdXJjaW5nUnVsZUlkX1JhdGVUeXBlPjxTb3VyY2luZ1J1bGVJZF9KdXJp
-        c1R5cGVzQXBwbGljYWJsZUlkPjA8L1NvdXJjaW5nUnVsZUlkX0p1cmlzVHlw
-        ZXNBcHBsaWNhYmxlSWQ+PEp1cmlzVHlwZXNBcHBsaWNhYmxlSWQgeHNpOm5p
-        bD1cInRydWVcIiAvPjwvU291cmNpbmdSdWxlQXBwbGllZD48L0FycmF5T2ZT
-        b3VyY2luZ1J1bGVBcHBsaWVkPiIsInJlZmVyc1RvIjoiIiwic2V2ZXJpdHki
-        OiJTdWNjZXNzIiwic291cmNlIjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMu
-        VGF4In0seyJzdW1tYXJ5IjoiU291cmNpbmdSdWxlcyBhcHBsaWVkIGZvciB0
-        aGUgdHJhbnNhY3Rpb24sIEpTT04gZm9ybWF0IiwiZGV0YWlscyI6Ilt7XCJM
-        aW5lTm9cIjpcIjEtTElcIixcIlNvdXJjaW5nUnVsZUlkX1NvdXJjaW5nXCI6
-        NixcIlNvdXJjaW5nXCI6XCJEXCIsXCJTb3VyY2luZ1J1bGVJZF9SYXRlVHlw
-        ZVwiOjAsXCJSYXRlVHlwZVwiOm51bGwsXCJTb3VyY2luZ1J1bGVJZF9KdXJp
-        c1R5cGVzQXBwbGljYWJsZUlkXCI6MCxcIkp1cmlzVHlwZXNBcHBsaWNhYmxl
-        SWRcIjpudWxsfV0iLCJyZWZlcnNUbyI6IiIsInNldmVyaXR5IjoiU3VjY2Vz
-        cyIsInNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9XX0=
+        ZTogQURLVFxuICAgICAgICBEb2N1bWVudEFkZHJlc3NJZDogMFxuICAgICAg
+        ICBHZW9jb2RlVHlwZUlkOiBTdHJlZXRMZXZlbFxuICAgICAgICBKdXJpc0Nv
+        ZGU6IDAxMTAxNTEwMDBcbiAgICAgICAgUG9zdGFsQ29kZTogMzYxMDQtNTcx
+        NlxuICAgICAgICBUYXhSZWdpb25JZDogMjA1Mjc5OVxuICAgICAgICBWYWxp
+        ZGF0ZVN0YXR1c0lkOiBOb3JtYWxIaXRcbiAgICAgICAgQWRkcmVzc0xpbmUx
+        OiA5MTUgUyBKYWNrc29uIFN0XG4gICAgICAgIEFkZHJlc3NMaW5lMjogXG4g
+        ICAgICAgIEFkZHJlc3NMaW5lMzogXG4gICAgRG9jdW1lbnRBZGRyZXNzWzFd
+        OiBcbiAgICAgICAgTGluZTE6IDE2MDAgUGVubnN5bHZhbmlhIEF2ZSBOV1xu
+        ICAgICAgICBDaXR5OiBXYXNoaW5ndG9uXG4gICAgICAgIFJlZ2lvbjogRENc
+        biAgICAgICAgQ291bnR5OiBESVNUUklDVCBPRiBDT0xVTUJJQVxuICAgICAg
+        ICBDb3VudHJ5OiBVU1xuICAgICAgICBCb3VuZGFyeUlkOiA5NDlcbiAgICAg
+        ICAgQm91bmRhcnlMZXZlbElkOiAwXG4gICAgICAgIEJvdW5kYXJ5U291cmNl
+        OiBUYXhSZWdpb25HZW9tZXRyeVxuICAgICAgICBDaXR5U2lnbmF0dXJlOiBc
+        biAgICAgICAgRG9jdW1lbnRBZGRyZXNzSWQ6IDBcbiAgICAgICAgR2VvY29k
+        ZVR5cGVJZDogU3RyZWV0TGV2ZWxcbiAgICAgICAgSnVyaXNDb2RlOiAxMTAw
+        MDAwMDAwXG4gICAgICAgIFBvc3RhbENvZGU6IDIwNTAwLTAwMDNcbiAgICAg
+        ICAgVGF4UmVnaW9uSWQ6IDk0OVxuICAgICAgICBWYWxpZGF0ZVN0YXR1c0lk
+        OiBOb3JtYWxIaXRcbiAgICAgICAgQWRkcmVzc0xpbmUxOiAxNjAwIFBlbm5z
+        eWx2YW5pYSBBdmUgTldcbiAgICAgICAgQWRkcmVzc0xpbmUyOiBcbiAgICAg
+        ICAgQWRkcmVzc0xpbmUzOiBcbiAgICBMaW5lWzBdOiBcbiAgICAgICAgQWNj
+        b3VudGluZ01ldGhvZElkOiAwIChBY2NydWFsKVxuICAgICAgICBCb3VuZGFy
+        eUxldmVsSWQ6IDBcbiAgICAgICAgQm91bmRhcnlPdmVycmlkZUlkOiAwXG4g
+        ICAgICAgIEN1c3RvbWVyVXNhZ2VUeXBlOiBcbiAgICAgICAgRGVzY3JpcHRp
+        b246IFByb2R1Y3QgIzYgLSA5MDkwXG4gICAgICAgIERlc3RpbmF0aW9uQWRk
+        cmVzc0lkOiAwXG4gICAgICAgIERpc2NvdW50QW1vdW50OiAwXG4gICAgICAg
+        IERpc2NvdW50VHlwZUlkOiAwXG4gICAgICAgIERvY3VtZW50TGluZUlkOiAw
+        XG4gICAgICAgIEV4ZW1wdEFtb3VudDogMFxuICAgICAgICBFeGVtcHRDZXJ0
+        SWQ6IDBcbiAgICAgICAgRXhlbXB0Tm86IFxuICAgICAgICBCdXNpbmVzcyBJ
+        ZGVudGlmaWNhdGlvbiBObzogXG4gICAgICAgIEluU3RhdGU6IEZhbHNlXG4g
+        ICAgICAgIElzUGh5c2ljYWw6IFRydWVcbiAgICAgICAgSXNTc3RwOiBGYWxz
+        ZVxuICAgICAgICBJdGVtQ29kZTogU0tVLTZcbiAgICAgICAgTGluZUFtb3Vu
+        dDogMTBcbiAgICAgICAgTGluZU5vOiAxLUxJXG4gICAgICAgIE9yaWdpbkFk
+        ZHJlc3NJZDogMFxuICAgICAgICBRdWFudGl0eTogMVxuICAgICAgICBSZWYx
+        OiBcbiAgICAgICAgUmVmMjogXG4gICAgICAgIFJldkFjY291bnQ6IFxuICAg
+        ICAgICBTb3VyY2luZzogRFxuICAgICAgICBJc0l0ZW1UYXhhYmxlOiBUcnVl
+        XG4gICAgICAgIFJlcG9ydGluZ0RhdGU6IDYvMi8yMDE3XG4gICAgICAgIFRh
+        eDogMC40MDAwXG4gICAgICAgIFRheGFibGVBbW91bnQ6IDEwXG4gICAgICAg
+        IFRheENhbGN1bGF0ZWQ6IDAuNDAwMFxuICAgICAgICBUYXhEYXRlOiA2LzIv
+        MjAxN1xuICAgICAgICBUYXhDb2RlOiBQQzAzMDAwMFxuICAgICAgICBUYXhD
+        b2RlSWQ6IDgxMDcgKFBDMDMwMDAwKVxuICAgICAgICBUYXhPdmVycmlkZVR5
+        cGVJZDogMFxuICAgICAgICBUYXhPdmVycmlkZUFtb3VudDogMFxuICAgICAg
+        ICBUYXhPdmVycmlkZVJlYXNvbjogXG4gICAgICAgIFZBVENvZGU6IFxuICAg
+        ICAgICBWQVROdW1iZXJUeXBlOiBObyByZWdpc3RyYXRpb25cbiAgICAgICAg
+        RGV0YWlsWzBdOiBBTCBTVEEgMDFcbiAgICAgICAgICAgIERvY3VtZW50TGlu
+        ZURldGFpbElkOiAwXG4gICAgICAgICAgICBBZGRyZXNzSWQ6IDBcbiAgICAg
+        ICAgICAgIENvdW50cnk6IFVTXG4gICAgICAgICAgICBFeGVtcHRBbW91bnQ6
+        IDBcbiAgICAgICAgICAgIEV4ZW1wdFVuaXRzOiAwXG4gICAgICAgICAgICBF
+        eGVtcHRSZWFzb25JZDogNCAoTm9FeGVtcHQpXG4gICAgICAgICAgICBJblN0
+        YXRlOiBGYWxzZVxuICAgICAgICAgICAgSnVyaXNDb2RlOiAwMVxuICAgICAg
+        ICAgICAgSnVyaXNkaWN0aW9uSWQ6IDFcbiAgICAgICAgICAgIEp1cmlzTmFt
+        ZTogQUxBQkFNQVxuICAgICAgICAgICAgSnVyaXNUeXBlSWQ6IFNUQVxuICAg
+        ICAgICAgICAgTm9uVGF4YWJsZUFtb3VudDogMFxuICAgICAgICAgICAgTm9u
+        VGF4YWJsZVVuaXRzOiAwXG4gICAgICAgICAgICBOb25UYXhhYmxlUnVsZUlk
+        OiAwXG4gICAgICAgICAgICBOb25UYXhhYmxlVHlwZUlkOiAwXG4gICAgICAg
+        ICAgICBPcHRpb25zOiBcbiAgICAgICAgICAgIFJhdGU6IDAuMDQwMDAwXG4g
+        ICAgICAgICAgICBSYXRlUnVsZUlkOiAxMDM5OTkzXG4gICAgICAgICAgICBS
+        YXRlU291cmNlSWQ6IFN5c3RlbVxuICAgICAgICAgICAgUmVnaW9uOiBBTFxu
+        ICAgICAgICAgICAgU0VSQ29kZTogICAgICBcbiAgICAgICAgICAgIFNvdXJj
+        aW5nOiBEXG4gICAgICAgICAgICBTdGF0ZUNvZGU6IDAxXG4gICAgICAgICAg
+        ICBTdGF0ZUFzc2lnbmVkTm86IFxuICAgICAgICAgICAgVGF4QXV0aG9yaXR5
+        SWQ6IDI3MVxuICAgICAgICAgICAgVGF4OiAwLjQwMDBcbiAgICAgICAgICAg
+        IFRheGFibGVBbW91bnQ6IDEwXG4gICAgICAgICAgICBUYXhhYmxlVW5pdHM6
+        IDEwXG4gICAgICAgICAgICBVbml0T2ZCYXNpczogUGVyQ3VycmVuY3lVbml0
+        XG4gICAgICAgICAgICBVbml0T2ZCYXNpc0lkOiAxM1xuICAgICAgICAgICAg
+        VGF4Q2FsY3VsYXRlZDogMC40MDAwXG4gICAgICAgICAgICBUYXhOYW1lOiBB
+        TCBTVEFURSBUQVhcbiAgICAgICAgICAgIFRheE92ZXJyaWRlOiAwXG4gICAg
+        ICAgICAgICBUYXhUeXBlR3JvdXBJZDogMVxuICAgICAgICAgICAgVGF4VHlw
+        ZUlkOiBTXG4gICAgICAgICAgICBUYXhTdWJUeXBlSWQ6IDFcbiAgICAgICAg
+        ICAgIFJhdGVUeXBlSWQ6IEdcbiAgICAgICAgICAgIElzRmVlOiBGYWxzZVxu
+        ICAgICAgICAgICAgVGF4VHlwZU1hcHBpbmdJZDogMVxuICAgICAgICAgICAg
+        UmF0ZVR5cGVUYXhUeXBlTWFwcGluZ0lkOiA0MVxuICAgICAgICAgICAgVGF4
+        UmVnaW9uSWQ6IDIwNTI3OTlcbiAgICAgICAgICAgKkNhcDogMFxuICAgICAg
+        ICAgICAqVGhyZXNob2xkOiAwXG4gICAgICAgICAgICBUYXhBdXRob3JpdHlU
+        eXBlSWQ6IDQ1XG4gICAgICAgICAgICBUYXhBdXRob3JpdHlJZDogMjcxXG4g
+        ICAgICAgICAgICBUYXhBdXRob3JpdHlOYW1lOiAyNzFcbiAgICAgICAgICAg
+        IFJlcG9ydExldmVsOiAxXG4iLCJyZWZlcnNUbyI6IiIsInNldmVyaXR5Ijoi
+        U3VjY2VzcyIsInNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRh
+        eCJ9LHsic3VtbWFyeSI6IlNvdXJjaW5nUnVsZXMgYXBwbGllZCBmb3IgdGhl
+        IHRyYW5zYWN0aW9uLCBYTUwgZm9ybWF0IiwiZGV0YWlscyI6Ijw/eG1sIHZl
+        cnNpb249XCIxLjBcIiBlbmNvZGluZz1cInV0Zi0xNlwiPz48QXJyYXlPZlNv
+        dXJjaW5nUnVsZUFwcGxpZWQgeG1sbnM6eHNkPVwiaHR0cDovL3d3dy53My5v
+        cmcvMjAwMS9YTUxTY2hlbWFcIiB4bWxuczp4c2k9XCJodHRwOi8vd3d3Lncz
+        Lm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZVwiPjxTb3VyY2luZ1J1bGVB
+        cHBsaWVkPjxMaW5lTm8+MS1MSTwvTGluZU5vPjxTb3VyY2luZ1J1bGVJZF9T
+        b3VyY2luZz42PC9Tb3VyY2luZ1J1bGVJZF9Tb3VyY2luZz48U291cmNpbmc+
+        RDwvU291cmNpbmc+PFNvdXJjaW5nUnVsZUlkX1JhdGVUeXBlPjA8L1NvdXJj
+        aW5nUnVsZUlkX1JhdGVUeXBlPjxTb3VyY2luZ1J1bGVJZF9KdXJpc1R5cGVz
+        QXBwbGljYWJsZUlkPjA8L1NvdXJjaW5nUnVsZUlkX0p1cmlzVHlwZXNBcHBs
+        aWNhYmxlSWQ+PEp1cmlzVHlwZXNBcHBsaWNhYmxlSWQgeHNpOm5pbD1cInRy
+        dWVcIiAvPjwvU291cmNpbmdSdWxlQXBwbGllZD48L0FycmF5T2ZTb3VyY2lu
+        Z1J1bGVBcHBsaWVkPiIsInJlZmVyc1RvIjoiIiwic2V2ZXJpdHkiOiJTdWNj
+        ZXNzIiwic291cmNlIjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4In0s
+        eyJzdW1tYXJ5IjoiU291cmNpbmdSdWxlcyBhcHBsaWVkIGZvciB0aGUgdHJh
+        bnNhY3Rpb24sIEpTT04gZm9ybWF0IiwiZGV0YWlscyI6Ilt7XCJMaW5lTm9c
+        IjpcIjEtTElcIixcIlNvdXJjaW5nUnVsZUlkX1NvdXJjaW5nXCI6NixcIlNv
+        dXJjaW5nXCI6XCJEXCIsXCJTb3VyY2luZ1J1bGVJZF9SYXRlVHlwZVwiOjAs
+        XCJSYXRlVHlwZVwiOm51bGwsXCJTb3VyY2luZ1J1bGVJZF9KdXJpc1R5cGVz
+        QXBwbGljYWJsZUlkXCI6MCxcIkp1cmlzVHlwZXNBcHBsaWNhYmxlSWRcIjpu
+        dWxsfV0iLCJyZWZlcnNUbyI6IiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNv
+        dXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9XX0=
     http_version: 
-  recorded_at: Wed, 31 May 2017 22:06:03 GMT
+  recorded_at: Fri, 02 Jun 2017 18:35:58 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R255391595","date":"2017-05-31","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #6 - 1246","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"customerUsageType":null,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+      string: '{"createTransactionModel":{"code":"R313394894","date":"2017-06-02","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #6 - 9090","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}},{"number":"1-FR","itemCode":"Avalara
-        Ground","quantity":1,"amount":5.0,"customerUsageType":null,"description":"Shipping
-        Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R255391595","currencyCode":"USD"}}'
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R313394894","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
@@ -433,36 +436,36 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0937505'
+      - '00:00:00.0981450'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Wed, 31 May 2017 22:06:03 GMT
+      - Fri, 02 Jun 2017 18:35:58 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6MCwiY29kZSI6IlIyNTUzOTE1OTUiLCJjb21wYW55SWQiOjAsImRh
-        dGUiOiIyMDE3LTA1LTMxIiwicGF5bWVudERhdGUiOiIyMDE3LTA1LTMxIiwi
+        eyJpZCI6MCwiY29kZSI6IlIzMTMzOTQ4OTQiLCJjb21wYW55SWQiOjAsImRh
+        dGUiOiIyMDE3LTA2LTAyIiwicGF5bWVudERhdGUiOiIyMDE3LTA2LTAyIiwi
         c3RhdHVzIjoiVGVtcG9yYXJ5IiwidHlwZSI6IlNhbGVzT3JkZXIiLCJjdXJy
         ZW5jeUNvZGUiOiJVU0QiLCJjdXN0b21lclZlbmRvckNvZGUiOiIxIiwicmVj
-        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMjU1MzkxNTk1Iiwi
+        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMzEzMzk0ODk0Iiwi
         dG90YWxBbW91bnQiOjE1LjAsInRvdGFsRXhlbXB0IjowLjAsInRvdGFsVGF4
         IjowLjYsInRvdGFsVGF4YWJsZSI6MTUuMCwidG90YWxUYXhDYWxjdWxhdGVk
         IjowLjYsImFkanVzdG1lbnRSZWFzb24iOiJOb3RBZGp1c3RlZCIsImxvY2tl
         ZCI6ZmFsc2UsInZlcnNpb24iOjEsImV4Y2hhbmdlUmF0ZUVmZmVjdGl2ZURh
-        dGUiOiIyMDE3LTA1LTMxIiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
+        dGUiOiIyMDE3LTA2LTAyIiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
         SW1wb3J0ZXJPZlJlY29yZCI6ZmFsc2UsIm1vZGlmaWVkRGF0ZSI6IjIwMTct
-        MDUtMzFUMjI6MDY6MDMuOTAxNDE2OVoiLCJtb2RpZmllZFVzZXJJZCI6Mzc3
+        MDYtMDJUMTg6MzU6NTguNjM2NzYzOVoiLCJtb2RpZmllZFVzZXJJZCI6Mzc3
         NzcsInRheERhdGUiOiIwMDAxLTAxLTAxVDAwOjAwOjAwIiwibGluZXMiOlt7
         ImlkIjowLCJ0cmFuc2FjdGlvbklkIjowLCJsaW5lTnVtYmVyIjoiMS1MSSIs
         ImRlc2NyaXB0aW9uIjoiIiwiZGlzY291bnRBbW91bnQiOjAuMCwiZXhlbXB0
         QW1vdW50IjowLjAsImV4ZW1wdENlcnRJZCI6MCwiaXNJdGVtVGF4YWJsZSI6
         dHJ1ZSwiaXRlbUNvZGUiOiIiLCJsaW5lQW1vdW50IjoxMC4wLCJxdWFudGl0
-        eSI6MC4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNS0zMSIsInRheCI6MC40
+        eSI6MC4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNi0wMiIsInRheCI6MC40
         LCJ0YXhhYmxlQW1vdW50IjoxMC4wLCJ0YXhDYWxjdWxhdGVkIjowLjQsInRh
-        eENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA1LTMxIiwidGF4
+        eENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA2LTAyIiwidGF4
         SW5jbHVkZWQiOmZhbHNlLCJkZXRhaWxzIjpbeyJpZCI6MCwidHJhbnNhY3Rp
         b25MaW5lSWQiOjAsInRyYW5zYWN0aW9uSWQiOjAsImNvdW50cnkiOiJVUyIs
         InJlZ2lvbiI6IkFMIiwiZXhlbXB0QW1vdW50IjowLjAsImp1cmlzQ29kZSI6
@@ -476,9 +479,9 @@ http_interactions:
         c2NyaXB0aW9uIjoiIiwiZGlzY291bnRBbW91bnQiOjAuMCwiZXhlbXB0QW1v
         dW50IjowLjAsImV4ZW1wdENlcnRJZCI6MCwiaXNJdGVtVGF4YWJsZSI6dHJ1
         ZSwiaXRlbUNvZGUiOiIiLCJsaW5lQW1vdW50Ijo1LjAsInF1YW50aXR5Ijow
-        LjAsInJlcG9ydGluZ0RhdGUiOiIyMDE3LTA1LTMxIiwidGF4IjowLjIsInRh
+        LjAsInJlcG9ydGluZ0RhdGUiOiIyMDE3LTA2LTAyIiwidGF4IjowLjIsInRh
         eGFibGVBbW91bnQiOjUuMCwidGF4Q2FsY3VsYXRlZCI6MC4yLCJ0YXhDb2Rl
-        IjoiRlIwMDAwMDAiLCJ0YXhEYXRlIjoiMjAxNy0wNS0zMSIsInRheEluY2x1
+        IjoiRlIwMDAwMDAiLCJ0YXhEYXRlIjoiMjAxNy0wNi0wMiIsInRheEluY2x1
         ZGVkIjpmYWxzZSwiZGV0YWlscyI6W3siaWQiOjAsInRyYW5zYWN0aW9uTGlu
         ZUlkIjowLCJ0cmFuc2FjdGlvbklkIjowLCJjb3VudHJ5IjoiVVMiLCJyZWdp
         b24iOiJBTCIsImV4ZW1wdEFtb3VudCI6MC4wLCJqdXJpc0NvZGUiOiIwMSIs
@@ -526,7 +529,7 @@ http_interactions:
         OiBTdHJlZXRMZXZlbFxuICAgIFBvc3ROZXQ6IDIwNTAwMDAwMzk5MlxuICAg
         IFJlYXNvbjogSkFBUyBlbmFibGVkIGZvciBBTFxuICAgIFZhbGlkYXRlU3Rh
         dHVzOiBOb3JtYWxIaXRcbiAgICBUYXhSZWdpb25JZDogOTQ5XG4iLCJyZWZl
-        cnNUbyI6IkFkZHJlc3Nlc1swXSAtIFRheERhdGU6IDIwMTctMDUtMzEgMDA6
+        cnNUbyI6IkFkZHJlc3Nlc1swXSAtIFRheERhdGU6IDIwMTctMDYtMDIgMDA6
         MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291cmNlIjoiQXZhbGFy
         YS5BdmFUYXguU2VydmljZXMuVGF4LlN0ZXBzIn0seyJzdW1tYXJ5IjoiVXNp
         bmcgSkFBUyIsImRldGFpbHMiOiJcbiAgICBBZGRyZXNzOiA5MTUgUyBKYWNr
@@ -539,7 +542,7 @@ http_interactions:
         ZXRMZXZlbFxuICAgIFBvc3ROZXQ6IDM2MTA0NTcxNjk5OVxuICAgIFJlYXNv
         bjogSkFBUyBlbmFibGVkIGZvciBBTFxuICAgIFZhbGlkYXRlU3RhdHVzOiBO
         b3JtYWxIaXRcbiAgICBUYXhSZWdpb25JZDogMjA1Mjc5OVxuIiwicmVmZXJz
-        VG8iOiJBZGRyZXNzZXNbMV0gLSBUYXhEYXRlOiAyMDE3LTA1LTMxIDAwOjAw
+        VG8iOiJBZGRyZXNzZXNbMV0gLSBUYXhEYXRlOiAyMDE3LTA2LTAyIDAwOjAw
         OjAwWiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNvdXJjZSI6IkF2YWxhcmEu
         QXZhVGF4LlNlcnZpY2VzLlRheC5TdGVwcyJ9LHsic3VtbWFyeSI6IlVzaW5n
         IEpBQVMiLCJkZXRhaWxzIjoiXG4gICAgQWRkcmVzczogMTYwMCBQZW5uc3ls
@@ -552,7 +555,7 @@ http_interactions:
         cGU6IFN0cmVldExldmVsXG4gICAgUG9zdE5ldDogMjA1MDAwMDAzOTkyXG4g
         ICAgUmVhc29uOiBKQUFTIGVuYWJsZWQgZm9yIEFMXG4gICAgVmFsaWRhdGVT
         dGF0dXM6IE5vcm1hbEhpdFxuICAgIFRheFJlZ2lvbklkOiA5NDlcbiIsInJl
-        ZmVyc1RvIjoiQWRkcmVzc2VzWzJdIC0gVGF4RGF0ZTogMjAxNy0wNS0zMSAw
+        ZmVyc1RvIjoiQWRkcmVzc2VzWzJdIC0gVGF4RGF0ZTogMjAxNy0wNi0wMiAw
         MDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nlc3MiLCJzb3VyY2UiOiJBdmFs
         YXJhLkF2YVRheC5TZXJ2aWNlcy5UYXguU3RlcHMifSx7InN1bW1hcnkiOiJV
         c2luZyBKQUFTIiwiZGV0YWlscyI6IlxuICAgIEFkZHJlc3M6IDkxNSBTIEph
@@ -565,7 +568,7 @@ http_interactions:
         cmVldExldmVsXG4gICAgUG9zdE5ldDogMzYxMDQ1NzE2OTk5XG4gICAgUmVh
         c29uOiBKQUFTIGVuYWJsZWQgZm9yIEFMXG4gICAgVmFsaWRhdGVTdGF0dXM6
         IE5vcm1hbEhpdFxuICAgIFRheFJlZ2lvbklkOiAyMDUyNzk5XG4iLCJyZWZl
-        cnNUbyI6IkFkZHJlc3Nlc1szXSAtIFRheERhdGU6IDIwMTctMDUtMzEgMDA6
+        cnNUbyI6IkFkZHJlc3Nlc1szXSAtIFRheERhdGU6IDIwMTctMDYtMDIgMDA6
         MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291cmNlIjoiQXZhbGFy
         YS5BdmFUYXguU2VydmljZXMuVGF4LlN0ZXBzIn0seyJzdW1tYXJ5IjoiQWRk
         cmVzc0xvY2F0aW9uVHlwZTogU2hpcEZyb20iLCJkZXRhaWxzIjoiXG4gICAg
@@ -877,235 +880,236 @@ http_interactions:
         YXgifSx7InN1bW1hcnkiOiJUYXggUnVsZXMiLCJkZXRhaWxzIjoiRG9jdW1l
         bnRcbiAgICBDb21wYW55SWQ6IDIzNjE4MFxuICAgIEN1cnJlbmN5Q29kZTog
         VVNEXG4gICAgQ3VzdG9tZXJWZW5kb3JDb2RlOiAxXG4gICAgQ3VzdG9tZXJV
-        c2FnZVR5cGU6IFxuICAgIERvY3VtZW50Q29kZTogUjI1NTM5MTU5NVxuICAg
-        IERvY3VtZW50RGF0ZTogNS8zMS8yMDE3XG4gICAgRG9jdW1lbnRJZDogMFxu
-        ICAgIERvY3VtZW50TGluZUNvdW50OiAyXG4gICAgRG9jdW1lbnRTdGF0dXNJ
-        ZDogMFxuICAgIERvY3VtZW50VHlwZUlkOiAwXG4gICAgRXhlbXB0Tm86IFxu
-        ICAgIEJ1c2luZXNzIElkZW50aWZpY2F0aW9uIE5vOiBcbiAgICBJc1JlY29u
-        Y2lsZWQ6IEZhbHNlXG4gICAgTG9jYXRpb25Db2RlOiBcbiAgICBNb2RpZmll
-        ZERhdGU6IDUvMzEvMjAxNyAxMDowNjowMyBQTVxuICAgIE1vZGlmaWVkVXNl
-        cklkOiAzNzc3N1xuICAgIFBheW1lbnREYXRlOiAxLzEvMTkwMFxuICAgIFB1
-        cmNoYXNlT3JkZXJObzogXG4gICAgUmVmZXJlbmNlQ29kZTogXG4gICAgU2Fs
-        ZXNwZXJzb25Db2RlOiBcbiAgICBUYXhEYXRlOiA1LzMxLzIwMTdcbiAgICBU
-        YXhPdmVycmlkZVR5cGVJZDogMFxuICAgIFRheE92ZXJyaWRlQW1vdW50OiAw
-        XG4gICAgVGF4T3ZlcnJpZGVSZWFzb246IFxuICAgIFRvdGFsQW1vdW50OiAx
-        NVxuICAgIFRvdGFsVGF4OiAwLjYwMDBcbiAgICBUb3RhbFRheENhbGN1bGF0
-        ZWQ6IDAuNjAwMFxuICAgIFZBVE51bWJlclR5cGUgTm8gcmVnaXN0cmF0aW9u
-        XG4gICAgRG9jdW1lbnRBZGRyZXNzWzBdOiBcbiAgICAgICAgTGluZTE6IDkx
-        NSBTIEphY2tzb24gU3RcbiAgICAgICAgQ2l0eTogTW9udGdvbWVyeVxuICAg
-        ICAgICBSZWdpb246IEFMXG4gICAgICAgIENvdW50eTogTU9OVEdPTUVSWVxu
-        ICAgICAgICBDb3VudHJ5OiBVU1xuICAgICAgICBCb3VuZGFyeUlkOiAyMDUy
-        Nzk5XG4gICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDogMFxuICAgICAgICBCb3Vu
-        ZGFyeVNvdXJjZTogVGF4UmVnaW9uR2VvbWV0cnlcbiAgICAgICAgQ2l0eVNp
-        Z25hdHVyZTogQURLVFxuICAgICAgICBEb2N1bWVudEFkZHJlc3NJZDogMFxu
-        ICAgICAgICBHZW9jb2RlVHlwZUlkOiBTdHJlZXRMZXZlbFxuICAgICAgICBK
-        dXJpc0NvZGU6IDAxMTAxNTEwMDBcbiAgICAgICAgUG9zdGFsQ29kZTogMzYx
-        MDQtNTcxNlxuICAgICAgICBUYXhSZWdpb25JZDogMjA1Mjc5OVxuICAgICAg
-        ICBWYWxpZGF0ZVN0YXR1c0lkOiBOb3JtYWxIaXRcbiAgICAgICAgQWRkcmVz
-        c0xpbmUxOiA5MTUgUyBKYWNrc29uIFN0XG4gICAgICAgIEFkZHJlc3NMaW5l
-        MjogXG4gICAgICAgIEFkZHJlc3NMaW5lMzogXG4gICAgRG9jdW1lbnRBZGRy
-        ZXNzWzFdOiBcbiAgICAgICAgTGluZTE6IDE2MDAgUGVubnN5bHZhbmlhIEF2
-        ZSBOV1xuICAgICAgICBDaXR5OiBXYXNoaW5ndG9uXG4gICAgICAgIFJlZ2lv
-        bjogRENcbiAgICAgICAgQ291bnR5OiBESVNUUklDVCBPRiBDT0xVTUJJQVxu
-        ICAgICAgICBDb3VudHJ5OiBVU1xuICAgICAgICBCb3VuZGFyeUlkOiA5NDlc
+        c2FnZVR5cGU6IFxuICAgIERvY3VtZW50Q29kZTogUjMxMzM5NDg5NFxuICAg
+        IERvY3VtZW50RGF0ZTogNi8yLzIwMTdcbiAgICBEb2N1bWVudElkOiAwXG4g
+        ICAgRG9jdW1lbnRMaW5lQ291bnQ6IDJcbiAgICBEb2N1bWVudFN0YXR1c0lk
+        OiAwXG4gICAgRG9jdW1lbnRUeXBlSWQ6IDBcbiAgICBFeGVtcHRObzogXG4g
+        ICAgQnVzaW5lc3MgSWRlbnRpZmljYXRpb24gTm86IFxuICAgIElzUmVjb25j
+        aWxlZDogRmFsc2VcbiAgICBMb2NhdGlvbkNvZGU6IFxuICAgIE1vZGlmaWVk
+        RGF0ZTogNi8yLzIwMTcgNjozNTo1OCBQTVxuICAgIE1vZGlmaWVkVXNlcklk
+        OiAzNzc3N1xuICAgIFBheW1lbnREYXRlOiAxLzEvMTkwMFxuICAgIFB1cmNo
+        YXNlT3JkZXJObzogXG4gICAgUmVmZXJlbmNlQ29kZTogXG4gICAgU2FsZXNw
+        ZXJzb25Db2RlOiBcbiAgICBUYXhEYXRlOiA2LzIvMjAxN1xuICAgIFRheE92
+        ZXJyaWRlVHlwZUlkOiAwXG4gICAgVGF4T3ZlcnJpZGVBbW91bnQ6IDBcbiAg
+        ICBUYXhPdmVycmlkZVJlYXNvbjogXG4gICAgVG90YWxBbW91bnQ6IDE1XG4g
+        ICAgVG90YWxUYXg6IDAuNjAwMFxuICAgIFRvdGFsVGF4Q2FsY3VsYXRlZDog
+        MC42MDAwXG4gICAgVkFUTnVtYmVyVHlwZSBObyByZWdpc3RyYXRpb25cbiAg
+        ICBEb2N1bWVudEFkZHJlc3NbMF06IFxuICAgICAgICBMaW5lMTogOTE1IFMg
+        SmFja3NvbiBTdFxuICAgICAgICBDaXR5OiBNb250Z29tZXJ5XG4gICAgICAg
+        IFJlZ2lvbjogQUxcbiAgICAgICAgQ291bnR5OiBNT05UR09NRVJZXG4gICAg
+        ICAgIENvdW50cnk6IFVTXG4gICAgICAgIEJvdW5kYXJ5SWQ6IDIwNTI3OTlc
         biAgICAgICAgQm91bmRhcnlMZXZlbElkOiAwXG4gICAgICAgIEJvdW5kYXJ5
         U291cmNlOiBUYXhSZWdpb25HZW9tZXRyeVxuICAgICAgICBDaXR5U2lnbmF0
-        dXJlOiBcbiAgICAgICAgRG9jdW1lbnRBZGRyZXNzSWQ6IDBcbiAgICAgICAg
-        R2VvY29kZVR5cGVJZDogU3RyZWV0TGV2ZWxcbiAgICAgICAgSnVyaXNDb2Rl
-        OiAxMTAwMDAwMDAwXG4gICAgICAgIFBvc3RhbENvZGU6IDIwNTAwLTAwMDNc
-        biAgICAgICAgVGF4UmVnaW9uSWQ6IDk0OVxuICAgICAgICBWYWxpZGF0ZVN0
-        YXR1c0lkOiBOb3JtYWxIaXRcbiAgICAgICAgQWRkcmVzc0xpbmUxOiAxNjAw
-        IFBlbm5zeWx2YW5pYSBBdmUgTldcbiAgICAgICAgQWRkcmVzc0xpbmUyOiBc
+        dXJlOiBBREtUXG4gICAgICAgIERvY3VtZW50QWRkcmVzc0lkOiAwXG4gICAg
+        ICAgIEdlb2NvZGVUeXBlSWQ6IFN0cmVldExldmVsXG4gICAgICAgIEp1cmlz
+        Q29kZTogMDExMDE1MTAwMFxuICAgICAgICBQb3N0YWxDb2RlOiAzNjEwNC01
+        NzE2XG4gICAgICAgIFRheFJlZ2lvbklkOiAyMDUyNzk5XG4gICAgICAgIFZh
+        bGlkYXRlU3RhdHVzSWQ6IE5vcm1hbEhpdFxuICAgICAgICBBZGRyZXNzTGlu
+        ZTE6IDkxNSBTIEphY2tzb24gU3RcbiAgICAgICAgQWRkcmVzc0xpbmUyOiBc
         biAgICAgICAgQWRkcmVzc0xpbmUzOiBcbiAgICBEb2N1bWVudEFkZHJlc3Nb
-        Ml06IFxuICAgICAgICBMaW5lMTogOTE1IFMgSmFja3NvbiBTdFxuICAgICAg
-        ICBDaXR5OiBNb250Z29tZXJ5XG4gICAgICAgIFJlZ2lvbjogQUxcbiAgICAg
-        ICAgQ291bnR5OiBNT05UR09NRVJZXG4gICAgICAgIENvdW50cnk6IFVTXG4g
-        ICAgICAgIEJvdW5kYXJ5SWQ6IDIwNTI3OTlcbiAgICAgICAgQm91bmRhcnlM
-        ZXZlbElkOiAwXG4gICAgICAgIEJvdW5kYXJ5U291cmNlOiBUYXhSZWdpb25H
-        ZW9tZXRyeVxuICAgICAgICBDaXR5U2lnbmF0dXJlOiBBREtUXG4gICAgICAg
-        IERvY3VtZW50QWRkcmVzc0lkOiAwXG4gICAgICAgIEdlb2NvZGVUeXBlSWQ6
-        IFN0cmVldExldmVsXG4gICAgICAgIEp1cmlzQ29kZTogMDExMDE1MTAwMFxu
-        ICAgICAgICBQb3N0YWxDb2RlOiAzNjEwNC01NzE2XG4gICAgICAgIFRheFJl
-        Z2lvbklkOiAyMDUyNzk5XG4gICAgICAgIFZhbGlkYXRlU3RhdHVzSWQ6IE5v
-        cm1hbEhpdFxuICAgICAgICBBZGRyZXNzTGluZTE6IDkxNSBTIEphY2tzb24g
-        U3RcbiAgICAgICAgQWRkcmVzc0xpbmUyOiBcbiAgICAgICAgQWRkcmVzc0xp
-        bmUzOiBcbiAgICBEb2N1bWVudEFkZHJlc3NbM106IFxuICAgICAgICBMaW5l
-        MTogMTYwMCBQZW5uc3lsdmFuaWEgQXZlIE5XXG4gICAgICAgIENpdHk6IFdh
-        c2hpbmd0b25cbiAgICAgICAgUmVnaW9uOiBEQ1xuICAgICAgICBDb3VudHk6
-        IERJU1RSSUNUIE9GIENPTFVNQklBXG4gICAgICAgIENvdW50cnk6IFVTXG4g
-        ICAgICAgIEJvdW5kYXJ5SWQ6IDk0OVxuICAgICAgICBCb3VuZGFyeUxldmVs
+        MV06IFxuICAgICAgICBMaW5lMTogMTYwMCBQZW5uc3lsdmFuaWEgQXZlIE5X
+        XG4gICAgICAgIENpdHk6IFdhc2hpbmd0b25cbiAgICAgICAgUmVnaW9uOiBE
+        Q1xuICAgICAgICBDb3VudHk6IERJU1RSSUNUIE9GIENPTFVNQklBXG4gICAg
+        ICAgIENvdW50cnk6IFVTXG4gICAgICAgIEJvdW5kYXJ5SWQ6IDk0OVxuICAg
+        ICAgICBCb3VuZGFyeUxldmVsSWQ6IDBcbiAgICAgICAgQm91bmRhcnlTb3Vy
+        Y2U6IFRheFJlZ2lvbkdlb21ldHJ5XG4gICAgICAgIENpdHlTaWduYXR1cmU6
+        IFxuICAgICAgICBEb2N1bWVudEFkZHJlc3NJZDogMFxuICAgICAgICBHZW9j
+        b2RlVHlwZUlkOiBTdHJlZXRMZXZlbFxuICAgICAgICBKdXJpc0NvZGU6IDEx
+        MDAwMDAwMDBcbiAgICAgICAgUG9zdGFsQ29kZTogMjA1MDAtMDAwM1xuICAg
+        ICAgICBUYXhSZWdpb25JZDogOTQ5XG4gICAgICAgIFZhbGlkYXRlU3RhdHVz
+        SWQ6IE5vcm1hbEhpdFxuICAgICAgICBBZGRyZXNzTGluZTE6IDE2MDAgUGVu
+        bnN5bHZhbmlhIEF2ZSBOV1xuICAgICAgICBBZGRyZXNzTGluZTI6IFxuICAg
+        ICAgICBBZGRyZXNzTGluZTM6IFxuICAgIERvY3VtZW50QWRkcmVzc1syXTog
+        XG4gICAgICAgIExpbmUxOiA5MTUgUyBKYWNrc29uIFN0XG4gICAgICAgIENp
+        dHk6IE1vbnRnb21lcnlcbiAgICAgICAgUmVnaW9uOiBBTFxuICAgICAgICBD
+        b3VudHk6IE1PTlRHT01FUllcbiAgICAgICAgQ291bnRyeTogVVNcbiAgICAg
+        ICAgQm91bmRhcnlJZDogMjA1Mjc5OVxuICAgICAgICBCb3VuZGFyeUxldmVs
         SWQ6IDBcbiAgICAgICAgQm91bmRhcnlTb3VyY2U6IFRheFJlZ2lvbkdlb21l
-        dHJ5XG4gICAgICAgIENpdHlTaWduYXR1cmU6IFxuICAgICAgICBEb2N1bWVu
-        dEFkZHJlc3NJZDogMFxuICAgICAgICBHZW9jb2RlVHlwZUlkOiBTdHJlZXRM
-        ZXZlbFxuICAgICAgICBKdXJpc0NvZGU6IDExMDAwMDAwMDBcbiAgICAgICAg
-        UG9zdGFsQ29kZTogMjA1MDAtMDAwM1xuICAgICAgICBUYXhSZWdpb25JZDog
-        OTQ5XG4gICAgICAgIFZhbGlkYXRlU3RhdHVzSWQ6IE5vcm1hbEhpdFxuICAg
-        ICAgICBBZGRyZXNzTGluZTE6IDE2MDAgUGVubnN5bHZhbmlhIEF2ZSBOV1xu
+        dHJ5XG4gICAgICAgIENpdHlTaWduYXR1cmU6IEFES1RcbiAgICAgICAgRG9j
+        dW1lbnRBZGRyZXNzSWQ6IDBcbiAgICAgICAgR2VvY29kZVR5cGVJZDogU3Ry
+        ZWV0TGV2ZWxcbiAgICAgICAgSnVyaXNDb2RlOiAwMTEwMTUxMDAwXG4gICAg
+        ICAgIFBvc3RhbENvZGU6IDM2MTA0LTU3MTZcbiAgICAgICAgVGF4UmVnaW9u
+        SWQ6IDIwNTI3OTlcbiAgICAgICAgVmFsaWRhdGVTdGF0dXNJZDogTm9ybWFs
+        SGl0XG4gICAgICAgIEFkZHJlc3NMaW5lMTogOTE1IFMgSmFja3NvbiBTdFxu
         ICAgICAgICBBZGRyZXNzTGluZTI6IFxuICAgICAgICBBZGRyZXNzTGluZTM6
-        IFxuICAgIExpbmVbMF06IFxuICAgICAgICBBY2NvdW50aW5nTWV0aG9kSWQ6
-        IDAgKEFjY3J1YWwpXG4gICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDogMFxuICAg
-        ICAgICBCb3VuZGFyeU92ZXJyaWRlSWQ6IDBcbiAgICAgICAgQ3VzdG9tZXJV
-        c2FnZVR5cGU6IFxuICAgICAgICBEZXNjcmlwdGlvbjogUHJvZHVjdCAjNiAt
-        IDEyNDZcbiAgICAgICAgRGVzdGluYXRpb25BZGRyZXNzSWQ6IDBcbiAgICAg
-        ICAgRGlzY291bnRBbW91bnQ6IDBcbiAgICAgICAgRGlzY291bnRUeXBlSWQ6
-        IDBcbiAgICAgICAgRG9jdW1lbnRMaW5lSWQ6IDBcbiAgICAgICAgRXhlbXB0
-        QW1vdW50OiAwXG4gICAgICAgIEV4ZW1wdENlcnRJZDogMFxuICAgICAgICBF
-        eGVtcHRObzogXG4gICAgICAgIEJ1c2luZXNzIElkZW50aWZpY2F0aW9uIE5v
-        OiBcbiAgICAgICAgSW5TdGF0ZTogRmFsc2VcbiAgICAgICAgSXNQaHlzaWNh
-        bDogVHJ1ZVxuICAgICAgICBJc1NzdHA6IEZhbHNlXG4gICAgICAgIEl0ZW1D
-        b2RlOiBTS1UtNlxuICAgICAgICBMaW5lQW1vdW50OiAxMFxuICAgICAgICBM
-        aW5lTm86IDEtTElcbiAgICAgICAgT3JpZ2luQWRkcmVzc0lkOiAwXG4gICAg
-        ICAgIFF1YW50aXR5OiAxXG4gICAgICAgIFJlZjE6IFxuICAgICAgICBSZWYy
-        OiBcbiAgICAgICAgUmV2QWNjb3VudDogXG4gICAgICAgIFNvdXJjaW5nOiBE
-        XG4gICAgICAgIElzSXRlbVRheGFibGU6IFRydWVcbiAgICAgICAgUmVwb3J0
-        aW5nRGF0ZTogNS8zMS8yMDE3XG4gICAgICAgIFRheDogMC40MDAwXG4gICAg
-        ICAgIFRheGFibGVBbW91bnQ6IDEwXG4gICAgICAgIFRheENhbGN1bGF0ZWQ6
-        IDAuNDAwMFxuICAgICAgICBUYXhEYXRlOiA1LzMxLzIwMTdcbiAgICAgICAg
-        VGF4Q29kZTogUEMwMzAwMDBcbiAgICAgICAgVGF4Q29kZUlkOiA4MTA3IChQ
-        QzAzMDAwMClcbiAgICAgICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDBcbiAgICAg
-        ICAgVGF4T3ZlcnJpZGVBbW91bnQ6IDBcbiAgICAgICAgVGF4T3ZlcnJpZGVS
-        ZWFzb246IFxuICAgICAgICBWQVRDb2RlOiBcbiAgICAgICAgVkFUTnVtYmVy
-        VHlwZTogTm8gcmVnaXN0cmF0aW9uXG4gICAgICAgIERldGFpbFswXTogQUwg
-        U1RBIDAxXG4gICAgICAgICAgICBEb2N1bWVudExpbmVEZXRhaWxJZDogMFxu
-        ICAgICAgICAgICAgQWRkcmVzc0lkOiAwXG4gICAgICAgICAgICBDb3VudHJ5
-        OiBVU1xuICAgICAgICAgICAgRXhlbXB0QW1vdW50OiAwXG4gICAgICAgICAg
-        ICBFeGVtcHRVbml0czogMFxuICAgICAgICAgICAgRXhlbXB0UmVhc29uSWQ6
-        IDQgKE5vRXhlbXB0KVxuICAgICAgICAgICAgSW5TdGF0ZTogRmFsc2VcbiAg
-        ICAgICAgICAgIEp1cmlzQ29kZTogMDFcbiAgICAgICAgICAgIEp1cmlzZGlj
-        dGlvbklkOiAxXG4gICAgICAgICAgICBKdXJpc05hbWU6IEFMQUJBTUFcbiAg
-        ICAgICAgICAgIEp1cmlzVHlwZUlkOiBTVEFcbiAgICAgICAgICAgIE5vblRh
-        eGFibGVBbW91bnQ6IDBcbiAgICAgICAgICAgIE5vblRheGFibGVVbml0czog
-        MFxuICAgICAgICAgICAgTm9uVGF4YWJsZVJ1bGVJZDogMFxuICAgICAgICAg
-        ICAgTm9uVGF4YWJsZVR5cGVJZDogMFxuICAgICAgICAgICAgT3B0aW9uczog
-        XG4gICAgICAgICAgICBSYXRlOiAwLjA0MDAwMFxuICAgICAgICAgICAgUmF0
-        ZVJ1bGVJZDogMTAzOTk5M1xuICAgICAgICAgICAgUmF0ZVNvdXJjZUlkOiBT
-        eXN0ZW1cbiAgICAgICAgICAgIFJlZ2lvbjogQUxcbiAgICAgICAgICAgIFNF
-        UkNvZGU6ICAgICAgXG4gICAgICAgICAgICBTb3VyY2luZzogRFxuICAgICAg
-        ICAgICAgU3RhdGVDb2RlOiAwMVxuICAgICAgICAgICAgU3RhdGVBc3NpZ25l
-        ZE5vOiBcbiAgICAgICAgICAgIFRheEF1dGhvcml0eUlkOiAyNzFcbiAgICAg
-        ICAgICAgIFRheDogMC40MDAwXG4gICAgICAgICAgICBUYXhhYmxlQW1vdW50
-        OiAxMFxuICAgICAgICAgICAgVGF4YWJsZVVuaXRzOiAxMFxuICAgICAgICAg
-        ICAgVW5pdE9mQmFzaXM6IFBlckN1cnJlbmN5VW5pdFxuICAgICAgICAgICAg
-        VW5pdE9mQmFzaXNJZDogMTNcbiAgICAgICAgICAgIFRheENhbGN1bGF0ZWQ6
-        IDAuNDAwMFxuICAgICAgICAgICAgVGF4TmFtZTogQUwgU1RBVEUgVEFYXG4g
-        ICAgICAgICAgICBUYXhPdmVycmlkZTogMFxuICAgICAgICAgICAgVGF4VHlw
-        ZUdyb3VwSWQ6IDFcbiAgICAgICAgICAgIFRheFR5cGVJZDogU1xuICAgICAg
-        ICAgICAgVGF4U3ViVHlwZUlkOiAxXG4gICAgICAgICAgICBSYXRlVHlwZUlk
-        OiBHXG4gICAgICAgICAgICBJc0ZlZTogRmFsc2VcbiAgICAgICAgICAgIFRh
-        eFR5cGVNYXBwaW5nSWQ6IDFcbiAgICAgICAgICAgIFJhdGVUeXBlVGF4VHlw
-        ZU1hcHBpbmdJZDogNDFcbiAgICAgICAgICAgIFRheFJlZ2lvbklkOiAyMDUy
-        Nzk5XG4gICAgICAgICAgICpDYXA6IDBcbiAgICAgICAgICAgKlRocmVzaG9s
-        ZDogMFxuICAgICAgICAgICAgVGF4QXV0aG9yaXR5VHlwZUlkOiA0NVxuICAg
-        ICAgICAgICAgVGF4QXV0aG9yaXR5SWQ6IDI3MVxuICAgICAgICAgICAgVGF4
-        QXV0aG9yaXR5TmFtZTogMjcxXG4gICAgICAgICAgICBSZXBvcnRMZXZlbDog
-        MVxuICAgIExpbmVbMV06IFxuICAgICAgICBBY2NvdW50aW5nTWV0aG9kSWQ6
-        IDAgKEFjY3J1YWwpXG4gICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDogMFxuICAg
-        ICAgICBCb3VuZGFyeU92ZXJyaWRlSWQ6IDBcbiAgICAgICAgQ3VzdG9tZXJV
-        c2FnZVR5cGU6IFxuICAgICAgICBEZXNjcmlwdGlvbjogU2hpcHBpbmcgQ2hh
-        cmdlXG4gICAgICAgIERlc3RpbmF0aW9uQWRkcmVzc0lkOiAwXG4gICAgICAg
-        IERpc2NvdW50QW1vdW50OiAwXG4gICAgICAgIERpc2NvdW50VHlwZUlkOiAw
-        XG4gICAgICAgIERvY3VtZW50TGluZUlkOiAwXG4gICAgICAgIEV4ZW1wdEFt
-        b3VudDogMFxuICAgICAgICBFeGVtcHRDZXJ0SWQ6IDBcbiAgICAgICAgRXhl
-        bXB0Tm86IFxuICAgICAgICBCdXNpbmVzcyBJZGVudGlmaWNhdGlvbiBObzog
-        XG4gICAgICAgIEluU3RhdGU6IEZhbHNlXG4gICAgICAgIElzUGh5c2ljYWw6
-        IEZhbHNlXG4gICAgICAgIElzU3N0cDogRmFsc2VcbiAgICAgICAgSXRlbUNv
-        ZGU6IEF2YWxhcmEgR3JvdW5kXG4gICAgICAgIExpbmVBbW91bnQ6IDVcbiAg
-        ICAgICAgTGluZU5vOiAxLUZSXG4gICAgICAgIE9yaWdpbkFkZHJlc3NJZDog
-        MFxuICAgICAgICBRdWFudGl0eTogMVxuICAgICAgICBSZWYxOiBcbiAgICAg
-        ICAgUmVmMjogXG4gICAgICAgIFJldkFjY291bnQ6IFxuICAgICAgICBTb3Vy
-        Y2luZzogRFxuICAgICAgICBJc0l0ZW1UYXhhYmxlOiBUcnVlXG4gICAgICAg
-        IFJlcG9ydGluZ0RhdGU6IDUvMzEvMjAxN1xuICAgICAgICBUYXg6IDAuMjAw
-        MFxuICAgICAgICBUYXhhYmxlQW1vdW50OiA1XG4gICAgICAgIFRheENhbGN1
-        bGF0ZWQ6IDAuMjAwMFxuICAgICAgICBUYXhEYXRlOiA1LzMxLzIwMTdcbiAg
-        ICAgICAgVGF4Q29kZTogRlIwMDAwMDBcbiAgICAgICAgVGF4Q29kZUlkOiA4
-        NTUwIChGUjAwMDAwMClcbiAgICAgICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDBc
-        biAgICAgICAgVGF4T3ZlcnJpZGVBbW91bnQ6IDBcbiAgICAgICAgVGF4T3Zl
-        cnJpZGVSZWFzb246IFxuICAgICAgICBWQVRDb2RlOiBcbiAgICAgICAgVkFU
-        TnVtYmVyVHlwZTogTm8gcmVnaXN0cmF0aW9uXG4gICAgICAgIERldGFpbFsw
-        XTogQUwgU1RBIDAxXG4gICAgICAgICAgICBEb2N1bWVudExpbmVEZXRhaWxJ
-        ZDogMFxuICAgICAgICAgICAgQWRkcmVzc0lkOiAwXG4gICAgICAgICAgICBD
-        b3VudHJ5OiBVU1xuICAgICAgICAgICAgRXhlbXB0QW1vdW50OiAwXG4gICAg
-        ICAgICAgICBFeGVtcHRVbml0czogMFxuICAgICAgICAgICAgRXhlbXB0UmVh
-        c29uSWQ6IDQgKE5vRXhlbXB0KVxuICAgICAgICAgICAgSW5TdGF0ZTogRmFs
-        c2VcbiAgICAgICAgICAgIEp1cmlzQ29kZTogMDFcbiAgICAgICAgICAgIEp1
-        cmlzZGljdGlvbklkOiAxXG4gICAgICAgICAgICBKdXJpc05hbWU6IEFMQUJB
-        TUFcbiAgICAgICAgICAgIEp1cmlzVHlwZUlkOiBTVEFcbiAgICAgICAgICAg
-        IE5vblRheGFibGVBbW91bnQ6IDBcbiAgICAgICAgICAgIE5vblRheGFibGVV
-        bml0czogMFxuICAgICAgICAgICAgTm9uVGF4YWJsZVJ1bGVJZDogMFxuICAg
-        ICAgICAgICAgTm9uVGF4YWJsZVR5cGVJZDogMFxuICAgICAgICAgICAgT3B0
-        aW9uczogXG4gICAgICAgICAgICBSYXRlOiAwLjA0MDAwMFxuICAgICAgICAg
-        ICAgUmF0ZVJ1bGVJZDogMTAzOTk5M1xuICAgICAgICAgICAgUmF0ZVNvdXJj
-        ZUlkOiBTeXN0ZW1cbiAgICAgICAgICAgIFJlZ2lvbjogQUxcbiAgICAgICAg
-        ICAgIFNFUkNvZGU6ICAgICAgXG4gICAgICAgICAgICBTb3VyY2luZzogRFxu
-        ICAgICAgICAgICAgU3RhdGVDb2RlOiAwMVxuICAgICAgICAgICAgU3RhdGVB
-        c3NpZ25lZE5vOiBcbiAgICAgICAgICAgIFRheEF1dGhvcml0eUlkOiAyNzFc
-        biAgICAgICAgICAgIFRheDogMC4yMDAwXG4gICAgICAgICAgICBUYXhhYmxl
-        QW1vdW50OiA1XG4gICAgICAgICAgICBUYXhhYmxlVW5pdHM6IDVcbiAgICAg
-        ICAgICAgIFVuaXRPZkJhc2lzOiBQZXJDdXJyZW5jeVVuaXRcbiAgICAgICAg
-        ICAgIFVuaXRPZkJhc2lzSWQ6IDEzXG4gICAgICAgICAgICBUYXhDYWxjdWxh
-        dGVkOiAwLjIwMDBcbiAgICAgICAgICAgIFRheE5hbWU6IEFMIFNUQVRFIFRB
-        WFxuICAgICAgICAgICAgVGF4T3ZlcnJpZGU6IDBcbiAgICAgICAgICAgIFRh
-        eFR5cGVHcm91cElkOiAxXG4gICAgICAgICAgICBUYXhUeXBlSWQ6IFNcbiAg
-        ICAgICAgICAgIFRheFN1YlR5cGVJZDogMVxuICAgICAgICAgICAgUmF0ZVR5
-        cGVJZDogR1xuICAgICAgICAgICAgSXNGZWU6IEZhbHNlXG4gICAgICAgICAg
-        ICBUYXhUeXBlTWFwcGluZ0lkOiAxXG4gICAgICAgICAgICBSYXRlVHlwZVRh
-        eFR5cGVNYXBwaW5nSWQ6IDQxXG4gICAgICAgICAgICBUYXhSZWdpb25JZDog
-        MjA1Mjc5OVxuICAgICAgICAgICAqQ2FwOiAwXG4gICAgICAgICAgICpUaHJl
-        c2hvbGQ6IDBcbiAgICAgICAgICAgIFRheEF1dGhvcml0eVR5cGVJZDogNDVc
+        IFxuICAgIERvY3VtZW50QWRkcmVzc1szXTogXG4gICAgICAgIExpbmUxOiAx
+        NjAwIFBlbm5zeWx2YW5pYSBBdmUgTldcbiAgICAgICAgQ2l0eTogV2FzaGlu
+        Z3RvblxuICAgICAgICBSZWdpb246IERDXG4gICAgICAgIENvdW50eTogRElT
+        VFJJQ1QgT0YgQ09MVU1CSUFcbiAgICAgICAgQ291bnRyeTogVVNcbiAgICAg
+        ICAgQm91bmRhcnlJZDogOTQ5XG4gICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDog
+        MFxuICAgICAgICBCb3VuZGFyeVNvdXJjZTogVGF4UmVnaW9uR2VvbWV0cnlc
+        biAgICAgICAgQ2l0eVNpZ25hdHVyZTogXG4gICAgICAgIERvY3VtZW50QWRk
+        cmVzc0lkOiAwXG4gICAgICAgIEdlb2NvZGVUeXBlSWQ6IFN0cmVldExldmVs
+        XG4gICAgICAgIEp1cmlzQ29kZTogMTEwMDAwMDAwMFxuICAgICAgICBQb3N0
+        YWxDb2RlOiAyMDUwMC0wMDAzXG4gICAgICAgIFRheFJlZ2lvbklkOiA5NDlc
+        biAgICAgICAgVmFsaWRhdGVTdGF0dXNJZDogTm9ybWFsSGl0XG4gICAgICAg
+        IEFkZHJlc3NMaW5lMTogMTYwMCBQZW5uc3lsdmFuaWEgQXZlIE5XXG4gICAg
+        ICAgIEFkZHJlc3NMaW5lMjogXG4gICAgICAgIEFkZHJlc3NMaW5lMzogXG4g
+        ICAgTGluZVswXTogXG4gICAgICAgIEFjY291bnRpbmdNZXRob2RJZDogMCAo
+        QWNjcnVhbClcbiAgICAgICAgQm91bmRhcnlMZXZlbElkOiAwXG4gICAgICAg
+        IEJvdW5kYXJ5T3ZlcnJpZGVJZDogMFxuICAgICAgICBDdXN0b21lclVzYWdl
+        VHlwZTogXG4gICAgICAgIERlc2NyaXB0aW9uOiBQcm9kdWN0ICM2IC0gOTA5
+        MFxuICAgICAgICBEZXN0aW5hdGlvbkFkZHJlc3NJZDogMFxuICAgICAgICBE
+        aXNjb3VudEFtb3VudDogMFxuICAgICAgICBEaXNjb3VudFR5cGVJZDogMFxu
+        ICAgICAgICBEb2N1bWVudExpbmVJZDogMFxuICAgICAgICBFeGVtcHRBbW91
+        bnQ6IDBcbiAgICAgICAgRXhlbXB0Q2VydElkOiAwXG4gICAgICAgIEV4ZW1w
+        dE5vOiBcbiAgICAgICAgQnVzaW5lc3MgSWRlbnRpZmljYXRpb24gTm86IFxu
+        ICAgICAgICBJblN0YXRlOiBGYWxzZVxuICAgICAgICBJc1BoeXNpY2FsOiBU
+        cnVlXG4gICAgICAgIElzU3N0cDogRmFsc2VcbiAgICAgICAgSXRlbUNvZGU6
+        IFNLVS02XG4gICAgICAgIExpbmVBbW91bnQ6IDEwXG4gICAgICAgIExpbmVO
+        bzogMS1MSVxuICAgICAgICBPcmlnaW5BZGRyZXNzSWQ6IDBcbiAgICAgICAg
+        UXVhbnRpdHk6IDFcbiAgICAgICAgUmVmMTogXG4gICAgICAgIFJlZjI6IFxu
+        ICAgICAgICBSZXZBY2NvdW50OiBcbiAgICAgICAgU291cmNpbmc6IERcbiAg
+        ICAgICAgSXNJdGVtVGF4YWJsZTogVHJ1ZVxuICAgICAgICBSZXBvcnRpbmdE
+        YXRlOiA2LzIvMjAxN1xuICAgICAgICBUYXg6IDAuNDAwMFxuICAgICAgICBU
+        YXhhYmxlQW1vdW50OiAxMFxuICAgICAgICBUYXhDYWxjdWxhdGVkOiAwLjQw
+        MDBcbiAgICAgICAgVGF4RGF0ZTogNi8yLzIwMTdcbiAgICAgICAgVGF4Q29k
+        ZTogUEMwMzAwMDBcbiAgICAgICAgVGF4Q29kZUlkOiA4MTA3IChQQzAzMDAw
+        MClcbiAgICAgICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDBcbiAgICAgICAgVGF4
+        T3ZlcnJpZGVBbW91bnQ6IDBcbiAgICAgICAgVGF4T3ZlcnJpZGVSZWFzb246
+        IFxuICAgICAgICBWQVRDb2RlOiBcbiAgICAgICAgVkFUTnVtYmVyVHlwZTog
+        Tm8gcmVnaXN0cmF0aW9uXG4gICAgICAgIERldGFpbFswXTogQUwgU1RBIDAx
+        XG4gICAgICAgICAgICBEb2N1bWVudExpbmVEZXRhaWxJZDogMFxuICAgICAg
+        ICAgICAgQWRkcmVzc0lkOiAwXG4gICAgICAgICAgICBDb3VudHJ5OiBVU1xu
+        ICAgICAgICAgICAgRXhlbXB0QW1vdW50OiAwXG4gICAgICAgICAgICBFeGVt
+        cHRVbml0czogMFxuICAgICAgICAgICAgRXhlbXB0UmVhc29uSWQ6IDQgKE5v
+        RXhlbXB0KVxuICAgICAgICAgICAgSW5TdGF0ZTogRmFsc2VcbiAgICAgICAg
+        ICAgIEp1cmlzQ29kZTogMDFcbiAgICAgICAgICAgIEp1cmlzZGljdGlvbklk
+        OiAxXG4gICAgICAgICAgICBKdXJpc05hbWU6IEFMQUJBTUFcbiAgICAgICAg
+        ICAgIEp1cmlzVHlwZUlkOiBTVEFcbiAgICAgICAgICAgIE5vblRheGFibGVB
+        bW91bnQ6IDBcbiAgICAgICAgICAgIE5vblRheGFibGVVbml0czogMFxuICAg
+        ICAgICAgICAgTm9uVGF4YWJsZVJ1bGVJZDogMFxuICAgICAgICAgICAgTm9u
+        VGF4YWJsZVR5cGVJZDogMFxuICAgICAgICAgICAgT3B0aW9uczogXG4gICAg
+        ICAgICAgICBSYXRlOiAwLjA0MDAwMFxuICAgICAgICAgICAgUmF0ZVJ1bGVJ
+        ZDogMTAzOTk5M1xuICAgICAgICAgICAgUmF0ZVNvdXJjZUlkOiBTeXN0ZW1c
+        biAgICAgICAgICAgIFJlZ2lvbjogQUxcbiAgICAgICAgICAgIFNFUkNvZGU6
+        ICAgICAgXG4gICAgICAgICAgICBTb3VyY2luZzogRFxuICAgICAgICAgICAg
+        U3RhdGVDb2RlOiAwMVxuICAgICAgICAgICAgU3RhdGVBc3NpZ25lZE5vOiBc
         biAgICAgICAgICAgIFRheEF1dGhvcml0eUlkOiAyNzFcbiAgICAgICAgICAg
-        IFRheEF1dGhvcml0eU5hbWU6IDI3MVxuICAgICAgICAgICAgUmVwb3J0TGV2
-        ZWw6IDFcbiIsInJlZmVyc1RvIjoiIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwi
-        c291cmNlIjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4In0seyJzdW1t
-        YXJ5IjoiU291cmNpbmdSdWxlcyBhcHBsaWVkIGZvciB0aGUgdHJhbnNhY3Rp
-        b24sIFhNTCBmb3JtYXQiLCJkZXRhaWxzIjoiPD94bWwgdmVyc2lvbj1cIjEu
-        MFwiIGVuY29kaW5nPVwidXRmLTE2XCI/PjxBcnJheU9mU291cmNpbmdSdWxl
-        QXBwbGllZCB4bWxuczp4c2Q9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hN
-        TFNjaGVtYVwiIHhtbG5zOnhzaT1cImh0dHA6Ly93d3cudzMub3JnLzIwMDEv
-        WE1MU2NoZW1hLWluc3RhbmNlXCI+PFNvdXJjaW5nUnVsZUFwcGxpZWQ+PExp
-        bmVObz4xLUxJPC9MaW5lTm8+PFNvdXJjaW5nUnVsZUlkX1NvdXJjaW5nPjY8
-        L1NvdXJjaW5nUnVsZUlkX1NvdXJjaW5nPjxTb3VyY2luZz5EPC9Tb3VyY2lu
-        Zz48U291cmNpbmdSdWxlSWRfUmF0ZVR5cGU+MDwvU291cmNpbmdSdWxlSWRf
-        UmF0ZVR5cGU+PFNvdXJjaW5nUnVsZUlkX0p1cmlzVHlwZXNBcHBsaWNhYmxl
-        SWQ+MDwvU291cmNpbmdSdWxlSWRfSnVyaXNUeXBlc0FwcGxpY2FibGVJZD48
-        SnVyaXNUeXBlc0FwcGxpY2FibGVJZCB4c2k6bmlsPVwidHJ1ZVwiIC8+PC9T
-        b3VyY2luZ1J1bGVBcHBsaWVkPjxTb3VyY2luZ1J1bGVBcHBsaWVkPjxMaW5l
-        Tm8+MS1GUjwvTGluZU5vPjxTb3VyY2luZ1J1bGVJZF9Tb3VyY2luZz42PC9T
-        b3VyY2luZ1J1bGVJZF9Tb3VyY2luZz48U291cmNpbmc+RDwvU291cmNpbmc+
-        PFNvdXJjaW5nUnVsZUlkX1JhdGVUeXBlPjA8L1NvdXJjaW5nUnVsZUlkX1Jh
-        dGVUeXBlPjxTb3VyY2luZ1J1bGVJZF9KdXJpc1R5cGVzQXBwbGljYWJsZUlk
-        PjA8L1NvdXJjaW5nUnVsZUlkX0p1cmlzVHlwZXNBcHBsaWNhYmxlSWQ+PEp1
-        cmlzVHlwZXNBcHBsaWNhYmxlSWQgeHNpOm5pbD1cInRydWVcIiAvPjwvU291
-        cmNpbmdSdWxlQXBwbGllZD48L0FycmF5T2ZTb3VyY2luZ1J1bGVBcHBsaWVk
-        PiIsInJlZmVyc1RvIjoiIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291cmNl
-        IjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4In0seyJzdW1tYXJ5Ijoi
-        U291cmNpbmdSdWxlcyBhcHBsaWVkIGZvciB0aGUgdHJhbnNhY3Rpb24sIEpT
-        T04gZm9ybWF0IiwiZGV0YWlscyI6Ilt7XCJMaW5lTm9cIjpcIjEtTElcIixc
-        IlNvdXJjaW5nUnVsZUlkX1NvdXJjaW5nXCI6NixcIlNvdXJjaW5nXCI6XCJE
-        XCIsXCJTb3VyY2luZ1J1bGVJZF9SYXRlVHlwZVwiOjAsXCJSYXRlVHlwZVwi
-        Om51bGwsXCJTb3VyY2luZ1J1bGVJZF9KdXJpc1R5cGVzQXBwbGljYWJsZUlk
-        XCI6MCxcIkp1cmlzVHlwZXNBcHBsaWNhYmxlSWRcIjpudWxsfSx7XCJMaW5l
-        Tm9cIjpcIjEtRlJcIixcIlNvdXJjaW5nUnVsZUlkX1NvdXJjaW5nXCI6Nixc
-        IlNvdXJjaW5nXCI6XCJEXCIsXCJTb3VyY2luZ1J1bGVJZF9SYXRlVHlwZVwi
-        OjAsXCJSYXRlVHlwZVwiOm51bGwsXCJTb3VyY2luZ1J1bGVJZF9KdXJpc1R5
-        cGVzQXBwbGljYWJsZUlkXCI6MCxcIkp1cmlzVHlwZXNBcHBsaWNhYmxlSWRc
-        IjpudWxsfV0iLCJyZWZlcnNUbyI6IiIsInNldmVyaXR5IjoiU3VjY2VzcyIs
-        InNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9XX0=
+        IFRheDogMC40MDAwXG4gICAgICAgICAgICBUYXhhYmxlQW1vdW50OiAxMFxu
+        ICAgICAgICAgICAgVGF4YWJsZVVuaXRzOiAxMFxuICAgICAgICAgICAgVW5p
+        dE9mQmFzaXM6IFBlckN1cnJlbmN5VW5pdFxuICAgICAgICAgICAgVW5pdE9m
+        QmFzaXNJZDogMTNcbiAgICAgICAgICAgIFRheENhbGN1bGF0ZWQ6IDAuNDAw
+        MFxuICAgICAgICAgICAgVGF4TmFtZTogQUwgU1RBVEUgVEFYXG4gICAgICAg
+        ICAgICBUYXhPdmVycmlkZTogMFxuICAgICAgICAgICAgVGF4VHlwZUdyb3Vw
+        SWQ6IDFcbiAgICAgICAgICAgIFRheFR5cGVJZDogU1xuICAgICAgICAgICAg
+        VGF4U3ViVHlwZUlkOiAxXG4gICAgICAgICAgICBSYXRlVHlwZUlkOiBHXG4g
+        ICAgICAgICAgICBJc0ZlZTogRmFsc2VcbiAgICAgICAgICAgIFRheFR5cGVN
+        YXBwaW5nSWQ6IDFcbiAgICAgICAgICAgIFJhdGVUeXBlVGF4VHlwZU1hcHBp
+        bmdJZDogNDFcbiAgICAgICAgICAgIFRheFJlZ2lvbklkOiAyMDUyNzk5XG4g
+        ICAgICAgICAgICpDYXA6IDBcbiAgICAgICAgICAgKlRocmVzaG9sZDogMFxu
+        ICAgICAgICAgICAgVGF4QXV0aG9yaXR5VHlwZUlkOiA0NVxuICAgICAgICAg
+        ICAgVGF4QXV0aG9yaXR5SWQ6IDI3MVxuICAgICAgICAgICAgVGF4QXV0aG9y
+        aXR5TmFtZTogMjcxXG4gICAgICAgICAgICBSZXBvcnRMZXZlbDogMVxuICAg
+        IExpbmVbMV06IFxuICAgICAgICBBY2NvdW50aW5nTWV0aG9kSWQ6IDAgKEFj
+        Y3J1YWwpXG4gICAgICAgIEJvdW5kYXJ5TGV2ZWxJZDogMFxuICAgICAgICBC
+        b3VuZGFyeU92ZXJyaWRlSWQ6IDBcbiAgICAgICAgQ3VzdG9tZXJVc2FnZVR5
+        cGU6IFxuICAgICAgICBEZXNjcmlwdGlvbjogU2hpcHBpbmcgQ2hhcmdlXG4g
+        ICAgICAgIERlc3RpbmF0aW9uQWRkcmVzc0lkOiAwXG4gICAgICAgIERpc2Nv
+        dW50QW1vdW50OiAwXG4gICAgICAgIERpc2NvdW50VHlwZUlkOiAwXG4gICAg
+        ICAgIERvY3VtZW50TGluZUlkOiAwXG4gICAgICAgIEV4ZW1wdEFtb3VudDog
+        MFxuICAgICAgICBFeGVtcHRDZXJ0SWQ6IDBcbiAgICAgICAgRXhlbXB0Tm86
+        IFxuICAgICAgICBCdXNpbmVzcyBJZGVudGlmaWNhdGlvbiBObzogXG4gICAg
+        ICAgIEluU3RhdGU6IEZhbHNlXG4gICAgICAgIElzUGh5c2ljYWw6IEZhbHNl
+        XG4gICAgICAgIElzU3N0cDogRmFsc2VcbiAgICAgICAgSXRlbUNvZGU6IEF2
+        YWxhcmEgR3JvdW5kXG4gICAgICAgIExpbmVBbW91bnQ6IDVcbiAgICAgICAg
+        TGluZU5vOiAxLUZSXG4gICAgICAgIE9yaWdpbkFkZHJlc3NJZDogMFxuICAg
+        ICAgICBRdWFudGl0eTogMVxuICAgICAgICBSZWYxOiBcbiAgICAgICAgUmVm
+        MjogXG4gICAgICAgIFJldkFjY291bnQ6IFxuICAgICAgICBTb3VyY2luZzog
+        RFxuICAgICAgICBJc0l0ZW1UYXhhYmxlOiBUcnVlXG4gICAgICAgIFJlcG9y
+        dGluZ0RhdGU6IDYvMi8yMDE3XG4gICAgICAgIFRheDogMC4yMDAwXG4gICAg
+        ICAgIFRheGFibGVBbW91bnQ6IDVcbiAgICAgICAgVGF4Q2FsY3VsYXRlZDog
+        MC4yMDAwXG4gICAgICAgIFRheERhdGU6IDYvMi8yMDE3XG4gICAgICAgIFRh
+        eENvZGU6IEZSMDAwMDAwXG4gICAgICAgIFRheENvZGVJZDogODU1MCAoRlIw
+        MDAwMDApXG4gICAgICAgIFRheE92ZXJyaWRlVHlwZUlkOiAwXG4gICAgICAg
+        IFRheE92ZXJyaWRlQW1vdW50OiAwXG4gICAgICAgIFRheE92ZXJyaWRlUmVh
+        c29uOiBcbiAgICAgICAgVkFUQ29kZTogXG4gICAgICAgIFZBVE51bWJlclR5
+        cGU6IE5vIHJlZ2lzdHJhdGlvblxuICAgICAgICBEZXRhaWxbMF06IEFMIFNU
+        QSAwMVxuICAgICAgICAgICAgRG9jdW1lbnRMaW5lRGV0YWlsSWQ6IDBcbiAg
+        ICAgICAgICAgIEFkZHJlc3NJZDogMFxuICAgICAgICAgICAgQ291bnRyeTog
+        VVNcbiAgICAgICAgICAgIEV4ZW1wdEFtb3VudDogMFxuICAgICAgICAgICAg
+        RXhlbXB0VW5pdHM6IDBcbiAgICAgICAgICAgIEV4ZW1wdFJlYXNvbklkOiA0
+        IChOb0V4ZW1wdClcbiAgICAgICAgICAgIEluU3RhdGU6IEZhbHNlXG4gICAg
+        ICAgICAgICBKdXJpc0NvZGU6IDAxXG4gICAgICAgICAgICBKdXJpc2RpY3Rp
+        b25JZDogMVxuICAgICAgICAgICAgSnVyaXNOYW1lOiBBTEFCQU1BXG4gICAg
+        ICAgICAgICBKdXJpc1R5cGVJZDogU1RBXG4gICAgICAgICAgICBOb25UYXhh
+        YmxlQW1vdW50OiAwXG4gICAgICAgICAgICBOb25UYXhhYmxlVW5pdHM6IDBc
+        biAgICAgICAgICAgIE5vblRheGFibGVSdWxlSWQ6IDBcbiAgICAgICAgICAg
+        IE5vblRheGFibGVUeXBlSWQ6IDBcbiAgICAgICAgICAgIE9wdGlvbnM6IFxu
+        ICAgICAgICAgICAgUmF0ZTogMC4wNDAwMDBcbiAgICAgICAgICAgIFJhdGVS
+        dWxlSWQ6IDEwMzk5OTNcbiAgICAgICAgICAgIFJhdGVTb3VyY2VJZDogU3lz
+        dGVtXG4gICAgICAgICAgICBSZWdpb246IEFMXG4gICAgICAgICAgICBTRVJD
+        b2RlOiAgICAgIFxuICAgICAgICAgICAgU291cmNpbmc6IERcbiAgICAgICAg
+        ICAgIFN0YXRlQ29kZTogMDFcbiAgICAgICAgICAgIFN0YXRlQXNzaWduZWRO
+        bzogXG4gICAgICAgICAgICBUYXhBdXRob3JpdHlJZDogMjcxXG4gICAgICAg
+        ICAgICBUYXg6IDAuMjAwMFxuICAgICAgICAgICAgVGF4YWJsZUFtb3VudDog
+        NVxuICAgICAgICAgICAgVGF4YWJsZVVuaXRzOiA1XG4gICAgICAgICAgICBV
+        bml0T2ZCYXNpczogUGVyQ3VycmVuY3lVbml0XG4gICAgICAgICAgICBVbml0
+        T2ZCYXNpc0lkOiAxM1xuICAgICAgICAgICAgVGF4Q2FsY3VsYXRlZDogMC4y
+        MDAwXG4gICAgICAgICAgICBUYXhOYW1lOiBBTCBTVEFURSBUQVhcbiAgICAg
+        ICAgICAgIFRheE92ZXJyaWRlOiAwXG4gICAgICAgICAgICBUYXhUeXBlR3Jv
+        dXBJZDogMVxuICAgICAgICAgICAgVGF4VHlwZUlkOiBTXG4gICAgICAgICAg
+        ICBUYXhTdWJUeXBlSWQ6IDFcbiAgICAgICAgICAgIFJhdGVUeXBlSWQ6IEdc
+        biAgICAgICAgICAgIElzRmVlOiBGYWxzZVxuICAgICAgICAgICAgVGF4VHlw
+        ZU1hcHBpbmdJZDogMVxuICAgICAgICAgICAgUmF0ZVR5cGVUYXhUeXBlTWFw
+        cGluZ0lkOiA0MVxuICAgICAgICAgICAgVGF4UmVnaW9uSWQ6IDIwNTI3OTlc
+        biAgICAgICAgICAgKkNhcDogMFxuICAgICAgICAgICAqVGhyZXNob2xkOiAw
+        XG4gICAgICAgICAgICBUYXhBdXRob3JpdHlUeXBlSWQ6IDQ1XG4gICAgICAg
+        ICAgICBUYXhBdXRob3JpdHlJZDogMjcxXG4gICAgICAgICAgICBUYXhBdXRo
+        b3JpdHlOYW1lOiAyNzFcbiAgICAgICAgICAgIFJlcG9ydExldmVsOiAxXG4i
+        LCJyZWZlcnNUbyI6IiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNvdXJjZSI6
+        IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9LHsic3VtbWFyeSI6IlNv
+        dXJjaW5nUnVsZXMgYXBwbGllZCBmb3IgdGhlIHRyYW5zYWN0aW9uLCBYTUwg
+        Zm9ybWF0IiwiZGV0YWlscyI6Ijw/eG1sIHZlcnNpb249XCIxLjBcIiBlbmNv
+        ZGluZz1cInV0Zi0xNlwiPz48QXJyYXlPZlNvdXJjaW5nUnVsZUFwcGxpZWQg
+        eG1sbnM6eHNkPVwiaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWFc
+        IiB4bWxuczp4c2k9XCJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVt
+        YS1pbnN0YW5jZVwiPjxTb3VyY2luZ1J1bGVBcHBsaWVkPjxMaW5lTm8+MS1M
+        STwvTGluZU5vPjxTb3VyY2luZ1J1bGVJZF9Tb3VyY2luZz42PC9Tb3VyY2lu
+        Z1J1bGVJZF9Tb3VyY2luZz48U291cmNpbmc+RDwvU291cmNpbmc+PFNvdXJj
+        aW5nUnVsZUlkX1JhdGVUeXBlPjA8L1NvdXJjaW5nUnVsZUlkX1JhdGVUeXBl
+        PjxTb3VyY2luZ1J1bGVJZF9KdXJpc1R5cGVzQXBwbGljYWJsZUlkPjA8L1Nv
+        dXJjaW5nUnVsZUlkX0p1cmlzVHlwZXNBcHBsaWNhYmxlSWQ+PEp1cmlzVHlw
+        ZXNBcHBsaWNhYmxlSWQgeHNpOm5pbD1cInRydWVcIiAvPjwvU291cmNpbmdS
+        dWxlQXBwbGllZD48U291cmNpbmdSdWxlQXBwbGllZD48TGluZU5vPjEtRlI8
+        L0xpbmVObz48U291cmNpbmdSdWxlSWRfU291cmNpbmc+NjwvU291cmNpbmdS
+        dWxlSWRfU291cmNpbmc+PFNvdXJjaW5nPkQ8L1NvdXJjaW5nPjxTb3VyY2lu
+        Z1J1bGVJZF9SYXRlVHlwZT4wPC9Tb3VyY2luZ1J1bGVJZF9SYXRlVHlwZT48
+        U291cmNpbmdSdWxlSWRfSnVyaXNUeXBlc0FwcGxpY2FibGVJZD4wPC9Tb3Vy
+        Y2luZ1J1bGVJZF9KdXJpc1R5cGVzQXBwbGljYWJsZUlkPjxKdXJpc1R5cGVz
+        QXBwbGljYWJsZUlkIHhzaTpuaWw9XCJ0cnVlXCIgLz48L1NvdXJjaW5nUnVs
+        ZUFwcGxpZWQ+PC9BcnJheU9mU291cmNpbmdSdWxlQXBwbGllZD4iLCJyZWZl
+        cnNUbyI6IiIsInNldmVyaXR5IjoiU3VjY2VzcyIsInNvdXJjZSI6IkF2YWxh
+        cmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9LHsic3VtbWFyeSI6IlNvdXJjaW5n
+        UnVsZXMgYXBwbGllZCBmb3IgdGhlIHRyYW5zYWN0aW9uLCBKU09OIGZvcm1h
+        dCIsImRldGFpbHMiOiJbe1wiTGluZU5vXCI6XCIxLUxJXCIsXCJTb3VyY2lu
+        Z1J1bGVJZF9Tb3VyY2luZ1wiOjYsXCJTb3VyY2luZ1wiOlwiRFwiLFwiU291
+        cmNpbmdSdWxlSWRfUmF0ZVR5cGVcIjowLFwiUmF0ZVR5cGVcIjpudWxsLFwi
+        U291cmNpbmdSdWxlSWRfSnVyaXNUeXBlc0FwcGxpY2FibGVJZFwiOjAsXCJK
+        dXJpc1R5cGVzQXBwbGljYWJsZUlkXCI6bnVsbH0se1wiTGluZU5vXCI6XCIx
+        LUZSXCIsXCJTb3VyY2luZ1J1bGVJZF9Tb3VyY2luZ1wiOjYsXCJTb3VyY2lu
+        Z1wiOlwiRFwiLFwiU291cmNpbmdSdWxlSWRfUmF0ZVR5cGVcIjowLFwiUmF0
+        ZVR5cGVcIjpudWxsLFwiU291cmNpbmdSdWxlSWRfSnVyaXNUeXBlc0FwcGxp
+        Y2FibGVJZFwiOjAsXCJKdXJpc1R5cGVzQXBwbGljYWJsZUlkXCI6bnVsbH1d
+        IiwicmVmZXJzVG8iOiIiLCJzZXZlcml0eSI6IlN1Y2Nlc3MiLCJzb3VyY2Ui
+        OiJBdmFsYXJhLkF2YVRheC5TZXJ2aWNlcy5UYXgifV19
     http_version: 
-  recorded_at: Wed, 31 May 2017 22:06:04 GMT
+  recorded_at: Fri, 02 Jun 2017 18:35:58 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R255391595","date":"2017-05-31","discount":"0.0","commit":true,"type":"SalesInvoice","lines":[{"number":"1-LI","description":"Product
-        #6 - 1246","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"customerUsageType":null,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+      string: '{"createTransactionModel":{"code":"R313394894","date":"2017-06-02","discount":"0.0","commit":true,"type":"SalesInvoice","lines":[{"number":"1-LI","description":"Product
+        #6 - 9090","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}},{"number":"1-FR","itemCode":"Avalara
-        Ground","quantity":1,"amount":5.0,"customerUsageType":null,"description":"Shipping
-        Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R255391595","currencyCode":"USD"}}'
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R313394894","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
@@ -1126,30 +1130,92 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       Location:
-      - "/api/v2/companies/236180/transactions/304712564"
+      - "/api/v2/companies/236180/transactions/305217222"
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.1381722'
+      - '00:00:00.1562584'
       Databasecalls:
       - '1'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Wed, 31 May 2017 22:06:03 GMT
+      - Fri, 02 Jun 2017 18:35:59 GMT
     body:
       encoding: UTF-8
-      string: '{"id":304712564,"code":"R255391595","companyId":236180,"date":"2017-05-31","paymentDate":"1900-01-01","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R255391595","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":15.0000,"totalExempt":0.0000,"totalTax":0.6000,"totalTaxable":15.0000,"totalTaxCalculated":0.6000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"17.4.2.1","exchangeRateEffectiveDate":"2017-05-31","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-05-31T22:06:04.7","modifiedUserId":37777,"taxDate":"2017-05-31T00:00:00","lines":[{"id":1099782372,"transactionId":304712564,"lineNumber":"1-FR","boundaryOverrideId":0,"customerUsageType":"","description":"Shipping
-        Charge","destinationAddressId":775147757,"originAddressId":775147758,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"Avalara
-        Ground","lineAmount":5.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-05-31","revAccount":"","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxCalculated":0.2000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2017-05-31","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2000955349,"transactionLineId":1099782372,"transactionId":304712564,"addressId":775147757,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxType":"Sales","taxName":"AL
-        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":5.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":686590922,"documentLineId":1099782372,"documentAddressId":775147757,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":686590921,"documentLineId":1099782372,"documentAddressId":775147758,"locationTypeCode":"ShipFrom"}],"parameters":{}},{"id":1099782370,"transactionId":304712564,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Product
-        #6 - 1246","destinationAddressId":775147755,"originAddressId":775147756,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-6","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-05-31","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2017-05-31","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2000955347,"transactionLineId":1099782370,"transactionId":304712564,"addressId":775147755,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Sales","taxName":"AL
-        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":686590918,"documentLineId":1099782370,"documentAddressId":775147755,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":686590917,"documentLineId":1099782370,"documentAddressId":775147756,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":775147755,"transactionId":304712564,"boundaryLevel":"Address","line1":"915
-        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":775147756,"transactionId":304712564,"boundaryLevel":"Address","line1":"1600
-        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":775147757,"transactionId":304712564,"boundaryLevel":"Address","line1":"915
-        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":775147758,"transactionId":304712564,"boundaryLevel":"Address","line1":"1600
+      string: '{"id":305217222,"code":"R313394894","companyId":236180,"date":"2017-06-02","paymentDate":"1900-01-01","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R313394894","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":15.0000,"totalExempt":0.0000,"totalTax":0.6000,"totalTaxable":15.0000,"totalTaxCalculated":0.6000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"17.4.2.1","exchangeRateEffectiveDate":"2017-06-02","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-06-02T18:35:59.353","modifiedUserId":37777,"taxDate":"2017-06-02T00:00:00","lines":[{"id":1101677336,"transactionId":305217222,"lineNumber":"1-FR","boundaryOverrideId":0,"customerUsageType":"","description":"Shipping
+        Charge","destinationAddressId":776271789,"originAddressId":776271790,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"Avalara
+        Ground","lineAmount":5.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-06-02","revAccount":"","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxCalculated":0.2000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2017-06-02","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2004504171,"transactionLineId":1101677336,"transactionId":305217222,"addressId":776271789,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":5.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":690537233,"documentLineId":1101677336,"documentAddressId":776271789,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":690537232,"documentLineId":1101677336,"documentAddressId":776271790,"locationTypeCode":"ShipFrom"}],"parameters":{}},{"id":1101677335,"transactionId":305217222,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Product
+        #6 - 9090","destinationAddressId":776271787,"originAddressId":776271788,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-6","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-06-02","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2017-06-02","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2004504168,"transactionLineId":1101677335,"transactionId":305217222,"addressId":776271787,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":690537229,"documentLineId":1101677335,"documentAddressId":776271787,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":690537228,"documentLineId":1101677335,"documentAddressId":776271788,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":776271787,"transactionId":305217222,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":776271788,"transactionId":305217222,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":776271789,"transactionId":305217222,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":776271790,"transactionId":305217222,"boundaryLevel":"Address","line1":"1600
         Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"AL
         STATE TAX","rateType":"General","taxable":15.00,"rate":0.040000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
     http_version: 
-  recorded_at: Wed, 31 May 2017 22:06:05 GMT
+  recorded_at: Fri, 02 Jun 2017 18:35:59 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: '{"createTransactionModel":{"code":"R313394894","date":"2017-06-02","discount":"0.0","commit":true,"type":"SalesInvoice","lines":[{"number":"1-LI","description":"Product
+        #6 - 9090","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R313394894","currencyCode":"USD","businessIdentificationNo":null}}'
+    headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/236180/transactions/305217224"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.1718757'
+      Databasecalls:
+      - '2'
+      Databaseduration:
+      - '00:00:00'
+      Date:
+      - Fri, 02 Jun 2017 18:36:00 GMT
+    body:
+      encoding: UTF-8
+      string: '{"id":305217224,"code":"R313394894","companyId":236180,"date":"2017-06-02","paymentDate":"1900-01-01","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R313394894","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":15.0000,"totalExempt":0.0000,"totalTax":0.6000,"totalTaxable":15.0000,"totalTaxCalculated":0.6000,"adjustmentReason":"Other","adjustmentDescription":"Create
+        or adjust transaction","locked":false,"region":"AL","country":"US","version":2,"softwareVersion":"17.4.2.1","exchangeRateEffectiveDate":"2017-06-02","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-06-02T18:35:59.78","modifiedUserId":37777,"taxDate":"2017-06-02T00:00:00","lines":[{"id":1101677342,"transactionId":305217224,"lineNumber":"1-FR","boundaryOverrideId":0,"customerUsageType":"","description":"Shipping
+        Charge","destinationAddressId":776271796,"originAddressId":776271797,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"Avalara
+        Ground","lineAmount":5.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-06-02","revAccount":"","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxCalculated":0.2000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2017-06-02","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2004504185,"transactionLineId":1101677342,"transactionId":305217224,"addressId":776271796,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":5.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":690537245,"documentLineId":1101677342,"documentAddressId":776271796,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":690537244,"documentLineId":1101677342,"documentAddressId":776271797,"locationTypeCode":"ShipFrom"}],"parameters":{}},{"id":1101677341,"transactionId":305217224,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Product
+        #6 - 9090","destinationAddressId":776271794,"originAddressId":776271795,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-6","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-06-02","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2017-06-02","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2004504182,"transactionLineId":1101677341,"transactionId":305217224,"addressId":776271794,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":690537241,"documentLineId":1101677341,"documentAddressId":776271794,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":690537240,"documentLineId":1101677341,"documentAddressId":776271795,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":776271794,"transactionId":305217224,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":776271795,"transactionId":305217224,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":776271796,"transactionId":305217224,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":776271797,"transactionId":305217224,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"AL
+        STATE TAX","rateType":"General","taxable":15.00,"rate":0.040000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
+    http_version: 
+  recorded_at: Fri, 02 Jun 2017 18:36:00 GMT
 recorded_with: VCR 3.0.3
