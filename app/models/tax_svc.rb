@@ -70,6 +70,10 @@ class TaxSvc
     Spree::Avatax::Config.tax_calculation
   end
 
+  def account_number
+    Spree::Avatax::Config.account
+  end
+
   def license_key
     Spree::Avatax::Config.license_key
   end
@@ -78,22 +82,14 @@ class TaxSvc
     Spree::Avatax::Config.raise_exceptions
   end
 
-  def username
-    Spree::Avatax::Config.username
-  end
-
-  def password
-    Spree::Avatax::Config.password
-  end
-
   def company_code
     Spree::Avatax::Config.company_code
   end
 
   def client
     @client ||= Avatax::Client.new(
-      username: username,
-      password: password,
+      username: account_number,
+      password: license_key,
       env: Spree::AvataxConfiguration.environment,
       headers: AVATAX_HEADERS
     )
