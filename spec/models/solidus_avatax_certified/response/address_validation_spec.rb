@@ -4,6 +4,10 @@ require 'spec_helper'
 RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
   let(:response) { described_class.new(response_hash) }
 
+  before do
+    allow(response.faraday).to receive(:body).and_return(response_hash)
+  end
+
   context 'Successful Response' do
     let(:response_hash) { build(:address_validation_success) }
 

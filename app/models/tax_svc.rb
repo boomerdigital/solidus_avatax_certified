@@ -7,7 +7,7 @@ class TaxSvc
 
     req = client.transactions.create_or_adjust(request_hash)
 
-    response = SolidusAvataxCertified::Response::GetTax.new(req.body)
+    response = SolidusAvataxCertified::Response::GetTax.new(req)
 
     handle_response(response)
   end
@@ -16,7 +16,7 @@ class TaxSvc
     log(__method__, transaction_code)
 
     req = client.transactions.void(company_code, transaction_code)
-    response = SolidusAvataxCertified::Response::CancelTax.new(req.body)
+    response = SolidusAvataxCertified::Response::CancelTax.new(req)
 
     handle_response(response)
   end
@@ -30,7 +30,7 @@ class TaxSvc
 
   def validate_address(address)
     begin
-      request = client.addresses.validate(address).body
+      request = client.addresses.validate(address)
     rescue => e
       logger.error(e)
 
