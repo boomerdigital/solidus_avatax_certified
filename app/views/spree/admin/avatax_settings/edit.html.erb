@@ -29,22 +29,6 @@
     </fieldset>
 
     <fieldset>
-      <legend><%= Spree.t('avatax_endpoint_urls') %></legend>
-      <p>
-        <label><%= Spree.t('avatax_endpoint') %></label><br />
-        <%= text_field_tag('settings[endpoint]', Spree::Avatax::Config.endpoint, :size => 46, :maxlength => 256, :class => 'avatax') %>
-      </p>
-      <p>
-        <label><%= Spree.t('avatax_tax_service_path') %></label><br />
-        <input type="text" placeholder="<%= AVATAX_SERVICEPATH_TAX %>", readonly>
-      </p>
-      <p>
-        <label><%= Spree.t('avatax_address_service_path') %></label><br />
-        <input type="text" placeholder="<%= AVATAX_SERVICEPATH_ADDRESS %>", readonly>
-      </p>
-    </fieldset>
-
-    <fieldset>
       <p>
         <label><%= Spree.t(:avatax_tax_calculation) %>:</label>
         <%= check_box_tag "settings[tax_calculation]", true, Spree::Avatax::Config.tax_calculation, class: 'avatax' %>

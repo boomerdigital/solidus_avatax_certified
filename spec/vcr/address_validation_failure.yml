@@ -7,12 +7,14 @@ http_interactions:
       encoding: UTF-8
       string: '{"line1":"915 S Jackson St","line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
       - application/json
       Authorization:
-      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -29,13 +31,13 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0156241'
+      - '00:00:00.0015306'
       Databasecalls:
       - '3'
       Databaseduration:
-      - '00:00:00.0156241'
+      - '00:00:00.0015306'
       Date:
-      - Tue, 23 May 2017 11:23:38 GMT
+      - Tue, 27 Jun 2017 14:09:11 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"ValidationException","message":"The address value
@@ -45,5 +47,5 @@ http_interactions:
         + longitude.  For international transactions outside of US/CA, only a country
         code is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AddressIncomplete","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Tue, 23 May 2017 11:23:39 GMT
+  recorded_at: Tue, 27 Jun 2017 14:09:13 GMT
 recorded_with: VCR 3.0.3

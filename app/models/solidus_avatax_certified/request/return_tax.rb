@@ -8,18 +8,15 @@ module SolidusAvataxCertified
       end
 
       def generate
-        @request = {
-          DocCode: order.number.to_s + '.' + @refund.id.to_s,
-          DocDate: Date.today.strftime('%F'),
-          Commit: @commit,
-          DocType: @doc_type ? @doc_type : 'ReturnOrder',
-          Addresses: address_lines,
-          Lines: sales_lines
-        }.merge(base_tax_hash)
-
-        check_vat_id
-
-        @request
+        {
+          createTransactionModel: {
+            code: order.number.to_s + '.' + @refund.id.to_s,
+            date: Date.today.strftime('%F'),
+            commit: @commit,
+            type: @doc_type ? @doc_type : 'ReturnOrder',
+            lines: sales_lines
+          }.merge(base_tax_hash)
+        }
       end
 
       protected
@@ -34,10 +31,10 @@ module SolidusAvataxCertified
 
       def tax_override
         {
-          TaxOverride: {
-            TaxOverrideType: 'TaxDate',
-            Reason: @refund.try(:reason).try(:name).limit(255) || 'Return',
-            TaxDate: order.completed_at.strftime('%F')
+          taxOverride: {
+            type: 'TaxDate',
+            reason: @refund.try(:reason).try(:name).limit(255) || 'Return',
+            taxDate: order.completed_at.strftime('%F')
           }
         }
       end

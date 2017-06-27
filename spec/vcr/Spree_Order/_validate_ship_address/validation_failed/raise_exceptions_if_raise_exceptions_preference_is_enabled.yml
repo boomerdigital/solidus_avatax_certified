@@ -7,12 +7,14 @@ http_interactions:
       encoding: UTF-8
       string: '{"line1":null,"line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
       - application/json
       Authorization:
-      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -29,13 +31,13 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0156279'
+      - '00:00:00'
       Databasecalls:
-      - '3'
+      - '0'
       Databaseduration:
-      - '00:00:00.0156279'
+      - '00:00:00'
       Date:
-      - Tue, 23 May 2017 13:49:05 GMT
+      - Tue, 27 Jun 2017 14:11:00 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"ValidationException","message":"The address value
@@ -45,5 +47,5 @@ http_interactions:
         + longitude.  For international transactions outside of US/CA, only a country
         code is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AddressIncomplete","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Tue, 23 May 2017 13:49:05 GMT
+  recorded_at: Tue, 27 Jun 2017 14:11:01 GMT
 recorded_with: VCR 3.0.3

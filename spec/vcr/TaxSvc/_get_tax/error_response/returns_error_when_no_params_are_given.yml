@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Date:
+      - Tue, 27 Jun 2017 14:10:47 GMT
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"ValidationException","message":"Field createTransactionModel
+        is required.","target":"IncorrectData","details":[{"code":"ValueRequiredError","number":5,"message":"Field
+        createTransactionModel is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version: 
+  recorded_at: Tue, 27 Jun 2017 14:10:48 GMT
+recorded_with: VCR 3.0.3

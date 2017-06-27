@@ -43,8 +43,8 @@ module SolidusAvataxCertified
         origin = "{}" if origin.nil?
       end
 
-      def success_message(preference)
-        puts "Created: #{preference.name} - #{preference.value ? preference.value : 'Please input value in avalara settings!'}"
+      def success_message(name, value)
+        puts "Created: #{name} - #{value ? value : 'Please input value in avalara settings!'}"
       end
     end
   end

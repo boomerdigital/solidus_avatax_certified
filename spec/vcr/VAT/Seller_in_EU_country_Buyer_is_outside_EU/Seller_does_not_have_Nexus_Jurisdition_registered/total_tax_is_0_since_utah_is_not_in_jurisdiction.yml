@@ -2,136 +2,544 @@
 http_interactions:
 - request:
     method: post
-    uri: https://development.avalara.net/1.0/tax/get
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R387296431","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":null,"Line2":null,"City":"Florence","Region":"","PostalCode":null,"Country":"IT"},{"AddressCode":"Dest","Line1":"350
-        Av Central","Line2":"","City":"Tamarindo","Region":"","Country":"CR","PostalCode":"50309"},{"AddressCode":"1","Line1":"150
-        Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #10 - 4051","TaxCode":"PC030000","ItemCode":"SKU-10","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R387296431","DetailLevel":"Tax","CurrencyCode":"USD"}'
+      string: '{"createTransactionModel":{"code":"R914541533","date":"2017-06-27","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #12 - 5332","taxCode":"PC030000","itemCode":"SKU-12","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+        Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"20500"},"shipTo":{"line1":"350
+        Av Central","line2":"","city":"Tamarindo","region":null,"country":"CR","postalCode":"50309"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+        Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"20500"},"shipTo":{"line1":"350
+        Av Central","line2":"","city":"Tamarindo","region":null,"country":"CR","postalCode":"50309"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R914541533","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
       Content-Type:
       - application/json
-      Content-Length:
-      - '1103'
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/0/transactions/0"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0405251'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
       Date:
-      - Fri, 13 Jan 2017 16:48:25 GMT
-      Content-Length:
-      - '609'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e6509fccff8821cc0391c455f617ae373b423a91be5496fcba277521115eb4dbf660886ef37f5b17cc833f25eff560837;
-        Path=/
+      - Tue, 27 Jun 2017 15:21:15 GMT
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++unfwYO/hp/v3dvWLp1nLX+zt7D7Y3tnd3r2HL94Ui7xps8Uq/OrN
-        7qeP9g8e7d0ff/rpwc6n+5/+FDeu2qw8XlTrZSvN7YdPi2ZqPnafnr7LF6u2
-        qJbhx2+yd9mkVGT8T/FJ8MFJVk7XJSE+c19l754Xy7yhD76XEC3wx4uK/vpo
-        d/v5mbYwRHh5snNvhx79OJsUZdFe45u2Xuf49AlhPcvq6+f5ZV7ii58qVvfx
-        RR/3/hgBUcaxyx+8Ikzx186Y+qQHn1Ej/kh/j4/oad5mRWnHdIJuasbz7A2a
-        vMovFBP5+zvrumjeXK+4N9PafG4GL00J+vshyTBeZAtudPbm+Pnvg0+phfns
-        p/K6ShnKL0m+n/ySZEQYu1nY2372Sl8wiDx7Rd3Qox//aBbog5uQZBiG4reZ
-        he8n8v3xbFaTNnACoh/Qnx/du7+THl+mJzlhmpUAqF8aZJ+SLsDHJzo/b7JF
-        VhfLWcUf6gjp8xOe4pcVaY7SvHufRO0hPiYkhFJnTN29nfu7e6xreEymOYEQ
-        1lEU8Nku4feymE6zWVGWTEr90rzEuswg96ys6nw5ZQbycBOCh7gRDpbEHdx2
-        HvIXAW4EwhE0ojd/SfL/AD7tbMCFBQAA
+      encoding: UTF-8
+      string: '{"id":0,"code":"R914541533","companyId":0,"date":"2017-06-27","paymentDate":"2017-06-27","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","reconciled":false,"referenceCode":"R914541533","totalAmount":20.0,"totalExempt":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2017-06-27","exchangeRate":1.0,"isSellerImporterOfRecord":false,"modifiedDate":"2017-06-27T15:21:16.3116219Z","modifiedUserId":38097,"taxDate":"0001-01-01T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-12","lineAmount":10.0,"quantity":1.0,"reportingDate":"2017-06-27","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxDate":"2017-06-27","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Sales","taxName":"Zero
+        Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z"}]},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
+        Ground","lineAmount":10.0,"quantity":1.0,"reportingDate":"2017-06-27","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"FR000000","taxDate":"2017-06-27","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Sales","taxName":"Zero
+        Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z"}]}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"350
+        Av Central","city":"Tamarindo","region":"","postalCode":"50309","country":"CR","taxRegionId":205123,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","city":"Florence","region":"","postalCode":"20500","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"350
+        Av Central","city":"Tamarindo","region":"","postalCode":"50309","country":"CR","taxRegionId":205123,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","city":"Florence","region":"","postalCode":"20500","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"State","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"Zero
+        Rate","taxGroup":"","rateType":"Zero","rateTypeCode":"Z","taxable":20.0,"rate":0.000000,"tax":0.0,"taxCalculated":0.0,"nonTaxable":0.0,"exemption":0.0}],"messages":[{"summary":"Global
+        Address","details":"\n    Address: 150 Piccadilly, Florence, 20500 IT\n    AddressCode:
+        ORIG1\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[0]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 350 Av Central, Tamarindo, 50309 CR\n    AddressCode:
+        DEST2\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[1]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 150 Piccadilly, Florence, 20500 IT\n    AddressCode:
+        ORIG3\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[2]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 350 Av Central, Tamarindo, 50309 CR\n    AddressCode:
+        DEST4\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[3]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"AddressLocationType:
+        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 20500\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
+        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
+        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[0]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipTo","details":"\n    Address: 350 Av Central,Tamarindo, 50309\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: CR\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 22\n    TaxRegionId:
+        205123\n    FIPSCode: CR\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200118\" JurisdictionCode=\"CR\" JurisdictionTypeId=\"CNT\"
+        LongName=\"COSTA RICA\" Country=\"CR\" State=\"\" SignatureCode=\"YAER\" EffDate=\"07/01/2012\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[1]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 20500\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
+        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
+        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[2]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipTo","details":"\n    Address: 350 Av Central,Tamarindo, 50309\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: CR\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 22\n    TaxRegionId:
+        205123\n    FIPSCode: CR\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200118\" JurisdictionCode=\"CR\" JurisdictionTypeId=\"CNT\"
+        LongName=\"COSTA RICA\" Country=\"CR\" State=\"\" SignatureCode=\"YAER\" EffDate=\"07/01/2012\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[3]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
+        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
+        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
+        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
+        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
+        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
+        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
+        CNT\n    TaxRuleId: 2111383\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 3/1/2015\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: PC030000\n    TaxCodeId:
+        8107\n    TaxName: Clothing & related products (Business-To-Business)\n    NexusTaxTypeGroupId:
+        InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId:
+        O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId:
+        None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis:
+        PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions: \n    AttributeApplicability:
+        \n    ReturnsDeductionID: -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID:
+        -1\n\nTaxRule[TaxType:O][TaxSubType:O]: RateRule CNT\n    TaxRuleId: 329655\n    Cap:
+        0.000000\n    CompanyId: 1\n    Country: IT\n    CustomerUsageType: \n    EffDate:
+        7/1/2008\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: Zero
+        Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value:
+        0.000000\n    RateSourceId: None\n    RateTypeId: Z\n    RateTypeTaxTypeMappingId:
+        2279\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: -1\n    ReturnsRateID:
+        -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"1-LI\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
+        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
+        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
+        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
+        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
+        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
+        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
+        CNT\n    TaxRuleId: 2729157\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 7/1/2016\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: RateDepends\n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: FR000000\n    TaxCodeId:
+        8550\n    TaxName: Freight\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
+        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
+        560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId: None\n    RateTypeId:
+        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
+        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
+        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n\nTaxRule[TaxType:O][TaxSubType:O]:
+        RateRule CNT\n    TaxRuleId: 329655\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 7/1/2008\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId:
+        0\n    TaxName: Zero Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
+        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
+        560\n    Threshold: 0.000000\n    Value: 0.000000\n    RateSourceId: None\n    RateTypeId:
+        Z\n    RateTypeTaxTypeMappingId: 2279\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
+        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
+        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"2-FR\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"Document\n    CompanyId: 236180\n    CurrencyCode: USD\n    CustomerVendorCode:
+        1\n    CustomerUsageType: \n    DocumentCode: R914541533\n    DocumentDate:
+        6/27/2017\n    DocumentId: 0\n    DocumentLineCount: 2\n    DocumentStatusId:
+        0\n    DocumentTypeId: 0\n    ExemptNo: \n    Business Identification No:
+        \n    IsReconciled: False\n    LocationCode: \n    ModifiedDate: 6/27/2017
+        3:21:16 PM\n    ModifiedUserId: 38097\n    PaymentDate: 1/1/1900\n    PurchaseOrderNo:
+        \n    ReferenceCode: \n    SalespersonCode: \n    TaxDate: 6/27/2017\n    TaxOverrideTypeId:
+        0\n    TaxOverrideAmount: 0\n    TaxOverrideReason: \n    TotalAmount: 20\n    TotalTax:
+        0\n    TotalTaxCalculated: 0\n    VATNumberType No registration\n    DocumentAddress[0]:
+        \n        Line1: 350 Av Central\n        City: Tamarindo\n        Region:
+        \n        County: \n        Country: CR\n        BoundaryId: 22\n        BoundaryLevelId:
+        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
+        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: CR\n        PostalCode:
+        50309\n        TaxRegionId: 205123\n        ValidateStatusId: Not Validated.\n        AddressLine1:
+        350 Av Central\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[1]:
+        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
+        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
+        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
+        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 20500\n        TaxRegionId:
+        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
+        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[2]:
+        \n        Line1: 350 Av Central\n        City: Tamarindo\n        Region:
+        \n        County: \n        Country: CR\n        BoundaryId: 22\n        BoundaryLevelId:
+        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
+        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: CR\n        PostalCode:
+        50309\n        TaxRegionId: 205123\n        ValidateStatusId: Not Validated.\n        AddressLine1:
+        350 Av Central\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[3]:
+        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
+        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
+        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
+        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 20500\n        TaxRegionId:
+        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
+        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    Line[0]: \n        AccountingMethodId:
+        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
+        \n        Description: Product #12 - 5332\n        DestinationAddressId: 0\n        DiscountAmount:
+        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
+        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
+        No: \n        InState: True\n        IsPhysical: True\n        IsSstp: False\n        ItemCode:
+        SKU-12\n        LineAmount: 10\n        LineNo: 1-LI\n        OriginAddressId:
+        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
+        \n        Sourcing: O\n        IsItemTaxable: True\n        ReportingDate:
+        6/27/2017\n        Tax: 0\n        TaxableAmount: 10\n        TaxCalculated:
+        0\n        TaxDate: 6/27/2017\n        TaxCode: PC030000\n        TaxCodeId:
+        8107 (PC030000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
+        0\n        TaxOverrideReason: \n        VATCode: ITS-0000P--IT\n        VATNumberType:
+        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
+        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
+        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
+        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
+        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
+        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
+        \n            Rate: 0.000000\n            RateRuleId: 329655\n            RateSourceId:
+        None\n            Region: IT\n            SERCode: \n            Sourcing:
+        O\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
+        0\n            Tax: 0.0000\n            TaxableAmount: 10\n            TaxableUnits:
+        10\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId: 13\n            TaxCalculated:
+        0.0000\n            TaxName: Zero Rate\n            TaxOverride: 0\n            TaxTypeGroupId:
+        560\n            TaxTypeId: O\n            TaxSubTypeId: 560\n            RateTypeId:
+        Z\n            IsFee: False\n            TaxTypeMappingId: 560\n            RateTypeTaxTypeMappingId:
+        2279\n            TaxRegionId: 205090\n           *Cap: 0\n           *Threshold:
+        0\n            TaxAuthorityTypeId: 45\n            TaxAuthorityId: 0\n            TaxAuthorityName:
+        0\n            ReportLevel: -1\n    Line[1]: \n        AccountingMethodId:
+        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
+        \n        Description: Shipping Charge\n        DestinationAddressId: 0\n        DiscountAmount:
+        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
+        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
+        No: \n        InState: True\n        IsPhysical: False\n        IsSstp: False\n        ItemCode:
+        Avalara Ground\n        LineAmount: 10\n        LineNo: 2-FR\n        OriginAddressId:
+        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
+        \n        Sourcing: O\n        IsItemTaxable: True\n        ReportingDate:
+        6/27/2017\n        Tax: 0\n        TaxableAmount: 10\n        TaxCalculated:
+        0\n        TaxDate: 6/27/2017\n        TaxCode: FR000000\n        TaxCodeId:
+        8550 (FR000000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
+        0\n        TaxOverrideReason: \n        VATCode: ITS-0000F--IT\n        VATNumberType:
+        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
+        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
+        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
+        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
+        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
+        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
+        RateDepends\n            Rate: 0.000000\n            RateRuleId: 329655\n            RateSourceId:
+        None\n            Region: IT\n            SERCode: \n            Sourcing:
+        O\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
+        0\n            Tax: 0.0000\n            TaxableAmount: 10\n            TaxableUnits:
+        10\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId: 13\n            TaxCalculated:
+        0.0000\n            TaxName: Zero Rate\n            TaxOverride: 0\n            TaxTypeGroupId:
+        560\n            TaxTypeId: O\n            TaxSubTypeId: 560\n            RateTypeId:
+        Z\n            IsFee: False\n            TaxTypeMappingId: 560\n            RateTypeTaxTypeMappingId:
+        2279\n            TaxRegionId: 205090\n           *Cap: 0\n           *Threshold:
+        0\n            TaxAuthorityTypeId: 45\n            TaxAuthorityId: 0\n            TaxAuthorityName:
+        0\n            ReportLevel: -1\n","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
+        applied for the transaction, XML format","details":"<?xml version=\"1.0\"
+        encoding=\"utf-16\"?><ArrayOfSourcingRuleApplied xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SourcingRuleApplied><LineNo>1-LI</LineNo><SourcingRuleId_Sourcing>309</SourcingRuleId_Sourcing><Sourcing>O</Sourcing><SourcingRuleId_RateType>205</SourcingRuleId_RateType><RateType>Z</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied><SourcingRuleApplied><LineNo>2-FR</LineNo><SourcingRuleId_Sourcing>308</SourcingRuleId_Sourcing><Sourcing>O</Sourcing><SourcingRuleId_RateType>204</SourcingRuleId_RateType><RateType>Z</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied></ArrayOfSourcingRuleApplied>","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
+        applied for the transaction, JSON format","details":"[{\"LineNo\":\"1-LI\",\"SourcingRuleId_Sourcing\":309,\"Sourcing\":\"O\",\"SourcingRuleId_RateType\":205,\"RateType\":\"Z\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31},{\"LineNo\":\"2-FR\",\"SourcingRuleId_Sourcing\":308,\"Sourcing\":\"O\",\"SourcingRuleId_RateType\":204,\"RateType\":\"Z\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31}]","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"}]}'
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 16:48:25 GMT
+  recorded_at: Tue, 27 Jun 2017 15:21:17 GMT
 - request:
     method: post
-    uri: https://development.avalara.net/1.0/tax/get
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R387296431","DocDate":"2017-01-13","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":null,"Line2":null,"City":"Florence","Region":"","PostalCode":null,"Country":"IT"},{"AddressCode":"Dest","Line1":"350
-        Av Central","Line2":"","City":"Tamarindo","Region":"","Country":"CR","PostalCode":"50309"},{"AddressCode":"1","Line1":"150
-        Piccadilly","Line2":null,"City":"Florence","PostalCode":"20500","Country":"IT"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #10 - 4051","TaxCode":"PC030000","ItemCode":"SKU-10","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":true},{"LineNo":"2-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":10.0,"OriginCode":"1","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":true}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R387296431","DetailLevel":"Tax","CurrencyCode":"USD"}'
+      string: '{"createTransactionModel":{"code":"R914541533","date":"2017-06-27","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #12 - 5332","taxCode":"PC030000","itemCode":"SKU-12","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+        Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"20500"},"shipTo":{"line1":"350
+        Av Central","line2":"","city":"Tamarindo","region":null,"country":"CR","postalCode":"50309"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+        Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"20500"},"shipTo":{"line1":"350
+        Av Central","line2":"","city":"Tamarindo","region":null,"country":"CR","postalCode":"50309"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R914541533","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
       Content-Type:
       - application/json
-      Content-Length:
-      - '1103'
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/0/transactions/0"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0312453'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
       Date:
-      - Fri, 13 Jan 2017 16:48:26 GMT
-      Content-Length:
-      - '607'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e09326ed4371767702c0f70c727ec0736dd9802b0f0aeb11fbf0d9a98ee3d11c276d043952fa4eb6f13ece6bf5763e875;
-        Path=/
+      - Tue, 27 Jun 2017 15:21:16 GMT
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ++unfwYO/hp/v3dvWLp1nLX+zt7D7Y3tnd3r2HL94Ui7xps8Uq/OrN
-        7qeP9g8e7X06/nT/0/v08U9x46rNyuNFtV620tx++LRopuZj9+npu3yxaotq
-        GX78JnuXTUpFxv8UnwQfnGTldF0S4jP3VfbuebHMG/rgewnRAn+8qOivj3a3
-        n59pC0OElyc793bo0Y+zSVEW7TW+aet1jk+fENazrL5+nl/mJb74qWJ1H1/0
-        ce+PERBlHLv8wSvCFH/tjKlPevAZNeKP9Pf4iJ7mbVaUdkwn6KZmPM/eoMmr
-        /EIxkb+/s66L5s31inszrc3nZvDSlKC/H5IM40W24EZnb46f/z74lFqYz34q
-        r6uUofyS5PvJL0lGhLGbhb3tZ6/0BYPIs1fUDT368Y9mgT64CUmGYSh+m1n4
-        fiLfH89mNWkDJyD6Af350b37O+nxZXqSE6ZZCYD6pUH2KekCfHyi8/MmW2R1
-        sZxV/KGOkD4/4Sl+WZHmKM2790nUHuJjQkIodcbU3du5v7vHuobHZJoTCGEd
-        RQGf7RJ+L4vpNJsVZcmk1C/NS6zLDHLPyqrOl1NmIA83IXiIG+FgSdzBbech
-        fxHgRiAcQSN685ck/w+eaCOxhQUAAA==
+      encoding: UTF-8
+      string: '{"id":0,"code":"R914541533","companyId":0,"date":"2017-06-27","paymentDate":"2017-06-27","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","reconciled":false,"referenceCode":"R914541533","totalAmount":20.0,"totalExempt":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2017-06-27","exchangeRate":1.0,"isSellerImporterOfRecord":false,"modifiedDate":"2017-06-27T15:21:16.8865105Z","modifiedUserId":38097,"taxDate":"0001-01-01T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-12","lineAmount":10.0,"quantity":1.0,"reportingDate":"2017-06-27","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxDate":"2017-06-27","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Sales","taxName":"Zero
+        Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z"}]},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
+        Ground","lineAmount":10.0,"quantity":1.0,"reportingDate":"2017-06-27","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"FR000000","taxDate":"2017-06-27","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Sales","taxName":"Zero
+        Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z"}]}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"350
+        Av Central","city":"Tamarindo","region":"","postalCode":"50309","country":"CR","taxRegionId":205123,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","city":"Florence","region":"","postalCode":"20500","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"350
+        Av Central","city":"Tamarindo","region":"","postalCode":"50309","country":"CR","taxRegionId":205123,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","city":"Florence","region":"","postalCode":"20500","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"State","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"Zero
+        Rate","taxGroup":"","rateType":"Zero","rateTypeCode":"Z","taxable":20.0,"rate":0.000000,"tax":0.0,"taxCalculated":0.0,"nonTaxable":0.0,"exemption":0.0}],"messages":[{"summary":"Global
+        Address","details":"\n    Address: 150 Piccadilly, Florence, 20500 IT\n    AddressCode:
+        ORIG1\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[0]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 350 Av Central, Tamarindo, 50309 CR\n    AddressCode:
+        DEST2\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[1]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 150 Piccadilly, Florence, 20500 IT\n    AddressCode:
+        ORIG3\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[2]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
+        Address","details":"\n    Address: 350 Av Central, Tamarindo, 50309 CR\n    AddressCode:
+        DEST4\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
+        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
+        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[3]
+        - TaxDate: 2017-06-27 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"AddressLocationType:
+        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 20500\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
+        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
+        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[0]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipTo","details":"\n    Address: 350 Av Central,Tamarindo, 50309\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: CR\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 22\n    TaxRegionId:
+        205123\n    FIPSCode: CR\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200118\" JurisdictionCode=\"CR\" JurisdictionTypeId=\"CNT\"
+        LongName=\"COSTA RICA\" Country=\"CR\" State=\"\" SignatureCode=\"YAER\" EffDate=\"07/01/2012\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[1]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 20500\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
+        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
+        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[2]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
+        ShipTo","details":"\n    Address: 350 Av Central,Tamarindo, 50309\n    Type:
+        global address\n    City: \n    State: \n    County: \n    Country: CR\n    BoundaryLevel:
+        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 22\n    TaxRegionId:
+        205123\n    FIPSCode: CR\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
+        \n        CNT: JurisdictionId=\"200118\" JurisdictionCode=\"CR\" JurisdictionTypeId=\"CNT\"
+        LongName=\"COSTA RICA\" Country=\"CR\" State=\"\" SignatureCode=\"YAER\" EffDate=\"07/01/2012\"
+        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[3]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
+        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
+        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
+        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
+        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
+        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
+        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
+        CNT\n    TaxRuleId: 2111383\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 3/1/2015\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: PC030000\n    TaxCodeId:
+        8107\n    TaxName: Clothing & related products (Business-To-Business)\n    NexusTaxTypeGroupId:
+        InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId:
+        O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId:
+        None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis:
+        PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions: \n    AttributeApplicability:
+        \n    ReturnsDeductionID: -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID:
+        -1\n\nTaxRule[TaxType:O][TaxSubType:O]: RateRule CNT\n    TaxRuleId: 329655\n    Cap:
+        0.000000\n    CompanyId: 1\n    Country: IT\n    CustomerUsageType: \n    EffDate:
+        7/1/2008\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: Zero
+        Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value:
+        0.000000\n    RateSourceId: None\n    RateTypeId: Z\n    RateTypeTaxTypeMappingId:
+        2279\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: -1\n    ReturnsRateID:
+        -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"1-LI\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
+        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
+        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
+        False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
+        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: O\n    State:
+        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
+        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
+        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
+        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
+        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
+        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
+        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
+        CNT\n    TaxRuleId: 2729157\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 7/1/2016\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: RateDepends\n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: FR000000\n    TaxCodeId:
+        8550\n    TaxName: Freight\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
+        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
+        560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId: None\n    RateTypeId:
+        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
+        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
+        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n\nTaxRule[TaxType:O][TaxSubType:O]:
+        RateRule CNT\n    TaxRuleId: 329655\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
+        IT\n    CustomerUsageType: \n    EffDate: 7/1/2008\n    EndDate: 12/31/9999\n    IsAllJuris:
+        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
+        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
+        \n    Sourcing: O\n    State: IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId:
+        0\n    TaxName: Zero Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
+        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
+        560\n    Threshold: 0.000000\n    Value: 0.000000\n    RateSourceId: None\n    RateTypeId:
+        Z\n    RateTypeTaxTypeMappingId: 2279\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
+        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
+        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"2-FR\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
+        Rules","details":"Document\n    CompanyId: 236180\n    CurrencyCode: USD\n    CustomerVendorCode:
+        1\n    CustomerUsageType: \n    DocumentCode: R914541533\n    DocumentDate:
+        6/27/2017\n    DocumentId: 0\n    DocumentLineCount: 2\n    DocumentStatusId:
+        0\n    DocumentTypeId: 0\n    ExemptNo: \n    Business Identification No:
+        \n    IsReconciled: False\n    LocationCode: \n    ModifiedDate: 6/27/2017
+        3:21:16 PM\n    ModifiedUserId: 38097\n    PaymentDate: 1/1/1900\n    PurchaseOrderNo:
+        \n    ReferenceCode: \n    SalespersonCode: \n    TaxDate: 6/27/2017\n    TaxOverrideTypeId:
+        0\n    TaxOverrideAmount: 0\n    TaxOverrideReason: \n    TotalAmount: 20\n    TotalTax:
+        0\n    TotalTaxCalculated: 0\n    VATNumberType No registration\n    DocumentAddress[0]:
+        \n        Line1: 350 Av Central\n        City: Tamarindo\n        Region:
+        \n        County: \n        Country: CR\n        BoundaryId: 22\n        BoundaryLevelId:
+        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
+        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: CR\n        PostalCode:
+        50309\n        TaxRegionId: 205123\n        ValidateStatusId: Not Validated.\n        AddressLine1:
+        350 Av Central\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[1]:
+        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
+        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
+        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
+        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 20500\n        TaxRegionId:
+        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
+        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[2]:
+        \n        Line1: 350 Av Central\n        City: Tamarindo\n        Region:
+        \n        County: \n        Country: CR\n        BoundaryId: 22\n        BoundaryLevelId:
+        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
+        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: CR\n        PostalCode:
+        50309\n        TaxRegionId: 205123\n        ValidateStatusId: Not Validated.\n        AddressLine1:
+        350 Av Central\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[3]:
+        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
+        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
+        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
+        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 20500\n        TaxRegionId:
+        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
+        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    Line[0]: \n        AccountingMethodId:
+        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
+        \n        Description: Product #12 - 5332\n        DestinationAddressId: 0\n        DiscountAmount:
+        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
+        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
+        No: \n        InState: True\n        IsPhysical: True\n        IsSstp: False\n        ItemCode:
+        SKU-12\n        LineAmount: 10\n        LineNo: 1-LI\n        OriginAddressId:
+        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
+        \n        Sourcing: O\n        IsItemTaxable: True\n        ReportingDate:
+        6/27/2017\n        Tax: 0\n        TaxableAmount: 10\n        TaxCalculated:
+        0\n        TaxDate: 6/27/2017\n        TaxCode: PC030000\n        TaxCodeId:
+        8107 (PC030000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
+        0\n        TaxOverrideReason: \n        VATCode: ITS-0000P--IT\n        VATNumberType:
+        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
+        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
+        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
+        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
+        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
+        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
+        \n            Rate: 0.000000\n            RateRuleId: 329655\n            RateSourceId:
+        None\n            Region: IT\n            SERCode: \n            Sourcing:
+        O\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
+        0\n            Tax: 0.0000\n            TaxableAmount: 10\n            TaxableUnits:
+        10\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId: 13\n            TaxCalculated:
+        0.0000\n            TaxName: Zero Rate\n            TaxOverride: 0\n            TaxTypeGroupId:
+        560\n            TaxTypeId: O\n            TaxSubTypeId: 560\n            RateTypeId:
+        Z\n            IsFee: False\n            TaxTypeMappingId: 560\n            RateTypeTaxTypeMappingId:
+        2279\n            TaxRegionId: 205090\n           *Cap: 0\n           *Threshold:
+        0\n            TaxAuthorityTypeId: 45\n            TaxAuthorityId: 0\n            TaxAuthorityName:
+        0\n            ReportLevel: -1\n    Line[1]: \n        AccountingMethodId:
+        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
+        \n        Description: Shipping Charge\n        DestinationAddressId: 0\n        DiscountAmount:
+        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
+        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
+        No: \n        InState: True\n        IsPhysical: False\n        IsSstp: False\n        ItemCode:
+        Avalara Ground\n        LineAmount: 10\n        LineNo: 2-FR\n        OriginAddressId:
+        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
+        \n        Sourcing: O\n        IsItemTaxable: True\n        ReportingDate:
+        6/27/2017\n        Tax: 0\n        TaxableAmount: 10\n        TaxCalculated:
+        0\n        TaxDate: 6/27/2017\n        TaxCode: FR000000\n        TaxCodeId:
+        8550 (FR000000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
+        0\n        TaxOverrideReason: \n        VATCode: ITS-0000F--IT\n        VATNumberType:
+        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
+        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
+        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
+        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
+        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
+        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
+        RateDepends\n            Rate: 0.000000\n            RateRuleId: 329655\n            RateSourceId:
+        None\n            Region: IT\n            SERCode: \n            Sourcing:
+        O\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
+        0\n            Tax: 0.0000\n            TaxableAmount: 10\n            TaxableUnits:
+        10\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId: 13\n            TaxCalculated:
+        0.0000\n            TaxName: Zero Rate\n            TaxOverride: 0\n            TaxTypeGroupId:
+        560\n            TaxTypeId: O\n            TaxSubTypeId: 560\n            RateTypeId:
+        Z\n            IsFee: False\n            TaxTypeMappingId: 560\n            RateTypeTaxTypeMappingId:
+        2279\n            TaxRegionId: 205090\n           *Cap: 0\n           *Threshold:
+        0\n            TaxAuthorityTypeId: 45\n            TaxAuthorityId: 0\n            TaxAuthorityName:
+        0\n            ReportLevel: -1\n","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
+        applied for the transaction, XML format","details":"<?xml version=\"1.0\"
+        encoding=\"utf-16\"?><ArrayOfSourcingRuleApplied xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
+        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SourcingRuleApplied><LineNo>1-LI</LineNo><SourcingRuleId_Sourcing>309</SourcingRuleId_Sourcing><Sourcing>O</Sourcing><SourcingRuleId_RateType>205</SourcingRuleId_RateType><RateType>Z</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied><SourcingRuleApplied><LineNo>2-FR</LineNo><SourcingRuleId_Sourcing>308</SourcingRuleId_Sourcing><Sourcing>O</Sourcing><SourcingRuleId_RateType>204</SourcingRuleId_RateType><RateType>Z</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied></ArrayOfSourcingRuleApplied>","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
+        applied for the transaction, JSON format","details":"[{\"LineNo\":\"1-LI\",\"SourcingRuleId_Sourcing\":309,\"Sourcing\":\"O\",\"SourcingRuleId_RateType\":205,\"RateType\":\"Z\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31},{\"LineNo\":\"2-FR\",\"SourcingRuleId_Sourcing\":308,\"Sourcing\":\"O\",\"SourcingRuleId_RateType\":204,\"RateType\":\"Z\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31}]","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"}]}'
     http_version: 
-  recorded_at: Fri, 13 Jan 2017 16:48:26 GMT
+  recorded_at: Tue, 27 Jun 2017 15:21:18 GMT
 recorded_with: VCR 3.0.3
