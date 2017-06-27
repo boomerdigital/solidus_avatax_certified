@@ -95,13 +95,4 @@ FactoryGirl.modify do
   factory :ship_address, parent: :address do
     address1 '915 S Jackson St'
   end
-
-  # Adding this modifier since US country name changes between solidus versions
-  factory :country, class: Spree::Country do
-    iso_name 'UNITED STATES'
-    name 'United States'
-    iso 'US'
-    iso3 'USA'
-    numcode 840
-  end
 end

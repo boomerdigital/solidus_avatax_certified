@@ -1,11 +1,12 @@
 require 'spec_helper'
 
 describe "VAT", :vcr do
-  let!(:us) { create(:country) }
-  let!(:it) { create(:country, iso: 'IT', name: 'Italy') }
-  let!(:nl) { create(:country, iso: 'NL', name: 'Netherlands') }
-  let!(:fr) { create(:country, iso: 'FR', name: 'France') }
-  let!(:cr) { create(:country, iso: 'CR', name: 'Costa Rica') }
+  let!(:us) { create(:country, iso: 'US') }
+  let!(:it) { create(:country, iso: 'IT') }
+  let!(:nl) { create(:country, iso: 'NL') }
+  let!(:fr) { create(:country, iso: 'FR') }
+  let!(:cr) { create(:country, iso: 'CR') }
+  let!(:seller_location) { create(:stock_location, address1: '34 Borgo degli Albizi', city: 'Florence', zipcode: '50122', country: it) }
 
   let(:it_address) { create(:address, address1: '34 Borgo degli Albizi', city: 'Florence', zipcode: '50122', country: it, state: nil, state_name: '') }
   let(:res) { avalara_order.avalara_capture }
@@ -139,7 +140,6 @@ describe "VAT", :vcr do
 
   def set_seller_location
     Spree::Avatax::Config.origin = "{\"line1\":\"34 Borgo degli Albizi\",\"city\":\"Florence\",\"region\":\"\",\"postalCode\":\"50122\",\"country\":\"IT\"}"
-    Spree::StockLocation.update_all(address1: '150 Piccadilly', city: 'Florence', country_id: it.id, state_id: nil)
   end
 
   def prep_avalara_order
