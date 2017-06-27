@@ -68,8 +68,8 @@ describe Spree::Order, :vcr do
     it "creates new avalara_transaction" do
       expect{subject}.to change{Spree::AvalaraTransaction.count}.by(1)
     end
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
   end
 
@@ -85,8 +85,8 @@ describe Spree::Order, :vcr do
       expect(subject).to be_kind_of(Hash)
     end
 
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
 
     # Spec fails when using VCR since dates are involved.
@@ -185,6 +185,17 @@ describe Spree::Order, :vcr do
       Spree::Avatax::Config.address_validation_enabled_countries = ['Canada']
 
       expect(order.address_validation_enabled?).to be_falsey
+    end
+  end
+
+  describe '#can_commit?' do
+    it 'returns false when order is not complete' do
+      expect(order.can_commit?).to be false
+    end
+
+    it 'returns true when order is completed and has a completed payment' do
+      order = create(:order_ready_to_ship)
+      expect(order.can_commit?).to be true
     end
   end
 end

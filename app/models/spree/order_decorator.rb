@@ -72,6 +72,10 @@ Spree::Order.class_eval do
     ship_address.validation_enabled?
   end
 
+  def can_commit?
+    completed? && payments.completed.any?
+  end
+
   def logger
     @logger ||= SolidusAvataxCertified::AvataxLog.new('Spree::Order class', 'Start order processing')
   end
