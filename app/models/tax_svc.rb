@@ -1,17 +1,13 @@
-require 'json'
-require 'net/http'
-require 'addressable/uri'
-require 'base64'
-require 'rest-client'
 require 'logging'
 
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
     log(__method__, request_hash)
-    RestClient.log = logger.logger
 
-    response = SolidusAvataxCertified::Response::GetTax.new(request('get', request_hash))
+    req = client.transactions.create_or_adjust(request_hash)
+
+    response = SolidusAvataxCertified::Response::GetTax.new(req)
 
     handle_response(response)
   end
@@ -20,7 +16,7 @@ class TaxSvc
     log(__method__, transaction_code)
 
     req = client.transactions.void(company_code, transaction_code)
-    response = SolidusAvataxCertified::Response::CancelTax.new(req.body)
+    response = SolidusAvataxCertified::Response::CancelTax.new(req)
 
     handle_response(response)
   end
@@ -34,7 +30,7 @@ class TaxSvc
 
   def validate_address(address)
     begin
-      request = client.addresses.validate(address).body
+      request = client.addresses.validate(address)
     rescue => e
       logger.error(e)
 
@@ -74,16 +70,8 @@ class TaxSvc
     Spree::Avatax::Config.tax_calculation
   end
 
-  def credential
-    'Basic ' + Base64.encode64(account_number + ':' + license_key)
-  end
-
-  def service_url
-    Spree::Avatax::Config.endpoint + AVATAX_SERVICEPATH_TAX
-  end
-
-  def address_service_url
-    Spree::Avatax::Config.endpoint + AVATAX_SERVICEPATH_ADDRESS + 'validate?'
+  def account_number
+    Spree::Avatax::Config.account
   end
 
   def license_key
@@ -94,50 +82,17 @@ class TaxSvc
     Spree::Avatax::Config.raise_exceptions
   end
 
-  def account_number
-    Spree::Avatax::Config.account
-  end
-
-  def username
-    Spree::Avatax::Config.username
-  end
-
-  def password
-    Spree::Avatax::Config.password
-  end
-
   def company_code
     Spree::Avatax::Config.company_code
   end
 
   def client
     @client ||= Avatax::Client.new(
-      username: username,
-      password: password,
-      env: Spree::AvataxConfiguration.environment
+      username: account_number,
+      password: license_key,
+      env: Spree::AvataxConfiguration.environment,
+      headers: AVATAX_HEADERS
     )
-  end
-
-  def request(uri, request_hash)
-    begin
-      res = RestClient::Request.execute(method: :post,
-                                  timeout: 1,
-                                  open_timeout: 1,
-                                  url: service_url + uri,
-                                  payload:  JSON.generate(request_hash),
-                                  headers: {
-                                    authorization: credential,
-                                    content_type: 'application/json'
-                                  }
-      )  do |response, request, result|
-        response
-      end
-
-      JSON.parse(res)
-    rescue => e
-      logger.error(e, 'RestClient')
-      e
-    end
   end
 
   def log(method, request_hash = nil)

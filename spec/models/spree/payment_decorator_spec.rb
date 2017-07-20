@@ -49,10 +49,8 @@ describe Spree::Payment, :vcr do
 
   describe '#purchase!' do
     subject do
-      VCR.use_cassette('order_capture_finalize', allow_playback_repeats: true) do
-        order.avalara_capture_finalize
-        payment.purchase!
-      end
+      order.avalara_capture_finalize
+      payment.purchase!
     end
 
     it 'receive avalara_finalize' do
@@ -63,10 +61,8 @@ describe Spree::Payment, :vcr do
 
   describe '#avalara_finalize' do
     subject do
-      VCR.use_cassette('order_capture_finalize', allow_playback_repeats: true) do
-        order.avalara_capture_finalize
-        payment.complete!
-      end
+      order.avalara_capture_finalize
+      payment.complete!
     end
 
     it 'should receive avalara_finalize' do
@@ -99,10 +95,8 @@ describe Spree::Payment, :vcr do
       let(:order) { create(:completed_avalara_order) }
 
       subject do
-        VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
-          order.avalara_capture_finalize
-          payment.cancel_avalara
-        end
+        order.avalara_capture_finalize
+        payment.cancel_avalara
       end
 
       describe 'should be successful' do

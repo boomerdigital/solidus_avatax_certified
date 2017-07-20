@@ -22,7 +22,7 @@ describe "Certification", :vcr do
     it 'commits an order' do
       res = order.avalara_capture_finalize
 
-      expect(res['ResultCode']).to eq('Success')
+      expect(res['totalTax']).to be_present
     end
   end
 
@@ -32,7 +32,7 @@ describe "Certification", :vcr do
     end
 
     it 'does not add additional tax' do
-      expect(avalara_order.avalara_transaction.commit_avatax('SalesInvoice')['TotalTax']).to eq('0')
+      expect(avalara_order.avalara_transaction.commit_avatax('SalesInvoice')['totalTax']).to eq(0)
     end
   end
 
@@ -53,7 +53,7 @@ describe "Certification", :vcr do
         response = order.avalara_transaction.commit_avatax_final('ReturnInvoice', refund)
 
         expect(response).to be_kind_of(Hash)
-        expect(response['ResultCode']).to eq('Success')
+        expect(response['totalTax']).to be_present
       end
     end
   end

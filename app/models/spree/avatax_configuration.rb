@@ -1,8 +1,5 @@
 class Spree::AvataxConfiguration < Spree::Preferences::Configuration
-  preference :username, :string
-  preference :password, :string
   preference :company_code, :string
-  preference :endpoint, :string
   preference :account, :string
   preference :license_key, :string
   preference :log, :boolean, default: true
@@ -22,7 +19,7 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   end
 
   def self.storable_env_preferences
-    %w(username password company_code endpoint account license_key)
+    %w(company_code account license_key)
   end
 
   def self.environment

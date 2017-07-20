@@ -7,12 +7,14 @@ http_interactions:
       encoding: UTF-8
       string: '{"line1":"5 t","line2":"","city":"Montgomery","postalCode":"36104","country":"US","region":"AL"}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
       User-Agent:
       - Faraday v0.12.1
       Content-Type:
       - application/json
       Authorization:
-      - Basic YWNyZWlsbHkzQGdtYWlsLmNvbTpUZXN0aW5nMTIz
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -29,13 +31,13 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0312503'
+      - '00:00:00.0312646'
       Databasecalls:
-      - '3'
+      - '0'
       Databaseduration:
-      - '00:00:00.0156256'
+      - '00:00:00'
       Date:
-      - Wed, 24 May 2017 14:34:06 GMT
+      - Thu, 20 Jul 2017 19:25:33 GMT
     body:
       encoding: UTF-8
       string: '{"address":{"line1":"5 t","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"5
@@ -44,5 +46,5 @@ http_interactions:
         number in the input address was not between the low and high range of the
         post office database.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
     http_version: 
-  recorded_at: Wed, 24 May 2017 14:34:06 GMT
+  recorded_at: Thu, 20 Jul 2017 19:25:33 GMT
 recorded_with: VCR 3.0.3
