@@ -21,12 +21,14 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.requirements << "none"
 
-  s.add_dependency "solidus_core", [">= 2.3.0.alpha", "< 3.0.0"]
+  s.add_dependency "solidus_core", [">= 2.3.0", "< 3.0.0"]
   s.add_dependency "json", "~> 1.8"
   s.add_dependency "avatax-ruby"
   s.add_dependency "addressable", "~> 2.4"
   s.add_dependency "rest-client", "~> 1.7"
   s.add_dependency "logging", "~> 2.0"
+  s.add_dependency "solidus_support"
+
 
   s.add_development_dependency "dotenv"
   s.add_development_dependency "rspec-rails", "~> 3.2"
