@@ -22,18 +22,6 @@
     <td><%= Spree::Avatax::Config.account %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:avatax_endpoint) %>:</th>
-    <td><%= Spree::Avatax::Config.endpoint %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= Spree.t(:avatax_tax_service_path) %>:</th>
-    <td><%= AVATAX_SERVICEPATH_TAX %></td>
-  </tr>
-  <tr>
-    <th scope="row"><%= Spree.t(:avatax_address_service_path) %>:</th>
-    <td><%= AVATAX_SERVICEPATH_ADDRESS %></td>
-  </tr>
-  <tr>
     <th scope="row"><%= Spree.t(:enable_avatax_tax_calculation) %>:</th>
     <td><%= Spree::Avatax::Config.tax_calculation %></td>
   </tr>
@@ -83,12 +71,12 @@
     <th scope="row"><%= Spree.t(:business_address) %>:</th>
 
     <td><table>
-      <tr><td><%= Spree.t(:address1) %>: <%= @avatax_origin["Line1"]  %> </td></tr>
-      <tr><td><%= Spree.t(:address2) %>: <%= @avatax_origin["Line2"]  %></td></tr>
-      <tr><td><%= Spree.t(:city) %>: <%= @avatax_origin["City"]  %></td></tr>
-      <tr><td><%= Spree.t(:state) %>: <%= @avatax_origin["Region"]  %></td></tr>
-      <tr><td><%= Spree.t(:zipcode) %>: <%= @avatax_origin["PostalCode"]  %></td></tr>
-      <tr><td><%= Spree.t(:country_code) %>: <%= @avatax_origin["Country"] %></td></tr>
+      <tr><td><%= Spree.t(:address1) %>: <%= @avatax_origin["line1"]  %> </td></tr>
+      <tr><td><%= Spree.t(:address2) %>: <%= @avatax_origin["line2"]  %></td></tr>
+      <tr><td><%= Spree.t(:city) %>: <%= @avatax_origin["city"]  %></td></tr>
+      <tr><td><%= Spree.t(:state) %>: <%= @avatax_origin["region"]  %></td></tr>
+      <tr><td><%= Spree.t(:zipcode) %>: <%= @avatax_origin["postalCode"]  %></td></tr>
+      <tr><td><%= Spree.t(:country_code) %>: <%= @avatax_origin["country"] %></td></tr>
     </table></td>
   </tr>
   <tr>

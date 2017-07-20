@@ -1,54 +1,51 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://development.avalara.net/1.0/address/validate?City=&Country=US&Line1=915%20S%20Jackson%20St&Line2=&PostalCode=&Region=AL
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"line1":"915 S Jackson St","line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
     headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
       Authorization:
       - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - "*/*"
-      User-Agent:
-      - Ruby
   response:
     status:
-      code: 500
-      message: Internal Server Error
+      code: 400
+      message: Bad Request
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
       Date:
-      - Thu, 13 Apr 2017 17:56:10 GMT
-      Content-Length:
-      - '256'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e558729657c7a929cf9a814c589b55e310d9ac8288556663cb1e0ebfdaf01d19f710a1233299237920e92072eb1a0a5c1;
-        Path=/
+      - Fri, 30 Jun 2017 21:48:20 GMT
     body:
       encoding: UTF-8
-      string: |
-        {
-        "ResultCode": "Error",
-        "Messages": [
-        {
-        "Summary": "Insufficient address information",
-        "Details": "You must specify at least Line\/ZIP, or Line\/City\/State",
-        "RefersTo": "PostalCode",
-        "Severity": "Error",
-        "Source": "Avalara.AvaTax.Services.Address"}
-        ]
-        }
+      string: '{"error":{"code":"ValidationException","message":"The address value
+        was incomplete.","target":"IncorrectData","details":[{"code":"AddressIncomplete","number":309,"message":"The
+        address value was incomplete.","description":"The address value  was incomplete.  You
+        must provide either a valid postal code, line1 + city + region, or latitude
+        + longitude.  For international transactions outside of US/CA, only a country
+        code is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AddressIncomplete","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Thu, 13 Apr 2017 17:56:10 GMT
+  recorded_at: Fri, 30 Jun 2017 21:48:20 GMT
 recorded_with: VCR 3.0.3

@@ -50,13 +50,15 @@ describe SolidusAvataxCertified::Line, :vcr do
     end
 
     describe '#item_line' do
-      it 'returns a Hash' do
+      it 'returns a Hash with correct keys' do
         expect(sales_lines.item_line(order.line_items.first)).to be_kind_of(Hash)
+        expect(sales_lines.item_line(order.line_items.first)[:number]).to be_present
       end
     end
     describe '#shipment_line' do
-      it 'returns a Hash' do
+      it 'returns a Hash with correct keys' do
         expect(sales_lines.shipment_line(order.shipments.first)).to be_kind_of(Hash)
+        expect(sales_lines.shipment_line(order.shipments.first)[:number]).to be_present
       end
     end
   end

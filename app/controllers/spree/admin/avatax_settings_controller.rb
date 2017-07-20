@@ -19,8 +19,9 @@ module Spree
 
       def ping_my_service
         mytax = TaxSvc.new
-        pingResult = mytax.ping
-        if pingResult['ResultCode'] == 'Success'
+        response = mytax.ping
+
+        if response.success?
           flash[:success] = 'Ping Successful'
 
         else
@@ -28,7 +29,8 @@ module Spree
         end
 
         respond_to do |format|
-          format.js
+          format.html { render :layout => !request.xhr? }
+          format.js { render :layout => false }
         end
       end
 
@@ -36,13 +38,18 @@ module Spree
         mytax = TaxSvc.new
         address = permitted_address_validation_attrs
 
-        address['Country'] = Spree::Country.find_by(id: address['Country']).try(:iso)
-        address['Region'] = Spree::State.find_by(id: address['Region']).try(:abbr)
+        address['country'] = Spree::Country.find_by(id: address['country']).try(:iso)
+        address['region'] = Spree::State.find_by(id: address['region']).try(:abbr)
 
         response = mytax.validate_address(address)
+        result = response.result
+
+        if response.failed?
+          result.merge!({ 'responseCode': 'error', 'errorMessages': response.summary_messages })
+        end
 
         respond_to do |format|
-          format.json { render json: response }
+          format.json { render json: result }
         end
       end
 
@@ -67,7 +74,7 @@ module Spree
       end
 
       def permitted_address_validation_attrs
-        params['address'].permit(:Line1, :Line2, :City, :PostalCode, :Country, :Region).to_h
+        params['address'].permit(:line1, :line2, :city, :postalCode, :country, :region).to_h
       end
     end
   end

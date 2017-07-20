@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
+    body:
+      encoding: UTF-8
+      string: '{"line1":"5 t","line2":"","city":"Montgomery","postalCode":"36104","country":"US","region":"AL"}'
+    headers:
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0156353'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Date:
+      - Fri, 30 Jun 2017 21:46:44 GMT
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"5 t","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"5
+        t","line2":"","line3":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104","latitude":32.374209,"longitude":-86.30805}],"coordinates":{"latitude":32.374209,"longitude":-86.30805},"resolutionQuality":"NotCoded","messages":[{"summary":"The
+        address number is out of range","details":"The address was found but the street
+        number in the input address was not between the low and high range of the
+        post office database.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
+    http_version: 
+  recorded_at: Fri, 30 Jun 2017 21:46:44 GMT
+recorded_with: VCR 3.0.3

@@ -13,7 +13,6 @@ en:
     avatax_company_code: Avatax Company Code
     avatax_license_key: Avatax License Key
     avatax_account: Avatax Account
-    avatax_endpoint: Avatax Endpoint
     avatax_tax_service_path: Avatax Tax Service Path
     avatax_address_service_path: Avatax Address Service Path
     log: Enable Avatax Logging to log/avatax.log
@@ -31,7 +30,6 @@ en:
     business_address: Business Address
     country_code: 'Country Code (eg: US, GB ect)'
     avatax_api_keys: Avatax API keys
-    avatax_endpoint_urls: Avatax Endpoint URLs
     avatax_logging: Avatax Logging
     avatax_address_validation: Avatax Address Validation
     avatax_log: Avatax Log

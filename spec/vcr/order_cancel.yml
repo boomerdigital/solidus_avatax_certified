@@ -2,257 +2,118 @@
 http_interactions:
 - request:
     method: post
-    uri: https://development.avalara.net/1.0/tax/get
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R606802873","DocDate":"2017-03-22","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 8452","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"Orig","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R606802873","DetailLevel":"Tax","CurrencyCode":"USD"}'
+      string: '{"createTransactionModel":{"code":"R172128419","date":"2017-07-20","discount":"0.0","commit":true,"type":"SalesInvoice","lines":[{"number":"1-LI","description":"Product
+        #1 - 1273","taxCode":"PC030000","itemCode":"SKU-1","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R172128419","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
       Content-Type:
       - application/json
-      Content-Length:
-      - '796'
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/236180/transactions/322561194"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.7708266'
+      Databasecalls:
+      - '4'
+      Databaseduration:
+      - '00:00:00.0156165'
       Date:
-      - Wed, 22 Mar 2017 20:45:52 GMT
-      Content-Length:
-      - '582'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e36de91f6f78d59890b07eefc6529ecabf67306c7ac2935caf0630d7f14f6305d537e57c4ed882e73197b1386ebc79e8c;
-        Path=/
+      - Thu, 20 Jul 2017 15:34:05 GMT
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ+++nTn04OdvYMH9/SLp1nLX+zt7D7Y3rm3vbeHL94Ui7xps8Uq/OrN
-        3s6j/fuP7u+N7+19+vD+/v2f4sZVm5XHi2q9bNF8d8d++LRopuZj9+npu3yx
-        aotqGX78JnuXTUpGxgNBn+KTnfG+/9FJVk7XJaE+87/M3j0vlnlDH30vIXrg
-        jxcV/fXR7vbzM21hCPHyZOfeDj36cTYpyqK9xjdtvc7x6RPCfJbV18/zy7zE
-        Fz9VrO7jiz7+/XECoj+WV4Qr/toZ7+xTr/wZNZKPDPZDo3qat1lR2nGdoKua
-        cf3qNZq8yi8Um+Pn+Ps767po3lyvuMfXLQG0n5rh7+ziI4L9vmgylBfZgpsd
-        Pz9+cvzFMT6nVu7T9PWb4zen6Zvj3/ujX5J8P8H/pcnxbFYTU7o50g/oz4+O
-        06fF+Xle58s2fVVlM0DVrw3WT4kp8fGJTtUX1bK9qBY5EQOfdunysiIeLs3L
-        9z7d3eEhdMlFeMlHZ0z3vZ37ew8ePsQ3PFjz/s7u7s7u/V1Q5ZckoxD3h7v3
-        09fpd7Lp26Zapq8ZSf3avP5lXVzg45973M1kRET/lyT/DzpCfp5IBAAA
-    http_version: 
-  recorded_at: Wed, 22 Mar 2017 20:45:52 GMT
+      encoding: UTF-8
+      string: '{"id":322561194,"code":"R172128419","companyId":236180,"date":"2017-07-20","paymentDate":"1900-01-01","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R172128419","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":15.0000,"totalExempt":0.0000,"totalTax":0.6000,"totalTaxable":15.0000,"totalTaxCalculated":0.6000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"17.6.4.13","exchangeRateEffectiveDate":"2017-07-20","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-07-20T15:34:04.95","modifiedUserId":38097,"taxDate":"2017-07-20T00:00:00","lines":[{"id":1167083220,"transactionId":322561194,"lineNumber":"1-FR","boundaryOverrideId":0,"customerUsageType":"","description":"Shipping
+        Charge","destinationAddressId":819161429,"originAddressId":819161430,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"Avalara
+        Ground","lineAmount":5.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-07-20","revAccount":"","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxCalculated":0.2000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2017-07-20","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2138988220,"transactionLineId":1167083220,"transactionId":322561194,"addressId":819161429,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":5.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":830134501,"documentLineId":1167083220,"documentAddressId":819161429,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":830134500,"documentLineId":1167083220,"documentAddressId":819161430,"locationTypeCode":"ShipFrom"}],"parameters":{}},{"id":1167083219,"transactionId":322561194,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Product
+        #1 - 1273","destinationAddressId":819161427,"originAddressId":819161428,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-1","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-07-20","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2017-07-20","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2138988219,"transactionLineId":1167083219,"transactionId":322561194,"addressId":819161427,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":830134499,"documentLineId":1167083219,"documentAddressId":819161427,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":830134498,"documentLineId":1167083219,"documentAddressId":819161428,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":819161427,"transactionId":322561194,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":819161428,"transactionId":322561194,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":819161429,"transactionId":322561194,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":819161430,"transactionId":322561194,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"AL
+        STATE TAX","rateType":"General","taxable":15.00,"rate":0.040000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
+    http_version:
+  recorded_at: Thu, 20 Jul 2017 15:34:08 GMT
 - request:
     method: post
-    uri: https://development.avalara.net/1.0/tax/get
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R172128419/void
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R606802873","DocDate":"2017-03-22","Discount":"0.0","Commit":false,"DocType":"SalesOrder","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 8452","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R606802873","DetailLevel":"Tax","CurrencyCode":"USD"}'
+      string: '{"code":"DocVoided"}'
     headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      X-Avalara-Uid:
+      - a0o33000004FH8l
+      User-Agent:
+      - Faraday v0.12.1
       Content-Type:
       - application/json
-      Content-Length:
-      - '1143'
-      User-Agent:
-      - Ruby
+      Authorization:
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
   response:
     status:
       code: 200
       message: OK
     headers:
-      Cache-Control:
-      - private
+      Transfer-Encoding:
+      - chunked
       Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
+      - application/json; charset=utf-8
+      Location:
+      - "/api/v2/companies/236180/transactions/322561194"
+      Server:
+      - Kestrel
+      Serverduration:
+      - '00:00:00.0781613'
+      Databasecalls:
+      - '4'
+      Databaseduration:
+      - '00:00:00.0156938'
       Date:
-      - Wed, 22 Mar 2017 20:45:53 GMT
-      Content-Length:
-      - '675'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44e09800d151c6f73237dcfd6041e9d60ff8d27f441f69d6f08560e483ce656f5c14f845574f79998728dbe2c68555f3bc6;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ+++nTn04OdvYMH9/SLp1nLX+zt7D7Y3rm3vbeHL94Ui7xps8Uq/OrN
-        3s6j/fuP7t8b37//cO/h3sFPceOqzcrjRbVetmi+e99++LRopubjHfvp6bt8
-        sWqLahl+/CZ7l01KRsYDQZ/ik53xp/5HJ1k5XZeE+sz/Mnv3vFjmDX30vYTo
-        gT9eVPTXR7vbz8+0hSHEy5Odezv06MfZpCiL9hrftPU6x6dPCPNZVl8/zy/z
-        El/8VLFivPr498cJiDoW/uAV4Yq/dsY7+9Qrf0aN5KN9/as7KvP507zNitKO
-        6wRd1YzrV6/R5FV+odgcP8ff31nXRfPmesU9vm4JoP3UDH9nFx8R7PdFk6G8
-        yBbc7Pj58ZPjL47xObVyn6av3xy/OU3fHP/eH/2S5PvJL0lGhLY/Hc9e6TsG
-        n2evqDd69OOfvengVzYOUwSAUOvMhvn8hzEbt8SSgTiy33Iyvp9Ik+PZrCYN
-        4QRGP6A/PzpOnxbn53mdL9v0VZXNAFW/Nkg/JQ2Bj090or6olu1FtciJFvi0
-        S5aXFSmU0rx879PdHeanLrUIL/nojMm+t3N/78HDh/iGB2ve39nd3dm9vwuq
-        CHcpcvhu99OdnfRlvlw21+Vltiyy9PgyT198F0C0mQHDVDQD+G7WzIvlRUvo
-        4NPNAyDEqG/6WLDFR09P8HdnANwmQJ0w14dQN3MRUcO/JPl/ANYC8U/UBQAA
-    http_version: 
-  recorded_at: Wed, 22 Mar 2017 20:45:53 GMT
-- request:
-    method: post
-    uri: https://development.avalara.net/1.0/tax/get
+      - Thu, 20 Jul 2017 15:34:05 GMT
     body:
       encoding: UTF-8
-      string: '{"DocCode":"R606802873","DocDate":"2017-03-22","Discount":"0.0","Commit":true,"DocType":"SalesInvoice","Addresses":[{"AddressCode":"Orig","Line1":"915
-        S Jackson St","Line2":"","City":"Montgomery","Region":"AL","PostalCode":"36104","Country":"US"},{"AddressCode":"Dest","Line1":"A
-        Different Road","Line2":"","City":"Montgomery","Region":"Alabama","Country":"US","PostalCode":"36104"},{"AddressCode":"2","Line1":"1600
-        Pennsylvania Ave NW","Line2":null,"City":"Washington","PostalCode":"20500","Country":"US"}],"Lines":[{"LineNo":"1-LI","Description":"Product
-        #1 - 8452","TaxCode":"PC030000","ItemCode":"SKU-1","Qty":1,"Amount":10.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Discounted":false,"TaxIncluded":false},{"LineNo":"1-FR","ItemCode":"Avalara
-        Ground","Qty":1,"Amount":5.0,"OriginCode":"2","DestinationCode":"Dest","CustomerUsageType":null,"Description":"Shipping
-        Charge","TaxCode":"FR000000","Discounted":false,"TaxIncluded":false}],"CustomerCode":1,"CompanyCode":"54321","CustomerUsageType":null,"ExemptionNo":null,"Client":"a0o33000004FH8l","ReferenceCode":"R606802873","DetailLevel":"Tax","CurrencyCode":"USD"}'
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '1144'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Wed, 22 Mar 2017 20:45:53 GMT
-      Content-Length:
-      - '669'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44ee0e52797b62670080b441218946292ff30303c3f2267b00bb6e68139a2afc73caff1f0091b086c14b2cadbb96bf78895;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tGrvFmX7Uk1yz96lH70ej2d5k3z0Sj5
-        6Gk1NZ+++nTn04OdvYMH9/SLp1nLX+zt7D7Y3rm3vbeHL94Ui7xps8Uq/OrN
-        3s6j/fuP7u+Pd/cfcLuqzcrjRbVetmi5e99++LRopubjHfvp6bt8sWqLahl+
-        /CZ7l01KxsMDQZ/ik53xp/5HJ1k5XZeE9cz/Mnv3vFjmDX30vYRIgT9eVPTX
-        R7vbz8+0haHBy5Odezv06MfZpCiL9hrftPU6x6dPCPNZVl8/zy/zEl/8VLFi
-        vPr498cJiDoW/uAV4Yq/dsY7+9Qrf0aN5KN9/as7KvP507zNitKO6wRd1Yzr
-        V6/R5FV+odgcP8ff31nXRfPmesU9vm4JoP3UDH9nFx8R7PdFk6G8yBbc7Pj5
-        8ZPjL47xObVyn6av3xy/OU3fHP/eH/2S5PvJL0lGhLY/Hc9e6TsGn2evqDd6
-        9OOfvengVzYOU3ifUOvMhvn8hzEbt8SSgTiy33Iyvp9Ik+PZrCbl4ARGP6A/
-        PzpOnxbn53mdL9v0VZXNAFW/Nkg/JeWAj090or6olu1FtciJFvi0S5aXFemS
-        0rx879PdHeanLrUIL/nojMm+t3N/78HDh/iGB2ve39nd3dm9vwuqCHcpcvhu
-        99OdnfRlvlw21+Vltiyy9PgyT198F0C0mQHDVDQD+G7WzIvlRUvo4NPNAyDE
-        qG/6WLDFR09P8HdnANwmQJ0w14dQN3MR0cC/JPl/ABKz6tnPBQAA
-    http_version: 
-  recorded_at: Wed, 22 Mar 2017 20:45:54 GMT
-- request:
-    method: post
-    uri: https://development.avalara.net/1.0/tax/cancel
-    body:
-      encoding: UTF-8
-      string: '{"CompanyCode":"54321","DocType":"SalesInvoice","DocCode":"R606802873","CancelCode":"DocVoided"}'
-    headers:
-      Accept:
-      - "*/*; q=0.5, application/xml"
-      Accept-Encoding:
-      - gzip, deflate
-      Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '96'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Cache-Control:
-      - private
-      Content-Type:
-      - text/json; charset=utf-8
-      Content-Encoding:
-      - gzip
-      Vary:
-      - Accept-Encoding
-      X-Aspnet-Version:
-      - 4.0.30319
-      X-Powered-By:
-      - ASP.NET
-      Date:
-      - Wed, 22 Mar 2017 20:45:54 GMT
-      Content-Length:
-      - '212'
-      Set-Cookie:
-      - TS017f1821=01a8ddc44edaf518b54b682e565928d0d6e9b62059ab00f1fa22fd58c5e5e36850836a97b23a910209314a72f2760af0f07b1de277;
-        Path=/
-    body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        H4sIAAAAAAAEAO29B2AcSZYlJi9tynt/SvVK1+B0oQiAYBMk2JBAEOzBiM3m
-        kuwdaUcjKasqgcplVmVdZhZAzO2dvPfee++999577733ujudTif33/8/XGZk
-        AWz2zkrayZ4hgKrIHz9+fB8/In5x8tFJtpzm5Zvs3au8WZftR49S+vBpNT2b
-        0a8f7R3cu39v7/7D/Y9GyUdv6mzZZNO2qJb87f3d3YODe7v39z99sPfp/fv7
-        1ESAnFSznL7/6PV6Os2b5qNfkvyS5P8Bi2Kvn2sAAAA=
-    http_version: 
-  recorded_at: Wed, 22 Mar 2017 20:45:54 GMT
+      string: '{"id":322561194,"code":"R172128419","companyId":236180,"date":"2017-07-20","paymentDate":"1900-01-01","status":"Cancelled","type":"SalesInvoice","batchCode":"","currencyCode":"USD","customerUsageType":"","customerVendorCode":"1","exemptNo":"","reconciled":false,"purchaseOrderNo":"","referenceCode":"R172128419","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0000,"taxOverrideReason":"","totalAmount":15.0000,"totalExempt":0.0000,"totalTax":0.6000,"totalTaxable":15.0000,"totalTaxCalculated":0.6000,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"17.6.4.13","exchangeRateEffectiveDate":"2017-07-20","exchangeRate":1.0000,"isSellerImporterOfRecord":false,"businessIdentificationNo":"","modifiedDate":"2017-07-20T15:34:06.307","modifiedUserId":38097,"taxDate":"2017-07-20T00:00:00","lines":[{"id":1167083220,"transactionId":322561194,"lineNumber":"1-FR","boundaryOverrideId":0,"customerUsageType":"","description":"Shipping
+        Charge","destinationAddressId":819161429,"originAddressId":819161430,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"Avalara
+        Ground","lineAmount":5.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-07-20","revAccount":"","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxCalculated":0.2000,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2017-07-20","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2138988220,"transactionLineId":1167083220,"transactionId":322561194,"addressId":819161429,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.2000,"taxableAmount":5.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.2000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":5.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":830134501,"documentLineId":1167083220,"documentAddressId":819161429,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":830134500,"documentLineId":1167083220,"documentAddressId":819161430,"locationTypeCode":"ShipFrom"}],"parameters":{}},{"id":1167083219,"transactionId":322561194,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","description":"Product
+        #1 - 1273","destinationAddressId":819161427,"originAddressId":819161428,"discountAmount":0.0000,"exemptAmount":0.0000,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-1","lineAmount":10.0000,"quantity":1.0000,"ref1":"","ref2":"","reportingDate":"2017-07-20","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2017-07-20","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0000,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":2138988219,"transactionLineId":1167083219,"transactionId":322561194,"addressId":819161427,"country":"US","region":"AL","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039993,"rateSourceId":3,"serCode":"     ","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Sales","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit"}],"lineLocationTypes":[{"documentLineLocationTypeId":830134499,"documentLineId":1167083219,"documentAddressId":819161427,"locationTypeCode":"ShipTo"},{"documentLineLocationTypeId":830134498,"documentLineId":1167083219,"documentAddressId":819161428,"locationTypeCode":"ShipFrom"}],"parameters":{}}],"addresses":[{"id":819161427,"transactionId":322561194,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":819161428,"transactionId":322561194,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"},{"id":819161429,"transactionId":322561194,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5716","country":"US","taxRegionId":2052799,"latitude":"32.365963","longitude":"-86.296036"},{"id":819161430,"transactionId":322561194,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave NW","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0003","country":"US","taxRegionId":949,"latitude":"38.898636","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"AL
+        STATE TAX","rateType":"General","taxable":15.00,"rate":0.040000,"tax":0.60,"taxCalculated":0.60,"nonTaxable":0.00,"exemption":0.00}],"parameters":{}}'
+    http_version:
+  recorded_at: Thu, 20 Jul 2017 15:34:09 GMT
 recorded_with: VCR 3.0.3

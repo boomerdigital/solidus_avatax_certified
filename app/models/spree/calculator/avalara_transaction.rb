@@ -36,11 +36,9 @@ module Spree
       end
     end
 
-    # Tax Adjustments are not created or calculated until on payment page.
-    # 1. We do not want to calculate tax until address is filled in and shipment type has been selected.
-    # 2. VAT tax adjustments set included on adjustment creation, if the tax initially returns 0, included is set to false causing incorrect calculations.
+
     def can_calculate_tax?(order)
-      address = order.tax_address
+      address = order.ship_address
 
       return false unless Spree::Avatax::Config.tax_calculation
       return false if %w(address cart delivery).include?(order.state)
@@ -52,7 +50,11 @@ module Spree
 
     def get_avalara_response(order)
       Rails.cache.fetch(cache_key(order), time_to_idle: 5.minutes) do
-        order.avalara_capture
+        if order.can_commit?
+          order.avalara_capture_finalize
+        else
+          order.avalara_capture
+        end
       end
     end
 
@@ -66,7 +68,7 @@ module Spree
       order.shipments.each do |shipment|
         key << shipment.avatax_cache_key
       end
-      order.all_adjustments.not_tax do |adj|
+      order.all_adjustments.non_tax do |adj|
         key << adj.avatax_cache_key
       end
       key
@@ -84,11 +86,11 @@ module Spree
       prev_tax_amount = prev_tax_amount(item)
 
       return prev_tax_amount if avalara_response.nil?
-      return 0 if avalara_response[:TotalTax] == '0.00'
+      return 0 if avalara_response[:totalTax] == 0.0
 
-      avalara_response['TaxLines'].each do |line|
-        if line['LineNo'] == "#{item.id}-#{item.avatax_line_code}"
-          return line['TaxCalculated'].to_f
+      avalara_response['lines'].each do |line|
+        if line['lineNumber'] == "#{item.id}-#{item.avatax_line_code}"
+          return line['taxCalculated']
         end
       end
       0

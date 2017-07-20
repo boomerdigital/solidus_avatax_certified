@@ -54,7 +54,7 @@ describe Spree::Refund, :vcr do
 
   describe '#avalara_capture_finalize' do
     subject do
-      VCR.use_cassette('order_return_capture') do
+      VCR.use_cassette('order_return_capture', allow_playback_repeats: true) do
         refund.save
       end
     end
@@ -74,8 +74,8 @@ describe Spree::Refund, :vcr do
     end
 
     it 'returns correct tax calculations' do
-      expect(subject['TotalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
-      expect(subject['TotalTax'].to_f.abs).to eq(order.additional_tax_total)
+      expect(subject['totalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
+      expect(subject['totalTax'].to_f.abs).to eq(order.additional_tax_total)
     end
   end
 end

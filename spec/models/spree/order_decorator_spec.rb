@@ -15,14 +15,14 @@ describe Spree::Order, :vcr do
 
   describe '#cancel_avalara' do
     subject do
-      VCR.use_cassette("order_cancel") do
+      VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
         avalara_order.avalara_capture_finalize
         avalara_order.cancel_avalara
       end
     end
 
-    it 'return a hash with a ResultCode of Success' do
-      expect(subject["ResultCode"]).to eq("Success")
+    it 'return a hash with a status of cancelled' do
+      expect(subject['status']).to eq('Cancelled')
       expect(subject).to be_kind_of(Hash)
     end
 
@@ -43,8 +43,8 @@ describe Spree::Order, :vcr do
         avalara_order.cancel_avalara
       end
 
-      it 'should receive ResultCode of Error' do
-        expect(subject['ResultCode']).to eq('Error')
+      it 'should receive error key' do
+        expect(subject['error']).to be_present
       end
 
       it 'should raise exception if preference is enabled' do
@@ -68,8 +68,8 @@ describe Spree::Order, :vcr do
     it "creates new avalara_transaction" do
       expect{subject}.to change{Spree::AvalaraTransaction.count}.by(1)
     end
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
   end
 
@@ -85,8 +85,8 @@ describe Spree::Order, :vcr do
       expect(subject).to be_kind_of(Hash)
     end
 
-    it 'should have a ResultCode of success' do
-      expect(subject['ResultCode']).to eq('Success')
+    it 'should have key totalTax' do
+      expect(subject['totalTax']).to be_present
     end
 
     # Spec fails when using VCR since dates are involved.
@@ -132,14 +132,14 @@ describe Spree::Order, :vcr do
       Spree::Avatax::Config.address_validation = true
       response = order.validate_ship_address
 
-      expect(response['ResultCode']).to eq('Success')
+      expect(response['error']).to_not be_present
     end
 
     it 'should return the response if refuse checkout on address validation is disabled' do
       Spree::Avatax::Config.refuse_checkout_address_validation_error = false
       response = order.validate_ship_address
 
-      expect(response['ResultCode']).to eq('Success')
+      expect(response['error']).to_not be_present
     end
 
     context 'validation failed' do
@@ -185,6 +185,17 @@ describe Spree::Order, :vcr do
       Spree::Avatax::Config.address_validation_enabled_countries = ['Canada']
 
       expect(order.address_validation_enabled?).to be_falsey
+    end
+  end
+
+  describe '#can_commit?' do
+    it 'returns false when order is not complete' do
+      expect(order.can_commit?).to be false
+    end
+
+    it 'returns true when order is completed and has a completed payment' do
+      order = create(:order_ready_to_ship)
+      expect(order.can_commit?).to be true
     end
   end
 end

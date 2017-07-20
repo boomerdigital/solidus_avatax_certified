@@ -41,16 +41,16 @@ module SolidusAvataxCertified
     end
 
     def set_region
-      region = @avatax_origin['Region']
+      region = @avatax_origin['region']
       unless region.blank?
-        @avatax_origin['Region'] = Spree::State.find(region).try(:abbr)
+        @avatax_origin['region'] = Spree::State.find(region).try(:abbr)
       end
     end
 
     def set_country
-      country = @avatax_origin['Country']
+      country = @avatax_origin['country']
       unless country.blank?
-        @avatax_origin['Country'] = Spree::Country.find(country).try(:iso)
+        @avatax_origin['country'] = Spree::Country.find(country).try(:iso)
       end
     end
   end

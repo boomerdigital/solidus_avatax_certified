@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/boomerdigital/solidus_avatax_certified.svg?branch=v2.1)](https://travis-ci.org/boomerdigital/solidus_avatax_certified)
+[![Build Status](https://travis-ci.org/boomerdigital/solidus_avatax_certified.svg?branch=master)](https://travis-ci.org/boomerdigital/solidus_avatax_certified)
 
 SolidusAvataxCertified
 ===========
@@ -13,10 +13,17 @@ From Avalara's own explanation of the certification program:
 
 > Avalara’s partners who have created certified integrations for AvaTax have demonstrated that those integrations contain elements which are essential to providing customers with easy-to-use software that gives accurate sales tax calculations. The certification criteria used to demonstrate these elements are based on Avalara’s years of experience integrating into ERP, ecommerce and point-of-sale applications.
 
-
-**For Solidus versions v2.1 and up, please use branch v2.1**
-
 **[For Installation and Setup instructions, please visit our wiki.](https://github.com/boomerdigital/solidus_avatax_certified/wiki)**
+
+Version Compatibility Chart
+---------------------------
+
+| Solidus Version | Avatax Branch | Latest Avatax Version |
+|:---------------:|:-------------:|:---------------------:|
+|   v1.0 - v2.0   |   v1.0-v2.0   |         1.1.0         |
+|   v2.1 - v2.2   |     master    |         2.0.0         |
+|       v2.3      |      v2.3     |         3.0.0         |
+
 
 Testing
 -------
