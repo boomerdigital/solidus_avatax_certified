@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-branch = 'v2.1'
+branch = 'master'
 gem "solidus", github: "solidusio/solidus", branch: branch
 gem "solidus_auth_devise", github: "solidusio/solidus_auth_devise"
 gem 'avatax-ruby'

@@ -29,16 +29,16 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0468752'
+      - '00:00:00.0156408'
       Databasecalls:
-      - '2'
+      - '0'
       Databaseduration:
-      - '00:00:00.0156266'
+      - '00:00:00'
       Date:
-      - Tue, 27 Jun 2017 14:09:05 GMT
+      - Mon, 24 Jul 2017 16:32:23 GMT
     body:
       encoding: UTF-8
       string: '{"totalRate":0.068750,"rates":[{"rate":0.068750,"name":"NJ STATE TAX","type":"State"}]}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 14:09:06 GMT
+  recorded_at: Mon, 24 Jul 2017 16:32:34 GMT
 recorded_with: VCR 3.0.3

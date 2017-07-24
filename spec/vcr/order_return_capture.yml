@@ -5,10 +5,10 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R824774012.","date":"2017-06-27","commit":true,"type":"ReturnOrder","lines":[{"number":"-RA","itemCode":"fake-refund-transaction-2","quantity":1,"amount":-15.6,"description":"Refund","taxIncluded":true,"addresses":{"shipFrom":{"line1":"1600
+      string: '{"createTransactionModel":{"code":"R833364646.","date":"2017-07-24","commit":true,"type":"ReturnOrder","lines":[{"number":"-RA","itemCode":"fake-refund-transaction-7","quantity":1,"amount":-15.6,"description":"Refund","taxIncluded":true,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R824774012","currencyCode":"USD","businessIdentificationNo":null,"taxOverride":{"type":"TaxDate","reason":"Refund
-        for return #4","taxDate":"2017-06-27"}}}'
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R833364646","currencyCode":"USD","businessIdentificationNo":null,"taxOverride":{"type":"TaxDate","reason":"Refund
+        for return #9","taxDate":"2017-07-24"}}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -36,39 +36,39 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0487424'
+      - '00:00:00.0624990'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Tue, 27 Jun 2017 14:10:30 GMT
+      - Mon, 24 Jul 2017 16:33:52 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6MCwiY29kZSI6IlI4MjQ3NzQwMTIuIiwiY29tcGFueUlkIjowLCJk
-        YXRlIjoiMjAxNy0wNi0yNyIsInBheW1lbnREYXRlIjoiMjAxNy0wNi0yNyIs
+        eyJpZCI6MCwiY29kZSI6IlI4MzMzNjQ2NDYuIiwiY29tcGFueUlkIjowLCJk
+        YXRlIjoiMjAxNy0wNy0yNCIsInBheW1lbnREYXRlIjoiMjAxNy0wNy0yNCIs
         InN0YXR1cyI6IlRlbXBvcmFyeSIsInR5cGUiOiJSZXR1cm5PcmRlciIsImN1
         cnJlbmN5Q29kZSI6IlVTRCIsImN1c3RvbWVyVmVuZG9yQ29kZSI6IjEiLCJy
-        ZWNvbmNpbGVkIjpmYWxzZSwicmVmZXJlbmNlQ29kZSI6IlI4MjQ3NzQwMTIi
+        ZWNvbmNpbGVkIjpmYWxzZSwicmVmZXJlbmNlQ29kZSI6IlI4MzMzNjQ2NDYi
         LCJ0YXhPdmVycmlkZVR5cGUiOiJUYXhEYXRlIiwidGF4T3ZlcnJpZGVBbW91
         bnQiOjAuMCwidGF4T3ZlcnJpZGVSZWFzb24iOiJSZWZ1bmQgZm9yIHJldHVy
-        biAjNCIsInRvdGFsQW1vdW50IjotMTUuMCwidG90YWxFeGVtcHQiOjAuMCwi
+        biAjOSIsInRvdGFsQW1vdW50IjotMTUuMCwidG90YWxFeGVtcHQiOjAuMCwi
         dG90YWxUYXgiOi0wLjYsInRvdGFsVGF4YWJsZSI6LTE1LjAsInRvdGFsVGF4
         Q2FsY3VsYXRlZCI6LTAuNiwiYWRqdXN0bWVudFJlYXNvbiI6Ik5vdEFkanVz
         dGVkIiwibG9ja2VkIjpmYWxzZSwidmVyc2lvbiI6MSwiZXhjaGFuZ2VSYXRl
-        RWZmZWN0aXZlRGF0ZSI6IjIwMTctMDYtMjciLCJleGNoYW5nZVJhdGUiOjEu
+        RWZmZWN0aXZlRGF0ZSI6IjIwMTctMDctMjQiLCJleGNoYW5nZVJhdGUiOjEu
         MCwiaXNTZWxsZXJJbXBvcnRlck9mUmVjb3JkIjpmYWxzZSwibW9kaWZpZWRE
-        YXRlIjoiMjAxNy0wNi0yN1QxNDoxMDozMC45NzQ5OTgzWiIsIm1vZGlmaWVk
+        YXRlIjoiMjAxNy0wNy0yNFQxNjozMzo1My4wMDU3NTY5WiIsIm1vZGlmaWVk
         VXNlcklkIjozODA5NywidGF4RGF0ZSI6IjAwMDEtMDEtMDFUMDA6MDA6MDAi
         LCJsaW5lcyI6W3siaWQiOjAsInRyYW5zYWN0aW9uSWQiOjAsImxpbmVOdW1i
         ZXIiOiItUkEiLCJkZXNjcmlwdGlvbiI6IiIsImRpc2NvdW50QW1vdW50Ijow
         LjAsImV4ZW1wdEFtb3VudCI6MC4wLCJleGVtcHRDZXJ0SWQiOjAsImlzSXRl
         bVRheGFibGUiOnRydWUsIml0ZW1Db2RlIjoiZmFrZS1yZWZ1bmQtdHJhbnNh
-        Y3Rpb24tMiIsImxpbmVBbW91bnQiOi0xNS4wLCJxdWFudGl0eSI6MS4wLCJy
-        ZXBvcnRpbmdEYXRlIjoiMjAxNy0wNi0yNyIsInRheCI6LTAuNiwidGF4YWJs
+        Y3Rpb24tNyIsImxpbmVBbW91bnQiOi0xNS4wLCJxdWFudGl0eSI6MS4wLCJy
+        ZXBvcnRpbmdEYXRlIjoiMjAxNy0wNy0yNCIsInRheCI6LTAuNiwidGF4YWJs
         ZUFtb3VudCI6LTE1LjAsInRheENhbGN1bGF0ZWQiOi0wLjYsInRheENvZGUi
-        OiJQMDAwMDAwMCIsInRheERhdGUiOiIyMDE3LTA2LTI3IiwidGF4SW5jbHVk
+        OiJQMDAwMDAwMCIsInRheERhdGUiOiIyMDE3LTA3LTI0IiwidGF4SW5jbHVk
         ZWQiOnRydWUsImRldGFpbHMiOlt7ImlkIjowLCJ0cmFuc2FjdGlvbkxpbmVJ
         ZCI6MCwidHJhbnNhY3Rpb25JZCI6MCwiY291bnRyeSI6IlVTIiwicmVnaW9u
         IjoiQUwiLCJleGVtcHRBbW91bnQiOjAuMCwianVyaXNDb2RlIjoiMDEiLCJq
@@ -107,7 +107,7 @@ http_interactions:
         MDAzOTkyXG4gICAgUmVhc29uOiBKQUFTIGVuYWJsZWQgZm9yIEFMXG4gICAg
         VmFsaWRhdGVTdGF0dXM6IE5vcm1hbEhpdFxuICAgIFRheFJlZ2lvbklkOiA5
         NDlcbiIsInJlZmVyc1RvIjoiQWRkcmVzc2VzWzBdIC0gVGF4RGF0ZTogMjAx
-        Ny0wNi0yNyAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nlc3MiLCJzb3Vy
+        Ny0wNy0yNCAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nlc3MiLCJzb3Vy
         Y2UiOiJBdmFsYXJhLkF2YVRheC5TZXJ2aWNlcy5UYXguU3RlcHMifSx7InN1
         bW1hcnkiOiJVc2luZyBKQUFTIiwiZGV0YWlscyI6IlxuICAgIEFkZHJlc3M6
         IDkxNSBTIEphY2tzb24gU3QsIE1vbnRnb21lcnksIEFMIDM2MTA0LTU3MTYg
@@ -120,7 +120,7 @@ http_interactions:
         XG4gICAgUmVhc29uOiBKQUFTIGVuYWJsZWQgZm9yIEFMXG4gICAgVmFsaWRh
         dGVTdGF0dXM6IE5vcm1hbEhpdFxuICAgIFRheFJlZ2lvbklkOiAyMDUyNzk5
         XG4iLCJyZWZlcnNUbyI6IkFkZHJlc3Nlc1sxXSAtIFRheERhdGU6IDIwMTct
-        MDYtMjcgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291cmNl
+        MDctMjQgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNzIiwic291cmNl
         IjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4LlN0ZXBzIn0seyJzdW1t
         YXJ5IjoiQWRkcmVzc0xvY2F0aW9uVHlwZTogU2hpcEZyb20iLCJkZXRhaWxz
         IjoiXG4gICAgQWRkcmVzczogMTYwMCBQZW5uc3lsdmFuaWEgQXZlIE5XLCBX
@@ -282,18 +282,18 @@ http_interactions:
         YWlscyI6IkRvY3VtZW50XG4gICAgQ29tcGFueUlkOiAyMzYxODBcbiAgICBD
         dXJyZW5jeUNvZGU6IFVTRFxuICAgIEN1c3RvbWVyVmVuZG9yQ29kZTogMVxu
         ICAgIEN1c3RvbWVyVXNhZ2VUeXBlOiBcbiAgICBEb2N1bWVudENvZGU6IFI4
-        MjQ3NzQwMTIuXG4gICAgRG9jdW1lbnREYXRlOiA2LzI3LzIwMTdcbiAgICBE
+        MzMzNjQ2NDYuXG4gICAgRG9jdW1lbnREYXRlOiA3LzI0LzIwMTdcbiAgICBE
         b2N1bWVudElkOiAwXG4gICAgRG9jdW1lbnRMaW5lQ291bnQ6IDFcbiAgICBE
         b2N1bWVudFN0YXR1c0lkOiAwXG4gICAgRG9jdW1lbnRUeXBlSWQ6IDRcbiAg
         ICBFeGVtcHRObzogXG4gICAgQnVzaW5lc3MgSWRlbnRpZmljYXRpb24gTm86
         IFxuICAgIElzUmVjb25jaWxlZDogRmFsc2VcbiAgICBMb2NhdGlvbkNvZGU6
-        IFxuICAgIE1vZGlmaWVkRGF0ZTogNi8yNy8yMDE3IDI6MTA6MzEgUE1cbiAg
+        IFxuICAgIE1vZGlmaWVkRGF0ZTogNy8yNC8yMDE3IDQ6MzM6NTIgUE1cbiAg
         ICBNb2RpZmllZFVzZXJJZDogMzgwOTdcbiAgICBQYXltZW50RGF0ZTogMS8x
         LzE5MDBcbiAgICBQdXJjaGFzZU9yZGVyTm86IFxuICAgIFJlZmVyZW5jZUNv
-        ZGU6IFxuICAgIFNhbGVzcGVyc29uQ29kZTogXG4gICAgVGF4RGF0ZTogNi8y
-        Ny8yMDE3XG4gICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDNcbiAgICBUYXhPdmVy
+        ZGU6IFxuICAgIFNhbGVzcGVyc29uQ29kZTogXG4gICAgVGF4RGF0ZTogNy8y
+        NC8yMDE3XG4gICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDNcbiAgICBUYXhPdmVy
         cmlkZUFtb3VudDogMFxuICAgIFRheE92ZXJyaWRlUmVhc29uOiBSZWZ1bmQg
-        Zm9yIHJldHVybiAjNFxuICAgIFRvdGFsQW1vdW50OiAtMTVcbiAgICBUb3Rh
+        Zm9yIHJldHVybiAjOVxuICAgIFRvdGFsQW1vdW50OiAtMTVcbiAgICBUb3Rh
         bFRheDogLTAuNjAwMFxuICAgIFRvdGFsVGF4Q2FsY3VsYXRlZDogLTAuNjAw
         MFxuICAgIFZBVE51bWJlclR5cGUgTm8gcmVnaXN0cmF0aW9uXG4gICAgRG9j
         dW1lbnRBZGRyZXNzWzBdOiBcbiAgICAgICAgTGluZTE6IDkxNSBTIEphY2tz
@@ -332,15 +332,15 @@ http_interactions:
         IEV4ZW1wdE5vOiBcbiAgICAgICAgQnVzaW5lc3MgSWRlbnRpZmljYXRpb24g
         Tm86IFxuICAgICAgICBJblN0YXRlOiBGYWxzZVxuICAgICAgICBJc1BoeXNp
         Y2FsOiBUcnVlXG4gICAgICAgIElzU3N0cDogRmFsc2VcbiAgICAgICAgSXRl
-        bUNvZGU6IGZha2UtcmVmdW5kLXRyYW5zYWN0aW9uLTJcbiAgICAgICAgTGlu
+        bUNvZGU6IGZha2UtcmVmdW5kLXRyYW5zYWN0aW9uLTdcbiAgICAgICAgTGlu
         ZUFtb3VudDogLTE1XG4gICAgICAgIExpbmVObzogLVJBXG4gICAgICAgIE9y
         aWdpbkFkZHJlc3NJZDogMFxuICAgICAgICBRdWFudGl0eTogMVxuICAgICAg
         ICBSZWYxOiBcbiAgICAgICAgUmVmMjogXG4gICAgICAgIFJldkFjY291bnQ6
         IFxuICAgICAgICBTb3VyY2luZzogRFxuICAgICAgICBJc0l0ZW1UYXhhYmxl
-        OiBUcnVlXG4gICAgICAgIFJlcG9ydGluZ0RhdGU6IDYvMjcvMjAxN1xuICAg
+        OiBUcnVlXG4gICAgICAgIFJlcG9ydGluZ0RhdGU6IDcvMjQvMjAxN1xuICAg
         ICAgICBUYXg6IC0wLjYwMDBcbiAgICAgICAgVGF4YWJsZUFtb3VudDogLTE1
         XG4gICAgICAgIFRheENhbGN1bGF0ZWQ6IC0wLjYwMDBcbiAgICAgICAgVGF4
-        RGF0ZTogNi8yNy8yMDE3XG4gICAgICAgIFRheENvZGU6IFxuICAgICAgICBU
+        RGF0ZTogNy8yNC8yMDE3XG4gICAgICAgIFRheENvZGU6IFxuICAgICAgICBU
         YXhDb2RlSWQ6IDgwODcgKFAwMDAwMDAwKVxuICAgICAgICBUYXhPdmVycmlk
         ZVR5cGVJZDogMFxuICAgICAgICBUYXhPdmVycmlkZUFtb3VudDogMFxuICAg
         ICAgICBUYXhPdmVycmlkZVJlYXNvbjogXG4gICAgICAgIFZBVENvZGU6IFxu
@@ -403,5 +403,5 @@ http_interactions:
         ZUlkXCI6bnVsbH1dIiwicmVmZXJzVG8iOiIiLCJzZXZlcml0eSI6IlN1Y2Nl
         c3MiLCJzb3VyY2UiOiJBdmFsYXJhLkF2YVRheC5TZXJ2aWNlcy5UYXgifV19
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 14:10:32 GMT
+  recorded_at: Mon, 24 Jul 2017 16:34:03 GMT
 recorded_with: VCR 3.0.3

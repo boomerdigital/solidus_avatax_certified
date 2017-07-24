@@ -55,7 +55,7 @@ describe "VAT", :vcr do
         end
 
         it 'origin country zero rate is returned' do
-          tax_detail_country = res['lines'][0]['details'][0]['country']
+          tax_detail_country = res['summary'][0]['country']
 
           expect(tax_detail_country).to eq('IT')
           expect(res['totalTax']).to eq(0)
@@ -100,7 +100,7 @@ describe "VAT", :vcr do
         let(:avalara_order) { create(:avalara_order, tax_included: true, state: 'address', ship_address: nl_address, user: create(:user, vat_id: '123456789')) }
 
         it 'origin country zero rate is returned' do
-          tax_detail_country = res['lines'][0]['details'][0]['country']
+          tax_detail_country = res['summary'][0]['country']
 
           expect(tax_detail_country).to eq('IT')
           expect(res['totalTax']).to eq(0)
@@ -114,7 +114,7 @@ describe "VAT", :vcr do
       before { prep_avalara_order }
 
       it 'origin country tax is returned' do
-        tax_detail_country = res['lines'][0]['details'][0]['country']
+        tax_detail_country = res['summary'][0]['country']
         expect(tax_detail_country).to eq('IT')
       end
 
@@ -128,7 +128,7 @@ describe "VAT", :vcr do
         end
 
         it 'origin country zero rate is returned' do
-          tax_detail_country = res['lines'][0]['details'][0]['country']
+          tax_detail_country = res['summary'][0]['country']
 
           expect(tax_detail_country).to eq('IT')
           expect(res['totalTax']).to eq(0)
@@ -140,6 +140,7 @@ describe "VAT", :vcr do
 
   def set_seller_location
     Spree::Avatax::Config.origin = "{\"line1\":\"34 Borgo degli Albizi\",\"city\":\"Florence\",\"region\":\"\",\"postalCode\":\"50122\",\"country\":\"IT\"}"
+    Spree::StockLocation.update_all(address1: '150 Piccadilly', city: 'Florence', country_id: it.id, state_id: nil)
   end
 
   def prep_avalara_order

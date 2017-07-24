@@ -5,13 +5,13 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R232256421","date":"2017-06-27","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #65 - 9255","taxCode":"PC030000","itemCode":"SKU-65","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+      string: '{"createTransactionModel":{"code":"R078418002","date":"2017-07-24","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #56 - 1448","taxCode":"PC030000","itemCode":"SKU-56","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
         S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
         Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
-        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R232256421","currencyCode":"USD","businessIdentificationNo":null}}'
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R078418002","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -39,36 +39,36 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0874215'
+      - '00:00:00.0937797'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Tue, 27 Jun 2017 14:11:09 GMT
+      - Mon, 24 Jul 2017 16:33:22 GMT
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        eyJpZCI6MCwiY29kZSI6IlIyMzIyNTY0MjEiLCJjb21wYW55SWQiOjAsImRh
-        dGUiOiIyMDE3LTA2LTI3IiwicGF5bWVudERhdGUiOiIyMDE3LTA2LTI3Iiwi
+        eyJpZCI6MCwiY29kZSI6IlIwNzg0MTgwMDIiLCJjb21wYW55SWQiOjAsImRh
+        dGUiOiIyMDE3LTA3LTI0IiwicGF5bWVudERhdGUiOiIyMDE3LTA3LTI0Iiwi
         c3RhdHVzIjoiVGVtcG9yYXJ5IiwidHlwZSI6IlNhbGVzT3JkZXIiLCJjdXJy
         ZW5jeUNvZGUiOiJVU0QiLCJjdXN0b21lclZlbmRvckNvZGUiOiIxIiwicmVj
-        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMjMyMjU2NDIxIiwi
+        b25jaWxlZCI6ZmFsc2UsInJlZmVyZW5jZUNvZGUiOiJSMDc4NDE4MDAyIiwi
         dG90YWxBbW91bnQiOjE1LjAsInRvdGFsRXhlbXB0IjowLjAsInRvdGFsVGF4
         IjowLjYsInRvdGFsVGF4YWJsZSI6MTUuMCwidG90YWxUYXhDYWxjdWxhdGVk
         IjowLjYsImFkanVzdG1lbnRSZWFzb24iOiJOb3RBZGp1c3RlZCIsImxvY2tl
         ZCI6ZmFsc2UsInZlcnNpb24iOjEsImV4Y2hhbmdlUmF0ZUVmZmVjdGl2ZURh
-        dGUiOiIyMDE3LTA2LTI3IiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
+        dGUiOiIyMDE3LTA3LTI0IiwiZXhjaGFuZ2VSYXRlIjoxLjAsImlzU2VsbGVy
         SW1wb3J0ZXJPZlJlY29yZCI6ZmFsc2UsIm1vZGlmaWVkRGF0ZSI6IjIwMTct
-        MDYtMjdUMTQ6MTE6MTAuMDI3NzY3NloiLCJtb2RpZmllZFVzZXJJZCI6Mzgw
+        MDctMjRUMTY6MzM6MjIuODU4OTA1OFoiLCJtb2RpZmllZFVzZXJJZCI6Mzgw
         OTcsInRheERhdGUiOiIwMDAxLTAxLTAxVDAwOjAwOjAwIiwibGluZXMiOlt7
         ImlkIjowLCJ0cmFuc2FjdGlvbklkIjowLCJsaW5lTnVtYmVyIjoiMS1MSSIs
         ImRlc2NyaXB0aW9uIjoiIiwiZGlzY291bnRBbW91bnQiOjAuMCwiZXhlbXB0
         QW1vdW50IjowLjAsImV4ZW1wdENlcnRJZCI6MCwiaXNJdGVtVGF4YWJsZSI6
-        dHJ1ZSwiaXRlbUNvZGUiOiJTS1UtNjUiLCJsaW5lQW1vdW50IjoxMC4wLCJx
-        dWFudGl0eSI6MS4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNi0yNyIsInRh
+        dHJ1ZSwiaXRlbUNvZGUiOiJTS1UtNTYiLCJsaW5lQW1vdW50IjoxMC4wLCJx
+        dWFudGl0eSI6MS4wLCJyZXBvcnRpbmdEYXRlIjoiMjAxNy0wNy0yNCIsInRh
         eCI6MC40LCJ0YXhhYmxlQW1vdW50IjoxMC4wLCJ0YXhDYWxjdWxhdGVkIjow
-        LjQsInRheENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA2LTI3
+        LjQsInRheENvZGUiOiJQQzAzMDAwMCIsInRheERhdGUiOiIyMDE3LTA3LTI0
         IiwidGF4SW5jbHVkZWQiOmZhbHNlLCJkZXRhaWxzIjpbeyJpZCI6MCwidHJh
         bnNhY3Rpb25MaW5lSWQiOjAsInRyYW5zYWN0aW9uSWQiOjAsImNvdW50cnki
         OiJVUyIsInJlZ2lvbiI6IkFMIiwiZXhlbXB0QW1vdW50IjowLjAsImp1cmlz
@@ -83,9 +83,9 @@ http_interactions:
         bXB0QW1vdW50IjowLjAsImV4ZW1wdENlcnRJZCI6MCwiaXNJdGVtVGF4YWJs
         ZSI6dHJ1ZSwiaXRlbUNvZGUiOiJBdmFsYXJhIEdyb3VuZCIsImxpbmVBbW91
         bnQiOjUuMCwicXVhbnRpdHkiOjEuMCwicmVwb3J0aW5nRGF0ZSI6IjIwMTct
-        MDYtMjciLCJ0YXgiOjAuMiwidGF4YWJsZUFtb3VudCI6NS4wLCJ0YXhDYWxj
+        MDctMjQiLCJ0YXgiOjAuMiwidGF4YWJsZUFtb3VudCI6NS4wLCJ0YXhDYWxj
         dWxhdGVkIjowLjIsInRheENvZGUiOiJGUjAwMDAwMCIsInRheERhdGUiOiIy
-        MDE3LTA2LTI3IiwidGF4SW5jbHVkZWQiOmZhbHNlLCJkZXRhaWxzIjpbeyJp
+        MDE3LTA3LTI0IiwidGF4SW5jbHVkZWQiOmZhbHNlLCJkZXRhaWxzIjpbeyJp
         ZCI6MCwidHJhbnNhY3Rpb25MaW5lSWQiOjAsInRyYW5zYWN0aW9uSWQiOjAs
         ImNvdW50cnkiOiJVUyIsInJlZ2lvbiI6IkFMIiwiZXhlbXB0QW1vdW50Ijow
         LjAsImp1cmlzQ29kZSI6IjAxIiwianVyaXNOYW1lIjoiQUxBQkFNQSIsInN0
@@ -133,7 +133,7 @@ http_interactions:
         dDogMjA1MDAwMDAzOTkyXG4gICAgUmVhc29uOiBKQUFTIGVuYWJsZWQgZm9y
         IEFMXG4gICAgVmFsaWRhdGVTdGF0dXM6IE5vcm1hbEhpdFxuICAgIFRheFJl
         Z2lvbklkOiA5NDlcbiIsInJlZmVyc1RvIjoiQWRkcmVzc2VzWzBdIC0gVGF4
-        RGF0ZTogMjAxNy0wNi0yNyAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nl
+        RGF0ZTogMjAxNy0wNy0yNCAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nl
         c3MiLCJzb3VyY2UiOiJBdmFsYXJhLkF2YVRheC5TZXJ2aWNlcy5UYXguU3Rl
         cHMifSx7InN1bW1hcnkiOiJVc2luZyBKQUFTIiwiZGV0YWlscyI6IlxuICAg
         IEFkZHJlc3M6IDkxNSBTIEphY2tzb24gU3QsIE1vbnRnb21lcnksIEFMIDM2
@@ -146,7 +146,7 @@ http_interactions:
         MDQ1NzE2OTk5XG4gICAgUmVhc29uOiBKQUFTIGVuYWJsZWQgZm9yIEFMXG4g
         ICAgVmFsaWRhdGVTdGF0dXM6IE5vcm1hbEhpdFxuICAgIFRheFJlZ2lvbklk
         OiAyMDUyNzk5XG4iLCJyZWZlcnNUbyI6IkFkZHJlc3Nlc1sxXSAtIFRheERh
-        dGU6IDIwMTctMDYtMjcgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNz
+        dGU6IDIwMTctMDctMjQgMDA6MDA6MDBaIiwic2V2ZXJpdHkiOiJTdWNjZXNz
         Iiwic291cmNlIjoiQXZhbGFyYS5BdmFUYXguU2VydmljZXMuVGF4LlN0ZXBz
         In0seyJzdW1tYXJ5IjoiVXNpbmcgSkFBUyIsImRldGFpbHMiOiJcbiAgICBB
         ZGRyZXNzOiAxNjAwIFBlbm5zeWx2YW5pYSBBdmUgTlcsIFdhc2hpbmd0b24s
@@ -159,7 +159,7 @@ http_interactions:
         TmV0OiAyMDUwMDAwMDM5OTJcbiAgICBSZWFzb246IEpBQVMgZW5hYmxlZCBm
         b3IgQUxcbiAgICBWYWxpZGF0ZVN0YXR1czogTm9ybWFsSGl0XG4gICAgVGF4
         UmVnaW9uSWQ6IDk0OVxuIiwicmVmZXJzVG8iOiJBZGRyZXNzZXNbMl0gLSBU
-        YXhEYXRlOiAyMDE3LTA2LTI3IDAwOjAwOjAwWiIsInNldmVyaXR5IjoiU3Vj
+        YXhEYXRlOiAyMDE3LTA3LTI0IDAwOjAwOjAwWiIsInNldmVyaXR5IjoiU3Vj
         Y2VzcyIsInNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheC5T
         dGVwcyJ9LHsic3VtbWFyeSI6IlVzaW5nIEpBQVMiLCJkZXRhaWxzIjoiXG4g
         ICAgQWRkcmVzczogOTE1IFMgSmFja3NvbiBTdCwgTW9udGdvbWVyeSwgQUwg
@@ -172,7 +172,7 @@ http_interactions:
         NjEwNDU3MTY5OTlcbiAgICBSZWFzb246IEpBQVMgZW5hYmxlZCBmb3IgQUxc
         biAgICBWYWxpZGF0ZVN0YXR1czogTm9ybWFsSGl0XG4gICAgVGF4UmVnaW9u
         SWQ6IDIwNTI3OTlcbiIsInJlZmVyc1RvIjoiQWRkcmVzc2VzWzNdIC0gVGF4
-        RGF0ZTogMjAxNy0wNi0yNyAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nl
+        RGF0ZTogMjAxNy0wNy0yNCAwMDowMDowMFoiLCJzZXZlcml0eSI6IlN1Y2Nl
         c3MiLCJzb3VyY2UiOiJBdmFsYXJhLkF2YVRheC5TZXJ2aWNlcy5UYXguU3Rl
         cHMifSx7InN1bW1hcnkiOiJBZGRyZXNzTG9jYXRpb25UeXBlOiBTaGlwRnJv
         bSIsImRldGFpbHMiOiJcbiAgICBBZGRyZXNzOiAxNjAwIFBlbm5zeWx2YW5p
@@ -490,16 +490,16 @@ http_interactions:
         Y2VzLlRheCJ9LHsic3VtbWFyeSI6IlRheCBSdWxlcyIsImRldGFpbHMiOiJE
         b2N1bWVudFxuICAgIENvbXBhbnlJZDogMjM2MTgwXG4gICAgQ3VycmVuY3lD
         b2RlOiBVU0RcbiAgICBDdXN0b21lclZlbmRvckNvZGU6IDFcbiAgICBDdXN0
-        b21lclVzYWdlVHlwZTogXG4gICAgRG9jdW1lbnRDb2RlOiBSMjMyMjU2NDIx
-        XG4gICAgRG9jdW1lbnREYXRlOiA2LzI3LzIwMTdcbiAgICBEb2N1bWVudElk
+        b21lclVzYWdlVHlwZTogXG4gICAgRG9jdW1lbnRDb2RlOiBSMDc4NDE4MDAy
+        XG4gICAgRG9jdW1lbnREYXRlOiA3LzI0LzIwMTdcbiAgICBEb2N1bWVudElk
         OiAwXG4gICAgRG9jdW1lbnRMaW5lQ291bnQ6IDJcbiAgICBEb2N1bWVudFN0
         YXR1c0lkOiAwXG4gICAgRG9jdW1lbnRUeXBlSWQ6IDBcbiAgICBFeGVtcHRO
         bzogXG4gICAgQnVzaW5lc3MgSWRlbnRpZmljYXRpb24gTm86IFxuICAgIElz
         UmVjb25jaWxlZDogRmFsc2VcbiAgICBMb2NhdGlvbkNvZGU6IFxuICAgIE1v
-        ZGlmaWVkRGF0ZTogNi8yNy8yMDE3IDI6MTE6MDkgUE1cbiAgICBNb2RpZmll
+        ZGlmaWVkRGF0ZTogNy8yNC8yMDE3IDQ6MzM6MjIgUE1cbiAgICBNb2RpZmll
         ZFVzZXJJZDogMzgwOTdcbiAgICBQYXltZW50RGF0ZTogMS8xLzE5MDBcbiAg
         ICBQdXJjaGFzZU9yZGVyTm86IFxuICAgIFJlZmVyZW5jZUNvZGU6IFxuICAg
-        IFNhbGVzcGVyc29uQ29kZTogXG4gICAgVGF4RGF0ZTogNi8yNy8yMDE3XG4g
+        IFNhbGVzcGVyc29uQ29kZTogXG4gICAgVGF4RGF0ZTogNy8yNC8yMDE3XG4g
         ICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDBcbiAgICBUYXhPdmVycmlkZUFtb3Vu
         dDogMFxuICAgIFRheE92ZXJyaWRlUmVhc29uOiBcbiAgICBUb3RhbEFtb3Vu
         dDogMTVcbiAgICBUb3RhbFRheDogMC42MDAwXG4gICAgVG90YWxUYXhDYWxj
@@ -559,21 +559,21 @@ http_interactions:
         ZElkOiAwIChBY2NydWFsKVxuICAgICAgICBCb3VuZGFyeUxldmVsSWQ6IDBc
         biAgICAgICAgQm91bmRhcnlPdmVycmlkZUlkOiAwXG4gICAgICAgIEN1c3Rv
         bWVyVXNhZ2VUeXBlOiBcbiAgICAgICAgRGVzY3JpcHRpb246IFByb2R1Y3Qg
-        IzY1IC0gOTI1NVxuICAgICAgICBEZXN0aW5hdGlvbkFkZHJlc3NJZDogMFxu
+        IzU2IC0gMTQ0OFxuICAgICAgICBEZXN0aW5hdGlvbkFkZHJlc3NJZDogMFxu
         ICAgICAgICBEaXNjb3VudEFtb3VudDogMFxuICAgICAgICBEaXNjb3VudFR5
         cGVJZDogMFxuICAgICAgICBEb2N1bWVudExpbmVJZDogMFxuICAgICAgICBF
         eGVtcHRBbW91bnQ6IDBcbiAgICAgICAgRXhlbXB0Q2VydElkOiAwXG4gICAg
         ICAgIEV4ZW1wdE5vOiBcbiAgICAgICAgQnVzaW5lc3MgSWRlbnRpZmljYXRp
         b24gTm86IFxuICAgICAgICBJblN0YXRlOiBGYWxzZVxuICAgICAgICBJc1Bo
         eXNpY2FsOiBUcnVlXG4gICAgICAgIElzU3N0cDogRmFsc2VcbiAgICAgICAg
-        SXRlbUNvZGU6IFNLVS02NVxuICAgICAgICBMaW5lQW1vdW50OiAxMFxuICAg
+        SXRlbUNvZGU6IFNLVS01NlxuICAgICAgICBMaW5lQW1vdW50OiAxMFxuICAg
         ICAgICBMaW5lTm86IDEtTElcbiAgICAgICAgT3JpZ2luQWRkcmVzc0lkOiAw
         XG4gICAgICAgIFF1YW50aXR5OiAxXG4gICAgICAgIFJlZjE6IFxuICAgICAg
         ICBSZWYyOiBcbiAgICAgICAgUmV2QWNjb3VudDogXG4gICAgICAgIFNvdXJj
         aW5nOiBEXG4gICAgICAgIElzSXRlbVRheGFibGU6IFRydWVcbiAgICAgICAg
-        UmVwb3J0aW5nRGF0ZTogNi8yNy8yMDE3XG4gICAgICAgIFRheDogMC40MDAw
+        UmVwb3J0aW5nRGF0ZTogNy8yNC8yMDE3XG4gICAgICAgIFRheDogMC40MDAw
         XG4gICAgICAgIFRheGFibGVBbW91bnQ6IDEwXG4gICAgICAgIFRheENhbGN1
-        bGF0ZWQ6IDAuNDAwMFxuICAgICAgICBUYXhEYXRlOiA2LzI3LzIwMTdcbiAg
+        bGF0ZWQ6IDAuNDAwMFxuICAgICAgICBUYXhEYXRlOiA3LzI0LzIwMTdcbiAg
         ICAgICAgVGF4Q29kZTogUEMwMzAwMDBcbiAgICAgICAgVGF4Q29kZUlkOiA4
         MTA3IChQQzAzMDAwMClcbiAgICAgICAgVGF4T3ZlcnJpZGVUeXBlSWQ6IDBc
         biAgICAgICAgVGF4T3ZlcnJpZGVBbW91bnQ6IDBcbiAgICAgICAgVGF4T3Zl
@@ -627,9 +627,9 @@ http_interactions:
         c3NJZDogMFxuICAgICAgICBRdWFudGl0eTogMVxuICAgICAgICBSZWYxOiBc
         biAgICAgICAgUmVmMjogXG4gICAgICAgIFJldkFjY291bnQ6IFxuICAgICAg
         ICBTb3VyY2luZzogRFxuICAgICAgICBJc0l0ZW1UYXhhYmxlOiBUcnVlXG4g
-        ICAgICAgIFJlcG9ydGluZ0RhdGU6IDYvMjcvMjAxN1xuICAgICAgICBUYXg6
+        ICAgICAgIFJlcG9ydGluZ0RhdGU6IDcvMjQvMjAxN1xuICAgICAgICBUYXg6
         IDAuMjAwMFxuICAgICAgICBUYXhhYmxlQW1vdW50OiA1XG4gICAgICAgIFRh
-        eENhbGN1bGF0ZWQ6IDAuMjAwMFxuICAgICAgICBUYXhEYXRlOiA2LzI3LzIw
+        eENhbGN1bGF0ZWQ6IDAuMjAwMFxuICAgICAgICBUYXhEYXRlOiA3LzI0LzIw
         MTdcbiAgICAgICAgVGF4Q29kZTogRlIwMDAwMDBcbiAgICAgICAgVGF4Q29k
         ZUlkOiA4NTUwIChGUjAwMDAwMClcbiAgICAgICAgVGF4T3ZlcnJpZGVUeXBl
         SWQ6IDBcbiAgICAgICAgVGF4T3ZlcnJpZGVBbW91bnQ6IDBcbiAgICAgICAg
@@ -705,10 +705,10 @@ http_interactions:
         Y2VzcyIsInNvdXJjZSI6IkF2YWxhcmEuQXZhVGF4LlNlcnZpY2VzLlRheCJ9
         XX0=
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 14:11:11 GMT
+  recorded_at: Mon, 24 Jul 2017 16:33:33 GMT
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R232256421/void
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/54321/transactions/R078418002/void
     body:
       encoding: UTF-8
       string: '{"code":"DocVoided"}'
@@ -737,18 +737,18 @@ http_interactions:
       Server:
       - Kestrel
       Serverduration:
-      - '00:00:00.0156208'
+      - '00:00:00.0156249'
       Databasecalls:
       - '1'
       Databaseduration:
       - '00:00:00'
       Date:
-      - Tue, 27 Jun 2017 14:11:10 GMT
+      - Mon, 24 Jul 2017 16:33:22 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"EntityNotFoundError","message":"Document with ID
-        ''54321:R232256421'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
-        with ID ''54321:R232256421'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
+        ''54321:R078418002'' not found.","target":"HttpRequest","details":[{"code":"EntityNotFoundError","number":4,"message":"Document
+        with ID ''54321:R078418002'' not found.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/EntityNotFoundError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 14:11:11 GMT
+  recorded_at: Mon, 24 Jul 2017 16:33:33 GMT
 recorded_with: VCR 3.0.3

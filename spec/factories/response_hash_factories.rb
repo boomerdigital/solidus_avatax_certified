@@ -86,7 +86,7 @@ FactoryGirl.define do
         "boundaryLevel" => "Address",
         "line1" => "1600 Pennsylvania Ave NW",
         "city" => "Washington",
-        "region" => "AL",
+        "region" => "DC",
         "postalCode" => "20500",
         "country" => "US",
         "taxRegionId" => 949,
