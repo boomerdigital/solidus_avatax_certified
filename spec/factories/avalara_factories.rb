@@ -22,7 +22,7 @@ FactoryGirl.define do
               line1: '1600 Pennsylvania Ave NW',
               line2: nil,
               city: 'Washington',
-              region: 'AL',
+              region: 'DC',
               country: 'US',
               postalCode: '20500'},
             shipTo: {

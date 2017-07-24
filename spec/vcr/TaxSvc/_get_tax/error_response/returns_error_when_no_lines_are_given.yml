@@ -37,7 +37,7 @@ http_interactions:
       Databaseduration:
       - '00:00:00'
       Date:
-      - Thu, 20 Jul 2017 19:26:24 GMT
+      - Fri, 21 Jul 2017 18:12:47 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"MissingLine","message":"Transactions must have at
@@ -45,5 +45,5 @@ http_interactions:
         must have at least one line.","description":"The CreateTransactionModel object
         must have an element called ''lines'', with at least one valid line record.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/MissingLine","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Thu, 20 Jul 2017 19:26:23 GMT
+  recorded_at: Fri, 21 Jul 2017 18:12:47 GMT
 recorded_with: VCR 3.0.3

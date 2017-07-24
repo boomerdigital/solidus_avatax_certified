@@ -37,12 +37,12 @@ http_interactions:
       Databaseduration:
       - '00:00:00'
       Date:
-      - Thu, 20 Jul 2017 19:26:22 GMT
+      - Fri, 21 Jul 2017 18:12:42 GMT
     body:
       encoding: UTF-8
       string: '{"error":{"code":"ValidationException","message":"Field createTransactionModel
         is required.","target":"IncorrectData","details":[{"code":"ValueRequiredError","number":5,"message":"Field
         createTransactionModel is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Thu, 20 Jul 2017 19:26:22 GMT
+  recorded_at: Fri, 21 Jul 2017 18:12:42 GMT
 recorded_with: VCR 3.0.3
