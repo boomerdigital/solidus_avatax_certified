@@ -76,7 +76,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
 
           before do
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
-            order.update!
+            order.recalculate
           end
 
           it 'should be equal to the items pre-tax total * rate' do
@@ -89,7 +89,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
 
           before do
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order.line_items.first)
-            order.update!
+            order.recalculate
           end
 
           it 'should be equal to the items pre-tax total * rate' do

@@ -88,7 +88,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
           order.line_items.each do |li|
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
           end
-          order.update!
+          order.recalculate
           order.reload
           click_button 'Save and Continue'
         end

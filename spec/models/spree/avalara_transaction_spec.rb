@@ -55,7 +55,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       before do
         create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
-        order.update!
+        order.recalculate
       end
 
       subject do
