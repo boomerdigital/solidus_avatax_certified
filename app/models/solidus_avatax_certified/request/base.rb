@@ -32,10 +32,6 @@ module SolidusAvataxCertified
         @address_lines ||= SolidusAvataxCertified::Address.new(order).addresses
       end
 
-      def sales_lines
-        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type).lines
-      end
-
       def company_code
         @company_code ||= Spree::Avatax::Config.company_code
       end

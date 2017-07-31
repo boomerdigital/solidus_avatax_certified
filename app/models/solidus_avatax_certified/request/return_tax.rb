@@ -14,7 +14,7 @@ module SolidusAvataxCertified
             date: Date.today.strftime('%F'),
             commit: @commit,
             type: @doc_type ? @doc_type : 'ReturnOrder',
-            lines: sales_lines
+            lines: refund_lines
           }.merge(base_tax_hash)
         }
       end
@@ -39,8 +39,8 @@ module SolidusAvataxCertified
         }
       end
 
-      def sales_lines
-        @sales_lines ||= SolidusAvataxCertified::Line.new(order, @doc_type, @refund).lines
+      def refund_lines
+        @refund_lines ||= SolidusAvataxCertified::Lines::Refund.new(order, @doc_type, @refund).lines
       end
     end
   end
