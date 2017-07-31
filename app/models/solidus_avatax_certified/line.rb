@@ -156,9 +156,7 @@ module SolidusAvataxCertified
     end
 
     def tax_included_in_price?(item)
-      # Need better error handling
-      # if no tax rates, raise error tax rates needs to be set up
-      order.tax_zone.tax_rates.where(tax_category: item.tax_category).try(:first).included_in_price
+      !!order.tax_zone.tax_rates.where(tax_category: item.tax_category).try(:first)&.included_in_price
     end
   end
 end
