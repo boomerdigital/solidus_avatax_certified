@@ -14,6 +14,10 @@ module SolidusAvataxCertified
         }
       end
 
+      def sales_lines
+        @sales_lines ||= SolidusAvataxCertified::Lines::Sale.new(order, @doc_type).lines
+      end
+
       protected
 
       def doc_date
