@@ -22,7 +22,7 @@ Version Compatibility Chart
 |:---------------:|:-------------:|:---------------------:|
 |   v1.0 - v2.0   |   v1.0-v2.0   |         1.1.0         |
 |   v2.1 - v2.2   |    v2.1-2.2   |         2.0.0         |
-|       v2.3      |     master    |         3.0.0         |
+|       v2.3      | v2.3 & master |         3.1.0         |
 
 
 Testing
@@ -34,5 +34,5 @@ Be sure to bundle your dependencies and then create a dummy test app for the spe
     $ bundle exec rake test_app
     $ bundle exec rspec spec
 
-Copyright (c) 2016 Boomer Digital LLC, released under the New BSD License
+Copyright (c) 2017 Boomer Digital LLC, released under the New BSD License
 

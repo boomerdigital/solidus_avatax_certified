@@ -1,3 +1,14 @@
+## SolidusAvataxCertified v3.1.0 (SOLIDUS VERSIONS 2.3)
+
+- Upgrade Avalara REST API from V1 to V2. Change formatting of request hashes to follow V2 standards.
+
+- Remove rest-client and all HTTP requests from within SolidusAvataxCertified and installed [avatax gem](https://github.com/skukx/avatax) to handle those requests.
+
+- Create ToAvataxHash concern that handles converting Address & StockLocation to hashes.
+
+- Require SolidusSupport and use Rails 5 migrations.
+
+
 ## SolidusAvataxCertified v3.0.0 (SOLIDUS VERSIONS 2.3)
 
 - See https://github.com/boomerdigital/solidus_avatax_certified/releases/tag/v3.0.0
