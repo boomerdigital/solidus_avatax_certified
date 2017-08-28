@@ -43,4 +43,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
+  s.add_development_dependency 'ffaker'
 end
