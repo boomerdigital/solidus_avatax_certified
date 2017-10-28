@@ -2,10 +2,6 @@ sudo: false
 language: ruby
 rvm:
   - 2.3.3
-before_install:
-  - rvm @default,@global do gem uninstall bundler -x
-  - gem install bundler --version '~> 1.13.0'
-  - bundle --version
 before_script:
   - sh -e /etc/init.d/xvfb start
   - export DISPLAY=:99.0
