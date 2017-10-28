@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :clothing_tax_rate, class: Spree::TaxRate do
     name 'Tax'
     amount 0.0

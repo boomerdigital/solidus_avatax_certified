@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :avalara_shipment, class: Spree::Shipment do
     tracking 'U10000'
     cost BigDecimal.new(10)
