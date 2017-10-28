@@ -22,7 +22,7 @@ FactoryBot.define do
         create(:country)
       end
       if Spree::Zone.find_by(name: 'GlobalZone').nil?
-        create(:global_zone, default_tax: true)
+        create(:global_zone)
       end
       if Spree::TaxCategory.first.nil?
         create(:clothing_tax_rate, tax_categories: [create(:tax_category)], included_in_price: evaluator.tax_included)
