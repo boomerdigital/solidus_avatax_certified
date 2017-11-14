@@ -36,9 +36,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "coffee-rails"
   s.add_development_dependency "factory_bot"
   s.add_development_dependency "selenium-webdriver", "~> 2.53.4"
-  s.add_development_dependency "capybara"
-  s.add_development_dependency "capybara-screenshot"
-  s.add_development_dependency 'capybara-accessible'
+  s.add_development_dependency "poltergeist"
+  s.add_development_dependency "phantomjs", "~> 2.1"
   s.add_development_dependency "database_cleaner"
   s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency 'vcr'
