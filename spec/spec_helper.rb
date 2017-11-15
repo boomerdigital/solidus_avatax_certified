@@ -37,8 +37,14 @@ require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-RSpec.configure do
-  Capybara.javascript_driver = :poltergeist
+Capybara.register_driver(:poltergeist) do |app|
+  Capybara::Poltergeist::Driver.new app, timeout: 90
+end
+Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 10
+
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 
@@ -59,13 +65,6 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
 
-
-  if ENV['WEBDRIVER'] == 'accessible'
-    config.around(:each, :inaccessible => true) do |example|
-      Capybara::Accessible.skip_audit { example.run }
-    end
-  end
-
   config.before :suite do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with :truncation
@@ -79,5 +78,9 @@ RSpec.configure do |config|
 
   config.after :each do
     DatabaseCleaner.clean
+  end
+
+  config.before(:each, type: :feature, js: true) do |ex|
+    Capybara.current_driver = ex.metadata[:driver] || :poltergeist
   end
 end
