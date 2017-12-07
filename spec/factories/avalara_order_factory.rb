@@ -38,7 +38,7 @@ FactoryBot.define do
       create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
       order.shipments.reload
 
-      order.recalculate
+      order.updater.update
       order.next
     end
 
@@ -52,7 +52,7 @@ FactoryBot.define do
         order.update_column(:state, 'complete')
         payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
 
-        order.recalculate
+        order.updater.update
         order.next
 
         payment.avalara_finalize

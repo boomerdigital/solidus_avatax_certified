@@ -88,7 +88,7 @@ RSpec.feature 'Checkout', :vcr, :js do
           order.line_items.each do |li|
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
           end
-          order.recalculate
+          order.updater.update
           order.reload
           click_button 'Save and Continue'
         end
