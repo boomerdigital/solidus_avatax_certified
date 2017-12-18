@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   # Request Hashes
   factory :address_hash, class: Hash do
     line1 '915 S Jackson St'
