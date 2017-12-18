@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :avalara_shipping_method, class: Spree::ShippingMethod do
     zones { |a| [Spree::Zone.find_by(name: 'GlobalZone') || create(:zone, :with_country, default_tax: true)] }
     name 'Avalara Ground'
