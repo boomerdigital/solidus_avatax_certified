@@ -11,9 +11,6 @@ class AddressValidator
     @$addressValidator = $('.address_validator')
 
   validate: ->
-    if $('#checkout_form_address').is('*')
-      $('#checkout_form_address').validate().form();
-
     address = this.formatAddress()
 
     Spree.ajax
