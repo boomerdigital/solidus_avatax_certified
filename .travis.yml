@@ -2,12 +2,6 @@ sudo: false
 language: ruby
 rvm:
   - 2.3.3
-before_script:
-  - sh -e /etc/init.d/xvfb start
-  - export DISPLAY=:99.0
-  - bundle exec rake test_app
-script:
-  - bundle exec rspec
 env:
   matrix:
     - SOLIDUS_BRANCH=v2.3 DB=postgres
