@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :avalara_order, class: Spree::Order do
     user
     bill_address
@@ -22,7 +22,7 @@ FactoryGirl.define do
         create(:country)
       end
       if Spree::Zone.find_by(name: 'GlobalZone').nil?
-        create(:global_zone, default_tax: true)
+        create(:global_zone)
       end
       if Spree::TaxCategory.first.nil?
         create(:clothing_tax_rate, tax_categories: [create(:tax_category)], included_in_price: evaluator.tax_included)
@@ -38,7 +38,7 @@ FactoryGirl.define do
       create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
       order.shipments.reload
 
-      order.recalculate
+      order.updater.update
       order.next
     end
 
@@ -52,7 +52,7 @@ FactoryGirl.define do
         order.update_column(:state, 'complete')
         payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
 
-        order.recalculate
+        order.updater.update
         order.next
 
         payment.avalara_finalize

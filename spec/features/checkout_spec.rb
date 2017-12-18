@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
+RSpec.feature 'Checkout', :vcr, :js do
   let(:product) { Spree::Product.first }
   let(:included_in_price) { false }
   let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10, tax_included: included_in_price) }
@@ -22,7 +22,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
     end
   end
 
-  context 'delivery', js: true do
+  context 'delivery' do
     before do
       visit_delivery
     end
@@ -33,7 +33,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
     end
   end
 
-  context 'payment', js: true do
+  context 'payment' do
     before do
       visit_delivery
     end
@@ -88,7 +88,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
           order.line_items.each do |li|
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
           end
-          order.recalculate
+          order.updater.update
           order.reload
           click_button 'Save and Continue'
         end
@@ -102,7 +102,7 @@ describe "Checkout", :vcr, type: :feature, inaccessible: true, js: true do
     end
   end
 
-  context 'complete order', js: true do
+  context 'complete order' do
     let!(:payment_method) { create(:check_payment_method) }
 
     before do

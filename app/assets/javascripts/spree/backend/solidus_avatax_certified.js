@@ -1,5 +1,5 @@
 //= require spree/backend/use_code_picker
-//= require spree/backend/address_validator
+//= require spree/address_validator.js.coffee
 
 Spree.routes.use_code_search = Spree.pathFor("admin/avalara_entity_use_codes")
 Spree.routes.validate_address = Spree.pathFor("admin/avatax_settings/validate_address")

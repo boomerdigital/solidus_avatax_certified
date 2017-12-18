@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe 'Address Validation Button in Checkout', :vcr, type: :feature, js: :true do
+RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
   let(:address) { create(:address) }
   let!(:order) { create(:order_with_line_items, state: 'address', ship_address: address) }
   let!(:user) { order.user }
@@ -68,7 +68,7 @@ RSpec.describe 'Address Validation Button in Checkout', :vcr, type: :feature, js
   end
 
   def wait_for_ajax
-    Timeout.timeout(Capybara.default_wait_time) do
+    Timeout.timeout(Capybara.default_max_wait_time) do
       loop do
         active = page.evaluate_script('jQuery.active')
         break if active == 0

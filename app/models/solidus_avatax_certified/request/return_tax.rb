@@ -33,7 +33,7 @@ module SolidusAvataxCertified
         {
           taxOverride: {
             type: 'TaxDate',
-            reason: @refund.try(:reason).try(:name).limit(255) || 'Return',
+            reason: @refund&.reason&.name&.truncate(255) || 'Return',
             taxDate: order.completed_at.strftime('%F')
           }
         }
