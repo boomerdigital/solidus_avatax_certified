@@ -22,7 +22,6 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
 require 'shoulda/matchers'
-require 'capybara-screenshot/rspec'
 require 'webmock/rspec'
 
 require 'spree/testing_support/preferences'
@@ -33,13 +32,20 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
 
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'capybara/poltergeist'
 
-Capybara.save_and_open_page_path = ENV['CIRCLE_ARTIFACTS'] if ENV['CIRCLE_ARTIFACTS']
+Capybara.register_driver(:poltergeist) do |app|
+  Capybara::Poltergeist::Driver.new app, timeout: 90
+ end
+Capybara.javascript_driver = :poltergeist
+Capybara.default_max_wait_time = 10
 
-if ENV['WEBDRIVER'] == 'accessible'
-  require 'capybara/accessible'
-  Capybara.javascript_driver = :accessible
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+
 
 Dir[File.join(File.dirname(__FILE__), 'factories/*.rb')].each { |f| require f }
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
