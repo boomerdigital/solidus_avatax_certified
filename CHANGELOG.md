@@ -1,3 +1,10 @@
+## SolidusAvataxCertified v2.1.1 (SOLIDUS VERSIONS 2.1-2.2)
+- Refactor address validator to be universal for frontend and backend as well as pass in specs
+- Fix Gemfile dependencies that were breaking specs
+- Simplify .travis.yml file
+- Add dependency solidus_support and deface
+- Update capybara dependencies
+
 ## SolidusAvataxCertified v2.1.0 (SOLIDUS VERSIONS 2.1-2.2)
 
 - Upgrade Avalara REST API from V1 to V2. Change formatting of request hashes to follow V2 standards.
