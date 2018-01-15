@@ -20,7 +20,7 @@ Version Compatibility Chart
 
 | Solidus Version | Avatax Branch | Latest Avatax Version |
 |:---------------:|:-------------:|:---------------------:|
-|   v1.0 - v2.0   |   v1.0-v2.0   |         1.2.0         |
+|   v1.0 - v2.0   |   v1.0-v2.0   |         1.2.1         |
 |   v2.1 - v2.2   |  v2.1 - v2.2  |         2.0.0         |
 |       v2.3      |     master    |         3.0.0         |
 
