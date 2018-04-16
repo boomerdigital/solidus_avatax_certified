@@ -159,7 +159,7 @@ module SolidusAvataxCertified
     end
 
     def tax_included_in_price?(item)
-      !!rates_for_item(item).try(:first)&.included_in_price
+      !!rates_for_item(item).try(:first).try(:included_in_price)
     end
   end
 end
