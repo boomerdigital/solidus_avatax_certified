@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   s.add_dependency "solidus_core", [">= 2.3.0", "< 3.0.0"]
-  s.add_dependency "json", "~> 1.8"
+  s.add_dependency "json", "~> 2.0"
   s.add_dependency "avatax-ruby"
   s.add_dependency "logging", "~> 2.0"
   s.add_dependency "solidus_support"
