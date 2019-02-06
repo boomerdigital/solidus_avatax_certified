@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :avalara_shipment, class: Spree::Shipment do
-    tracking 'U10000'
+    tracking { 'U10000' }
     cost BigDecimal.new(10)
-    state 'pending'
+    state { 'pending' }
     order
     stock_location
 

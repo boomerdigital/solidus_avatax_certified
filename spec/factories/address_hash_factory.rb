@@ -1,11 +1,11 @@
 FactoryBot.define do
   # Request Hashes
   factory :address_hash, class: Hash do
-    line1 '915 S Jackson St'
-    city 'Montgomery'
-    region 'AL'
-    country 'US'
-    postalCode '36104'
+    line1 { '915 S Jackson St' }
+    city { 'Montgomery' }
+    region { 'AL' }
+    country { 'US' }
+    postalCode { '36104' }
 
     initialize_with { attributes.stringify_keys }
   end
@@ -19,7 +19,7 @@ FactoryBot.define do
       'country': 'US',
       'postalCode': '07801'
     } }
-    validatedAddresses [
+    validatedAddresses { [
       {
         'addressType': 'HighRiseOrBusinessComplex',
         'line1': '10 MOUNT PLEASANT AVE',
@@ -32,20 +32,20 @@ FactoryBot.define do
         'latitude': 40.902378,
         'longitude': -74.5454
       }
-    ]
+    ] }
     coordinates { {
       'latitude': 40.902378,
       'longitude': -74.5454
     } }
-    resolutionQuality 'Intersection'
-    taxAuthorities [
+    resolutionQuality { 'Intersection' }
+    taxAuthorities { [
       {
         'avalaraId': '34',
         'jurisdictionName': 'NEW JERSEY',
         'jurisdictionType': 'State',
         'signatureCode': 'BEJY'
       }
-    ]
+    ] }
 
     initialize_with { attributes.deep_stringify_keys }
   end
