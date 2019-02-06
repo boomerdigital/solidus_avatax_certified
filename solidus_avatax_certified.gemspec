@@ -21,26 +21,29 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.requirements << "none"
 
-  s.add_dependency "solidus_core", [">= 2.3.0", "< 3.0.0"]
-  s.add_dependency "json", "~> 2.0"
+  solidus_version = ">= 2.3.0", "< 3.0.0"
+  s.add_runtime_dependency 'solidus_core', solidus_version
+  s.add_runtime_dependency 'solidus_backend', solidus_version
+  s.add_dependency "json"
   s.add_dependency "avatax-ruby"
-  s.add_dependency "logging", "~> 2.0"
+  s.add_dependency "logging"
   s.add_dependency "solidus_support"
+  s.add_dependency "deface", '~> 1.0'
 
 
   s.add_development_dependency "dotenv"
-  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "rspec-rails"
   s.add_development_dependency "simplecov"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "sass-rails"
   s.add_development_dependency "coffee-rails"
   s.add_development_dependency "factory_bot"
-  s.add_development_dependency "selenium-webdriver", "~> 2.53.4"
-  s.add_development_dependency "capybara", "~> 2.11"
-  s.add_development_dependency "poltergeist", "~> 1.16"
-  s.add_development_dependency "phantomjs", "~> 2.1.1"
+  s.add_development_dependency "selenium-webdriver"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "poltergeist"
+  s.add_development_dependency "phantomjs"
   s.add_development_dependency "database_cleaner"
-  s.add_development_dependency 'shoulda-matchers', '~> 2.7'
+  s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
   s.add_development_dependency 'ffaker'
