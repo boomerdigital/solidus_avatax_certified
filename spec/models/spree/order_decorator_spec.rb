@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Spree::Order, :vcr do
 
-  it { should have_one :avalara_transaction }
   let(:order) { build(:avalara_order, ship_address: build(:address)) }
   let(:avalara_order) { create(:avalara_order) }
   let(:completed_order) { create(:completed_avalara_order) }

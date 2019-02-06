@@ -21,7 +21,6 @@ Dotenv.load
 require 'rspec/rails'
 require 'database_cleaner'
 require 'ffaker'
-require 'shoulda/matchers'
 require 'webmock/rspec'
 
 require 'spree/testing_support/preferences'
