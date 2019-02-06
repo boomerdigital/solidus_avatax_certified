@@ -9,6 +9,12 @@ group :test, :development do
   gem "pry"
 end
 
+if branch < 'v2.5'
+  gem 'factory_bot', '4.10.0'
+else
+  gem 'factory_bot', '> 4.10.0'
+end
+
 gem "rails-controller-testing", group: :test
 
 gem 'pg', '~> 0.21'
