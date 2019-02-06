@@ -28,8 +28,6 @@ Gem::Specification.new do |s|
   s.add_dependency "avatax-ruby"
   s.add_dependency "logging"
   s.add_dependency "solidus_support"
-  s.add_dependency "deface", '~> 1.0'
-
 
   s.add_development_dependency "dotenv"
   s.add_development_dependency "rspec-rails"
@@ -39,6 +37,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "coffee-rails"
   s.add_development_dependency "selenium-webdriver"
   s.add_development_dependency "capybara"
+  s.add_development_dependency "capybara-screenshot"
   s.add_development_dependency "poltergeist"
   s.add_development_dependency "phantomjs"
   s.add_development_dependency "database_cleaner"

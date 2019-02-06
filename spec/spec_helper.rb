@@ -30,24 +30,14 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
-
+require "solidus_support/extension/feature_helper"
 
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 
-Capybara.register_driver(:poltergeist) do |app|
-  Capybara::Poltergeist::Driver.new app, timeout: 90
-end
-Capybara.javascript_driver = :poltergeist
-Capybara.default_max_wait_time = 10
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
-
-Dir[File.join(File.dirname(__FILE__), 'factories/*.rb')].each { |f| require f }
+Dir[File.join(File.dirname(__FILE__), 'factories/**/*.rb')].each { |f| require f }
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
@@ -63,6 +53,17 @@ RSpec.configure do |config|
   config.include Spree::TestingSupport::Preferences
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
+
+  Capybara.register_driver(:poltergeist) do |app|
+    Capybara::Poltergeist::Driver.new app, timeout: 90
+  end
+  Capybara.javascript_driver = :poltergeist
+  Capybara.server = :webrick
+  Capybara.default_max_wait_time = 10
+
+  Capybara.register_driver :chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
 
   config.before :suite do
     DatabaseCleaner.strategy = :truncation
