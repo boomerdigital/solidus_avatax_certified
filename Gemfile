@@ -18,6 +18,6 @@ end
 gem "rails-controller-testing", group: :test
 
 gem 'pg', '~> 0.21'
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.10'
 
 gemspec
