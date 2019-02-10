@@ -1,31 +1,31 @@
 FactoryBot.define do
 
   factory :response_hash_success, class: Hash do
-    id 0
-    code "R432426823"
-    companyId 0
-    date "2017-05-31"
-    paymentDate "2017-05-31"
-    status "Temporary"
-    type "SalesOrder"
-    currencyCode "USD"
-    customerVendorCode "1"
-    reconciled false
-    referenceCode "R432426823"
-    totalAmount 10.0
-    totalExempt 0.0
-    totalTax 0.4
-    totalTaxable 10.0
-    totalTaxCalculated 0.4
-    adjustmentReason "NotAdjusted"
-    locked false
-    version 1
-    exchangeRateEffectiveDate "2017-05-31"
-    exchangeRate 1.0
-    isSellerImporterOfRecord false
-    modifiedDate "2017-05-31T22:04:02.1273454Z"
-    modifiedUserId 37777
-    taxDate "0001-01-01T00:00:00"
+    id { 0 }
+    code { "R432426823" }
+    companyId { 0 }
+    date { "2017-05-31" }
+    paymentDate { "2017-05-31" }
+    status { "Temporary" }
+    type { "SalesOrder" }
+    currencyCode { "USD" }
+    customerVendorCode { "1" }
+    reconciled { false }
+    referenceCode { "R432426823" }
+    totalAmount { 10.0 }
+    totalExempt { 0.0 }
+    totalTax { 0.4 }
+    totalTaxable { 10.0 }
+    totalTaxCalculated { 0.4 }
+    adjustmentReason { "NotAdjusted" }
+    locked { false }
+    version { 1 }
+    exchangeRateEffectiveDate { "2017-05-31" }
+    exchangeRate { 1.0 }
+    isSellerImporterOfRecord { false }
+    modifiedDate { "2017-05-31T22:04:02.1273454Z" }
+    modifiedUserId { 37777 }
+    taxDate { "0001-01-01T00:00:00" }
     lines [{
         "id" => 0,
         "transactionId" => 0,
