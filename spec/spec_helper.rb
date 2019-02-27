@@ -19,16 +19,11 @@ require 'dotenv'
 Dotenv.load
 
 require 'rspec/rails'
-require 'database_cleaner'
-require 'ffaker'
 require 'webmock/rspec'
 
-require 'spree/testing_support/preferences'
-require 'spree/testing_support/authorization_helpers'
+require 'solidus_support/extension/rails_helper'
 require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
-require 'spree/testing_support/factories'
-require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
 require "solidus_support/extension/feature_helper"
 
@@ -71,9 +66,20 @@ RSpec.configure do |config|
   end
 
   config.before :each do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
     DatabaseCleaner.start
     MyConfigPreferences.set_preferences
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.strategy = RSpec.current_example.metadata[:js] ? :truncation : :transaction
+
+    DatabaseCleaner.cleaning do
+      reset_spree_preferences
+      MyConfigPreferences.set_preferences
+
+      example.run
+    end
   end
 
   config.after :each do
