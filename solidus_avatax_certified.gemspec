@@ -21,17 +21,19 @@ Gem::Specification.new do |s|
   s.require_path = "lib"
   s.requirements << "none"
 
-  s.add_dependency "solidus_core", [">= 2.3.0", "< 3.0.0"]
+  solidus_version = [">= 2.3.0", "< 3.0.0"]
+  s.add_dependency 'solidus', solidus_version
+  s.add_dependency "solidus_support"
+  s.add_dependency 'deface'
   s.add_dependency "json", "~> 2.0"
   s.add_dependency "avatax-ruby"
   s.add_dependency "logging", "~> 2.0"
-  s.add_dependency "solidus_support"
 
 
   s.add_development_dependency "dotenv"
   s.add_development_dependency "rspec-rails", "~> 3.2"
   s.add_development_dependency "simplecov"
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3", "~> 1.3.6"
   s.add_development_dependency "sass-rails"
   s.add_development_dependency "coffee-rails"
   s.add_development_dependency "factory_bot"
