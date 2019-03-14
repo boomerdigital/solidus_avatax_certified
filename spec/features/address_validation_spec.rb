@@ -22,8 +22,6 @@ RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
     end
 
     context 'success' do
-      let(:address) { create(:address, zipcode: '36104') }
-
       it 'validates successfully and populates with validated address' do
         expect(page).to have_content('Validate Ship Address')
 
@@ -65,14 +63,5 @@ RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
     allow_any_instance_of(Spree::CheckoutController).to receive_messages(:current_order => order)
     allow_any_instance_of(Spree::CheckoutController).to receive_messages(:try_spree_current_user => user)
     visit spree.checkout_state_path(:address)
-  end
-
-  def wait_for_ajax
-    Timeout.timeout(Capybara.default_max_wait_time) do
-      loop do
-        active = page.evaluate_script('jQuery.active')
-        break if active == 0
-      end
-    end
   end
 end

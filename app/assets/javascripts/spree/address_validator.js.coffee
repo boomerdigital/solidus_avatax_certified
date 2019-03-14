@@ -1,10 +1,10 @@
 Spree.lineHash =
-  line1: 'address1'
-  line2: 'address2'
+  address1: 'line1'
+  address2: 'line2'
   city: 'city'
-  postalCode: 'zipcode'
+  zipcode: 'postalCode'
   country: 'country'
-  region: 'state'
+  state: 'region'
 
 class AddressValidator
   constructor: ->
@@ -25,12 +25,12 @@ class AddressValidator
         validatedAddress = data.validatedAddresses[0]
         wrapper = @addressWrapper()
         $.each [
-          'line1'
-          'line2'
+          'address1'
+          'address2'
           'city'
-          'postalCode'
+          'zipcode'
         ], (index, value) ->
-          $(wrapper + ' input[id*=\'' + Spree.lineHash[value] + '\']').val validatedAddress[value]
+          $(wrapper + ' input[id*=\'' + value + '\']').val validatedAddress[Spree.lineHash[value]]
         @showFlash data
       ).bind(this)
 
