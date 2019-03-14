@@ -131,11 +131,10 @@ describe Spree::AvalaraTransaction, :vcr do
 
       describe 'when successful' do
         let(:order) { create(:completed_avalara_order) }
+
         subject do
-          VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
-            order.avalara_capture_finalize
-            order.avalara_transaction.cancel_order
-          end
+          order.avalara_capture_finalize
+          order.avalara_transaction.cancel_order
         end
 
         it 'should receive status of cancelled' do
