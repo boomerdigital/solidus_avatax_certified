@@ -13,7 +13,7 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -27,25 +27,34 @@ http_interactions:
       code: 400
       message: Bad Request
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 15:44:29 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00'
+      - '00:00:00.0003289'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:34:47 GMT
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"error":{"code":"GetTaxError","message":"Lines[0].TaxCode length must
-        be between 0 and 25 characters.","target":"Unknown","details":[{"code":"GetTaxError","number":300,"message":"Lines[0].TaxCode
-        length must be between 0 and 25 characters.","description":"","faultCode":"GetTaxError","helpLink":"http://developer.avalara.com/avatax/errors/GetTaxError","refersTo":"Lines[0].TaxCode","severity":"Error"}]}}'
+      string: '{"error":{"code":"ModelStateInvalid","message":"Field ''taxCode'' has
+        an invalid length.","target":"HttpRequest","details":[{"code":"MaxStringLengthError","number":14,"message":"Field
+        ''taxCode'' has an invalid length.","description":"Field ''taxCode'' must
+        be no more than 25 characters in length.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/MaxStringLengthError","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:34:58 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 14 Mar 2019 15:44:29 GMT
+recorded_with: VCR 4.0.0

@@ -1,14 +1,8 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Line, :vcr do
-  let(:order) { create(:avalara_order, line_items_count: 2) }
+  let!(:order) { create(:avalara_order, line_items_count: 2) }
   let(:sales_lines) { SolidusAvataxCertified::Line.new(order, 'SalesOrder') }
-
-  before do
-    VCR.use_cassette("order_capture", allow_playback_repeats: true) do
-      order
-    end
-  end
 
   describe '#initialize' do
     it 'should have order' do

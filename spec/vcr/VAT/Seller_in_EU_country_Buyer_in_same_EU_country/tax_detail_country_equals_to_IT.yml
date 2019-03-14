@@ -5,18 +5,18 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R081309203","date":"2017-07-24","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #20 - 604","taxCode":"PC030000","itemCode":"SKU-20","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R420549808","date":"2019-03-14","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #131 - 7063","taxCode":"PC030000","itemCode":"SKU-131","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"34
         Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"34
-        Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R081309203","currencyCode":"USD","businessIdentificationNo":null}}'
+        Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R420549808","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -30,266 +30,60 @@ http_interactions:
       code: 201
       message: Created
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 15:49:43 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Location:
       - "/api/v2/companies/0/transactions/0"
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00.0468727'
+      - '00:00:00.0549872'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:32:29 GMT
+      Serviceduration:
+      - '00:00:00.0525828'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"R081309203","companyId":0,"date":"2017-07-24","paymentDate":"2017-07-24","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","reconciled":false,"referenceCode":"R081309203","totalAmount":16.4,"totalExempt":0.0,"totalTax":3.6,"totalTaxable":16.4,"totalTaxCalculated":3.6,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2017-07-24","exchangeRate":1.0,"isSellerImporterOfRecord":false,"modifiedDate":"2017-07-24T16:32:29.0098208Z","modifiedUserId":38097,"taxDate":"0001-01-01T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-20","lineAmount":8.2,"quantity":1.0,"reportingDate":"2017-07-24","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"PC030000","taxDate":"2017-07-24","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Sales","taxName":"Standard
-        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S"}]},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
-        Ground","lineAmount":8.2,"quantity":1.0,"reportingDate":"2017-07-24","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"FR000000","taxDate":"2017-07-24","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Sales","taxName":"Standard
-        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S"}]}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
-        Borgo degli Albizi","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
-        Piccadilly","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
-        Borgo degli Albizi","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
-        Piccadilly","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"State","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"Standard
-        Rate","taxGroup":"","rateType":"Standard","rateTypeCode":"S","taxable":16.4,"rate":0.220000,"tax":3.6,"taxCalculated":3.6,"nonTaxable":0.0,"exemption":0.0}],"messages":[{"summary":"Global
-        Address","details":"\n    Address: 150 Piccadilly, Florence, 50122 IT\n    AddressCode:
-        ORIG1\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
-        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
-        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[0]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 34 Borgo degli Albizi, Florence, 50122
-        IT\n    AddressCode: DEST2\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute:
-        \n    County: \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet:
-        \n    Reason: \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[1]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 150 Piccadilly, Florence, 50122 IT\n    AddressCode:
-        ORIG3\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
-        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
-        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[2]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 34 Borgo degli Albizi, Florence, 50122
-        IT\n    AddressCode: DEST4\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute:
-        \n    County: \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet:
-        \n    Reason: \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[3]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"AddressLocationType:
-        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[0]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipTo","details":"\n    Address: 34 Borgo degli Albizi,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[1]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[2]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipTo","details":"\n    Address: 34 Borgo degli Albizi,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[3]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
-        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
-        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
-        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
-        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
-        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
-        CNT\n    TaxRuleId: 2111383\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 3/1/2015\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: PC030000\n    TaxCodeId:
-        8107\n    TaxName: Clothing & related products (Business-To-Business)\n    NexusTaxTypeGroupId:
-        InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId:
-        O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId:
-        None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis:
-        PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions: \n    AttributeApplicability:
-        \n    ReturnsDeductionID: -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID:
-        -1\n\nTaxRule[TaxType:O][TaxSubType:O]: RateRule CNT\n    TaxRuleId: 977813\n    Cap:
-        0.000000\n    CompanyId: 1\n    Country: IT\n    CustomerUsageType: \n    EffDate:
-        10/1/2013\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: Standard
-        Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value:
-        0.220000\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: -1\n    ReturnsRateID:
-        -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"1-LI\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
-        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
-        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
-        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
-        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
-        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
-        CNT\n    TaxRuleId: 2729157\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 7/1/2016\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: RateDepends\n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: FR000000\n    TaxCodeId:
-        8550\n    TaxName: Freight\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
-        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
-        560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId: None\n    RateTypeId:
-        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
-        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
-        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n\nTaxRule[TaxType:O][TaxSubType:O]:
-        RateRule CNT\n    TaxRuleId: 977813\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 10/1/2013\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId:
-        0\n    TaxName: Standard Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
-        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
-        560\n    Threshold: 0.000000\n    Value: 0.220000\n    RateSourceId: None\n    RateTypeId:
-        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
-        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
-        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"2-FR\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"Document\n    CompanyId: 236180\n    CurrencyCode: USD\n    CustomerVendorCode:
-        1\n    CustomerUsageType: \n    DocumentCode: R081309203\n    DocumentDate:
-        7/24/2017\n    DocumentId: 0\n    DocumentLineCount: 2\n    DocumentStatusId:
-        0\n    DocumentTypeId: 0\n    ExemptNo: \n    Business Identification No:
-        \n    IsReconciled: False\n    LocationCode: \n    ModifiedDate: 7/24/2017
-        4:32:28 PM\n    ModifiedUserId: 38097\n    PaymentDate: 1/1/1900\n    PurchaseOrderNo:
-        \n    ReferenceCode: \n    SalespersonCode: \n    TaxDate: 7/24/2017\n    TaxOverrideTypeId:
-        0\n    TaxOverrideAmount: 0\n    TaxOverrideReason: \n    TotalAmount: 16.4\n    TotalTax:
-        3.6\n    TotalTaxCalculated: 3.6\n    VATNumberType No registration\n    DocumentAddress[0]:
-        \n        Line1: 34 Borgo degli Albizi\n        City: Florence\n        Region:
-        \n        County: \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId:
-        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
-        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: IT\n        PostalCode:
-        50122\n        TaxRegionId: 205090\n        ValidateStatusId: Not Validated.\n        AddressLine1:
-        34 Borgo degli Albizi\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[1]:
-        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
-        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
-        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
-        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 50122\n        TaxRegionId:
-        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
-        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[2]:
-        \n        Line1: 34 Borgo degli Albizi\n        City: Florence\n        Region:
-        \n        County: \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId:
-        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
-        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: IT\n        PostalCode:
-        50122\n        TaxRegionId: 205090\n        ValidateStatusId: Not Validated.\n        AddressLine1:
-        34 Borgo degli Albizi\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[3]:
-        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
-        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
-        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
-        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 50122\n        TaxRegionId:
-        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
-        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    Line[0]: \n        AccountingMethodId:
-        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
-        \n        Description: Product #20 - 604\n        DestinationAddressId: 0\n        DiscountAmount:
-        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
-        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
-        No: \n        InState: True\n        IsPhysical: True\n        IsSstp: False\n        ItemCode:
-        SKU-20\n        LineAmount: 8.2\n        LineNo: 1-LI\n        OriginAddressId:
-        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
-        \n        Sourcing: D\n        IsItemTaxable: True\n        ReportingDate:
-        7/24/2017\n        Tax: 1.8\n        TaxableAmount: 8.2\n        TaxCalculated:
-        1.8\n        TaxDate: 7/24/2017\n        TaxCode: PC030000\n        TaxCodeId:
-        8107 (PC030000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
-        0\n        TaxOverrideReason: \n        VATCode: ITS-2200P--IT\n        VATNumberType:
-        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
-        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
-        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
-        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
-        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
-        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
-        \n            Rate: 0.220000\n            RateRuleId: 977813\n            RateSourceId:
-        None\n            Region: IT\n            SERCode: \n            Sourcing:
-        D\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
-        0\n            Tax: 1.8\n            TaxableAmount: 8.2\n            TaxableUnits:
-        8.2\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId:
-        13\n            TaxCalculated: 1.8\n            TaxName: Standard Rate\n            TaxOverride:
-        0\n            TaxTypeGroupId: 560\n            TaxTypeId: O\n            TaxSubTypeId:
-        560\n            RateTypeId: S\n            IsFee: False\n            TaxTypeMappingId:
-        560\n            RateTypeTaxTypeMappingId: 2278\n            TaxRegionId:
-        205090\n           *Cap: 0\n           *Threshold: 0\n            TaxAuthorityTypeId:
-        45\n            TaxAuthorityId: 0\n            TaxAuthorityName: 0\n            ReportLevel:
-        -1\n    Line[1]: \n        AccountingMethodId: 0 (Accrual)\n        BoundaryLevelId:
-        2\n        BoundaryOverrideId: 0\n        CustomerUsageType: \n        Description:
-        Shipping Charge\n        DestinationAddressId: 0\n        DiscountAmount:
-        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
-        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
-        No: \n        InState: True\n        IsPhysical: False\n        IsSstp: False\n        ItemCode:
-        Avalara Ground\n        LineAmount: 8.2\n        LineNo: 2-FR\n        OriginAddressId:
-        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
-        \n        Sourcing: D\n        IsItemTaxable: True\n        ReportingDate:
-        7/24/2017\n        Tax: 1.8\n        TaxableAmount: 8.2\n        TaxCalculated:
-        1.8\n        TaxDate: 7/24/2017\n        TaxCode: FR000000\n        TaxCodeId:
-        8550 (FR000000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
-        0\n        TaxOverrideReason: \n        VATCode: ITS-2200F--IT\n        VATNumberType:
-        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
-        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
-        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
-        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
-        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
-        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
-        RateDepends\n            Rate: 0.220000\n            RateRuleId: 977813\n            RateSourceId:
-        None\n            Region: IT\n            SERCode: \n            Sourcing:
-        D\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
-        0\n            Tax: 1.8\n            TaxableAmount: 8.2\n            TaxableUnits:
-        8.2\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId:
-        13\n            TaxCalculated: 1.8\n            TaxName: Standard Rate\n            TaxOverride:
-        0\n            TaxTypeGroupId: 560\n            TaxTypeId: O\n            TaxSubTypeId:
-        560\n            RateTypeId: S\n            IsFee: False\n            TaxTypeMappingId:
-        560\n            RateTypeTaxTypeMappingId: 2278\n            TaxRegionId:
-        205090\n           *Cap: 0\n           *Threshold: 0\n            TaxAuthorityTypeId:
-        45\n            TaxAuthorityId: 0\n            TaxAuthorityName: 0\n            ReportLevel:
-        -1\n","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
-        applied for the transaction, XML format","details":"<?xml version=\"1.0\"
-        encoding=\"utf-16\"?><ArrayOfSourcingRuleApplied xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SourcingRuleApplied><LineNo>1-LI</LineNo><SourcingRuleId_Sourcing>0</SourcingRuleId_Sourcing><Sourcing>D</Sourcing><SourcingRuleId_RateType>0</SourcingRuleId_RateType><RateType>S</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied><SourcingRuleApplied><LineNo>2-FR</LineNo><SourcingRuleId_Sourcing>0</SourcingRuleId_Sourcing><Sourcing>D</Sourcing><SourcingRuleId_RateType>0</SourcingRuleId_RateType><RateType>S</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied></ArrayOfSourcingRuleApplied>","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
-        applied for the transaction, JSON format","details":"[{\"LineNo\":\"1-LI\",\"SourcingRuleId_Sourcing\":0,\"Sourcing\":\"D\",\"SourcingRuleId_RateType\":0,\"RateType\":\"S\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31},{\"LineNo\":\"2-FR\",\"SourcingRuleId_Sourcing\":0,\"Sourcing\":\"D\",\"SourcingRuleId_RateType\":0,\"RateType\":\"S\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31}]","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"}]}'
+      string: '{"id":0,"code":"R420549808","companyId":0,"date":"2019-03-14","paymentDate":"2019-03-14","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","customerCode":"1","reconciled":false,"referenceCode":"R420549808","totalAmount":16.4,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.6,"totalTaxable":16.4,"totalTaxCalculated":3.6,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-03-14","exchangeRate":1.0,"modifiedDate":"2019-03-14T15:49:47.4149641Z","modifiedUserId":38097,"taxDate":"2019-03-14T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"Product
+        #131 - 7063","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-131","lineAmount":8.2,"quantity":1.0,"reportingDate":"2019-03-14","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2019-03-14","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Output","taxName":"Standard
+        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-2200P--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"Shipping
+        Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
+        Ground","lineAmount":8.2,"quantity":1.0,"reportingDate":"2019-03-14","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2019-03-14","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Output","taxName":"Standard
+        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-2200F--IT","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
+        Borgo degli Albizi","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"Country","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxName":"Standard
+        Rate","rateType":"Standard","taxable":16.4,"rate":0.220000,"tax":3.6,"taxCalculated":3.6,"nonTaxable":0.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:32:39 GMT
+  recorded_at: Thu, 14 Mar 2019 15:49:43 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R081309203","date":"2017-07-24","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #20 - 604","taxCode":"PC030000","itemCode":"SKU-20","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R420549808","date":"2019-03-14","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #131 - 7063","taxCode":"PC030000","itemCode":"SKU-131","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"34
         Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"34
-        Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R081309203","currencyCode":"USD","businessIdentificationNo":null}}'
+        Borgo degli Albizi","line2":"","city":"Florence","region":null,"country":"IT","postalCode":"50122"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R420549808","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -303,247 +97,41 @@ http_interactions:
       code: 201
       message: Created
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 15:49:45 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Location:
       - "/api/v2/companies/0/transactions/0"
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00.0250261'
+      - '00:00:00.0628969'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:32:28 GMT
+      Serviceduration:
+      - '00:00:00.0592599'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"id":0,"code":"R081309203","companyId":0,"date":"2017-07-24","paymentDate":"2017-07-24","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","reconciled":false,"referenceCode":"R081309203","totalAmount":16.4,"totalExempt":0.0,"totalTax":3.6,"totalTaxable":16.4,"totalTaxCalculated":3.6,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2017-07-24","exchangeRate":1.0,"isSellerImporterOfRecord":false,"modifiedDate":"2017-07-24T16:32:29.5014514Z","modifiedUserId":38097,"taxDate":"0001-01-01T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-20","lineAmount":8.2,"quantity":1.0,"reportingDate":"2017-07-24","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"PC030000","taxDate":"2017-07-24","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Sales","taxName":"Standard
-        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S"}]},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
-        Ground","lineAmount":8.2,"quantity":1.0,"reportingDate":"2017-07-24","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"FR000000","taxDate":"2017-07-24","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"STA","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Sales","taxName":"Standard
-        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S"}]}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
-        Borgo degli Albizi","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
-        Piccadilly","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
-        Borgo degli Albizi","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
-        Piccadilly","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"State","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Sales","taxName":"Standard
-        Rate","taxGroup":"","rateType":"Standard","rateTypeCode":"S","taxable":16.4,"rate":0.220000,"tax":3.6,"taxCalculated":3.6,"nonTaxable":0.0,"exemption":0.0}],"messages":[{"summary":"Global
-        Address","details":"\n    Address: 150 Piccadilly, Florence, 50122 IT\n    AddressCode:
-        ORIG1\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
-        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
-        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[0]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 34 Borgo degli Albizi, Florence, 50122
-        IT\n    AddressCode: DEST2\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute:
-        \n    County: \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet:
-        \n    Reason: \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[1]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 150 Piccadilly, Florence, 50122 IT\n    AddressCode:
-        ORIG3\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute: \n    County:
-        \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet: \n    Reason:
-        \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[2]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"Global
-        Address","details":"\n    Address: 34 Borgo degli Albizi, Florence, 50122
-        IT\n    AddressCode: DEST4\n    AddressType: \n    BoundaryId: 0\n    CarrierRoute:
-        \n    County: \n    FipsCode: \n    GeocodeType: NotGeoCoded\n    PostNet:
-        \n    Reason: \n    ValidateStatus: Not Validated.\n    TaxRegionId: 0\n","refersTo":"Addresses[3]
-        - TaxDate: 2017-07-24 00:00:00Z","severity":"Success","source":"Avalara.AvaTax.Services.Tax.Steps"},{"summary":"AddressLocationType:
-        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[0]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipTo","details":"\n    Address: 34 Borgo degli Albizi,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[1]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipFrom","details":"\n    Address: 150 Piccadilly,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[2]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"AddressLocationType:
-        ShipTo","details":"\n    Address: 34 Borgo degli Albizi,Florence, 50122\n    Type:
-        global address\n    City: \n    State: \n    County: \n    Country: IT\n    BoundaryLevel:
-        2\n    BoundarySource: BoundaryGlobal\n    BoundaryId: 53\n    TaxRegionId:
-        205090\n    FIPSCode: IT\n    CitySignature: \n    GEOCode: \n    Jurisdictions:
-        \n        CNT: JurisdictionId=\"200090\" JurisdictionCode=\"IT\" JurisdictionTypeId=\"CNT\"
-        LongName=\"ITALY\" Country=\"IT\" State=\"\" SignatureCode=\"YADO\" EffDate=\"07/01/2008\"
-        EndDate=\"12/31/9999\" \n","refersTo":"Addresses[3]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
-        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
-        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
-        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
-        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
-        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
-        CNT\n    TaxRuleId: 2111383\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 3/1/2015\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: PC030000\n    TaxCodeId:
-        8107\n    TaxName: Clothing & related products (Business-To-Business)\n    NexusTaxTypeGroupId:
-        InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId:
-        O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId:
-        None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis:
-        PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions: \n    AttributeApplicability:
-        \n    ReturnsDeductionID: -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID:
-        -1\n\nTaxRule[TaxType:O][TaxSubType:O]: RateRule CNT\n    TaxRuleId: 977813\n    Cap:
-        0.000000\n    CompanyId: 1\n    Country: IT\n    CustomerUsageType: \n    EffDate:
-        10/1/2013\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        True\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: Standard
-        Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0.000000\n    Value:
-        0.220000\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: -1\n    ReturnsRateID:
-        -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"1-LI\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"\nTaxRule[TaxType:O][TaxSubType:O]: Nexus CNT\n    TaxRuleId:
-        0\n    Cap: 0\n    CompanyId: 236180\n    Country: IT\n    CustomerUsageType:
-        \n    EffDate: 1/1/1900\n    EndDate: 12/31/9999\n    IsAllJuris: False\n    IsPhysical:
-        False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName: ITALY\n    JurisTypeId:
-        CNT\n    Options: \n    SERCode: \n    SignatureCode: \n    Sourcing: D\n    State:
-        IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId: 0\n    TaxName: IT
-        VAT\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId: InputAndOutput\n    TaxTypeId:
-        O\n    TaxSubTypeId: O\n    TaxTypeMappingId: 560\n    Threshold: 0\n    Value:
-        1\n    RateSourceId: None\n    RateTypeId: S\n    RateTypeTaxTypeMappingId:
-        2257\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId: 13\n    AttributeOptions:
-        \n    AttributeApplicability: \n    ReturnsDeductionID: 0\n    ReturnsRateID:
-        0\n    ReturnsTaxTypeID: 0\n\nTaxRule[TaxType:O][TaxSubType:O]: ProductTaxabilityRule
-        CNT\n    TaxRuleId: 2729157\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 7/1/2016\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: RateDepends\n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: FR000000\n    TaxCodeId:
-        8550\n    TaxName: Freight\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
-        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
-        560\n    Threshold: 0.000000\n    Value: 1.000000\n    RateSourceId: None\n    RateTypeId:
-        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
-        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
-        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n\nTaxRule[TaxType:O][TaxSubType:O]:
-        RateRule CNT\n    TaxRuleId: 977813\n    Cap: 0.000000\n    CompanyId: 1\n    Country:
-        IT\n    CustomerUsageType: \n    EffDate: 10/1/2013\n    EndDate: 12/31/9999\n    IsAllJuris:
-        False\n    IsPhysical: False\n    IsSSTP: False\n    JurisCode: IT\n    JurisName:
-        ITALY\n    JurisTypeId: CNT\n    Options: \n    SERCode: \n    SignatureCode:
-        \n    Sourcing: D\n    State: IT\n    StateAssignedNo: \n    TaxCode: \n    TaxCodeId:
-        0\n    TaxName: Standard Rate\n    NexusTaxTypeGroupId: InputAndOutput\n    TaxTypeGroupId:
-        InputAndOutput\n    TaxTypeId: O\n    TaxSubTypeId: O\n    TaxTypeMappingId:
-        560\n    Threshold: 0.000000\n    Value: 0.220000\n    RateSourceId: None\n    RateTypeId:
-        S\n    RateTypeTaxTypeMappingId: 2278\n    UnitOfBasis: PerCurrencyUnit\n    UnitOfBasisId:
-        13\n    AttributeOptions: \n    AttributeApplicability: \n    ReturnsDeductionID:
-        -1\n    ReturnsRateID: -1\n    ReturnsTaxTypeID: -1\n","refersTo":"Lines[\"2-FR\"]","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"Tax
-        Rules","details":"Document\n    CompanyId: 236180\n    CurrencyCode: USD\n    CustomerVendorCode:
-        1\n    CustomerUsageType: \n    DocumentCode: R081309203\n    DocumentDate:
-        7/24/2017\n    DocumentId: 0\n    DocumentLineCount: 2\n    DocumentStatusId:
-        0\n    DocumentTypeId: 0\n    ExemptNo: \n    Business Identification No:
-        \n    IsReconciled: False\n    LocationCode: \n    ModifiedDate: 7/24/2017
-        4:32:29 PM\n    ModifiedUserId: 38097\n    PaymentDate: 1/1/1900\n    PurchaseOrderNo:
-        \n    ReferenceCode: \n    SalespersonCode: \n    TaxDate: 7/24/2017\n    TaxOverrideTypeId:
-        0\n    TaxOverrideAmount: 0\n    TaxOverrideReason: \n    TotalAmount: 16.4\n    TotalTax:
-        3.6\n    TotalTaxCalculated: 3.6\n    VATNumberType No registration\n    DocumentAddress[0]:
-        \n        Line1: 34 Borgo degli Albizi\n        City: Florence\n        Region:
-        \n        County: \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId:
-        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
-        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: IT\n        PostalCode:
-        50122\n        TaxRegionId: 205090\n        ValidateStatusId: Not Validated.\n        AddressLine1:
-        34 Borgo degli Albizi\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[1]:
-        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
-        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
-        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
-        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 50122\n        TaxRegionId:
-        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
-        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[2]:
-        \n        Line1: 34 Borgo degli Albizi\n        City: Florence\n        Region:
-        \n        County: \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId:
-        2\n        BoundarySource: BoundaryGlobal\n        CitySignature: \n        DocumentAddressId:
-        0\n        GeocodeTypeId: NotGeoCoded\n        JurisCode: IT\n        PostalCode:
-        50122\n        TaxRegionId: 205090\n        ValidateStatusId: Not Validated.\n        AddressLine1:
-        34 Borgo degli Albizi\n        AddressLine2: \n        AddressLine3: \n    DocumentAddress[3]:
-        \n        Line1: 150 Piccadilly\n        City: Florence\n        Region: \n        County:
-        \n        Country: IT\n        BoundaryId: 53\n        BoundaryLevelId: 2\n        BoundarySource:
-        BoundaryGlobal\n        CitySignature: \n        DocumentAddressId: 0\n        GeocodeTypeId:
-        NotGeoCoded\n        JurisCode: IT\n        PostalCode: 50122\n        TaxRegionId:
-        205090\n        ValidateStatusId: Not Validated.\n        AddressLine1: 150
-        Piccadilly\n        AddressLine2: \n        AddressLine3: \n    Line[0]: \n        AccountingMethodId:
-        0 (Accrual)\n        BoundaryLevelId: 2\n        BoundaryOverrideId: 0\n        CustomerUsageType:
-        \n        Description: Product #20 - 604\n        DestinationAddressId: 0\n        DiscountAmount:
-        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
-        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
-        No: \n        InState: True\n        IsPhysical: True\n        IsSstp: False\n        ItemCode:
-        SKU-20\n        LineAmount: 8.2\n        LineNo: 1-LI\n        OriginAddressId:
-        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
-        \n        Sourcing: D\n        IsItemTaxable: True\n        ReportingDate:
-        7/24/2017\n        Tax: 1.8\n        TaxableAmount: 8.2\n        TaxCalculated:
-        1.8\n        TaxDate: 7/24/2017\n        TaxCode: PC030000\n        TaxCodeId:
-        8107 (PC030000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
-        0\n        TaxOverrideReason: \n        VATCode: ITS-2200P--IT\n        VATNumberType:
-        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
-        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
-        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
-        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
-        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
-        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
-        \n            Rate: 0.220000\n            RateRuleId: 977813\n            RateSourceId:
-        None\n            Region: IT\n            SERCode: \n            Sourcing:
-        D\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
-        0\n            Tax: 1.8\n            TaxableAmount: 8.2\n            TaxableUnits:
-        8.2\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId:
-        13\n            TaxCalculated: 1.8\n            TaxName: Standard Rate\n            TaxOverride:
-        0\n            TaxTypeGroupId: 560\n            TaxTypeId: O\n            TaxSubTypeId:
-        560\n            RateTypeId: S\n            IsFee: False\n            TaxTypeMappingId:
-        560\n            RateTypeTaxTypeMappingId: 2278\n            TaxRegionId:
-        205090\n           *Cap: 0\n           *Threshold: 0\n            TaxAuthorityTypeId:
-        45\n            TaxAuthorityId: 0\n            TaxAuthorityName: 0\n            ReportLevel:
-        -1\n    Line[1]: \n        AccountingMethodId: 0 (Accrual)\n        BoundaryLevelId:
-        2\n        BoundaryOverrideId: 0\n        CustomerUsageType: \n        Description:
-        Shipping Charge\n        DestinationAddressId: 0\n        DiscountAmount:
-        0\n        DiscountTypeId: 0\n        DocumentLineId: 0\n        ExemptAmount:
-        0\n        ExemptCertId: 0\n        ExemptNo: \n        Business Identification
-        No: \n        InState: True\n        IsPhysical: False\n        IsSstp: False\n        ItemCode:
-        Avalara Ground\n        LineAmount: 8.2\n        LineNo: 2-FR\n        OriginAddressId:
-        0\n        Quantity: 1\n        Ref1: \n        Ref2: \n        RevAccount:
-        \n        Sourcing: D\n        IsItemTaxable: True\n        ReportingDate:
-        7/24/2017\n        Tax: 1.8\n        TaxableAmount: 8.2\n        TaxCalculated:
-        1.8\n        TaxDate: 7/24/2017\n        TaxCode: FR000000\n        TaxCodeId:
-        8550 (FR000000)\n        TaxOverrideTypeId: 0\n        TaxOverrideAmount:
-        0\n        TaxOverrideReason: \n        VATCode: ITS-2200F--IT\n        VATNumberType:
-        No registration\n        Detail[0]: IT CNT IT\n            DocumentLineDetailId:
-        0\n            AddressId: 0\n            Country: IT\n            ExemptAmount:
-        0\n            ExemptUnits: 0\n            ExemptReasonId: 4 (NoExempt)\n            InState:
-        True\n            JurisCode: IT\n            JurisdictionId: 200090\n            JurisName:
-        ITALY\n            JurisTypeId: CNT\n            NonTaxableAmount: 0\n            NonTaxableUnits:
-        0\n            NonTaxableRuleId: 0\n            NonTaxableTypeId: 0\n            Options:
-        RateDepends\n            Rate: 0.220000\n            RateRuleId: 977813\n            RateSourceId:
-        None\n            Region: IT\n            SERCode: \n            Sourcing:
-        D\n            StateCode: IT\n            StateAssignedNo: \n            TaxAuthorityId:
-        0\n            Tax: 1.8\n            TaxableAmount: 8.2\n            TaxableUnits:
-        8.2\n            UnitOfBasis: PerCurrencyUnit\n            UnitOfBasisId:
-        13\n            TaxCalculated: 1.8\n            TaxName: Standard Rate\n            TaxOverride:
-        0\n            TaxTypeGroupId: 560\n            TaxTypeId: O\n            TaxSubTypeId:
-        560\n            RateTypeId: S\n            IsFee: False\n            TaxTypeMappingId:
-        560\n            RateTypeTaxTypeMappingId: 2278\n            TaxRegionId:
-        205090\n           *Cap: 0\n           *Threshold: 0\n            TaxAuthorityTypeId:
-        45\n            TaxAuthorityId: 0\n            TaxAuthorityName: 0\n            ReportLevel:
-        -1\n","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
-        applied for the transaction, XML format","details":"<?xml version=\"1.0\"
-        encoding=\"utf-16\"?><ArrayOfSourcingRuleApplied xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"
-        xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><SourcingRuleApplied><LineNo>1-LI</LineNo><SourcingRuleId_Sourcing>0</SourcingRuleId_Sourcing><Sourcing>D</Sourcing><SourcingRuleId_RateType>0</SourcingRuleId_RateType><RateType>S</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied><SourcingRuleApplied><LineNo>2-FR</LineNo><SourcingRuleId_Sourcing>0</SourcingRuleId_Sourcing><Sourcing>D</Sourcing><SourcingRuleId_RateType>0</SourcingRuleId_RateType><RateType>S</RateType><SourcingRuleId_JurisTypesApplicableId>0</SourcingRuleId_JurisTypesApplicableId><JurisTypesApplicableId>31</JurisTypesApplicableId></SourcingRuleApplied></ArrayOfSourcingRuleApplied>","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"},{"summary":"SourcingRules
-        applied for the transaction, JSON format","details":"[{\"LineNo\":\"1-LI\",\"SourcingRuleId_Sourcing\":0,\"Sourcing\":\"D\",\"SourcingRuleId_RateType\":0,\"RateType\":\"S\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31},{\"LineNo\":\"2-FR\",\"SourcingRuleId_Sourcing\":0,\"Sourcing\":\"D\",\"SourcingRuleId_RateType\":0,\"RateType\":\"S\",\"SourcingRuleId_JurisTypesApplicableId\":0,\"JurisTypesApplicableId\":31}]","refersTo":"","severity":"Success","source":"Avalara.AvaTax.Services.Tax"}]}'
+      string: '{"id":0,"code":"R420549808","companyId":0,"date":"2019-03-14","paymentDate":"2019-03-14","status":"Temporary","type":"SalesOrder","currencyCode":"USD","customerVendorCode":"1","customerCode":"1","reconciled":false,"referenceCode":"R420549808","totalAmount":16.4,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.6,"totalTaxable":16.4,"totalTaxCalculated":3.6,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2019-03-14","exchangeRate":1.0,"modifiedDate":"2019-03-14T15:49:49.5825618Z","modifiedUserId":38097,"taxDate":"2019-03-14T00:00:00","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","description":"Product
+        #131 - 7063","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"SKU-131","lineAmount":8.2,"quantity":1.0,"reportingDate":"2019-03-14","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2019-03-14","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Output","taxName":"Standard
+        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-2200P--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","description":"Shipping
+        Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"isItemTaxable":true,"itemCode":"Avalara
+        Ground","lineAmount":8.2,"quantity":1.0,"reportingDate":"2019-03-14","tax":1.8,"taxableAmount":8.2,"taxCalculated":1.8,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2019-03-14","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.220000,"tax":1.8,"taxableAmount":8.2,"taxType":"Output","taxName":"Standard
+        Rate","taxAuthorityTypeId":45,"taxCalculated":1.8,"rateType":"Standard","rateTypeCode":"S","isNonPassThru":false}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-2200F--IT","vatNumberTypeId":0}],"addresses":[{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"34
+        Borgo degli Albizi","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
+        Piccadilly","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"0","longitude":"0"}],"summary":[{"country":"IT","region":"IT","jurisType":"Country","jurisCode":"IT","jurisName":"ITALY","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxName":"Standard
+        Rate","rateType":"Standard","taxable":16.4,"rate":0.220000,"tax":3.6,"taxCalculated":3.6,"nonTaxable":0.0,"exemption":0.0}]}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:32:39 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 14 Mar 2019 15:49:45 GMT
+recorded_with: VCR 4.0.0

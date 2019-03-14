@@ -10,7 +10,7 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -24,28 +24,35 @@ http_interactions:
       code: 400
       message: Bad Request
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 15:46:51 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00'
+      - '00:00:00.0003174'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:33:37 GMT
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
-      string: '{"error":{"code":"ValidationException","message":"The address value
-        was incomplete.","target":"IncorrectData","details":[{"code":"AddressIncomplete","number":309,"message":"The
-        address value was incomplete.","description":"The address value  was incomplete.  You
-        must provide either a valid postal code, line1 + city + region, or latitude
-        + longitude.  For international transactions outside of US/CA, only a country
-        code is required.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/AddressIncomplete","severity":"Error"}]}}'
+      string: '{"error":{"code":"InvalidAddress","message":"The address value was
+        incomplete.","target":"IncorrectData","details":[{"code":"InvalidAddress","number":309,"message":"The
+        address value was incomplete.","description":"The address value NULL was incomplete.
+        You must provide either a valid postal code, line1 + city + region, or line1
+        + postal code.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:33:47 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 14 Mar 2019 15:46:50 GMT
+recorded_with: VCR 4.0.0

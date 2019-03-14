@@ -15,10 +15,8 @@ describe Spree::Order, :vcr do
 
   describe '#cancel_avalara' do
     subject do
-      VCR.use_cassette('order_cancel', allow_playback_repeats: true) do
-        avalara_order.avalara_capture_finalize
-        avalara_order.cancel_avalara
-      end
+      avalara_order.avalara_capture_finalize
+      avalara_order.cancel_avalara
     end
 
     it 'return a hash with a status of cancelled' do
@@ -57,9 +55,7 @@ describe Spree::Order, :vcr do
 
   describe "#avalara_capture" do
     subject do
-      VCR.use_cassette("order_capture", allow_playback_repeats: true) do
-        avalara_order.avalara_capture
-      end
+      avalara_order.avalara_capture
     end
 
     it "should response with Hash object" do
@@ -76,9 +72,7 @@ describe Spree::Order, :vcr do
   describe "#avalara_capture_finalize" do
 
     subject do
-      VCR.use_cassette("order_capture_finalize", allow_playback_repeats: true) do
-        avalara_order.avalara_capture_finalize
-      end
+      avalara_order.avalara_capture_finalize
     end
 
     it "should response with Hash object" do

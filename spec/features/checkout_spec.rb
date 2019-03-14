@@ -147,10 +147,8 @@ RSpec.feature 'Checkout', :vcr, :js do
   end
 
   def visit_delivery
-    VCR.use_cassette('address_validation_success', allow_playback_repeats: true) do
-      visit_address
-      fill_in_address
-      click_button 'Save and Continue'
-    end
+    visit_address
+    fill_in_address
+    click_button 'Save and Continue'
   end
 end

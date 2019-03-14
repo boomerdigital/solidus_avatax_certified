@@ -10,7 +10,7 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -24,20 +24,28 @@ http_interactions:
       code: 400
       message: Bad Request
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 15:44:28 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00'
+      - '00:00:00.0007679'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:34:46 GMT
+      Serviceduration:
+      - '00:00:00'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
       string: '{"error":{"code":"MissingLine","message":"Transactions must have at
@@ -45,5 +53,5 @@ http_interactions:
         must have at least one line.","description":"The CreateTransactionModel object
         must have an element called ''lines'', with at least one valid line record.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/MissingLine","severity":"Error"}]}}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:34:57 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 14 Mar 2019 15:44:27 GMT
+recorded_with: VCR 4.0.0
