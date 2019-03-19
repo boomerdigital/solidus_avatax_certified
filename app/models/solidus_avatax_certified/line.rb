@@ -58,7 +58,7 @@ module SolidusAvataxCertified
         number: "#{shipment.id}-FR",
         itemCode: shipment.shipping_method.name,
         quantity: 1,
-        amount: shipment.discounted_amount.to_f,
+        amount: shipment.total_before_tax.to_f,
         description: 'Shipping Charge',
         taxCode: shipment.shipping_method_tax_code,
         discounted: !shipment.promo_total.zero?,

@@ -54,10 +54,9 @@ describe Spree::Refund, :vcr do
 
   describe '#avalara_capture_finalize' do
     subject do
-      VCR.use_cassette('order_return_capture', allow_playback_repeats: true) do
-        refund.save
-      end
+      refund.save
     end
+
     it 'should recieve avalara_capture_finalize and return hash' do
       expect(refund).to receive(:avalara_capture_finalize).and_return(Hash)
       subject

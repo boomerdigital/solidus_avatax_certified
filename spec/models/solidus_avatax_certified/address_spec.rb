@@ -46,9 +46,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
 
   describe '#validate', :vcr do
     subject do
-      VCR.use_cassette('address_validation_success', allow_playback_repeats: true) do
-        address_lines.validate
-      end
+      address_lines.validate
     end
 
     it "validates address with success" do
@@ -65,10 +63,8 @@ describe SolidusAvataxCertified::Address, :type => :model do
       let(:order) { create(:order_with_line_items) }
 
       subject do
-        VCR.use_cassette('address_validation_failure', allow_playback_repeats: true) do
-          order.ship_address.update_attributes(city: nil, zipcode: nil)
-          address_lines.validate
-        end
+        order.ship_address.update_attributes(city: nil, zipcode: nil)
+        address_lines.validate
       end
 
       it 'fails when information is incorrect' do

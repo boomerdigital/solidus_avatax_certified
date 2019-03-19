@@ -10,7 +10,7 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.12.1
+      - Faraday v0.15.4
       Content-Type:
       - application/json
       Authorization:
@@ -24,27 +24,35 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Transfer-Encoding:
-      - chunked
+      Date:
+      - Thu, 14 Mar 2019 17:53:02 GMT
       Content-Type:
       - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
       Server:
       - Kestrel
+      X-Content-Type-Options:
+      - nosniff
       Serverduration:
-      - '00:00:00.0156440'
+      - '00:00:00.0303709'
       Databasecalls:
       - '0'
       Databaseduration:
       - '00:00:00'
-      Date:
-      - Mon, 24 Jul 2017 16:32:21 GMT
+      Serviceduration:
+      - '00:00:00.0296172'
+      X-Powered-By:
+      - ASP.NET
     body:
       encoding: UTF-8
       string: '{"address":{"line1":"5 t","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"5
-        t","line2":"","line3":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104","latitude":32.374209,"longitude":-86.30805}],"coordinates":{"latitude":32.374209,"longitude":-86.30805},"resolutionQuality":"NotCoded","messages":[{"summary":"The
+        t","line2":"","line3":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104","latitude":32.37424,"longitude":-86.308066}],"coordinates":{"latitude":32.37424,"longitude":-86.308066},"resolutionQuality":"NotCoded","messages":[{"summary":"The
         address number is out of range","details":"The address was found but the street
         number in the input address was not between the low and high range of the
         post office database.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
     http_version: 
-  recorded_at: Mon, 24 Jul 2017 16:32:31 GMT
-recorded_with: VCR 3.0.3
+  recorded_at: Thu, 14 Mar 2019 17:53:02 GMT
+recorded_with: VCR 4.0.0
