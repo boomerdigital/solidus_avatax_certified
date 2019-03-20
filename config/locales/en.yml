@@ -3,6 +3,8 @@ en:
     vat_identification_number: VAT Identification Number
     avalara_transaction_calculator: Avalara Transaction Calculator
     avalara_entity_use_codes: Avalara Entity Use Codes
+    avalara_entity_use_code: Avalara Entity Use Code
+    exemption_number: Exemption Number
     new_avalara_entity_use_code: New Avalara Entity Use Code
     back_to_avalara_entity_use_codes_list: Back to Avalara Entity Use Codes List
     editing_avalara_entity_use_code: Editing Avalara Entity Use Code
@@ -25,7 +27,6 @@ en:
     enable_avatax_address_validation: Enable Address Validation
     avatax_address_validation_enabled_countries: Address Validation Enabled Countries
     enable_avatax_tax_calculation: Enable Avatax Tax Calculation
-
     enable_avatax_document_committing: Enable Avatax Document Committing
     business_address: Business Address
     country_code: 'Country Code (eg: US, GB ect)'
@@ -37,3 +38,4 @@ en:
     avatax_document_committing: Avatax Document Committing
     save_preferences: Save Preferences
     raise_exceptions: Raise Exceptions
+    avalara_information: Avalara Information

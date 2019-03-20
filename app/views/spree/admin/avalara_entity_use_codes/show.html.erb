@@ -1,16 +1,16 @@
 <%= render 'spree/admin/shared/taxes_tabs' %>
 
-<h1><%= t(:avalara_entity_use_code) %></h1>
+<h1><%= t('spree.avalara_entity_use_code') %></h1>
 
 <table>
   <tr data-hook="name">
-    <th><%= t(:use_code) %></th>
+    <th><%= t('spree.use_code') %></th>
     <td>
       <%= @avalara_entity_use_code.use_code %>
     </td>
   </tr>
   <tr data-hook="description">
-    <th><%= t(:description) %></th>
+    <th><%= t('spree.description') %></th>
     <td>
       <%= @avalara_entity_use_code.use_code_description %>
     </td>
@@ -19,6 +19,6 @@
 </table>
 
 <p>
-  <%= link_to_edit @avalara_entity_use_code, :class => 'edit_avalara_entity_use_code' %> <%= t(:or) %>
-  <%= link_to t(:back), collection_url %>
+  <%= link_to_edit @avalara_entity_use_code, :class => 'edit_avalara_entity_use_code' %> <%= t('spree.or') %>
+  <%= link_to t('spree.back'), collection_url %>
 </p>

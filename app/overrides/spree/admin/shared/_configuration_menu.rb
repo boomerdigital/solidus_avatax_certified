@@ -4,7 +4,7 @@ Deface::Override.new(
   insert_bottom: "[data-hook='admin_settings_taxes_tabs']"
 ) do
   <<-HTML
-    <%= configurations_sidebar_menu_item Spree.t(:avalara_settings), admin_avatax_settings_path %>
-    <%= configurations_sidebar_menu_item Spree.t(:avalara_entity_use_codes), admin_avalara_entity_use_codes_path %>
+    <%= configurations_sidebar_menu_item t('spree.avalara_settings'), admin_avatax_settings_path %>
+    <%= configurations_sidebar_menu_item t('spree.avalara_entity_use_codes'), admin_avalara_entity_use_codes_path %>
   HTML
 end
