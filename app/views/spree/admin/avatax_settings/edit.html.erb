@@ -1,60 +1,60 @@
 <%= render 'spree/admin/shared/taxes_tabs' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t(:avalara_settings) %>
+  <%= t('spree.avalara_settings') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back), admin_avatax_settings_path, :class => 'button' %></li>
+  <li><%= link_to_with_icon 'arrow-left', t('spree.back'), admin_avatax_settings_path, :class => 'button' %></li>
 <% end %>
 
 <%= form_tag(admin_avatax_settings_path, :method => :put, :id => :avatax_settings_form) do %>
 <div class="yui-g">
   <div class="yui-u first">
     <fieldset>
-      <legend><%= Spree.t('avatax_api_keys') %></legend>
+      <legend><%= t('spree.avatax_api_keys') %></legend>
       <p>
-        <label><%= Spree.t('avatax_company_code') %></label><br />
+        <label><%= t('spree.avatax_company_code') %></label><br />
         <%= text_field_tag('settings[company_code]', Spree::Avatax::Config.company_code, :maxlength => 256, :class => 'avatax') %>
       </p>
 
       <p>
-        <label><%= Spree.t('avatax_account') %></label><br />
+        <label><%= t('spree.avatax_account') %></label><br />
         <%= text_field_tag('settings[account]', Spree::Avatax::Config.account, :maxlength => 256, :class => 'avatax') %>
       </p>
       <p>
-        <label><%= Spree.t('avatax_license_key') %></label><br />
+        <label><%= t('spree.avatax_license_key') %></label><br />
         <%= text_field_tag('settings[license_key]', Spree::Avatax::Config.license_key, :maxlength => 256, :class => 'avatax') %>
       </p>
     </fieldset>
 
     <fieldset>
       <p>
-        <label><%= Spree.t(:avatax_tax_calculation) %>:</label>
+        <label><%= t('spree.avatax_tax_calculation') %>:</label>
         <%= check_box_tag "settings[tax_calculation]", true, Spree::Avatax::Config.tax_calculation, class: 'avatax' %>
       </p>
 
       <p>
-        <label><%= Spree.t(:avatax_document_committing) %>:</label>
+        <label><%= t('spree.avatax_document_committing') %>:</label>
         <%= check_box_tag "settings[document_commit]", true, Spree::Avatax::Config.document_commit, class: 'avatax' %>
       </p>
     </fieldset>
 
     <fieldset>
       <p>
-        <label><%= Spree.t(:log) %>:</label>
+        <label><%= t('spree.log') %>:</label>
         <%= check_box_tag "settings[log]", true, Spree::Avatax::Config.log, class: 'avatax' %>
       </p>
       <p>
-        <label><%= Spree.t(:log_to_stdout) %>:</label>
+        <label><%= t('spree.log_to_stdout') %>:</label>
         <%= check_box_tag "settings[log_to_stdout]", true, Spree::Avatax::Config.log_to_stdout, class: 'avatax' %>
       </p>
       <p>
-        <label><%= Spree.t(:raise_exceptions) %>:</label>
+        <label><%= t('spree.raise_exceptions') %>:</label>
         <%= check_box_tag "settings[raise_exceptions]", true, Spree::Avatax::Config.raise_exceptions, class: 'avatax' %>
       </p>
       <p>
-        <label><%= Spree.t(:enable_avatax_address_validation) %>:</label>
+        <label><%= t('spree.enable_avatax_address_validation') %>:</label>
         <%= check_box_tag "settings[address_validation]", true, Spree::Avatax::Config.address_validation, class: 'avatax' %>
       </p>
       <p>
@@ -69,50 +69,50 @@
     </fieldset>
 
     <fieldset>
-      <legend><%= Spree.t('avatax_address_validation_enabled_countries') %></legend>
+      <legend><%= t('spree.avatax_address_validation_enabled_countries') %></legend>
       <p>
         <% current_countries = Spree::Country.where(name: Spree::Avatax::Config.address_validation_enabled_countries) %>
-        <label><%= Spree.t('avatax_address_validation_enabled_countries') %></label><br />
+        <label><%= t('spree.avatax_address_validation_enabled_countries') %></label><br />
         <%= select_tag('settings[address_validation_enabled_countries]', options_from_collection_for_select(Spree::Country.all, "name", "name", selected: current_countries), multiple: true, class: "select2 fullwidth") %>
       </p>
     </fieldset>
 
     <fieldset id='business-address'>
-      <legend><%= Spree.t('business_address') %></legend>
+      <legend><%= t('spree.business_address') %></legend>
       <p>
-        <label><%= Spree.t('address1') %></label><br />
+        <label><%= t('spree.address1') %></label><br />
         <%= text_field_tag('address[line1]', @avatax_origin["line1"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address1') %>
       </p>
       <p>
-        <label><%= Spree.t('address2') %></label><br />
+        <label><%= t('spree.address2') %></label><br />
         <%= text_field_tag('address[line2]', @avatax_origin["line2"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'address2') %>
       </p>
       <p>
-        <label><%= Spree.t('city') %></label><br />
+        <label><%= t('spree.city') %></label><br />
         <%= text_field_tag('address[city]', @avatax_origin["city"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'city') %>
       </p>
        <p>
-        <label><%= Spree.t('country') %></label><br />
+        <label><%= t('spree.country') %></label><br />
         <% curr_country = Spree::Country.find_by(iso: @avatax_origin["country"]) ||  Spree::Country.find_by(iso: 'US') %>
         <span id="scountry">
           <%= select_tag 'address[country]', options_from_collection_for_select(Spree::Country.all, 'id', 'name', curr_country.try(:id)), {:class => 'select2 avatax', id: 'country'} %>
         </span>
       </p>
       <p>
-        <label><%= Spree.t('state') %></label><br />
+        <label><%= t('spree.state') %></label><br />
         <span id="sstate">
           <%= select_tag 'address[region]', options_from_collection_for_select(curr_country.try(:states), 'id', 'name',curr_country.states.find_by(abbr: @avatax_origin["region"]).try(:id)), {:class => 'select2 avatax', id: 'state'} %>
         </span>
       </p>
       <p>
-        <label><%= Spree.t('zipcode') %></label><br />
+        <label><%= t('spree.zipcode') %></label><br />
         <%= text_field_tag('address[postalCode]', @avatax_origin["postalCode"], :size => 46, :maxlength => 256, :class => 'avatax', id: 'zipcode') %>
       </p>
 
       <a href="#" class="button address_validator" style="float: right;">Validate</a>
     </fieldset>
     <fieldset>
-    <legend><%= Spree.t('avatax_log') %></legend>
+    <legend><%= t('spree.avatax_log') %></legend>
     <p>The avatax log is located in the log directory of your spree app.</p>
     <table>
     <tr>
@@ -134,7 +134,7 @@
   </div>
 </div>
 
-<p class="form-buttons"><%= button Spree.t('save_preferences') %></p>
+<p class="form-buttons"><%= button t('spree.save_preferences') %></p>
 
 <% end %>
 

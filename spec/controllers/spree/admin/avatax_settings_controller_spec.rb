@@ -6,12 +6,12 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
 
   describe '/avatax_settings' do
     subject { get :show }
-    it { should be_success }
+    it { should be_successful }
   end
 
   describe '/avatax_settings/edit' do
     subject { get :edit }
-    it { should be_success }
+    it { should be_successful }
   end
 
   describe '/avatax_settings/download_avatax_log' do
@@ -19,7 +19,7 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
     after { File.delete("#{Rails.root}/log/avatax.log") }
 
     subject { get :download_avatax_log }
-    it { should be_success }
+    it { should be_successful }
   end
 
   describe '/avatax_settings/erase_data' do
@@ -44,8 +44,8 @@ describe Spree::Admin::AvataxSettingsController, :type => :controller do
 
     it 'flashes message' do
       subject
-      response.should be_success
-      flash.should_not be_nil
+      expect(response).to be_successful
+      expect(flash).to_not be_nil
     end
   end
 

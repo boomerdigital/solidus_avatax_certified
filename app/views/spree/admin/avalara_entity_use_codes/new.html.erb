@@ -1,11 +1,11 @@
 <%= render 'spree/admin/shared/taxes_tabs' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t(:new_avalara_entity_use_code) %>
+  <%= t('spree.new_avalara_entity_use_code') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'arrow-left', Spree.t(:back_to_avalara_entity_use_codes_list), admin_avalara_entity_use_codes_path, :class => 'button' %></li>
+  <li><%= link_to_with_icon 'arrow-left', t('spree.back_to_avalara_entity_use_codes_list'), admin_avalara_entity_use_codes_path, :class => 'button' %></li>
 <% end %>
 
 

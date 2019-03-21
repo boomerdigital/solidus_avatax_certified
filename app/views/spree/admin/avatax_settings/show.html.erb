@@ -1,48 +1,48 @@
 <%= render 'spree/admin/shared/taxes_tabs' %>
 
 <% content_for :page_title do %>
-  <%= Spree.t(:avalara_settings) %>
+  <%= t('spree.avalara_settings') %>
 <% end %>
 
 <% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'edit', Spree.t(:edit_avalara_settings), edit_admin_avatax_settings_path, :class => 'button' %></li>
+  <li><%= link_to_with_icon 'edit', t('spree.edit_avalara_settings'), edit_admin_avatax_settings_path, :class => 'button' %></li>
 <% end %>
 
 <table>
   <tr>
-    <th scope="row"><%= Spree.t(:avatax_company_code) %>:</th>
+    <th><%= t('spree.avatax_company_code') %>:</th>
     <td><%= Spree::Avatax::Config.company_code %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:avatax_license_key) %>:</th>
+    <th><%= t('spree.avatax_license_key') %>:</th>
     <td><%= Spree::Avatax::Config.license_key %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:avatax_account) %>:</th>
+    <th><%= t('spree.avatax_account') %>:</th>
     <td><%= Spree::Avatax::Config.account %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_tax_calculation) %>:</th>
+    <th><%= t('spree.enable_avatax_tax_calculation') %>:</th>
     <td><%= Spree::Avatax::Config.tax_calculation %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_document_committing) %>:</th>
+    <th><%= t('spree.enable_avatax_document_committing') %>:</th>
     <td><%= Spree::Avatax::Config.document_commit %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:log) %>:</th>
+    <th><%= t('spree.log') %>:</th>
     <td><%= Spree::Avatax::Config.log %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:log_to_stdout) %>:</th>
+    <th><%= t('spree.log_to_stdout') %>:</th>
     <td><%= Spree::Avatax::Config.log_to_stdout %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:raise_exceptions) %>:</th>
+    <th><%= t('spree.raise_exceptions') %>:</th>
     <td><%= Spree::Avatax::Config.raise_exceptions %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:enable_avatax_address_validation) %>:</th>
+    <th><%= t('spree.enable_avatax_address_validation') %>:</th>
     <td><%= Spree::Avatax::Config.address_validation %></td>
   </tr>
   <tr>
@@ -54,7 +54,7 @@
     <td><%= Spree::Avatax::Config.customer_can_validate %></td>
   </tr>
   <tr>
-    <th scope="row"><%= Spree.t(:avatax_address_validation_enabled_countries) %>:</th>
+    <th><%= t('spree.avatax_address_validation_enabled_countries') %>:</th>
     <% address_validated_countries = Spree::Avatax::Config.address_validation_enabled_countries %>
     <td>
       <% unless address_validated_countries.nil? %>
@@ -68,15 +68,15 @@
   </tr>
 
   <tr>
-    <th scope="row"><%= Spree.t(:business_address) %>:</th>
+    <th><%= t('spree.business_address') %>:</th>
 
     <td><table>
-      <tr><td><%= Spree.t(:address1) %>: <%= @avatax_origin["line1"]  %> </td></tr>
-      <tr><td><%= Spree.t(:address2) %>: <%= @avatax_origin["line2"]  %></td></tr>
-      <tr><td><%= Spree.t(:city) %>: <%= @avatax_origin["city"]  %></td></tr>
-      <tr><td><%= Spree.t(:state) %>: <%= @avatax_origin["region"]  %></td></tr>
-      <tr><td><%= Spree.t(:zipcode) %>: <%= @avatax_origin["postalCode"]  %></td></tr>
-      <tr><td><%= Spree.t(:country_code) %>: <%= @avatax_origin["country"] %></td></tr>
+      <tr><td><%= t('spree.address1') %>: <%= @avatax_origin["line1"]  %> </td></tr>
+      <tr><td><%= t('spree.address2') %>: <%= @avatax_origin["line2"]  %></td></tr>
+      <tr><td><%= t('spree.city') %>: <%= @avatax_origin["city"]  %></td></tr>
+      <tr><td><%= t('spree.state') %>: <%= @avatax_origin["region"]  %></td></tr>
+      <tr><td><%= t('spree.zipcode') %>: <%= @avatax_origin["postalCode"]  %></td></tr>
+      <tr><td><%= t('spree.country_code') %>: <%= @avatax_origin["country"] %></td></tr>
     </table></td>
   </tr>
   <tr>
@@ -91,7 +91,7 @@
 
 
   <tr>
-   <th><%= Spree.t('avatax_log') %></th>
+   <th><%= t('spree.avatax_log') %></th>
    <td>
     The avatax log is located in the log directory of your spree app.
     <table>

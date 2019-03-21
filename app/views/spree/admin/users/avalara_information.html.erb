@@ -1,12 +1,12 @@
 <% content_for :page_title do %>
-<%= link_to "#{Spree.t(:editing_user)} #{@user.email}", edit_admin_user_url(@user) %>
+<%= link_to "#{t('spree.editing_user')} #{@user.email}", edit_admin_user_url(@user) %>
 <% end %>
 
 <%= render :partial => 'spree/admin/users/sidebar', :locals => { :current => :account } %>
 <%= render :partial => 'spree/admin/users/user_page_actions' %>
 
 <fieldset data-hook="admin_user_edit_general_settings" class="alpha twelve columns">
-  <legend><%= Spree.t(:general_settings) %></legend>
+  <legend><%= t('spree.general_settings') %></legend>
 
   <div data-hook="admin_user_edit_form_header">
     <%= render :partial => 'spree/shared/error_messages', :locals => { :target => @user } %>
@@ -23,20 +23,20 @@
     <% use_codes_list = Spree::AvalaraEntityUseCode.all.map {|use_code| ["#{use_code.use_code}) #{use_code.use_code_description}", use_code.id]} %>
     <div class="omega six columns">
       <%= f.field_container :avalara_entity_use_code_id do %>
-      <%= label_tag :avalara_entity_use_code_id, t(:avalara_entity_use_code) %><br />
+      <%= label_tag :avalara_entity_use_code_id, t('spree.avalara_entity_use_code') %><br />
       <%= f.select(:avalara_entity_use_code_id, use_codes_list, include_blank: true) %>
       <% end %>
     </div>
     <div class="clear"></div>
     <div class="alpha six columns">
       <%= f.field_container :exemption_number do %>
-        <%= f.label :exemption_number, Spree.t(:exemption_number) %>
+        <%= f.label :exemption_number, t('spree.exemption_number') %>
         <%= f.text_field :exemption_number, :class => 'fullwidth' %>
       <% end %>
     </div>
     <div class="omega six columns">
       <%= f.field_container :vat_id do %>
-        <%= f.label :vat_id, Spree.t(:vat_identification_number) %>
+        <%= f.label :vat_id, t('spree.vat_identification_number') %>
         <%= f.text_field :vat_id, :class => 'fullwidth' %>
       <% end %>
     </div>
