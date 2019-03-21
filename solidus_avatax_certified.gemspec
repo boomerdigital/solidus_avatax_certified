@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'solidus', solidus_version
   s.add_dependency "solidus_support"
   s.add_dependency 'deface'
-  s.add_dependency "json", "~> 2.0"
+  s.add_dependency "json", [">= 1.8", "< 3.0"]
   s.add_dependency "avatax-ruby"
   s.add_dependency "logging", "~> 2.0"
 
