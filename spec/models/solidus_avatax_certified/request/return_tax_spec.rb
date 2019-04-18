@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe SolidusAvataxCertified::Request::ReturnTax do
+  subject { described_class.new(order, commit: true, doc_type: 'ReturnOrder', refund: refund) }
+
   let(:order) { create(:shipped_order) }
   let(:refund) { create(:refund, payment: order.payments.first, reimbursement: create(:reimbursement)) }
-
-  subject { described_class.new(order, commit: true, doc_type: 'ReturnOrder', refund: refund) }
 
   describe '#generate' do
     it 'creates a hash' do

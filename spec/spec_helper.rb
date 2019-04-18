@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Run Coverage report
 require 'simplecov'
 SimpleCov.start do
@@ -13,7 +15,7 @@ end
 # Configure Rails Environment
 ENV['RAILS_ENV'] = 'test'
 
-require File.expand_path('../dummy/config/environment.rb',  __FILE__)
+require File.expand_path('dummy/config/environment.rb', __dir__)
 
 require 'dotenv'
 Dotenv.load
@@ -32,7 +34,6 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 require 'spree/testing_support/order_walkthrough'
 
-
 require 'capybara/rspec'
 require 'capybara/rails'
 require 'capybara/poltergeist'
@@ -46,7 +47,6 @@ Capybara.default_max_wait_time = 10
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
-
 
 Dir[File.join(File.dirname(__FILE__), 'factories/*.rb')].each { |f| require f }
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
@@ -71,13 +71,13 @@ RSpec.configure do |config|
     DatabaseCleaner.clean_with :truncation
   end
 
-  config.before :each do
+  config.before do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
     MyConfigPreferences.set_preferences
   end
 
-  config.after :each do
+  config.after do
     DatabaseCleaner.clean
   end
 

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
+RSpec.describe 'Address Validation Button in Checkout', :vcr, :js do
   let(:address) { create(:address) }
   let!(:order) { create(:order_with_line_items, state: 'address', ship_address: address) }
   let!(:user) { order.user }
@@ -13,7 +15,7 @@ RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
   end
 
   # With button enabled
-    # with refuse checkout on failure
+  # with refuse checkout on failure
 
   context 'Customer validate button enabled' do
     before do
@@ -58,10 +60,9 @@ RSpec.feature 'Address Validation Button in Checkout', :vcr, :js do
     end
   end
 
-
   def prep_page
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(:current_order => order)
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(:try_spree_current_user => user)
+    allow_any_instance_of(Spree::CheckoutController).to receive_messages(current_order: order)
+    allow_any_instance_of(Spree::CheckoutController).to receive_messages(try_spree_current_user: user)
     visit spree.checkout_state_path(:address)
   end
 end

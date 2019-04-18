@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ToAvataxHash
   def to_avatax_hash
     {

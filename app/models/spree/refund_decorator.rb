@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Refund.class_eval do
   has_one :avalara_transaction
   after_create :avalara_capture_finalize, if: :avalara_tax_enabled?
@@ -15,7 +17,7 @@ Spree::Refund.class_eval do
       @rtn_tax = avalara_transaction_refund.commit_avatax_final('ReturnInvoice', self)
 
       @rtn_tax
-    rescue => e
+    rescue StandardError => e
       logger.error(e, 'Refund Capture Finalize Error')
     end
   end

@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Payment, :vcr do
   let(:order) { create(:avalara_order) }
 
   let(:gateway) do
-    gateway = Spree::PaymentMethod::BogusCreditCard.new( :active => true, :name => 'Bogus gateway')
-    allow(gateway).to receive_messages :environment => 'test'
-    allow(gateway).to receive_messages :source_required => true
+    gateway = Spree::PaymentMethod::BogusCreditCard.new( active: true, name: 'Bogus gateway')
+    allow(gateway).to receive_messages environment: 'test'
+    allow(gateway).to receive_messages source_required: true
     gateway
   end
 
@@ -34,18 +36,17 @@ describe Spree::Payment, :vcr do
   let(:amount_in_cents) { (payment.amount * 100).round }
 
   let!(:success_response) do
-    double('success_response', :success? => true,
-           :authorization => '123',
-           :avs_result => { 'code' => 'avs-code' },
-           :cvv_result => { 'code' => 'cvv-code', 'message' => 'CVV Result'})
+    double('success_response', success?: true,
+                               authorization: '123',
+                               avs_result: { 'code' => 'avs-code' },
+                               cvv_result: { 'code' => 'cvv-code', 'message' => 'CVV Result' })
   end
 
-  let(:failed_response) { double('gateway_response', :success? => false) }
+  let(:failed_response) { double('gateway_response', success?: false) }
 
-  before(:each) do
+  before do
     allow(payment.log_entries).to receive(:create!)
   end
-
 
   describe '#purchase!' do
     subject do
@@ -65,7 +66,7 @@ describe Spree::Payment, :vcr do
       payment.complete!
     end
 
-    it 'should receive avalara_finalize' do
+    it 'receives avalara_finalize' do
       expect(payment).to receive(:avalara_finalize)
 
       subject
@@ -92,12 +93,12 @@ describe Spree::Payment, :vcr do
     end
 
     context 'committed order' do
-      let(:order) { create(:completed_avalara_order) }
-
       subject do
         order.avalara_capture_finalize
         payment.cancel_avalara
       end
+
+      let(:order) { create(:completed_avalara_order) }
 
       describe 'should be successful' do
         it 'status returns Cancelled' do

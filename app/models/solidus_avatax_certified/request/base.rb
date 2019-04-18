@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Request
     class Base
       attr_reader :order, :request
 
-      def initialize(order, opts={})
+      def initialize(order, opts = {})
         @order = order
         @doc_type = opts[:doc_type]
         @commit = can_commit?(opts[:commit])
@@ -46,6 +48,7 @@ module SolidusAvataxCertified
 
       def can_commit?(commit)
         return commit unless order.can_commit?
+
         true
       end
 

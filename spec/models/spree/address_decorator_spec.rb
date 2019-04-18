@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Address, type: :model do
@@ -8,25 +10,25 @@ describe Spree::Address, type: :model do
       Spree::Avatax::Config.address_validation = true
       Spree::Avatax::Config.address_validation_enabled_countries = ['United States', 'Canada']
 
-      expect(address.validation_enabled?).to be_truthy
+      expect(address).to be_validation_enabled
     end
 
     it 'returns false if address validation preference is false' do
       Spree::Avatax::Config.address_validation = false
 
-      expect(address.validation_enabled?).to be_falsey
+      expect(address).not_to be_validation_enabled
     end
 
     it 'returns false if enabled country is not present' do
       Spree::Avatax::Config.address_validation_enabled_countries = ['Canada']
 
-      expect(address.validation_enabled?).to be_falsey
+      expect(address).not_to be_validation_enabled
     end
   end
 
   describe '#country_validation_enabled?' do
     it 'returns true if the current country is enabled' do
-      expect(address.country_validation_enabled?).to be_truthy
+      expect(address).to be_country_validation_enabled
     end
   end
 

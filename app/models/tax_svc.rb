@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'logging'
 
 # Avatax tax calculation API calls
@@ -25,13 +27,13 @@ class TaxSvc
     logger.info 'Ping Call'
 
     # Testing if configuration is set up properly, ping will fail if it is not
-    client.tax_rates.get(:by_postal_code, { country: 'US', postalCode: '07801' })
+    client.tax_rates.get(:by_postal_code, country: 'US', postalCode: '07801')
   end
 
   def validate_address(address)
     begin
       request = client.addresses.validate(address)
-    rescue => e
+    rescue StandardError => e
       logger.error(e)
 
       request = { 'error' => { 'message' => e } }
@@ -47,11 +49,10 @@ class TaxSvc
     result = response.result
     begin
       if response.error?
-        raise SolidusAvataxCertified::RequestError.new(result)
+        raise SolidusAvataxCertified::RequestError, result
       end
 
       logger.debug(result, response.description + ' Response')
-
     rescue SolidusAvataxCertified::RequestError => e
       logger.error(e.message, response.description + ' Error')
       raise if raise_exceptions?
@@ -97,6 +98,7 @@ class TaxSvc
 
   def log(method, request_hash = nil)
     return if request_hash.nil?
-    logger.debug(request_hash, "#{method.to_s} request hash")
+
+    logger.debug(request_hash, "#{method} request hash")
   end
 end

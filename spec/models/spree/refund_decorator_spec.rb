@@ -1,26 +1,19 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Refund, :vcr do
-
-  it { should have_one :avalara_transaction }
-
   subject(:order) do
     order = create(:shipped_order)
     Spree::AvalaraTransaction.create(order: order)
     order.reload
   end
 
-  let(:amount) { 10.0 }
-  let(:amount_in_cents) { amount * 100 }
-
-  let(:authorization) { generate(:refund_transaction_id) }
-
-  let(:payment_amount) { amount*2 }
-  let(:payment_method) { create(:credit_card_payment_method) }
-  let(:payment) { create(:payment, amount: payment_amount, payment_method: payment_method, order: order) }
-
-  let(:refund_reason) { create(:refund_reason) }
-
+  let(:reimbursement) { create(:reimbursement) }
+  let(:gateway_response_options) { {} }
+  let(:gateway_response_params) { {} }
+  let(:gateway_response_message) { '' }
+  let(:gateway_response_success) { true }
   let(:gateway_response) {
     ActiveMerchant::Billing::Response.new(
       gateway_response_success,
@@ -29,25 +22,28 @@ describe Spree::Refund, :vcr do
       gateway_response_options
     )
   }
-  let(:gateway_response_success) { true }
-  let(:gateway_response_message) { '' }
-  let(:gateway_response_params) { {} }
-  let(:gateway_response_options) { {} }
+  let(:refund_reason) { create(:refund_reason) }
+  let(:payment) { create(:payment, amount: payment_amount, payment_method: payment_method, order: order) }
+  let(:payment_method) { create(:credit_card_payment_method) }
+  let(:authorization) { generate(:refund_transaction_id) }
+  let(:amount_in_cents) { amount * 100 }
+  let(:amount) { 10.0 }
 
-  let(:reimbursement) { create(:reimbursement) }
-
-  let(:refund) {Spree::Refund.new(payment: payment, amount: BigDecimal.new(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement)}
+  let(:refund) { Spree::Refund.new(payment: payment, amount: BigDecimal(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement) }
+  let(:payment_amount) { amount * 2 }
 
   before do
     allow(payment.payment_method)
-    .to receive(:credit)
-    .with(amount_in_cents, payment.source, payment.transaction_id, {originator: an_instance_of(Spree::Refund)})
-    .and_return(gateway_response)
+      .to receive(:credit)
+      .with(amount_in_cents, payment.source, payment.transaction_id, originator: an_instance_of(Spree::Refund))
+      .and_return(gateway_response)
     order.reload
   end
 
+  it { is_expected.to have_one :avalara_transaction }
+
   describe '#avalara_tax_enabled?' do
-    it 'should return true' do
+    it 'returns true' do
       expect(Spree::Refund.new.avalara_tax_enabled?).to eq(true)
     end
   end
@@ -57,20 +53,20 @@ describe Spree::Refund, :vcr do
       refund.save
     end
 
-    it 'should recieve avalara_capture_finalize and return hash' do
+    it 'recieves avalara_capture_finalize and return hash' do
       expect(refund).to receive(:avalara_capture_finalize).and_return(Hash)
       subject
     end
   end
 
   context 'full refund' do
-    let(:order) { create(:completed_avalara_order) }
-    let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
-
     subject do
       order.reload
       refund.avalara_capture_finalize
     end
+
+    let(:order) { create(:completed_avalara_order) }
+    let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
     it 'returns correct tax calculations' do
       expect(subject['totalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)

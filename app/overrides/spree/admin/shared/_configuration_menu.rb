@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 Deface::Override.new(
-  virtual_path:  'spree/admin/shared/_taxes_tabs',
-  name:          'add_avalara_admin_menu_links',
+  virtual_path: 'spree/admin/shared/_taxes_tabs',
+  name: 'add_avalara_admin_menu_links',
   insert_bottom: "[data-hook='admin_settings_taxes_tabs']"
 ) do
   <<-HTML

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   preference :company_code, :string
   preference :account, :string
@@ -12,7 +14,6 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   preference :refuse_checkout_address_validation_error, :boolean, default: false
   preference :customer_can_validate, :boolean, default: false
   preference :raise_exceptions, :boolean, default: false
-
 
   def self.boolean_preferences
     %w(tax_calculation document_commit log log_to_stdout address_validation refuse_checkout_address_validation_error customer_can_validate raise_exceptions)

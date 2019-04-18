@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Response
     class GetTax < SolidusAvataxCertified::Response::Base

@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Request
     class ReturnTax < SolidusAvataxCertified::Request::Base
-
-      def initialize(order, opts={})
+      def initialize(order, opts = {})
         super
         @refund = opts[:refund]
       end
@@ -13,7 +14,7 @@ module SolidusAvataxCertified
             code: order.number.to_s + '.' + @refund.id.to_s,
             date: Date.today.strftime('%F'),
             commit: @commit,
-            type: @doc_type ? @doc_type : 'ReturnOrder',
+            type: @doc_type || 'ReturnOrder',
             lines: sales_lines
           }.merge(base_tax_hash)
         }

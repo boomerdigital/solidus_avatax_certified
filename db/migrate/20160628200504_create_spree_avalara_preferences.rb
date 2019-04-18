@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateSpreeAvalaraPreferences < SolidusSupport::Migration[4.2]
   def change
     create_table :spree_avalara_preferences do |t|

@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class AvataxSettingsController < Spree::Admin::BaseController
+      before_action :load_avatax_origin, only: %i[show edit]
 
-      before_action :load_avatax_origin, only: [:show, :edit]
-
-      def show
-      end
+      def show; end
 
       def download_avatax_log
         send_file "#{Rails.root}/log/avatax.log"
@@ -29,8 +29,8 @@ module Spree
         end
 
         respond_to do |format|
-          format.html { render :layout => !request.xhr? }
-          format.js { render :layout => false }
+          format.html { render layout: !request.xhr? }
+          format.js { render layout: false }
         end
       end
 
@@ -45,7 +45,8 @@ module Spree
         result = response.result
 
         if response.failed?
-          result.merge!({ 'responseCode': 'error', 'errorMessages': response.summary_messages })
+          result['responseCode'] = 'error'
+          result['errorMessages'] = response.summary_messages
         end
 
         respond_to do |format|
@@ -66,11 +67,11 @@ module Spree
       private
 
       def load_avatax_origin
-        if Spree::Avatax::Config.origin.blank?
-          @avatax_origin = {}
-        else
-          @avatax_origin = JSON.parse(Spree::Avatax::Config.origin)
-        end
+        @avatax_origin = if Spree::Avatax::Config.origin.blank?
+                           {}
+                         else
+                           JSON.parse(Spree::Avatax::Config.origin)
+                         end
       end
 
       def permitted_address_validation_attrs

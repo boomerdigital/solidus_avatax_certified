@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   class PreferenceUpdater
-
     def initialize(params)
       @avatax_origin = params[:address]
       @avatax_preferences = params[:settings]
@@ -26,7 +27,6 @@ module SolidusAvataxCertified
         Spree::Avatax::Config[key.to_sym] = @avatax_preferences[key] || ENV["AVATAX_#{key.upcase}"]
       end
     end
-
 
     def update_origin_address
       set_region

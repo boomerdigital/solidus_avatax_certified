@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Response
     class Base
@@ -16,7 +18,9 @@ module SolidusAvataxCertified
       end
 
       def error?
-        !success? rescue true
+        !success?
+      rescue StandardError
+        true
       end
 
       def description

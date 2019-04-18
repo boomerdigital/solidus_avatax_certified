@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Admin::UsersController.class_eval do
   def avalara_information
     if request.put?
