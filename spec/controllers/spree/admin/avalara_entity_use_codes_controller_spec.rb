@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe Spree::Admin::AvalaraEntityUseCodesController do
@@ -5,7 +7,7 @@ RSpec.describe Spree::Admin::AvalaraEntityUseCodesController do
 
   stub_authorization!
 
-  before :each do
+  before do
     DatabaseCleaner.clean
   end
 
@@ -28,12 +30,14 @@ RSpec.describe Spree::Admin::AvalaraEntityUseCodesController do
   end
 
   describe '#edit' do
-    subject { get :edit, params: { id: avalara_entity_use_code.id} }
+    subject { get :edit, params: { id: avalara_entity_use_code.id } }
 
     it { is_expected.to be_successful }
   end
 
   describe '#update' do
+    subject { put :update, params: params }
+
     let(:params) do
       {
         id: avalara_entity_use_code.to_param,
@@ -42,12 +46,11 @@ RSpec.describe Spree::Admin::AvalaraEntityUseCodesController do
         }
       }
     end
-    subject { put :update, params: params }
 
     it { is_expected.to redirect_to(spree.admin_avalara_entity_use_codes_path) }
 
-    it 'should update use_code' do
-      expect{subject}.to change { avalara_entity_use_code.reload.use_code }.from('A').to('55')
+    it 'updates use_code' do
+      expect{ subject }.to change { avalara_entity_use_code.reload.use_code }.from('A').to('55')
     end
   end
 end

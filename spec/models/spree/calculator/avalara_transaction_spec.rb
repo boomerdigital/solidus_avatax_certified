@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe Spree::Calculator::AvalaraTransaction, :vcr do
@@ -14,32 +16,33 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
   end
 
   context '#compute', :vcr do
-
     context 'when given an order' do
       before do
-        allow(order).to receive_messages :line_items => [line_item]
+        allow(order).to receive_messages line_items: [line_item]
       end
 
       context 'when computing an order' do
-        it 'should raise error' do
-          expect{calculator.compute(order)}.to raise_error(RuntimeError)
+        it 'raises error' do
+          expect{ calculator.compute(order) }.to raise_error(RuntimeError)
         end
       end
     end
+
     context 'when computing a line item' do
       context 'when tax is included in price' do
         let(:included_in_price) { true }
-        it 'should be equal to the item pre-tax total * rate' do
+
+        it 'is equal to the item pre-tax total * rate' do
           expect(calculator.compute(line_item)).to eq(0.38)
         end
 
-        it 'should be equal to the previous included_tax_total is order is at cart' do
+        it 'is equal to the previous included_tax_total is order is at cart' do
           order.state = 'cart'
           line_item.included_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
         end
 
-        it 'should be equal to the previous included_tax_total is order is at address' do
+        it 'is equal to the previous included_tax_total is order is at address' do
           order.state = 'address'
           line_item.included_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
@@ -47,24 +50,23 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
       end
 
       context 'when tax is not included in price' do
-
-        it 'should be equal to the item pre-tax total * rate' do
+        it 'is equal to the item pre-tax total * rate' do
           expect(calculator.compute(line_item)).to eq(0.4)
         end
 
-        it 'should be equal to the previous additional_tax_total if order is at cart' do
+        it 'is equal to the previous additional_tax_total if order is at cart' do
           order.state = 'cart'
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
         end
 
-        it 'should be equal to the previous additional_tax_total if order is at address' do
+        it 'is equal to the previous additional_tax_total if order is at address' do
           order.state = 'address'
           line_item.additional_tax_total = 0.1
           expect(calculator.compute(line_item)).to eq(0.1)
         end
 
-        it 'should be equal to the previous tax total if preference tax_calculation is false' do
+        it 'is equal to the previous tax total if preference tax_calculation is false' do
           Spree::Avatax::Config.tax_calculation = false
 
           line_item.additional_tax_total = 0.1
@@ -79,7 +81,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
             order.updater.update
           end
 
-          it 'should be equal to the items pre-tax total * rate' do
+          it 'is equal to the items pre-tax total * rate' do
             expect(calculator.compute(line_item)).to eq(0.32)
           end
         end
@@ -93,7 +95,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
             line_item.update!(price: 20)
           end
 
-          it 'should be equal to the items pre-tax total * rate' do
+          it 'is equal to the items pre-tax total * rate' do
             expect(calculator.compute(line_item)).to eq(0.72)
           end
 
@@ -101,7 +103,6 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
             line_item.update!(quantity: 2)
             expect(calculator.compute(line_item)).to eq(1.52)
           end
-
         end
       end
     end
@@ -112,7 +113,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
       let(:shipment) { order.shipments.first }
 
       describe 'computing normal shipment' do
-        it 'should be equal 4.0' do
+        it 'is equal 4.0' do
           expect(shipping_calculator.compute(shipment)).to eq(4.0)
         end
       end
@@ -122,7 +123,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
         let(:promo_action) { promo.actions[0] }
         let(:promo) { create(:promotion, :with_line_item_adjustment, adjustment_rate: 1) }
 
-        it 'should equal 3.92' do
+        it 'equals 3.92' do
           order.updater.update
           expect(shipping_calculator.compute(shipment)).to eq(3.92)
         end
@@ -131,7 +132,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
       describe 'when tax is included in price' do
         let(:included_in_price) { true }
 
-        it 'should be equal to 3.85' do
+        it 'is equal to 3.85' do
           expect(shipping_calculator.compute(shipment)).to eq(3.85)
         end
       end

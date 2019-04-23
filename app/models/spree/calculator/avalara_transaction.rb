@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 module Spree
   class Calculator::AvalaraTransaction < Calculator::DefaultTax
     def self.description
       "Avalara Transaction Calculator"
     end
 
-    def compute_order(order)
+    def compute_order(_order)
       raise 'Spree::AvalaraTransaction is designed to calculate taxes at the shipment and line-item levels.'
     end
 
@@ -22,8 +24,8 @@ module Spree
     alias_method :compute_shipment, :compute_shipment_or_line_item
     alias_method :compute_line_item, :compute_shipment_or_line_item
 
-    def compute_shipping_rate(shipping_rate)
-      return 0
+    def compute_shipping_rate(_shipping_rate)
+      0
     end
 
     private
@@ -59,7 +61,6 @@ module Spree
         end
       end
     end
-
 
     def long_cache_key(order)
       key = order.avatax_cache_key

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_dependency 'spree/order'
 
 module Spree
@@ -61,6 +63,7 @@ module Spree
       response = mytax.get_tax(request)
 
       return { 'totalTax' => 0.0 } if response.error?
+
       response.tax_result
     end
 
@@ -73,6 +76,7 @@ module Spree
       response = mytax.get_tax(request)
 
       return { 'totalTax' => 0.0 } if response.error?
+
       response.tax_result
     end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe SolidusAvataxCertified::OrderAdjuster, :vcr do
@@ -10,7 +12,7 @@ RSpec.describe SolidusAvataxCertified::OrderAdjuster, :vcr do
       let(:order) { build_stubbed(:order, state: 'delivery', line_items: [line_item], shipments: [shipment]) }
 
       it 'does not create new tax adjustments' do
-        expect{ adjuster.adjust! }.to_not change { Spree::Adjustment.count }
+        expect{ adjuster.adjust! }.not_to change { Spree::Adjustment.count }
       end
 
       it 'returns an array of all line items and shipments' do

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe SolidusAvataxCertified::Address, :type => :model do
+describe SolidusAvataxCertified::Address, type: :model do
   let(:address){ build(:address) }
   let(:order) { build(:order_with_line_items, ship_address: address) }
 
@@ -11,22 +13,22 @@ describe SolidusAvataxCertified::Address, :type => :model do
   let(:address_lines) { SolidusAvataxCertified::Address.new(order) }
 
   describe '#initialize' do
-    it 'should have order' do
+    it 'has order' do
       expect(address_lines.order).to eq(order)
     end
-    it 'should have addresses be a Hash' do
+    it 'has addresses be a Hash' do
       expect(address_lines.addresses).to be_kind_of(Hash)
     end
   end
 
   describe '#build_addresses' do
     it 'receives origin_address' do
-        expect(address_lines).to receive(:origin_address)
-        address_lines.build_addresses
+      expect(address_lines).to receive(:origin_address)
+      address_lines.build_addresses
     end
     it 'receives order_ship_address' do
-        expect(address_lines).to receive(:order_ship_address)
-        address_lines.build_addresses
+      expect(address_lines).to receive(:order_ship_address)
+      address_lines.build_addresses
     end
   end
 
@@ -50,7 +52,7 @@ describe SolidusAvataxCertified::Address, :type => :model do
     end
 
     it "validates address with success" do
-      expect(subject.success?).to be_truthy
+      expect(subject).to be_success
     end
 
     it "does not validate when config settings are false" do
@@ -60,15 +62,15 @@ describe SolidusAvataxCertified::Address, :type => :model do
     end
 
     context 'error' do
-      let(:order) { create(:order_with_line_items) }
-
       subject do
         order.ship_address.update_attributes(city: nil, zipcode: nil)
         address_lines.validate
       end
 
+      let(:order) { create(:order_with_line_items) }
+
       it 'fails when information is incorrect' do
-        expect(subject.error?).to be_truthy
+        expect(subject).to be_error
       end
 
       it 'raises exception if preference is set to true' do

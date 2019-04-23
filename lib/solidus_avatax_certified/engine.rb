@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   class Engine < Rails::Engine
     require "solidus_core"

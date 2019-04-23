@@ -1,5 +1,6 @@
-# encoding: UTF-8
-lib = File.expand_path('../lib/', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path('lib', __dir__)
 $:.unshift lib unless $:.include?(lib)
 
 require 'solidus_avatax_certified/version'
@@ -22,28 +23,29 @@ Gem::Specification.new do |s|
   s.requirements << "none"
 
   solidus_version = [">= 2.3.0", "< 3.0.0"]
-  s.add_dependency 'solidus', solidus_version
-  s.add_dependency "solidus_support"
+  s.add_dependency "avatax-ruby"
   s.add_dependency 'deface'
   s.add_dependency "json", "~> 2.0"
-  s.add_dependency "avatax-ruby"
   s.add_dependency "logging", "~> 2.0"
+  s.add_dependency 'solidus', solidus_version
+  s.add_dependency "solidus_support"
 
-
+  s.add_development_dependency "capybara", "~> 2.11"
+  s.add_development_dependency "coffee-rails"
+  s.add_development_dependency "database_cleaner"
   s.add_development_dependency "dotenv"
+  s.add_development_dependency "factory_bot"
+  s.add_development_dependency 'ffaker'
+  s.add_development_dependency "phantomjs", "~> 2.1.1"
+  s.add_development_dependency "poltergeist", "~> 1.16"
   s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency 'rubocop'
+  s.add_development_dependency 'rubocop-rspec'
+  s.add_development_dependency "sass-rails"
+  s.add_development_dependency "selenium-webdriver", "~> 2.53.4"
+  s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency "simplecov"
   s.add_development_dependency "sqlite3", "~> 1.3.6"
-  s.add_development_dependency "sass-rails"
-  s.add_development_dependency "coffee-rails"
-  s.add_development_dependency "factory_bot"
-  s.add_development_dependency "selenium-webdriver", "~> 2.53.4"
-  s.add_development_dependency "capybara", "~> 2.11"
-  s.add_development_dependency "poltergeist", "~> 1.16"
-  s.add_development_dependency "phantomjs", "~> 2.1.1"
-  s.add_development_dependency "database_cleaner"
-  s.add_development_dependency 'shoulda-matchers', '~> 2.7'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'ffaker'
 end

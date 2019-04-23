@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Line, :vcr do
@@ -5,10 +7,10 @@ describe SolidusAvataxCertified::Line, :vcr do
   let(:sales_lines) { SolidusAvataxCertified::Line.new(order, 'SalesOrder') }
 
   describe '#initialize' do
-    it 'should have order' do
+    it 'has order' do
       expect(sales_lines.order).to eq(order)
     end
-    it 'should have lines be an array' do
+    it 'has lines be an array' do
       expect(sales_lines.lines).to be_kind_of(Array)
     end
     it 'lines should be a length of 3' do
@@ -38,7 +40,7 @@ describe SolidusAvataxCertified::Line, :vcr do
       it 'returns an Array' do
         expect(sales_lines.shipment_lines_array).to be_kind_of(Array)
       end
-      it 'should have a length of 1' do
+      it 'has a length of 1' do
         expect(sales_lines.shipment_lines_array.length).to eq(1)
       end
     end
@@ -49,6 +51,7 @@ describe SolidusAvataxCertified::Line, :vcr do
         expect(sales_lines.item_line(order.line_items.first)[:number]).to be_present
       end
     end
+
     describe '#shipment_line' do
       it 'returns a Hash with correct keys' do
         expect(sales_lines.shipment_line(order.shipments.first)).to be_kind_of(Hash)
@@ -59,7 +62,7 @@ describe SolidusAvataxCertified::Line, :vcr do
 
   context 'return invoice' do
     let(:authorization) { generate(:refund_transaction_id) }
-    let(:payment_amount) { 10*2 }
+    let(:payment_amount) { 10 * 2 }
     let(:payment_method) { build(:credit_card_payment_method) }
     let(:payment) { build(:payment, amount: payment_amount, payment_method: payment_method, order: order) }
     let(:refund_reason) { build(:refund_reason) }
@@ -76,7 +79,7 @@ describe SolidusAvataxCertified::Line, :vcr do
     let(:gateway_response_params) { {} }
     let(:gateway_response_options) { {} }
 
-    let(:refund) {Spree::Refund.new(payment: payment, amount: BigDecimal.new(10), reason: refund_reason, transaction_id: nil)}
+    let(:refund) { Spree::Refund.new(payment: payment, amount: BigDecimal(10), reason: refund_reason, transaction_id: nil) }
     let(:shipped_order) { build(:shipped_order) }
     let(:return_lines) { SolidusAvataxCertified::Line.new(shipped_order, 'ReturnOrder', refund) }
 
@@ -86,11 +89,13 @@ describe SolidusAvataxCertified::Line, :vcr do
         return_lines.build_lines
       end
     end
+
     describe '#refund_line' do
       it 'returns an Hash' do
         expect(return_lines.refund_line).to be_kind_of(Hash)
       end
     end
+
     describe '#refund_line' do
       it 'returns an Array' do
         expect(return_lines.refund_lines).to be_kind_of(Array)

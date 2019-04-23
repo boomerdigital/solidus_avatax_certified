@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe SolidusAvataxCertified::AvataxLog, :type => :model do
+describe SolidusAvataxCertified::AvataxLog, type: :model do
   let(:logger) { SolidusAvataxCertified::AvataxLog.new('test_file.rb', 'test info') }
   let(:request_hash) { attributes_for(:request_hash) }
-
 
   before do
     Spree::Avatax::Config.log_to_stdout = false
@@ -13,7 +14,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
     it 'returns a boolean value' do
       Spree::Avatax::Config.log = true
 
-      expect(logger.enabled?).to be_truthy
+      expect(logger).to be_enabled
     end
   end
 
@@ -22,7 +23,7 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
       Spree::Avatax::Config.log_to_stdout = false
       Spree::Avatax::Config.log = true
 
-      expect{ logger.progname('changed') }.to change{ logger.progname }.from('test_file').to('changed')
+      expect{ logger.progname('changed') }.to change(logger, :progname).from('test_file').to('changed')
     end
 
     it 'returns nil if logger is not enabled' do
@@ -72,7 +73,6 @@ describe SolidusAvataxCertified::AvataxLog, :type => :model do
 
       expect(logger.debug(['Heuh!'])).to be_nil
     end
-
   end
 
   describe '#error' do

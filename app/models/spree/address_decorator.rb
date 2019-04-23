@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::Address.class_eval do
   include ToAvataxHash
 

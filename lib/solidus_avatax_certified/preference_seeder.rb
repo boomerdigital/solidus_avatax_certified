@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   class PreferenceSeeder
     class << self
-
-      def seed!(print_messages=true)
+      def seed!(print_messages = true)
         @print_messages = print_messages
         stored_env_prefs
         boolean_prefs
@@ -14,11 +15,9 @@ module SolidusAvataxCertified
 
       def stored_env_prefs
         Spree::AvataxConfiguration.storable_env_preferences.each do |env|
-          if !ENV["AVATAX_#{env.upcase}"].blank?
-            value = ENV["AVATAX_#{env.upcase}"]
-          else
-            value = nil
-          end
+          value = if !ENV["AVATAX_#{env.upcase}"].blank?
+                    ENV["AVATAX_#{env.upcase}"]
+                  end
 
           Spree::Avatax::Config[env.to_sym] = value
         end
@@ -26,11 +25,11 @@ module SolidusAvataxCertified
 
       def boolean_prefs
         Spree::AvataxConfiguration.boolean_preferences.each do |preference|
-          if ['refuse_checkout_address_validation_error', 'log_to_stdout', 'raise_exceptions'].include?(preference)
-            Spree::Avatax::Config[preference.to_sym] = false
-          else
-            Spree::Avatax::Config[preference.to_sym] = true
-          end
+          Spree::Avatax::Config[preference.to_sym] = if ['refuse_checkout_address_validation_error', 'log_to_stdout', 'raise_exceptions'].include?(preference)
+                                                       false
+                                                     else
+                                                       true
+                                                     end
         end
       end
 
@@ -44,7 +43,7 @@ module SolidusAvataxCertified
       end
 
       def success_message(name, value)
-        puts "Created: #{name} - #{value ? value : 'Please input value in avalara settings!'}"
+        puts "Created: #{name} - #{value || 'Please input value in avalara settings!'}"
       end
     end
   end

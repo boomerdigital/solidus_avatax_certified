@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 RSpec.describe TaxSvc, :vcr do
@@ -40,11 +42,11 @@ RSpec.describe TaxSvc, :vcr do
       req[:createTransactionModel][:commit] = true
       req[:createTransactionModel][:date] = Date.today.strftime('%F')
       req[:createTransactionModel][:type] = 'SalesInvoice'
-      req[:createTransactionModel][:code] = "testcancel-#{rand(0..100000)}"
+      req[:createTransactionModel][:code] = "testcancel-#{rand(0..100_000)}"
       req
     }
 
-    it 'should raise error if no transaction_code is passed' do
+    it 'raises error if no transaction_code is passed' do
       expect { taxsvc.cancel_tax(nil) }.to raise_error
     end
 
@@ -63,9 +65,8 @@ RSpec.describe TaxSvc, :vcr do
       end
     end
 
-    it 'should return successful' do
-      expect(subject.success?).to be_truthy
+    it 'returns successful' do
+      expect(subject).to be_success
     end
   end
 end
-

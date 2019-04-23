@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :solidus_avatax_certified do
   desc "Loads seed data."
   task load_seeds: :environment do

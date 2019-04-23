@@ -1,13 +1,14 @@
-Spree::Order.class_eval do
+# frozen_string_literal: true
 
+Spree::Order.class_eval do
   has_one :avalara_transaction, dependent: :destroy
 
-  self.state_machine.before_transition :to => :canceled,
-                                      :do => :cancel_avalara,
-                                      :if => :avalara_tax_enabled?
-  self.state_machine.before_transition :to => :delivery,
-                                      :do => :validate_ship_address,
-                                      :if => :address_validation_enabled?
+  state_machine.before_transition to: :canceled,
+                                  do: :cancel_avalara,
+                                  if: :avalara_tax_enabled?
+  state_machine.before_transition to: :delivery,
+                                  do: :validate_ship_address,
+                                  if: :address_validation_enabled?
 
   def avalara_tax_enabled?
     Spree::Avatax::Config.tax_calculation
@@ -15,7 +16,8 @@ Spree::Order.class_eval do
 
   def cancel_avalara
     return nil unless avalara_transaction.present?
-    self.avalara_transaction.cancel_order
+
+    avalara_transaction.cancel_order
   end
 
   def avalara_capture
@@ -47,13 +49,13 @@ Spree::Order.class_eval do
       errors.add(:address_validation_failure, msg)
     end
 
-   return false
+    false
   end
 
   def avatax_cache_key
     key = ['Spree::Order']
-    key << self.number
-    key << self.promo_total
+    key << number
+    key << promo_total
     key.join('-')
   end
 

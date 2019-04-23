@@ -1,5 +1,6 @@
-require 'spec_helper'
+# frozen_string_literal: true
 
+require 'spec_helper'
 
 RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
   let(:response) { described_class.new(response_hash) }
@@ -23,19 +24,19 @@ RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
     end
 
     it '#success?' do
-      expect(response.success?).to be_truthy
+      expect(response).to be_success
     end
 
     it '#error?' do
-      expect(response.error?).to be_falsey
+      expect(response).not_to be_error
     end
 
     it '#failed?' do
-      expect(response.failed?).to be_falsey
+      expect(response).not_to be_failed
     end
 
     it '#messages_present?' do
-      expect(response.messages_present?).to be_falsey
+      expect(response).not_to be_messages_present
     end
 
     it '#summary_messages' do
@@ -45,7 +46,6 @@ RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
     it '#detailed_messages' do
       expect(response.detailed_messages).to eq([])
     end
-
   end
 
   context 'Error Response' do
@@ -57,19 +57,19 @@ RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
       end
 
       it '#success?' do
-        expect(response.success?).to be_falsey
+        expect(response).not_to be_success
       end
 
       it '#error?' do
-        expect(response.error?).to be_truthy
+        expect(response).to be_error
       end
 
       it '#failed?' do
-        expect(response.failed?).to be_truthy
+        expect(response).to be_failed
       end
 
       it '#messages_present?' do
-        expect(response.messages_present?).to be_falsey
+        expect(response).not_to be_messages_present
       end
 
       it '#summary_messages' do
@@ -91,24 +91,25 @@ RSpec.describe SolidusAvataxCertified::Response::AddressValidation do
 
     context 'Unknown Address' do
       let(:response_hash) { build(:address_validation_unknown) }
+
       it '#validated_address' do
         expect(response.validated_address).to be_empty
       end
 
       it '#success?' do
-        expect(response.success?).to be_falsey
+        expect(response).not_to be_success
       end
 
       it '#error?' do
-        expect(response.error?).to be_falsey
+        expect(response).not_to be_error
       end
 
       it '#failed?' do
-        expect(response.failed?).to be_truthy
+        expect(response).to be_failed
       end
 
       it '#messages_present?' do
-        expect(response.messages_present?).to be_truthy
+        expect(response).to be_messages_present
       end
 
       it '#summary_messages' do

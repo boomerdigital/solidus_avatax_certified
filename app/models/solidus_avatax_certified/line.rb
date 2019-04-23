@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spree/tax/tax_helpers'
 
 module SolidusAvataxCertified
@@ -49,6 +51,7 @@ module SolidusAvataxCertified
     def shipment_lines_array
       order.shipments.each do |shipment|
         next unless shipment.tax_category
+
         lines << shipment_line(shipment)
       end
     end
@@ -77,15 +80,14 @@ module SolidusAvataxCertified
       inventory_units = Spree::InventoryUnit.where(id: return_items.pluck(:inventory_unit_id))
 
       inventory_units.group_by(&:line_item_id).each_value do |inv_unit|
-
-        inv_unit_ids = inv_unit.map { |iu| iu.id }
+        inv_unit_ids = inv_unit.map(&:id)
         return_items = Spree::ReturnItem.where(inventory_unit_id: inv_unit_ids)
         quantity = inv_unit.uniq.count
 
         amount = if return_items.first.respond_to?(:amount)
-            return_items.sum(:amount)
-        else
-          return_items.sum(:pre_tax_amount)
+                   return_items.sum(:amount)
+                 else
+                   return_items.sum(:pre_tax_amount)
         end
 
         lines << return_item_line(inv_unit.first.line_item, quantity, amount)

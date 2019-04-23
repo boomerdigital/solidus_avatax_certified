@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   class Seeder
     class << self
-
       def seed!
         create_use_codes
         create_tax
@@ -30,8 +31,8 @@ module SolidusAvataxCertified
         default_tax_category = Spree::TaxCategory.find_by(name: 'Default')
         default_tax_rate = Spree::TaxRate.find_by(name: 'North America')
 
-        default_tax_category.destroy if default_tax_category
-        default_tax_rate.destroy if default_tax_rate
+        default_tax_category&.destroy
+        default_tax_rate&.destroy
 
         clothing = Spree::TaxCategory.find_or_create_by(name: 'Clothing')
         clothing.update_attributes(tax_code: 'P0000000')
@@ -39,20 +40,20 @@ module SolidusAvataxCertified
         tax_calculator = Spree::Calculator::AvalaraTransaction.create!
         sales_tax = Spree::TaxRate.find_or_create_by(name: 'Tax') do |tax_rate|
           # default values for the create
-          tax_rate.amount = BigDecimal.new('0')
+          tax_rate.amount = BigDecimal('0')
           tax_rate.calculator = tax_calculator
           tax_rate.tax_category = clothing
         end
-        sales_tax.update!(tax_category: clothing, name: 'Tax', amount: BigDecimal.new('0'), zone: tax_zone, show_rate_in_label: false, calculator: tax_calculator)
+        sales_tax.update!(tax_category: clothing, name: 'Tax', amount: BigDecimal('0'), zone: tax_zone, show_rate_in_label: false, calculator: tax_calculator)
 
         shipping = Spree::TaxCategory.find_or_create_by(name: 'Shipping', tax_code: 'FR000000')
         shipping_tax = Spree::TaxRate.find_or_create_by(name: 'Shipping Tax') do |shipping_tax|
           shipping_tax.tax_category = shipping
-          shipping_tax.amount = BigDecimal.new('0')
+          shipping_tax.amount = BigDecimal('0')
           shipping_tax.zone = tax_zone
           shipping_tax.show_rate_in_label = false
         end
-        shipping_tax.update!(tax_category: shipping, amount: BigDecimal.new('0'), zone: Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: Spree::Calculator::AvalaraTransaction.create!)
+        shipping_tax.update!(tax_category: shipping, amount: BigDecimal('0'), zone: Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: Spree::Calculator::AvalaraTransaction.create!)
       end
 
       def add_tax_category_to_shipping_methods

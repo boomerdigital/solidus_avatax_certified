@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Spree::CheckoutController.class_eval do
   def validate_address
     mytax = TaxSvc.new
@@ -10,14 +12,14 @@ Spree::CheckoutController.class_eval do
     result = response.result
 
     if response.failed?
-      result.merge!({ 'responseCode': 'error', 'errorMessages': response.summary_messages })
+      result['responseCode'] = 'error'
+      result['errorMessages'] = response.summary_messages
     end
 
     respond_to do |format|
       format.json { render json: result }
     end
   end
-
 
   private
 

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-
 RSpec.describe SolidusAvataxCertified::Request::Base do
-  let(:order) { Spree::Order.new }
   subject { described_class.new(order) }
+
+  let(:order) { Spree::Order.new }
 
   describe '#generate' do
     it 'raises error' do

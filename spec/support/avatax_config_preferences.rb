@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MyConfigPreferences
   def self.set_preferences
     SolidusAvataxCertified::PreferenceSeeder.seed!(false)

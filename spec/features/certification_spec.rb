@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
 describe "Certification", :vcr do
   let!(:avalara_order) { create(:avalara_order) }
-  let(:unique_ship_address) { create(:address, firstname: 'Jimmie', lastname: 'Johnson', address1: '3366 Speedway Blvd', city: 'Lincoln', state_name: 'Alabama', zipcode: 35096) }
+  let(:unique_ship_address) { create(:address, firstname: 'Jimmie', lastname: 'Johnson', address1: '3366 Speedway Blvd', city: 'Lincoln', state_name: 'Alabama', zipcode: 35_096) }
   let!(:order) { create(:order_with_line_items, state: 'delivery', user: nil, ship_address: unique_ship_address, email: 'acreilly3@gmail.com') }
   let(:use_code) { create(:avalara_entity_use_code) }
 
@@ -40,7 +42,7 @@ describe "Certification", :vcr do
     let(:refund_reason) { create(:refund_reason) }
     let(:reimbursement) { create(:reimbursement) }
     let(:order) { reimbursement.order }
-    let(:refund) { build(:refund, payment: order.payments.first, amount: BigDecimal.new(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement) }
+    let(:refund) { build(:refund, payment: order.payments.first, amount: BigDecimal(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement) }
 
     before do
       order.update_attributes(completed_at: 2.days.ago)
@@ -49,7 +51,7 @@ describe "Certification", :vcr do
     end
 
     describe '#commit_avatax_final' do
-      it 'should commit avatax final' do
+      it 'commits avatax final' do
         response = order.avalara_transaction.commit_avatax_final('ReturnInvoice', refund)
 
         expect(response).to be_kind_of(Hash)
@@ -58,7 +60,6 @@ describe "Certification", :vcr do
     end
   end
 end
-
 
 #### Certification Requirements to pass ####
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Request
     class GetTax < SolidusAvataxCertified::Request::Base
@@ -11,7 +13,7 @@ module SolidusAvataxCertified
             date: doc_date,
             discount: (promotion_discount + manual_discount).to_s,
             commit: @commit,
-            type: @doc_type ? @doc_type : 'SalesOrder',
+            type: @doc_type || 'SalesOrder',
             lines: sales_lines
           }.merge(base_tax_hash)
         }

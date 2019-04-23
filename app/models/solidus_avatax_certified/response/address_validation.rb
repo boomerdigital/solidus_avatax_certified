@@ -1,16 +1,17 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   module Response
     class AddressValidation < SolidusAvataxCertified::Response::Base
-
       def description
         'Address Validation'
       end
 
       def validated_address
         @validated_address ||= if success?
-          result['validatedAddresses'][0]
-        else
-          {}
+                                 result['validatedAddresses'][0]
+                               else
+                                 {}
         end
       end
 
@@ -53,7 +54,6 @@ module SolidusAvataxCertified
           []
         end
       end
-
     end
   end
 end

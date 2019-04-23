@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module SolidusAvataxCertified
   class AvataxLog
     def initialize(file_name, log_info = nil, schedule = nil)
       if !Spree::Avatax::Config.log_to_stdout
-        schedule = 'weekly' unless schedule != nil
+        schedule = 'weekly' unless !schedule.nil?
         @logger ||= Logger.new("#{Rails.root}/log/avatax.log", schedule)
         progname(file_name.split('/').last.chomp('.rb'))
         info(log_info) unless log_info.nil?
@@ -12,9 +14,7 @@ module SolidusAvataxCertified
       end
     end
 
-    def logger
-      @logger
-    end
+    attr_reader :logger
 
     def enabled?
       Spree::Avatax::Config.log || Spree::Avatax::Config.log_to_stdout
@@ -43,14 +43,13 @@ module SolidusAvataxCertified
       end
     end
 
-
-    def debug(obj, message='')
+    def debug(obj, message = '')
       if enabled?
         logger.debug "[AVATAX] #{message} #{obj.inspect}"
       end
     end
 
-    def error(obj, message='')
+    def error(obj, message = '')
       if enabled?
         logger.error "[AVATAX] #{message} #{obj}"
       end

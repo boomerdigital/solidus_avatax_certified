@@ -1,14 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-RSpec.feature 'Checkout', :vcr, :js do
+RSpec.describe 'Checkout', :vcr, :js do
   let(:product) { Spree::Product.first }
   let(:included_in_price) { false }
   let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10, tax_included: included_in_price) }
   let!(:user) { order.user }
 
   before do
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(:current_order => order)
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(:try_spree_current_user => user)
+    allow_any_instance_of(Spree::CheckoutController).to receive_messages(current_order: order)
+    allow_any_instance_of(Spree::CheckoutController).to receive_messages(try_spree_current_user: user)
   end
 
   context 'address' do
@@ -60,6 +62,7 @@ RSpec.feature 'Checkout', :vcr, :js do
 
     context 'tax included' do
       let(:included_in_price) { true }
+
       before do
         Spree::TaxRate.update_all(included_in_price: true)
         order.reload
@@ -80,7 +83,6 @@ RSpec.feature 'Checkout', :vcr, :js do
     end
 
     context 'with promotion' do
-
       context 'tax not included' do
         let(:promotion) { create(:promotion, :with_line_item_adjustment, adjustment_rate: 5) }
 
@@ -106,7 +108,7 @@ RSpec.feature 'Checkout', :vcr, :js do
     let!(:payment_method) { create(:check_payment_method) }
 
     before do
-      allow(order).to receive_messages(:available_payment_methods => [ payment_method ])
+      allow(order).to receive_messages(available_payment_methods: [payment_method])
       visit_delivery
       click_button 'Save and Continue'
       click_button 'Save and Continue'
@@ -125,7 +127,6 @@ RSpec.feature 'Checkout', :vcr, :js do
       expect(order.all_adjustments.tax.count).to eq(2)
     end
   end
-
 
   def fill_in_address
     address = "order_bill_address_attributes"

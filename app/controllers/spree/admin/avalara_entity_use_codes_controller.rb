@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Spree
   module Admin
     class AvalaraEntityUseCodesController < Spree::Admin::ResourceController
-
       def index
         @avalara_entity_use_codes = Spree::AvalaraEntityUseCode.all
 
