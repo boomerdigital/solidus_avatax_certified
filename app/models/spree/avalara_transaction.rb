@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require_dependency 'spree/order'
-
 module Spree
   class AvalaraTransaction < Spree::Base
     belongs_to :order
