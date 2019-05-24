@@ -5,7 +5,7 @@ module SolidusAvataxCertified
     class GetTax < SolidusAvataxCertified::Request::Base
       def generate
         promotion_discount = order.all_adjustments.promotion.eligible.sum(:amount).abs
-        manual_discount = order.all_adjustments.where(source: nil).eligible.sum(:amount).abs
+        manual_discount = order.all_adjustments.where('amount < 0').where(source: nil).eligible.sum(:amount).abs
 
         {
           createTransactionModel: {
