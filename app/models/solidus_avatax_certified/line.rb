@@ -157,7 +157,9 @@ module SolidusAvataxCertified
     end
 
     def discounted?(line_item)
-      line_item.adjustments.promotion.eligible.any? || order.adjustments.promotion.eligible.any?
+      line_item.adjustments.promotion.eligible.any? ||
+        order.adjustments.promotion.eligible.any? ||
+        order.adjustments.where('amount < 0').where(source: nil).eligible.any?
     end
 
     def tax_included_in_price?(item)
