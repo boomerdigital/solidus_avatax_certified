@@ -7,19 +7,30 @@ class TaxSvc
   def get_tax(request_hash)
     log(__method__, request_hash)
 
-    req = client.transactions.create_or_adjust(request_hash)
+    begin
+      request = client.transactions.create_or_adjust(request_hash)
+    rescue => e
+      logger.error(e)
 
-    response = SolidusAvataxCertified::Response::GetTax.new(req)
+      request = { 'error' => { 'message' => e } }
+    end
 
+    response = SolidusAvataxCertified::Response::GetTax.new(request)
     handle_response(response)
   end
 
   def cancel_tax(transaction_code)
     log(__method__, transaction_code)
 
-    req = client.transactions.void(company_code, transaction_code)
-    response = SolidusAvataxCertified::Response::CancelTax.new(req)
+    begin
+      request = client.transactions.void(company_code, transaction_code)
+    rescue => e
+      logger.error(e)
 
+      request = { 'error' => { 'message' => e } }
+    end
+
+    response = SolidusAvataxCertified::Response::CancelTax.new(request)
     handle_response(response)
   end
 

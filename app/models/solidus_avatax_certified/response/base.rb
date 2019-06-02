@@ -6,7 +6,7 @@ module SolidusAvataxCertified
       attr_accessor :result, :faraday
 
       def initialize(faraday)
-        @faraday = faraday
+        @faraday = faraday.is_a?(Hash) ? OpenStruct.new({body: faraday}) : faraday
       end
 
       def result

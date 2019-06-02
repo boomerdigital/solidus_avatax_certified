@@ -60,7 +60,7 @@ module Spree
       mytax = TaxSvc.new
       response = mytax.get_tax(request)
 
-      return { 'totalTax' => 0.0 } if response.error?
+      return { 'totalTax' => -1 } if response.error?
 
       response.tax_result
     end
