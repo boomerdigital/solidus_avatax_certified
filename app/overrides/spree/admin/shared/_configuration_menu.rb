@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Deface::Override.new(
   virtual_path: 'spree/admin/shared/_taxes_tabs',
   name: 'add_avalara_admin_menu_links',

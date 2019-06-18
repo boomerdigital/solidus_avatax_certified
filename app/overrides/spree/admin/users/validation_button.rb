@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 Deface::Override.new(
   virtual_path: 'spree/admin/users/_addresses_form',
   name: 'add validator button',
