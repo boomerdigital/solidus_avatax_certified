@@ -5,7 +5,7 @@ require 'spree/tax/tax_helpers'
 module SolidusAvataxCertified
   class Line
     attr_reader :order, :lines
-    include Spree::Tax::TaxHelpers
+    include ::Spree::Tax::TaxHelpers
 
     def initialize(order, invoice_type, refund = nil)
       @order = order
@@ -77,11 +77,11 @@ module SolidusAvataxCertified
       return lines << refund_line if @refund.reimbursement.nil?
 
       return_items = @refund.reimbursement.customer_return.return_items
-      inventory_units = Spree::InventoryUnit.where(id: return_items.pluck(:inventory_unit_id))
+      inventory_units = ::Spree::InventoryUnit.where(id: return_items.pluck(:inventory_unit_id))
 
       inventory_units.group_by(&:line_item_id).each_value do |inv_unit|
         inv_unit_ids = inv_unit.map(&:id)
-        return_items = Spree::ReturnItem.where(inventory_unit_id: inv_unit_ids)
+        return_items = ::Spree::ReturnItem.where(inventory_unit_id: inv_unit_ids)
         quantity = inv_unit.uniq.count
 
         amount = if return_items.first.respond_to?(:amount)
@@ -139,7 +139,7 @@ module SolidusAvataxCertified
     end
 
     def default_ship_from
-      Spree::StockLocation.order_default.first.to_avatax_hash
+      ::Spree::StockLocation.order_default.first.to_avatax_hash
     end
 
     private

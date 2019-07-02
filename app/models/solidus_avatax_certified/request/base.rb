@@ -39,7 +39,7 @@ module SolidusAvataxCertified
       end
 
       def company_code
-        @company_code ||= Spree::Avatax::Config.company_code
+        @company_code ||= ::Spree::Avatax::Config.company_code
       end
 
       def business_id_no
