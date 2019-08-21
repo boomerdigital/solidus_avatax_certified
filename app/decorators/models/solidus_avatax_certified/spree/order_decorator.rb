@@ -2,7 +2,7 @@
 
 module SolidusAvataxCertified
   module Spree
-    module Order
+    module OrderDecorator
       def self.prepended(base)
         base.has_one :avalara_transaction, dependent: :destroy
 

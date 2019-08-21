@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SolidusAvataxCertfied
+module SolidusAvataxCertified
   module Spree
     module RefundDecorator
       def self.prepended(base)
