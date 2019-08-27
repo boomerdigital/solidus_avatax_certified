@@ -87,11 +87,15 @@ class TaxSvc
     Spree::Avatax::Config.company_code
   end
 
+  def environment
+    Spree::Avatax::Config.environment
+  end
+
   def client
     @client ||= Avatax::Client.new(
       username: account_number,
       password: license_key,
-      env: Spree::AvataxConfiguration.environment,
+      env: environment,
       headers: AVATAX_HEADERS
     )
   end
