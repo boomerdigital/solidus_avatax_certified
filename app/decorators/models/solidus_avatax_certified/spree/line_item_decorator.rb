@@ -2,7 +2,7 @@
 
 module SolidusAvataxCertified
   module Spree
-    module LineItem
+    module LineItemDecorator
       def to_hash
         {
           'Index' => id,
