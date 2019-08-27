@@ -25,10 +25,10 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   end
 
   def default_environment
-    if ENV['AVATAX_ENVIRONMENT'].nil?
-      Rails.env.production? ? 'production' : 'sandbox'
-    else
+    if ENV['AVATAX_ENVIRONMENT'].present?
       ENV['AVATAX_ENVIRONMENT']
+    else
+      Rails.env.production? ? 'production' : 'sandbox'
     end
   end
 end
