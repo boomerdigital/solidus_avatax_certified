@@ -12,6 +12,5 @@ nbproject
 pkg
 *.swp
 spec/dummy
-.env
 log/*
 .bundle
