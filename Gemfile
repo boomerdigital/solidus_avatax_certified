@@ -2,16 +2,18 @@
 
 source "https://rubygems.org"
 
-branch = 'master'
+solidus_branch = ENV.fetch("SOLIDUS_BRANCH", "master")
+
 gem 'avatax-ruby'
-gem "solidus", github: "solidusio/solidus", branch: branch
+
+gem "solidus", github: "solidusio/solidus", branch: solidus_branch
 gem "solidus_auth_devise", github: "solidusio/solidus_auth_devise"
 
 group :test do
-  if branch != 'master' && branch < 'v2.0'
+  if solidus_branch != 'master' && solidus_branch < 'v2.0'
     gem "rails_test_params_backport"
   end
-  if branch < "v2.5"
+  if solidus_branch < "v2.5"
     gem 'factory_bot', '4.10.0'
   else
     gem 'factory_bot', '> 4.10.0'
