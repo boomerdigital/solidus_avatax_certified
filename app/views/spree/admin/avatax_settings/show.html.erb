@@ -4,10 +4,6 @@
   <%= t('spree.avalara_settings') %>
 <% end %>
 
-<% content_for :page_actions do %>
-  <li><%= link_to_with_icon 'edit', t('spree.edit_avalara_settings'), edit_admin_avatax_settings_path, :class => 'button' %></li>
-<% end %>
-
 <table>
   <tr>
     <th><%= t('spree.avatax_company_code') %>:</th>
@@ -85,21 +81,19 @@
       <%= link_to({:controller => :avatax_settings, :action => :ping_my_service, :remote => true }, {:class => 'btn btn-small'}) do %>
       <button>Test Connection</button> <% end %>
     </td>
-
   </tr>
 
-
-
   <tr>
-   <th><%= t('spree.avatax_log') %></th>
-   <td>
-    The avatax log is located in the log directory of your spree app.
-    <table>
-        <td>Avatax Log -  avatax.log</td>
-        <td><%= link_to("Download", { controller: :avatax_settings, action: :download_avatax_log }) %>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>
+    <th><%= t('spree.avatax_log') %></th>
+    <td>
+      The avatax log is located in the log directory of your spree app.
+      <table>
+        <tr>
+          <td>Avatax Log - avatax.log</td>
+          <td><%= link_to("Download", { controller: :avatax_settings, action: :download_avatax_log }) %></td>
+          <td><%= link_to("Clear Data", { controller: :avatax_settings, action: :erase_data, remote: true }) %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 </table>

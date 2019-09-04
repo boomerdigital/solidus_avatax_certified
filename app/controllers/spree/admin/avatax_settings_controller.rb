@@ -3,7 +3,7 @@
 module Spree
   module Admin
     class AvataxSettingsController < Spree::Admin::BaseController
-      before_action :load_avatax_origin, only: %i[show edit]
+      before_action :load_avatax_origin, only: %i[show]
 
       def show; end
 
@@ -23,7 +23,6 @@ module Spree
 
         if response.success?
           flash[:success] = 'Ping Successful'
-
         else
           flash[:error] = 'Ping Error'
         end
@@ -31,36 +30,6 @@ module Spree
         respond_to do |format|
           format.html { render layout: !request.xhr? }
           format.js { render layout: false }
-        end
-      end
-
-      def validate_address
-        mytax = TaxSvc.new
-        address = permitted_address_validation_attrs
-
-        address['country'] = Spree::Country.find_by(id: address['country']).try(:iso)
-        address['region'] = Spree::State.find_by(id: address['region']).try(:abbr)
-
-        response = mytax.validate_address(address)
-        result = response.result
-
-        if response.failed?
-          result['responseCode'] = 'error'
-          result['errorMessages'] = response.summary_messages
-        end
-
-        respond_to do |format|
-          format.json { render json: result }
-        end
-      end
-
-      def update
-        updater = SolidusAvataxCertified::PreferenceUpdater.new(params)
-        if updater.update
-          redirect_to admin_avatax_settings_path
-        else
-          flash[:error] = 'There was an error updating your Avalara Preferences'
-          redirect_to :back
         end
       end
 
@@ -72,10 +41,6 @@ module Spree
                          else
                            JSON.parse(Spree::Avatax::Config.origin)
                          end
-      end
-
-      def permitted_address_validation_attrs
-        params['address'].permit(:line1, :line2, :city, :postalCode, :country, :region).to_h
       end
     end
   end
