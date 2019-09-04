@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
+    uri: https://rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
       string: '{"line1":null,"line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic [REDACTED]
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,27 +25,17 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 14 Mar 2019 15:46:51 GMT
+      - Wed, 04 Sep 2019 09:22:22 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0003174'
-      Databasecalls:
-      - '0'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00'
-      X-Powered-By:
-      - ASP.NET
+      - '00:00:00.0002891'
     body:
       encoding: UTF-8
       string: '{"error":{"code":"InvalidAddress","message":"The address value was
@@ -53,6 +43,6 @@ http_interactions:
         address value was incomplete.","description":"The address value NULL was incomplete.
         You must provide either a valid postal code, line1 + city + region, or line1
         + postal code.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
-    http_version: 
-  recorded_at: Thu, 14 Mar 2019 15:46:50 GMT
-recorded_with: VCR 4.0.0
+    http_version:
+  recorded_at: Wed, 04 Sep 2019 09:22:22 GMT
+recorded_with: VCR 5.0.0

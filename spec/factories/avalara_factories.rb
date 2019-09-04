@@ -41,7 +41,7 @@ FactoryBot.define do
           }
         ],
         customerCode: 1,
-        companyCode: '54321',
+        companyCode: 'DEFAULT',
         customerUsageType: nil,
         exemptionNo: nil,
         referenceCode: 'R250707809',

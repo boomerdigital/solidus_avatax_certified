@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
+    uri: https://rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
       string: '{"line1":"5 t","line2":"","city":"Montgomery","postalCode":"36104","country":"US","region":"AL"}'
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic [REDACTED]
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,27 +25,17 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 14 Mar 2019 17:53:02 GMT
+      - Wed, 04 Sep 2019 09:24:18 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0303709'
-      Databasecalls:
-      - '0'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00.0296172'
-      X-Powered-By:
-      - ASP.NET
+      - '00:00:00.0246248'
     body:
       encoding: UTF-8
       string: '{"address":{"line1":"5 t","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"5
@@ -53,6 +43,6 @@ http_interactions:
         address number is out of range","details":"The address was found but the street
         number in the input address was not between the low and high range of the
         post office database.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
-    http_version: 
-  recorded_at: Thu, 14 Mar 2019 17:53:02 GMT
-recorded_with: VCR 4.0.0
+    http_version:
+  recorded_at: Wed, 04 Sep 2019 09:24:18 GMT
+recorded_with: VCR 5.0.0

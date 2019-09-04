@@ -5,9 +5,9 @@ class MyConfigPreferences
     Spree::Avatax::Config.reset
 
     Spree::Avatax::Config.configure do |config|
-      config.company_code = '0' unless config.company_code.present?
-      config.license_key = '12345' unless config.license_key.present?
-      config.account = 'jdoe@example.com' unless config.account.present?
+      config.company_code = 'DEFAULT'
+      config.license_key = '12345'
+      config.account = '12345'
 
       config.refuse_checkout_address_validation_error = false
       config.log_to_stdout = false

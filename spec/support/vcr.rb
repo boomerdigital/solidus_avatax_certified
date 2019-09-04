@@ -9,7 +9,7 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.default_cassette_options = {
     match_requests_on: [:method],
-    record: :new_episodes,
+    record: :none,
     allow_playback_repeats: true,
   }
 end

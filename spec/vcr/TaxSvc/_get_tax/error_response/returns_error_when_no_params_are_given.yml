@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    uri: https://rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
       string: "{}"
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic [REDACTED]
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,33 +25,21 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 14 Mar 2019 15:44:27 GMT
+      - Wed, 04 Sep 2019 09:24:25 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0003944'
-      Databasecalls:
-      - '0'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00'
-      X-Powered-By:
-      - ASP.NET
+      - '00:00:00.0005148'
     body:
       encoding: UTF-8
-      string: '{"error":{"code":"ValueRequiredError","message":"Field createTransactionModel
-        is required.","target":"IncorrectData","details":[{"code":"ValueRequiredError","number":5,"message":"Field
-        createTransactionModel is required.","description":"Please provide a value
-        for field createTransactionModel.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
-    http_version: 
-  recorded_at: Thu, 14 Mar 2019 15:44:26 GMT
-recorded_with: VCR 4.0.0
+      string: '{"error":{"code":"ValueRequiredError","message":"Field NULL is required.","target":"IncorrectData","details":[{"code":"ValueRequiredError","number":5,"message":"Field
+        NULL is required.","description":"Please provide a value for field NULL.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/ValueRequiredError","severity":"Error"}]}}'
+    http_version:
+  recorded_at: Wed, 04 Sep 2019 09:24:25 GMT
+recorded_with: VCR 5.0.0

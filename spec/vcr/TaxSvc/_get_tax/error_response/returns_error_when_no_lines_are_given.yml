@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    uri: https://rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R250707809","date":"2017-05-31","discount":"0.0","commit":false,"type":"SalesOrder","lines":[],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R250707809","currencyCode":"USD"}}'
+      string: '{"createTransactionModel":{"code":"R250707809","date":"2017-05-31","discount":"0.0","commit":false,"type":"SalesOrder","lines":[],"customerCode":1,"companyCode":"DEFAULT","customerUsageType":null,"exemptionNo":null,"referenceCode":"R250707809","currencyCode":"USD"}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -14,7 +14,7 @@ http_interactions:
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic [REDACTED]
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,33 +25,23 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Thu, 14 Mar 2019 15:44:28 GMT
+      - Wed, 04 Sep 2019 09:24:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0007679'
-      Databasecalls:
-      - '0'
-      Databaseduration:
-      - '00:00:00'
-      Serviceduration:
-      - '00:00:00'
-      X-Powered-By:
-      - ASP.NET
+      - '00:00:00.0006680'
     body:
       encoding: UTF-8
       string: '{"error":{"code":"MissingLine","message":"Transactions must have at
         least one line.","target":"HttpRequestHeaders","details":[{"code":"MissingLine","number":311,"message":"Transactions
         must have at least one line.","description":"The CreateTransactionModel object
         must have an element called ''lines'', with at least one valid line record.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/MissingLine","severity":"Error"}]}}'
-    http_version: 
-  recorded_at: Thu, 14 Mar 2019 15:44:27 GMT
-recorded_with: VCR 4.0.0
+    http_version:
+  recorded_at: Wed, 04 Sep 2019 09:24:26 GMT
+recorded_with: VCR 5.0.0
