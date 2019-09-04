@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'ffaker'
   s.add_development_dependency "phantomjs", "~> 2.1.1"
   s.add_development_dependency "poltergeist", "~> 1.16"
-  s.add_development_dependency "rspec-rails", "~> 3.2"
+  s.add_development_dependency "rspec-rails", "~> 4.0.0.beta2"
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'rubocop-rspec'
   s.add_development_dependency "sass-rails"
