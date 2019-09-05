@@ -28,17 +28,17 @@ module SolidusAvataxCertified
       end
 
       def create_tax
-        default_tax_category = Spree::TaxCategory.find_by(name: 'Default')
-        default_tax_rate = Spree::TaxRate.find_by(name: 'North America')
+        default_tax_category = ::Spree::TaxCategory.find_by(name: 'Default')
+        default_tax_rate = ::Spree::TaxRate.find_by(name: 'North America')
 
         default_tax_category&.destroy
         default_tax_rate&.destroy
 
-        clothing = Spree::TaxCategory.find_or_create_by(name: 'Clothing')
+        clothing = ::Spree::TaxCategory.find_or_create_by(name: 'Clothing')
         clothing.update_attributes(tax_code: 'P0000000')
-        tax_zone = Spree::Zone.find_or_create_by(name: 'North America')
-        tax_calculator = Spree::Calculator::AvalaraTransaction.create!
-        sales_tax = Spree::TaxRate.find_or_create_by(name: 'Tax') do |tax_rate|
+        tax_zone = ::Spree::Zone.find_or_create_by(name: 'North America')
+        tax_calculator = ::Spree::Calculator::AvalaraTransaction.create!
+        sales_tax = ::Spree::TaxRate.find_or_create_by(name: 'Tax') do |tax_rate|
           # default values for the create
           tax_rate.amount = BigDecimal('0')
           tax_rate.calculator = tax_calculator
@@ -46,30 +46,30 @@ module SolidusAvataxCertified
         end
         sales_tax.update!(tax_category: clothing, name: 'Tax', amount: BigDecimal('0'), zone: tax_zone, show_rate_in_label: false, calculator: tax_calculator)
 
-        shipping = Spree::TaxCategory.find_or_create_by(name: 'Shipping', tax_code: 'FR000000')
-        shipping_tax = Spree::TaxRate.find_or_create_by(name: 'Shipping Tax') do |shipping_tax|
+        shipping = ::Spree::TaxCategory.find_or_create_by(name: 'Shipping', tax_code: 'FR000000')
+        shipping_tax = ::Spree::TaxRate.find_or_create_by(name: 'Shipping Tax') do |shipping_tax|
           shipping_tax.tax_category = shipping
           shipping_tax.amount = BigDecimal('0')
           shipping_tax.zone = tax_zone
           shipping_tax.show_rate_in_label = false
         end
-        shipping_tax.update!(tax_category: shipping, amount: BigDecimal('0'), zone: Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: Spree::Calculator::AvalaraTransaction.create!)
+        shipping_tax.update!(tax_category: shipping, amount: BigDecimal('0'), zone: ::Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: ::Spree::Calculator::AvalaraTransaction.create!)
       end
 
       def add_tax_category_to_shipping_methods
-        Spree::ShippingMethod.update_all(tax_category_id: Spree::TaxCategory.find_by(name: 'Shipping').id)
+        ::Spree::ShippingMethod.update_all(tax_category_id: ::Spree::TaxCategory.find_by(name: 'Shipping').id)
       end
 
       def add_tax_category_to_products
-        Spree::Product.update_all(tax_category_id: Spree::TaxCategory.find_by(name: 'Clothing').id)
+        ::Spree::Product.update_all(tax_category_id: ::Spree::TaxCategory.find_by(name: 'Clothing').id)
       end
 
       def populate_default_stock_location
-        default = Spree::StockLocation.find_or_create_by(name: 'default')
+        default = ::Spree::StockLocation.find_or_create_by(name: 'default')
 
         return unless default.zipcode.nil? || default.address1.nil?
 
-        state = Spree::State.find_by(name: 'Alabama')
+        state = ::Spree::State.find_by(name: 'Alabama')
 
         address = {
           address1: '915 S Jackson St',
@@ -86,9 +86,9 @@ module SolidusAvataxCertified
       end
 
       def create_use_codes
-        unless Spree::AvalaraEntityUseCode.count >= 16
+        unless ::Spree::AvalaraEntityUseCode.count >= 16
           use_codes.each do |key, value|
-            Spree::AvalaraEntityUseCode.find_or_create_by(use_code: key, use_code_description: value)
+            ::Spree::AvalaraEntityUseCode.find_or_create_by(use_code: key, use_code_description: value)
           end
         end
       end
