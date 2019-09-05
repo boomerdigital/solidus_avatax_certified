@@ -47,7 +47,7 @@ RSpec.describe TaxSvc, :vcr do
     }
 
     it 'raises error if no transaction_code is passed' do
-      expect { taxsvc.cancel_tax(nil) }.to raise_error
+      expect { taxsvc.cancel_tax(nil) }.to raise_error(ArgumentError, /transaction_code/)
     end
 
     it 'respond with success' do
