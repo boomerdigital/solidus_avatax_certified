@@ -8,7 +8,7 @@ Spree::Core::Engine.routes.draw do
       get :ping_my_service, :download_avatax_log, :erase_data, :validate_address
     end
 
-    resources :users do
+    resources :users, only: [] do
       member do
         get :avalara_information
         put :avalara_information
