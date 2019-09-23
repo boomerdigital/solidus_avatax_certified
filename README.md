@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/boomerdigital/solidus_avatax_certified.svg?branch=master)](https://travis-ci.org/boomerdigital/solidus_avatax_certified)
 
-solidus_avatax_certified is the *only* [officially certified AvaTax solution](http://www.avalara.com/avalara-certified/)
+solidus_avatax_certified is the *only* [officially certified AvaTax solution](https://www.avalara.com/legal/avalara-certified.html)
 that integrates with Solidus. With this extension, you can add instantaneous sales tax decisions to
 your store.
 
