@@ -24,3 +24,9 @@ class MyConfigPreferences
     end
   end
 end
+
+RSpec.configure do |config|
+  config.before do
+    MyConfigPreferences.set_preferences
+  end
+end

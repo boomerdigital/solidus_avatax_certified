@@ -4,7 +4,7 @@ module SolidusAvataxCertified
       module UsersControllerDecorator
         def avalara_information
           if request.put?
-            if @user.update_attributes(user_params)
+            if @user.update(user_params)
               flash.now[:success] = I18n.t(:account_updated)
             end
           end

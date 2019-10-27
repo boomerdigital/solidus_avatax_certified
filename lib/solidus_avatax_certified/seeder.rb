@@ -35,7 +35,7 @@ module SolidusAvataxCertified
         default_tax_rate&.destroy
 
         clothing = ::Spree::TaxCategory.find_or_create_by(name: 'Clothing')
-        clothing.update_attributes(tax_code: 'P0000000')
+        clothing.update(tax_code: 'P0000000')
         tax_zone = ::Spree::Zone.find_or_create_by(name: 'North America')
         tax_calculator = ::Spree::Calculator::AvalaraTransaction.create!
         sales_tax = ::Spree::TaxRate.find_or_create_by(name: 'Tax') do |tax_rate|
@@ -82,7 +82,7 @@ module SolidusAvataxCertified
           backorderable_default: true
         }
 
-        default.update_attributes(address)
+        default.update(address)
       end
 
       def create_use_codes
