@@ -98,7 +98,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       context 'with CustomerUsageType' do
         subject do
-          order.user.update_attributes(avalara_entity_use_code: use_code)
+          order.user.update(avalara_entity_use_code: use_code)
           order.avalara_transaction.commit_avatax('SalesInvoice')
         end
 

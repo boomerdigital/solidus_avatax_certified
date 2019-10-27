@@ -17,12 +17,6 @@ RSpec.describe Spree::Admin::AvalaraEntityUseCodesController do
     it { is_expected.to be_successful }
   end
 
-  describe '#show' do
-    subject { get :show, params: { id: avalara_entity_use_code.id } }
-
-    it { is_expected.to be_successful }
-  end
-
   describe '#new' do
     subject { get :new }
 

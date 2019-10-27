@@ -30,7 +30,7 @@ describe "Certification", :vcr do
 
   context 'Exempt sales should be reflected in the test data through use of ExemptionNo or CustomerUsageType.' do
     before do
-      avalara_order.user.update_attributes(avalara_entity_use_code: use_code)
+      avalara_order.user.update(avalara_entity_use_code: use_code)
     end
 
     it 'does not add additional tax' do
@@ -45,7 +45,7 @@ describe "Certification", :vcr do
     let(:refund) { build(:refund, payment: order.payments.first, amount: BigDecimal(10), reason: refund_reason, transaction_id: nil, reimbursement: reimbursement) }
 
     before do
-      order.update_attributes(completed_at: 2.days.ago)
+      order.update(completed_at: 2.days.ago)
       order.avalara_capture_finalize
       order.reload
     end

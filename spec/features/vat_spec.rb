@@ -54,7 +54,7 @@ describe "VAT", :vcr do
 
       context 'with BusinessIdentificationNo' do
         before do
-          avalara_order.user.update_attributes(vat_id: '123456789')
+          avalara_order.user.update(vat_id: '123456789')
         end
 
         it 'origin country zero rate is returned' do
@@ -129,7 +129,7 @@ describe "VAT", :vcr do
 
       context 'with BusinessIdentificationNo' do
         before do
-          avalara_order.user.update_attributes(vat_id: '123456789')
+          avalara_order.user.update(vat_id: '123456789')
         end
 
         it 'origin country zero rate is returned' do

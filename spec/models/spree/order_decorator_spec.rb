@@ -88,7 +88,7 @@ describe Spree::Order, :vcr do
 
     # context 'commit on completed at date' do
     #   before do
-    #     completed_order.update_attributes(completed_at: 5.days.ago)
+    #     completed_order.update(completed_at: 5.days.ago)
     #   end
 
     #   it 'has a docdate of completed at date' do
@@ -110,14 +110,14 @@ describe Spree::Order, :vcr do
     let(:use_code) { build(:avalara_entity_use_code) }
 
     before do
-      order.user.update_attributes(avalara_entity_use_code: use_code)
+      order.user.update(avalara_entity_use_code: use_code)
     end
 
     it 'responds with user usage type' do
       expect(order.customer_usage_type).to eq('A')
     end
     it 'responds with blank string if no user' do
-      order.update_attributes(user: nil)
+      order.update(user: nil)
       expect(order.customer_usage_type).to eq('')
     end
   end
@@ -140,7 +140,7 @@ describe Spree::Order, :vcr do
     context 'validation failed' do
       it 'returns false' do
         Spree::Avatax::Config.refuse_checkout_address_validation_error = true
-        order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
+        order.ship_address.update(zipcode: nil, city: nil, address1: nil)
         response = order.validate_ship_address
 
         expect(response).to eq(false)
@@ -148,7 +148,7 @@ describe Spree::Order, :vcr do
 
       it 'raise exceptions if raise_exceptions preference is enabled' do
         Spree::Avatax::Config.raise_exceptions = true
-        order.ship_address.update_attributes(zipcode: nil, city: nil, address1: nil)
+        order.ship_address.update(zipcode: nil, city: nil, address1: nil)
 
         expect{ order.validate_ship_address }.to raise_exception(SolidusAvataxCertified::RequestError)
       end

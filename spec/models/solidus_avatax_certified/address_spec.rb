@@ -63,7 +63,7 @@ describe SolidusAvataxCertified::Address, type: :model do
 
     context 'error' do
       subject do
-        order.ship_address.update_attributes(city: nil, zipcode: nil)
+        order.ship_address.update(city: nil, zipcode: nil)
         address_lines.validate
       end
 
