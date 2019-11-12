@@ -35,6 +35,7 @@ module SolidusAvataxCertified
         amount: line_item.amount.to_f,
         discounted: discounted?(line_item),
         taxIncluded: tax_included_in_price?(line_item),
+        hsCode: line_item.variant.hts,
         addresses: {
           shipFrom: get_stock_location(line_item),
           shipTo: ship_to
