@@ -30,7 +30,7 @@ module SolidusAvataxCertified
         number: "#{line_item.id}-LI",
         description: line_item.name[0..255],
         taxCode: line_item.tax_category.try(:tax_code) || '',
-        itemCode: line_item.variant.sku,
+        itemCode: truncateLine(line_item.variant.sku),
         quantity: line_item.quantity,
         amount: line_item.amount.to_f,
         discounted: discounted?(line_item),
@@ -59,7 +59,7 @@ module SolidusAvataxCertified
     def shipment_line(shipment)
       {
         number: "#{shipment.id}-FR",
-        itemCode: shipment.shipping_method.name,
+        itemCode: truncateLine(shipment.shipping_method.name),
         quantity: 1,
         amount: shipment.total_before_tax.to_f,
         description: 'Shipping Charge',
@@ -97,7 +97,7 @@ module SolidusAvataxCertified
     def refund_line
       {
         number: "#{@refund.id}-RA",
-        itemCode: @refund.transaction_id || 'Refund',
+        itemCode: truncateLine(@refund.transaction_id) || 'Refund',
         quantity: 1,
         amount: -@refund.amount.to_f,
         description: 'Refund',
@@ -114,7 +114,7 @@ module SolidusAvataxCertified
         number: "#{line_item.id}-LI",
         description: line_item.name[0..255],
         taxCode: line_item.tax_category.try(:tax_code) || '',
-        itemCode: line_item.variant.sku,
+        itemCode: truncateLine(line_item.variant.sku),
         quantity: quantity,
         amount: -amount.to_f,
         addresses: {
@@ -140,6 +140,12 @@ module SolidusAvataxCertified
 
     def default_ship_from
       ::Spree::StockLocation.order_default.first.to_avatax_hash
+    end
+
+    def truncateLine(line)
+      return if line.nil?
+
+      line.truncate(50)
     end
 
     private
