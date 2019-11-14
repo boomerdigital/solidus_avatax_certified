@@ -150,6 +150,8 @@ module SolidusAvataxCertified
     end
 
     def hts_code
+      return nil if line_item.variant.hts.blank?
+
       SolidusAvataxCertified::Address.new(order).get_hts_code(stripped_hts_code)
     end
 
