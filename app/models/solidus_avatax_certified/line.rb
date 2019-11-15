@@ -35,7 +35,7 @@ module SolidusAvataxCertified
         amount: line_item.amount.to_f,
         discounted: discounted?(line_item),
         taxIncluded: tax_included_in_price?(line_item),
-        hsCode: hts_code,
+        hsCode: hts_code(line_item),
         addresses: {
           shipFrom: get_stock_location(line_item),
           shipTo: ship_to
@@ -149,7 +149,7 @@ module SolidusAvataxCertified
       line.truncate(50)
     end
 
-    def hts_code
+    def hts_code(line_item)
       return nil if line_item.variant.hts.blank?
 
       SolidusAvataxCertified::Address.new(order).get_hts_code(stripped_hts_code)
