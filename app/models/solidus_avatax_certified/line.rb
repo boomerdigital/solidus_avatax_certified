@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 require 'spree/tax/tax_helpers'
 
@@ -27,18 +26,19 @@ module SolidusAvataxCertified
 
     def item_line(line_item)
       {
-        number: "#{line_item.id}-LI",
-        description: line_item.name[0..255],
-        taxCode: line_item.tax_category.try(:tax_code) || '',
-        itemCode: truncateLine(line_item.variant.sku),
-        quantity: line_item.quantity,
-        amount: line_item.amount.to_f,
-        discounted: discounted?(line_item),
-        taxIncluded: tax_included_in_price?(line_item),
-        addresses: {
-          shipFrom: get_stock_location(line_item),
-          shipTo: ship_to
-        }
+          number: "#{line_item.id}-LI",
+          description: line_item.name[0..255],
+          taxCode: line_item.tax_category.try(:tax_code) || '',
+          itemCode: truncateLine(line_item.variant.sku),
+          quantity: line_item.quantity,
+          amount: line_item.amount.to_f,
+          discounted: discounted?(line_item),
+          taxIncluded: tax_included_in_price?(line_item),
+          hsCode: hts_code(line_item),
+          addresses: {
+              shipFrom: get_stock_location(line_item),
+              shipTo: ship_to
+          }
       }.merge(base_line_hash)
     end
 
@@ -58,18 +58,18 @@ module SolidusAvataxCertified
 
     def shipment_line(shipment)
       {
-        number: "#{shipment.id}-FR",
-        itemCode: truncateLine(shipment.shipping_method.name),
-        quantity: 1,
-        amount: shipment.total_before_tax.to_f,
-        description: 'Shipping Charge',
-        taxCode: shipment.shipping_method_tax_code,
-        discounted: !shipment.promo_total.zero?,
-        taxIncluded: tax_included_in_price?(shipment),
-        addresses: {
-          shipFrom: shipment.stock_location.to_avatax_hash,
-          shipTo: ship_to
-        }
+          number: "#{shipment.id}-FR",
+          itemCode: truncateLine(shipment.shipping_method.name),
+          quantity: 1,
+          amount: shipment.total_before_tax.to_f,
+          description: 'Shipping Charge',
+          taxCode: shipment.shipping_method_tax_code,
+          discounted: !shipment.promo_total.zero?,
+          taxIncluded: tax_included_in_price?(shipment),
+          addresses: {
+              shipFrom: shipment.stock_location.to_avatax_hash,
+              shipTo: ship_to
+          }
       }.merge(base_line_hash)
     end
 
@@ -88,7 +88,7 @@ module SolidusAvataxCertified
                    return_items.sum(:amount)
                  else
                    return_items.sum(:pre_tax_amount)
-        end
+                 end
 
         lines << return_item_line(inv_unit.first.line_item, quantity, amount)
       end
@@ -96,31 +96,31 @@ module SolidusAvataxCertified
 
     def refund_line
       {
-        number: "#{@refund.id}-RA",
-        itemCode: truncateLine(@refund.transaction_id) || 'Refund',
-        quantity: 1,
-        amount: -@refund.amount.to_f,
-        description: 'Refund',
-        taxIncluded: true,
-        addresses: {
-          shipFrom: default_ship_from,
-          shipTo: ship_to
-        }
+          number: "#{@refund.id}-RA",
+          itemCode: truncateLine(@refund.transaction_id) || 'Refund',
+          quantity: 1,
+          amount: -@refund.amount.to_f,
+          description: 'Refund',
+          taxIncluded: true,
+          addresses: {
+              shipFrom: default_ship_from,
+              shipTo: ship_to
+          }
       }.merge(base_line_hash)
     end
 
     def return_item_line(line_item, quantity, amount)
       {
-        number: "#{line_item.id}-LI",
-        description: line_item.name[0..255],
-        taxCode: line_item.tax_category.try(:tax_code) || '',
-        itemCode: truncateLine(line_item.variant.sku),
-        quantity: quantity,
-        amount: -amount.to_f,
-        addresses: {
-          shipFrom: get_stock_location(line_item),
-          shipTo: ship_to
-        }
+          number: "#{line_item.id}-LI",
+          description: line_item.name[0..255],
+          taxCode: line_item.tax_category.try(:tax_code) || '',
+          itemCode: truncateLine(line_item.variant.sku),
+          quantity: quantity,
+          amount: -amount.to_f,
+          addresses: {
+              shipFrom: get_stock_location(line_item),
+              shipTo: ship_to
+          }
       }.merge(base_line_hash)
     end
 
@@ -148,13 +148,19 @@ module SolidusAvataxCertified
       line.truncate(50)
     end
 
+    def hts_code(line_item)
+      return nil if line_item.variant.hts.blank?
+
+      SolidusAvataxCertified::Address.new(order).get_hts_code(stripped_hts_code(line_item))
+    end
+
     private
 
     def base_line_hash
       @base_line_hash ||= {
-        customerUsageType: order.customer_usage_type,
-        businessIdentificationNo: business_id_no,
-        exemptionCode: order.user.try(:exemption_number)
+          customerUsageType: order.customer_usage_type,
+          businessIdentificationNo: business_id_no,
+          exemptionCode: order.user.try(:exemption_number)
       }
     end
 
@@ -162,10 +168,14 @@ module SolidusAvataxCertified
       order.user.try(:vat_id)
     end
 
+    def stripped_hts_code(line_item)
+      line_item.variant.hts.gsub(/[^a-z0-9\s]/i, '')[0,6]
+    end
+
     def discounted?(line_item)
       line_item.adjustments.promotion.eligible.any? ||
-        order.adjustments.promotion.eligible.any? ||
-        order.adjustments.where('amount < 0').where(source: nil).eligible.any?
+          order.adjustments.promotion.eligible.any? ||
+          order.adjustments.where('amount < 0').where(source: nil).eligible.any?
     end
 
     def tax_included_in_price?(item)
