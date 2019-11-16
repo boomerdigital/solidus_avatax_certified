@@ -169,7 +169,7 @@ module SolidusAvataxCertified
       order.user.try(:vat_id)
     end
 
-    def stripped_hts_code
+    def stripped_hts_code(lin_item)
       line_item.variant.hts.gsub(/[^a-z0-9\s]/i, '')[0,6]
     end
 
