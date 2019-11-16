@@ -43,6 +43,12 @@ class TaxSvc
     handle_response(response)
   end
 
+  def get_hts_code(section, chapter)
+    req = client.definitions.crossborder(section, chapter)
+
+    return req.hsCode
+  end
+
   protected
 
   def handle_response(response)
