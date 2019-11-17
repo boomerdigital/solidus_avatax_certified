@@ -46,9 +46,12 @@ class TaxSvc
   def get_hts_code(section, chapter)
     response = client.definitions.crossborder(section, chapter)
     body = response.body
-    #Handle hts code not found
+    body = response.body
+    #Handle HTS code not found
+    return nil if response.status == 404
+    #Handle any other error
     return nil if body['error']
-    #Parse the hs code from the response
+    #Parse country specific hsCode
     hsCode = body['value'][0]['hsCode']
     return hsCode
   end
