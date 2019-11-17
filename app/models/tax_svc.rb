@@ -45,11 +45,10 @@ class TaxSvc
 
   def get_hts_code(section, chapter)
     response = client.definitions.crossborder(section, chapter)
-
     body = response.body
+    return nil if body['error']
     hsCode = body['value'][0]['hsCode']
-
-   return hsCode
+    return hsCode
   end
 
   protected
