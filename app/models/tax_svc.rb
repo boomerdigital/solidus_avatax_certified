@@ -44,9 +44,12 @@ class TaxSvc
   end
 
   def get_hts_code(section, chapter)
-    req = client.definitions.crossborder(section, chapter)
+    response = client.definitions.crossborder(section, chapter)
 
-    return req.hsCode
+    body = response.body
+    hsCode = body['value'][0]['hsCode']
+
+   return hsCode
   end
 
   protected
