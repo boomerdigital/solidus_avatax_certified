@@ -15,16 +15,7 @@ class TaxSvc
       request = { 'error' => { 'message' => e } }
     end
 
-    retries = ENV.fetch 'TAX_CALCULATION_RETRIES', 5
-
-    response = loop do
-      r = SolidusAvataxCertified::Response::GetTax.new(request)
-
-      retries -= 1
-
-      break r if retries.zero? || r.faraday.env.body['totalTax'] >= 0
-    end
-
+    response = SolidusAvataxCertified::Response::GetTax.new(request)
     handle_response(response)
   end
 
