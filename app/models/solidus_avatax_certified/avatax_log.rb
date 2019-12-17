@@ -51,6 +51,8 @@ module SolidusAvataxCertified
 
     def error(obj, message = '')
       if enabled?
+        Rollbar.error("[AVATAX] #{message} #{obj}") if defined?(Rollbar)
+
         logger.error "[AVATAX] #{message} #{obj}"
       end
     end
