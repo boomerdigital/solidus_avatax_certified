@@ -36,7 +36,10 @@ class TaxSvc
     rescue StandardError => e
       logger.error(e)
 
-      request = { 'error' => { 'message' => e } }
+      request = OpenStruct.new(
+        success?: false,
+        body: { 'error' => { 'message' => e } }
+      )
     end
 
     response = SolidusAvataxCertified::Response::AddressValidation.new(request)
