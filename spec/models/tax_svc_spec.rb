@@ -69,4 +69,20 @@ RSpec.describe TaxSvc, :vcr do
       expect(subject).to be_success
     end
   end
+
+  describe '#validate_address' do
+    let(:address) { double(:address) }
+    subject(:result) { taxsvc.validate_address(address) }
+
+    context 'when a StandardError is raised' do
+      before do
+        allow(Spree::Avatax::Config).to receive(:raise_exceptions).and_return(false)
+        allow(taxsvc.send(:client).addresses).to receive(:validate).and_raise(StandardError)
+      end
+
+      it 'should return the response' do
+        expect { subject }.to_not raise_error
+      end
+    end
+  end
 end
