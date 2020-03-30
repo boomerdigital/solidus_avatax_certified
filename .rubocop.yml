@@ -1,4 +1,2 @@
-inherit_from:
-  - https://relaxed.ruby.style/rubocop.yml
-
-require: rubocop-rspec
+require:
+  - solidus_dev_support/rubocop

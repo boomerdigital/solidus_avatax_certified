@@ -99,4 +99,7 @@ FactoryBot.modify do
   factory :ship_address, parent: :address do
     address1 { '915 S Jackson St' }
   end
+  factory :bill_address, parent: :address do
+    address1 { '915 S Jackson St' }
+  end
 end

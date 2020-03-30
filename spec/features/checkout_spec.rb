@@ -24,17 +24,6 @@ RSpec.describe 'Checkout', :vcr, :js do
     end
   end
 
-  context 'delivery' do
-    before do
-      visit_delivery
-    end
-
-    it 'has no tax adjustments on page' do
-      expect(page).not_to have_content('Tax')
-      expect(page).not_to have_content('Shipping Tax')
-    end
-  end
-
   context 'payment' do
     before do
       visit_delivery
@@ -128,17 +117,6 @@ RSpec.describe 'Checkout', :vcr, :js do
     end
   end
 
-  def fill_in_address
-    address = "order_bill_address_attributes"
-    fill_in "#{address}_name", with: "Ryan"
-    fill_in "#{address}_address1", with: "915 S Jackson St"
-    fill_in "#{address}_city", with: "Montgomery"
-    select "United States of America", from: "#{address}_country_id"
-    select "Alabama", from: "#{address}_state_id"
-    fill_in "#{address}_zipcode", with: "36104"
-    fill_in "#{address}_phone", with: "(555) 555-5555"
-  end
-
   def visit_address
     order.all_adjustments.destroy_all
     order.line_items.update_all(additional_tax_total: 0.0)
@@ -148,7 +126,6 @@ RSpec.describe 'Checkout', :vcr, :js do
 
   def visit_delivery
     visit_address
-    fill_in_address
     click_button 'Save and Continue'
   end
 end

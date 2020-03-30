@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'spree/core'
+
 module SolidusAvataxCertified
   class Engine < Rails::Engine
+    include SolidusSupport::EngineExtensions::Decorators
+
     isolate_namespace Spree
     engine_name 'solidus_avatax_certified'
 
