@@ -80,7 +80,7 @@ describe SolidusAvataxCertified::Line, :vcr do
     let(:gateway_response_options) { {} }
 
     let(:refund) { Spree::Refund.new(payment: payment, amount: BigDecimal(10), reason: refund_reason, transaction_id: nil) }
-    let(:shipped_order) { build(:shipped_order) }
+    let(:shipped_order) { create(:shipped_order) }
     let(:return_lines) { SolidusAvataxCertified::Line.new(shipped_order, 'ReturnOrder', refund) }
 
     describe 'build_lines' do

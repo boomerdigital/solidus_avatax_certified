@@ -3,8 +3,8 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Address, type: :model do
-  let(:address){ build(:address) }
-  let(:order) { build(:order_with_line_items, ship_address: address) }
+  let(:address){ create(:address) }
+  let(:order) { create(:order_with_line_items, ship_address: address) }
 
   before do
     Spree::Avatax::Config.address_validation = true

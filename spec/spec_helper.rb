@@ -1,18 +1,19 @@
 # frozen_string_literal: true
 
-require "simplecov"
-SimpleCov.start "rails"
-
 ENV["RAILS_ENV"] ||= "test"
+
+require 'solidus_dev_support/rspec/coverage'
 
 require File.expand_path('dummy/config/environment.rb', __dir__)
 
 require "webdrivers"
 
-require "solidus_support/extension/feature_helper"
+require 'solidus_dev_support/rspec/feature_helper'
 require 'spree/testing_support/controller_requests'
 
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
+
+require 'solidus_avatax_certified/testing_support/factories'
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
