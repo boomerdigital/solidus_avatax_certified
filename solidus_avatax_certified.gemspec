@@ -15,7 +15,10 @@ Gem::Specification.new do |s|
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'
-  s.homepage  = 'http://www.boomerdigital.net'
+  s.homepage  = 'https://github.com/boomerdigital/solidus_avatax_certified'
+
+  s.metadata['homepage_uri'] = s.homepage
+  s.metadata['source_code_uri'] = 'https://github.com/boomerdigital/solidus_avatax_certified'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
