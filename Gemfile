@@ -8,7 +8,7 @@ gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
 gem 'solidus_auth_devise'
 
 case ENV['DB']
-when 'postgres'
+when 'postgresql'
   gem 'pg'
 when 'mysql'
   gem 'mysql2'
