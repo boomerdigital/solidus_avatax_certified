@@ -22,7 +22,4 @@ RSpec.configure do |config|
   config.example_status_persistence_file_path = "./spec/examples.txt"
 
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
-  config.before :suite do
-    DatabaseCleaner.clean_with :truncation
-  end
 end

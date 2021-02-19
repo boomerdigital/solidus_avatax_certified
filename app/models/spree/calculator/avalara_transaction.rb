@@ -15,6 +15,7 @@ module Spree
 
       if can_calculate_tax?(order)
         avalara_response = get_avalara_response(order)
+        p avalara_response
         tax_for_item(item, avalara_response)
       else
         prev_tax_amount(item)
