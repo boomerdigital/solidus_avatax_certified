@@ -9,8 +9,7 @@ RSpec.describe 'Checkout', :vcr, :js do
   let!(:user) { order.user }
 
   before do
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(current_order: order)
-    allow_any_instance_of(Spree::CheckoutController).to receive_messages(try_spree_current_user: user)
+    allow_any_instance_of(Spree::CheckoutController).to receive_messages(current_order: order, try_spree_current_user: user)
   end
 
   context 'address' do
@@ -130,7 +129,8 @@ RSpec.describe 'Checkout', :vcr, :js do
 
   def fill_in_address
     address = "order_bill_address_attributes"
-    fill_in "#{address}_name", with: "Ryan Bigg"
+    fill_in "#{address}_firstname", with: "Ryan"
+    fill_in "#{address}_lastname", with: "Bigg"
     fill_in "#{address}_address1", with: "915 S Jackson St"
     fill_in "#{address}_city", with: "Montgomery"
     select "United States of America", from: "#{address}_country_id"
