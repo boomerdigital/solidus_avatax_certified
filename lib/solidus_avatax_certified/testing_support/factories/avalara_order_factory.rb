@@ -40,24 +40,22 @@ FactoryBot.define do
       create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
       order.shipments.reload
 
-      order.updater.update
+      order.recalculate
       order.next
     end
 
     factory :completed_avalara_order do
-      shipment_state { 'shipped' }
+      state { 'confirm' }
       payment_state { 'paid' }
 
       after(:create) do |order|
-        # order.refresh_shipment_rates
-        order.update_column(:completed_at, Time.now)
-        order.update_column(:state, 'complete')
         payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
 
-        order.updater.update
-        order.next
+        order.complete!
 
         payment.avalara_finalize
+
+        order.reload
       end
     end
   end
