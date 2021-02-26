@@ -23,6 +23,19 @@ RSpec.configure do |config|
 
   config.example_status_persistence_file_path = "./spec/examples.txt"
 
+  config.before :suite do
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before :each do
+    DatabaseCleaner.start
+  end
+
+  config.after :each do
+    DatabaseCleaner.clean
+  end
+
   if Spree.solidus_gem_version < Gem::Version.new('2.11')
     config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :system
   end
