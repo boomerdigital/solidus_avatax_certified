@@ -5,15 +5,15 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R638260400","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #28 - 611","taxCode":"PC030000","itemCode":"SKU-28","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R757412462","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #6 - 9261","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
         MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
-        MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R638260400","currencyCode":"USD","businessIdentificationNo":"123456789"}}'
+        MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R757412462","currencyCode":"USD","businessIdentificationNo":"123456789"}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -33,7 +33,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 26 Feb 2021 19:22:54 GMT
+      - Fri, 26 Feb 2021 23:06:25 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -47,11 +47,11 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Serverduration:
-      - '00:00:00.0287863'
+      - '00:00:00.0220391'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":0,"code":"R638260400","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R638260400","salespersonCode":"","totalAmount":20.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T19:22:54.3854778Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
-        #28 - 611","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-28","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
+      string: '{"id":0,"code":"R757412462","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R757412462","salespersonCode":"","totalAmount":20.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T23:06:25.5706525Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
+        #6 - 9261","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-6","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
         Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":10.0,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":0.0,"reportingTaxCalculated":0.0,"liabilityType":"Seller"}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-000C--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","customerUsageType":"","entityUseCode":"","description":"Shipping
         Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"Avalara
         Ground","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
@@ -65,21 +65,21 @@ http_interactions:
         Supply of Goods as per Art. 138 EU VAT Directive 2006/112\",\"CitationCode\":\"\"}],\"InvoiceMessageList\":[{\"TaxLineNo\":\"1-LI\",\"MessageCode\":1},{\"TaxLineNo\":\"2-FR\",\"MessageCode\":0}]}","refersTo":"","severity":"Success","source":"Avalara.AvaTax.TaxEngine"}],"invoiceMessages":[{"content":"No
         applicable messaging for this line.","lineNumbers":["2-FR"]},{"content":"Intra-EU
         Supply of Goods as per Art. 138 EU VAT Directive 2006/112","lineNumbers":["1-LI"]}]}'
-  recorded_at: Fri, 26 Feb 2021 19:22:54 GMT
+  recorded_at: Fri, 26 Feb 2021 23:06:25 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R638260400","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #28 - 611","taxCode":"PC030000","itemCode":"SKU-28","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R757412462","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #6 - 9261","taxCode":"PC030000","itemCode":"SKU-6","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
         MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
-        MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R638260400","currencyCode":"USD","businessIdentificationNo":"123456789"}}'
+        MC"}},"customerUsageType":null,"businessIdentificationNo":"123456789","exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R757412462","currencyCode":"USD","businessIdentificationNo":"123456789"}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -99,7 +99,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 26 Feb 2021 19:22:55 GMT
+      - Fri, 26 Feb 2021 23:06:26 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -113,11 +113,11 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Serverduration:
-      - '00:00:00.0187787'
+      - '00:00:00.0203755'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":0,"code":"R638260400","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R638260400","salespersonCode":"","totalAmount":20.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T19:22:55.3426084Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
-        #28 - 611","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-28","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
+      string: '{"id":0,"code":"R757412462","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R757412462","salespersonCode":"","totalAmount":20.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.0,"totalTaxable":20.0,"totalTaxCalculated":0.0,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T23:06:26.5991047Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
+        #6 - 9261","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-6","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
         Rate","taxAuthorityTypeId":45,"taxCalculated":0.0,"rateType":"Zero","rateTypeCode":"Z","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":10.0,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":0.0,"reportingTaxCalculated":0.0,"liabilityType":"Seller"}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"ITS-000C--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","customerUsageType":"","entityUseCode":"","description":"Shipping
         Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"Avalara
         Ground","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":0.0,"taxableAmount":10.0,"taxCalculated":0.0,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"IT","region":"IT","exemptAmount":0.0,"jurisCode":"IT","jurisName":"ITALY","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.000000,"tax":0.0,"taxableAmount":10.0,"taxType":"Output","taxSubTypeId":"O","taxName":"Zero
@@ -131,5 +131,5 @@ http_interactions:
         Supply of Goods as per Art. 138 EU VAT Directive 2006/112\",\"CitationCode\":\"\"}],\"InvoiceMessageList\":[{\"TaxLineNo\":\"1-LI\",\"MessageCode\":1},{\"TaxLineNo\":\"2-FR\",\"MessageCode\":0}]}","refersTo":"","severity":"Success","source":"Avalara.AvaTax.TaxEngine"}],"invoiceMessages":[{"content":"No
         applicable messaging for this line.","lineNumbers":["2-FR"]},{"content":"Intra-EU
         Supply of Goods as per Art. 138 EU VAT Directive 2006/112","lineNumbers":["1-LI"]}]}'
-  recorded_at: Fri, 26 Feb 2021 19:22:55 GMT
+  recorded_at: Fri, 26 Feb 2021 23:06:26 GMT
 recorded_with: VCR 6.0.0

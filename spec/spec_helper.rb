@@ -21,19 +21,8 @@ RSpec.configure do |config|
   config.raise_errors_for_deprecations!
   config.use_transactional_fixtures = false
 
-  config.example_status_persistence_file_path = "./spec/examples.txt"
-
   config.before :suite do
-    DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.clean_with :truncation
-  end
-
-  config.before :each do
-    DatabaseCleaner.start
-  end
-
-  config.after :each do
-    DatabaseCleaner.clean
   end
 
   if Spree.solidus_gem_version < Gem::Version.new('2.11')

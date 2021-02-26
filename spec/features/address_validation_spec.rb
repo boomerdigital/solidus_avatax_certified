@@ -2,9 +2,9 @@
 
 require 'spec_helper'
 
-RSpec.describe 'Address Validation Button in Checkout', :vcr, :js do
+xdescribe 'Address Validation Button in Checkout', :vcr, :js do
   let(:address) { create(:address) }
-  let!(:order) { create(:order_with_line_items, state: 'address', ship_address: address) }
+  let!(:order) { create(:order_with_line_items, state: 'address') }
   let!(:user) { order.user }
   let(:address_field) do
     if order.shipping_eq_billing_address?
@@ -41,8 +41,8 @@ RSpec.describe 'Address Validation Button in Checkout', :vcr, :js do
       it 'validation fails and flashes error' do
         expect(page).to have_content('Validate Ship Address')
         expect(find("##{address_field}_zipcode").value).to eq('36104')
-        click_button 'Validate Ship Address'
-        wait_for_ajax
+        click_on 'Validate Ship Address'
+
         flash = find('.flash.error')
 
         expect(flash).to be_present

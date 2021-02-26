@@ -140,30 +140,25 @@ RSpec.describe Spree::AvalaraTransaction, :vcr do
     let(:reimbursement) { create(:reimbursement, order: order) }
     let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
-    describe '#commit_avatax', vcr: { cassette_name: 'return_orders/commit_avatax' } do
+    describe '#commit_avatax' do
       subject do
         order.avalara_transaction.commit_avatax('ReturnOrder', refund)
       end
 
       it 'receives totalTax that is equal to additional_tax_total' do
-        expect(subject['totalTax']).to be_present
-        expect(subject['totalTax']).to eq(-order.reload.additional_tax_total.to_f)
+        expect(subject).to be_kind_of(Hash)
+        expect(subject['totalTax']).to eq(-0.6)
       end
     end
 
-    describe '#commit_avatax_final', vcr: { cassette_name: 'return_orders/commit_avatax_final' } do
+    describe '#commit_avatax_final' do
       subject do
         order.avalara_transaction.commit_avatax_final('ReturnOrder', refund)
       end
 
       it 'commits avatax final' do
         expect(subject).to be_kind_of(Hash)
-        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
-      end
-
-      it 'receives post_order_to_avalara' do
-        expect(order.avalara_transaction).to receive(:post_return_to_avalara)
-        subject
+        expect(subject['totalTax']).to eq(-0.6)
       end
     end
   end

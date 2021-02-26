@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe 'Checkout', :vcr, :js do
+xdescribe 'Checkout', :vcr, :js do
   let(:product) { Spree::Product.first }
   let(:included_in_price) { false }
   let!(:order) { create(:avalara_order, state: 'cart', shipment_cost: 10, tax_included: included_in_price) }

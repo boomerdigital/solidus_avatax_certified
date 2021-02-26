@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :avalara_shipping_method, class: Spree::ShippingMethod do
-    zones { |_a| [Spree::Zone.find_by(name: 'GlobalZone') || create(:zone, :with_country, default_tax: true)] }
+    zones { |_a| [Spree::Zone.find_by(name: 'GlobalZone') || create(:global_zone)] }
     name { 'Avalara Ground' }
     code { 'Avalara_Ground' }
     association(:calculator, factory: :shipping_calculator, strategy: :create)

@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe "Certification", :vcr do
   let!(:avalara_order) { create(:avalara_order) }
-  let(:unique_ship_address) { create(:address, firstname: 'Jimmie', lastname: 'Johnson', address1: '3366 Speedway Blvd', city: 'Lincoln', state_name: 'Alabama', zipcode: 35_096) }
+  let(:unique_ship_address) { create(:address, address1: '3366 Speedway Blvd', city: 'Lincoln', state_name: 'Alabama', zipcode: 35_096) }
   let!(:order) { create(:order_with_line_items, state: 'delivery', user: nil, ship_address: unique_ship_address, email: 'acreilly3@gmail.com') }
   let(:use_code) { create(:avalara_entity_use_code) }
 

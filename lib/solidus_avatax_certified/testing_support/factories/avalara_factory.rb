@@ -68,9 +68,6 @@ FactoryBot.modify do
       state_code { 'AL' }
     end
 
-    firstname { 'John' }
-    lastname { 'Doe' }
-    company { 'Company' }
     address1 { '915 S Jackson St' }
     address2 { '' }
     city { 'Montgomery' }

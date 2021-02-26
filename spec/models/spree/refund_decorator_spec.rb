@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe Spree::Refund, :vcr do
+RSpec.describe Spree::Refund do
   subject(:order) do
     order = create(:shipped_order)
     Spree::AvalaraTransaction.create(order: order)
@@ -59,9 +59,8 @@ RSpec.describe Spree::Refund, :vcr do
     end
   end
 
-  context 'full refund' do
+  context 'full refund', :vcr do
     subject do
-      order.reload
       refund.avalara_capture_finalize
     end
 
@@ -69,8 +68,9 @@ RSpec.describe Spree::Refund, :vcr do
     let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
     it 'returns correct tax calculations' do
+      order.reload
       expect(subject['totalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
-      expect(subject['totalTax'].to_f.abs).to eq(order.additional_tax_total)
+      expect(subject['totalTax'].to_f.abs).to eq(0.6)
     end
   end
 end

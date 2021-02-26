@@ -5,15 +5,15 @@ http_interactions:
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R613826981","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #27 - 3898","taxCode":"PC030000","itemCode":"SKU-27","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R808657965","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #5 - 9118","taxCode":"PC030000","itemCode":"SKU-5","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
         MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
-        MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R613826981","currencyCode":"USD","businessIdentificationNo":null}}'
+        MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R808657965","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -33,7 +33,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 26 Feb 2021 19:22:52 GMT
+      - Fri, 26 Feb 2021 23:06:23 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -47,11 +47,11 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Serverduration:
-      - '00:00:00.0214593'
+      - '00:00:00.0180426'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":0,"code":"R613826981","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R613826981","salespersonCode":"","totalAmount":16.52,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.48,"totalTaxable":16.52,"totalTaxCalculated":3.48,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T19:22:52.2416202Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
-        #27 - 3898","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-27","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
+      string: '{"id":0,"code":"R808657965","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R808657965","salespersonCode":"","totalAmount":16.52,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.48,"totalTaxable":16.52,"totalTaxCalculated":3.48,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T23:06:23.1069764Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
+        #5 - 9118","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-5","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
         Rate","taxAuthorityTypeId":45,"taxCalculated":1.74,"rateType":"Standard","rateTypeCode":"S","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":8.26,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":1.74,"reportingTaxCalculated":1.74,"liabilityType":"Seller"}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"NLS-210C--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","customerUsageType":"","entityUseCode":"","description":"Shipping
         Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"Avalara
         Ground","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
@@ -60,21 +60,21 @@ http_interactions:
         MC","country":"NL","taxRegionId":205099,"latitude":"","longitude":""},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
         Piccadilly","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"","longitude":""}],"summary":[{"country":"NL","region":"NL","jurisType":"Country","jurisCode":"NL","jurisName":"NETHERLANDS","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxSubType":"O","taxName":"Standard
         Rate","rateType":"Standard","taxable":16.52,"rate":0.210000,"tax":3.48,"taxCalculated":3.48,"nonTaxable":0.0,"exemption":0.0}]}'
-  recorded_at: Fri, 26 Feb 2021 19:22:52 GMT
+  recorded_at: Fri, 26 Feb 2021 23:06:22 GMT
 - request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
     body:
       encoding: UTF-8
-      string: '{"createTransactionModel":{"code":"R613826981","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
-        #27 - 3898","taxCode":"PC030000","itemCode":"SKU-27","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
+      string: '{"createTransactionModel":{"code":"R808657965","date":"2021-02-26","discount":"0.0","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #5 - 9118","taxCode":"PC030000","itemCode":"SKU-5","quantity":1,"amount":10.0,"discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
         MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-FR","itemCode":"Avalara
         Ground","quantity":1,"amount":10.0,"description":"Shipping Charge","taxCode":"FR000000","discounted":false,"taxIncluded":true,"addresses":{"shipFrom":{"line1":"150
         Piccadilly","line2":null,"city":"Florence","region":null,"country":"IT","postalCode":"50122"},"shipTo":{"line1":"89
         Nieuwendijk","line2":"","city":"Amsterdam","region":null,"country":"NL","postalCode":"1012
-        MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R613826981","currencyCode":"USD","businessIdentificationNo":null}}'
+        MC"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"54321","customerUsageType":null,"exemptionNo":null,"referenceCode":"R808657965","currencyCode":"USD","businessIdentificationNo":null}}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
@@ -94,7 +94,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Fri, 26 Feb 2021 19:22:53 GMT
+      - Fri, 26 Feb 2021 23:06:24 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -108,11 +108,11 @@ http_interactions:
       Vary:
       - Accept-Encoding
       Serverduration:
-      - '00:00:00.0192904'
+      - '00:00:00.0192900'
     body:
       encoding: ASCII-8BIT
-      string: '{"id":0,"code":"R613826981","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R613826981","salespersonCode":"","totalAmount":16.52,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.48,"totalTaxable":16.52,"totalTaxCalculated":3.48,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T19:22:53.1976536Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
-        #27 - 3898","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-27","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
+      string: '{"id":0,"code":"R808657965","companyId":236180,"date":"2021-02-26","paymentDate":"2021-02-26","status":"Temporary","type":"SalesOrder","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R808657965","salespersonCode":"","totalAmount":16.52,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":3.48,"totalTaxable":16.52,"totalTaxCalculated":3.48,"adjustmentReason":"NotAdjusted","locked":false,"version":1,"exchangeRateEffectiveDate":"2021-02-26","exchangeRate":1.0,"modifiedDate":"2021-02-26T23:06:24.3253617Z","modifiedUserId":38097,"taxDate":"2021-02-26T00:00:00Z","lines":[{"id":0,"transactionId":0,"lineNumber":"1-LI","customerUsageType":"","entityUseCode":"","description":"Product
+        #5 - 9118","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"SKU-5","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
         Rate","taxAuthorityTypeId":45,"taxCalculated":1.74,"rateType":"Standard","rateTypeCode":"S","unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":8.26,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":1.74,"reportingTaxCalculated":1.74,"liabilityType":"Seller"}],"nonPassthroughDetails":[],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"NLS-210C--IT","vatNumberTypeId":0},{"id":0,"transactionId":0,"lineNumber":"2-FR","customerUsageType":"","entityUseCode":"","description":"Shipping
         Charge","discountAmount":0.0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"itemCode":"Avalara
         Ground","lineAmount":8.26,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2021-02-26","tax":1.74,"taxableAmount":8.26,"taxCalculated":1.74,"taxCode":"FR000000","taxCodeId":8550,"taxDate":"2021-02-26","taxIncluded":true,"details":[{"id":0,"transactionLineId":0,"transactionId":0,"country":"NL","region":"NL","exemptAmount":0.0,"jurisCode":"NL","jurisName":"NETHERLANDS","stateAssignedNo":"","jurisType":"CNT","jurisdictionType":"Country","nonTaxableAmount":0.0,"rate":0.210000,"tax":1.74,"taxableAmount":8.26,"taxType":"Output","taxSubTypeId":"O","taxName":"Standard
@@ -121,5 +121,5 @@ http_interactions:
         MC","country":"NL","taxRegionId":205099,"latitude":"","longitude":""},{"id":0,"transactionId":0,"boundaryLevel":"Zip5","line1":"150
         Piccadilly","line2":"","line3":"","city":"Florence","region":"","postalCode":"50122","country":"IT","taxRegionId":205090,"latitude":"","longitude":""}],"summary":[{"country":"NL","region":"NL","jurisType":"Country","jurisCode":"NL","jurisName":"NETHERLANDS","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Output","taxSubType":"O","taxName":"Standard
         Rate","rateType":"Standard","taxable":16.52,"rate":0.210000,"tax":3.48,"taxCalculated":3.48,"nonTaxable":0.0,"exemption":0.0}]}'
-  recorded_at: Fri, 26 Feb 2021 19:22:53 GMT
+  recorded_at: Fri, 26 Feb 2021 23:06:24 GMT
 recorded_with: VCR 6.0.0
