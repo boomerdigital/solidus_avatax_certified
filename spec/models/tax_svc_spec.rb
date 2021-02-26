@@ -10,7 +10,6 @@ RSpec.describe TaxSvc, :vcr do
     subject { taxsvc.get_tax(request_hash) }
 
     it 'gets tax when all credentials are there' do
-      p Spree::Avatax::Config.company_code
       expect(subject.tax_result['totalTax']).to be_present
     end
 

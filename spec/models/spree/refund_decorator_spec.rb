@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Spree::Refund, :vcr do
+RSpec.describe Spree::Refund, :vcr do
   subject(:order) do
     order = create(:shipped_order)
     Spree::AvalaraTransaction.create(order: order)

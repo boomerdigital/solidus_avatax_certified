@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe Spree::Calculator::AvalaraTransaction, :vcr do
+RSpec.describe Spree::Calculator::AvalaraTransaction do
   let(:included_in_price) { false }
   let(:tax_category) { Spree::TaxCategory.find_or_create_by(name: 'Clothing', tax_code: 'P0000000') }
   let(:calculator) { Spree::TaxRate.find_by(name: 'Tax').calculator }
@@ -28,7 +28,7 @@ describe Spree::Calculator::AvalaraTransaction, :vcr do
       end
     end
 
-    context 'when computing a line item' do
+    context 'when computing a line item', :vcr do
       context 'when tax is included in price' do
         let(:included_in_price) { true }
 
