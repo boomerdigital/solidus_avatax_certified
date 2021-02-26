@@ -31,7 +31,7 @@ RSpec.describe 'Address Validation Button in Checkout', :vcr, :js do
         click_button 'Validate Ship Address'
         wait_for_ajax
         expect(find('.address_validator')).to have_content('Address Validation Successful')
-        expect(find("##{address_field}_zipcode").value).to eq('36104-5716')
+        expect(find("##{address_field}_zipcode").value).to eq('36104-5732')
       end
     end
 

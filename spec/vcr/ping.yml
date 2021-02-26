@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://rest.avatax.com/api/v2/taxrates/bypostalcode?country=US&postalCode=07801
+    uri: https://sandbox-rest.avatax.com/api/v2/taxrates/bypostalcode?country=US&postalCode=07801
     body:
       encoding: US-ASCII
       string: ''
@@ -10,9 +10,9 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v1.3.0
       Authorization:
-      - Basic [REDACTED]
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -23,20 +23,25 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 04 Sep 2019 09:24:21 GMT
+      - Fri, 26 Feb 2021 19:23:41 GMT
       Content-Type:
       - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '87'
       Connection:
       - keep-alive
       X-Content-Type-Options:
       - nosniff
       Serverduration:
-      - '00:00:00.0011698'
+      - '00:00:00.0009808'
+      Databasecalls:
+      - '0'
+      Databaseduration:
+      - '00:00:00'
+      Serviceduration:
+      - '00:00:00'
     body:
       encoding: UTF-8
       string: '{"totalRate":0.066250,"rates":[{"rate":0.066250,"name":"NJ STATE TAX","type":"State"}]}'
-    http_version:
-  recorded_at: Wed, 04 Sep 2019 09:24:21 GMT
-recorded_with: VCR 5.0.0
+  recorded_at: Fri, 26 Feb 2021 19:23:41 GMT
+recorded_with: VCR 6.0.0

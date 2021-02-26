@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://rest.avatax.com/api/v2/addresses/resolve
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
       string: '{"line1":"5 t","line2":"","city":"Montgomery","postalCode":"36104","country":"US","region":"AL"}'
@@ -10,11 +10,11 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v1.3.0
       Content-Type:
       - application/json
       Authorization:
-      - Basic [REDACTED]
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,24 +25,25 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 04 Sep 2019 09:24:18 GMT
+      - Fri, 26 Feb 2021 19:24:12 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Content-Type-Options:
-      - nosniff
+      Server:
+      - Kestrel
+      Vary:
+      - Accept-Encoding
       Serverduration:
-      - '00:00:00.0246248'
+      - '00:00:00.0061099'
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"address":{"line1":"5 t","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"5
-        t","line2":"","line3":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104","latitude":32.37424,"longitude":-86.308066}],"coordinates":{"latitude":32.37424,"longitude":-86.308066},"resolutionQuality":"NotCoded","messages":[{"summary":"The
+        t","line2":"","line3":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104","latitude":32.374256,"longitude":-86.307866}],"coordinates":{"latitude":32.374256,"longitude":-86.307866},"resolutionQuality":"NotCoded","messages":[{"summary":"The
         address number is out of range","details":"The address was found but the street
         number in the input address was not between the low and high range of the
-        post office database.","refersTo":"Address.Line1","severity":"Error","source":"Avalara.AvaTax.Services.Address"}]}'
-    http_version:
-  recorded_at: Wed, 04 Sep 2019 09:24:18 GMT
-recorded_with: VCR 5.0.0
+        post office database.","refersTo":"Address.Line0","severity":"Error","source":"Avalara.AvaTax.Common"}]}'
+  recorded_at: Fri, 26 Feb 2021 19:24:12 GMT
+recorded_with: VCR 6.0.0

@@ -13,5 +13,4 @@ VCR.configure do |config|
     record: :none,
     allow_playback_repeats: true,
   }
-  config.ignore_hosts 'chromedriver.storage.googleapis.com'
 end

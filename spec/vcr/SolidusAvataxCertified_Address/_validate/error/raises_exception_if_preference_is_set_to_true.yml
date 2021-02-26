@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://rest.avatax.com/api/v2/addresses/resolve
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
       string: '{"line1":"915 S Jackson St","line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
@@ -10,11 +10,11 @@ http_interactions:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v0.15.4
+      - Faraday v1.3.0
       Content-Type:
       - application/json
       Authorization:
-      - Basic [REDACTED]
+      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,24 +25,25 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Wed, 04 Sep 2019 09:24:33 GMT
+      - Fri, 26 Feb 2021 19:24:05 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      X-Content-Type-Options:
-      - nosniff
+      Server:
+      - Kestrel
+      Vary:
+      - Accept-Encoding
       Serverduration:
-      - '00:00:00.0002912'
+      - '00:00:00.0004339'
     body:
-      encoding: UTF-8
+      encoding: ASCII-8BIT
       string: '{"error":{"code":"InvalidAddress","message":"The address value was
         incomplete.","target":"IncorrectData","details":[{"code":"InvalidAddress","number":309,"message":"The
         address value was incomplete.","description":"The address value NULL was incomplete.
         You must provide either a valid postal code, line1 + city + region, or line1
         + postal code.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
-    http_version:
-  recorded_at: Wed, 04 Sep 2019 09:24:33 GMT
-recorded_with: VCR 5.0.0
+  recorded_at: Fri, 26 Feb 2021 19:24:05 GMT
+recorded_with: VCR 6.0.0
