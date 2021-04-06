@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SolidusAvataxDecorator
+module SolidusAvataxCertified
   module Spree
     module ShippingRateDecorator
       def tax_rate

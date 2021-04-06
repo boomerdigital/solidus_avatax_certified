@@ -7,7 +7,11 @@ class TaxSvc
   def get_tax(request_hash)
     log(__method__, request_hash)
 
-    req = client.transactions.create_or_adjust(request_hash)
+    req = begin
+            client.transactions.create_or_adjust(request_hash)
+          rescue StandardError => error
+            fallback_response(error)
+          end
 
     response = SolidusAvataxCertified::Response::GetTax.new(req)
 
@@ -17,7 +21,12 @@ class TaxSvc
   def cancel_tax(transaction_code)
     log(__method__, transaction_code)
 
-    req = client.transactions.void(company_code, transaction_code)
+    req = begin
+            client.transactions.void(company_code, transaction_code)
+          rescue StandardError => error
+            fallback_response(error)
+          end
+
     response = SolidusAvataxCertified::Response::CancelTax.new(req)
 
     handle_response(response)
@@ -104,5 +113,11 @@ class TaxSvc
     return if request_hash.nil?
 
     logger.debug(request_hash, "#{method} request hash")
+  end
+
+  FallbackResponse = Struct.new(:body, :success?, :error?, keyword_init: true)
+
+  def fallback_response(error)
+    FallbackResponse.new(body: error.message, success?: false, error?: true)
   end
 end
