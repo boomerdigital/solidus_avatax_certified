@@ -27,7 +27,9 @@ Gem::Specification.new do |s|
   s.add_dependency 'deface', '~> 1.5'
   s.add_dependency 'json', '~> 2.0'
   s.add_dependency 'logging', '~> 2.0'
-  s.add_dependency 'solidus', solidus_version
+  s.add_dependency 'solidus_api', solidus_version
+  s.add_dependency 'solidus_backend', solidus_version
+  s.add_dependency 'solidus_core', solidus_version
   s.add_dependency 'solidus_support'
 
   s.add_development_dependency 'capybara'
@@ -36,6 +38,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'factory_bot'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'github_changelog_generator'
+  s.add_development_dependency 'rails-controller-testing'
   s.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
   s.add_development_dependency 'rubocop'
   s.add_development_dependency 'rubocop-rspec'
@@ -45,5 +48,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'rails-controller-testing'
 end
