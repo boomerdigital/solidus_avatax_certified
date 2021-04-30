@@ -19,5 +19,9 @@ module SolidusAvataxCertified
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
+
+    def self.frontend_available?
+      const_defined?('::Spree::Frontend::Engine')
+    end
   end
 end
