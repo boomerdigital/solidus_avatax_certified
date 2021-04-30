@@ -2,17 +2,15 @@
 
 require 'spec_helper'
 
-describe Spree::LineItem, type: :model do
+describe Spree::LineItem do
   let(:order) { create :order_with_line_items, line_items_count: 1 }
   let(:line_item) { order.line_items.first }
 
   describe '#to_hash' do
-    it 'creates hash of line item information' do
-      expect(line_item.to_hash).to be_kind_of(Hash)
-    end
-    it 'has index of 1' do
+    it 'has index of the id' do
       response = line_item.to_hash
-      expect(response['Index']).to eq(1)
+      expect(response).to be_kind_of(Hash)
+      expect(response['Index']).to eq(line_item.id)
     end
   end
 
