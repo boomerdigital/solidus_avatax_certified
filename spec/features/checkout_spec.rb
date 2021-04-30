@@ -130,8 +130,6 @@ RSpec.describe 'Checkout', :vcr, :js do
 
   def fill_in_address
     address = "order_bill_address_attributes"
-    fill_in "#{address}_firstname", with: "Ryan"
-    fill_in "#{address}_lastname", with: "Bigg"
     fill_in "#{address}_address1", with: "915 S Jackson St"
     fill_in "#{address}_city", with: "Montgomery"
     select "United States of America", from: "#{address}_country_id"
