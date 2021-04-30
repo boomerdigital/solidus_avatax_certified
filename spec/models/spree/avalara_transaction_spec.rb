@@ -155,7 +155,7 @@ describe Spree::AvalaraTransaction, :vcr do
       end
 
       it 'has a totalTax equal to additional_tax_total' do
-        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
+        expect(subject['totalTax']).to eq(-0.6)
       end
     end
 
@@ -166,7 +166,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       it 'commits avatax final' do
         expect(subject).to be_kind_of(Hash)
-        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
+        expect(subject['totalTax']).to eq(-0.6)
       end
 
       it 'receives post_order_to_avalara' do
