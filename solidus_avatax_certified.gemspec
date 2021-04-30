@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.version     = SolidusAvataxCertified::VERSION
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
-  s.required_ruby_version = Gem::Requirement.new('~> 2.5')
+  s.required_ruby_version = Gem::Requirement.new('> 2.5')
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'

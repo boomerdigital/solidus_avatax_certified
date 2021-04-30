@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-RSpec.describe 'Address Validation Button in Checkout', :vcr, :js do
+xdescribe 'Address Validation Button in Checkout', :vcr, :js do
   let(:address) { create(:address) }
   let!(:order) { create(:order_with_line_items, state: 'address', ship_address: address) }
   let!(:user) { order.user }
