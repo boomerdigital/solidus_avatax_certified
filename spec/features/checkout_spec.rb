@@ -75,7 +75,7 @@ RSpec.describe 'Checkout', :vcr, :js do
         expect(page).to have_content('$0.38', count: 2)
       end
 
-      it 'order line_items and shipments have an included_tax_total sum of 0.38' do
+      xit 'order line_items and shipments have an included_tax_total sum of 0.38' do
         expect(order.line_items.sum(:included_tax_total).to_f).to eq(0.38)
         expect(order.shipments.sum(:included_tax_total).to_f).to eq(0.38)
         expect(order.all_adjustments.tax.count).to eq(2)
