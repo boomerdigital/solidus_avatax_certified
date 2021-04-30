@@ -29,7 +29,7 @@ describe SolidusAvataxCertified::OrderAdjuster, :vcr do
         order.line_items.update_all(price: 20)
       end
 
-      xit 'updates the adjustments' do
+      it 'updates the adjustments' do
         expect(order.state).to eq('payment')
         expect{ adjuster.adjust! }.to change { order.line_items.first.adjustments.tax.first.amount }.from(0.4).to(0.8)
       end
