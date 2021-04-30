@@ -11,12 +11,15 @@ FactoryBot.define do
     state { 'delivery' }
 
     transient do
+      line_items_attributes { [{}] * line_items_count }
+      shipment_attributes { [{}] }
       line_items_price { BigDecimal(10) }
       line_items_count { 1 }
       line_items_quantity { 1 }
       shipment_cost { 5 }
       tax_category { Spree::TaxCategory.first }
       tax_included { false }
+      stock_location { create(:stock_location) }
     end
 
     before(:create) do |_order, evaluator|
@@ -33,31 +36,42 @@ FactoryBot.define do
       end
     end
 
-    after(:create) do |order, evaluator|
-      create_list(:line_item, evaluator.line_items_count, order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category, quantity: evaluator.line_items_quantity)
+    after(:build) do |order, evaluator|
+      evaluator.stock_location # must evaluate before creating line items
+
+      evaluator.line_items_attributes.each do |attributes|
+        attributes = { order: order, price: evaluator.line_items_price, tax_category: evaluator.tax_category }.merge(attributes)
+        create(:line_item, attributes)
+      end
       order.line_items.reload
 
-      create(:avalara_shipment, order: order, cost: evaluator.shipment_cost, tax_included: evaluator.tax_included)
+      evaluator.shipment_attributes.each do |attributes|
+        attributes = { order: order, cost: evaluator.shipment_cost, stock_location: evaluator.stock_location, tax_included: evaluator.tax_included }.merge(attributes)
+        create(:avalara_shipment, attributes)
+      end
       order.shipments.reload
 
-      order.updater.update
+      order.recalculate
+    end
+
+    after(:create) do |order, evaluator|
       order.next
     end
 
     factory :completed_avalara_order do
-      shipment_state { 'shipped' }
+      state { 'complete' }
       payment_state { 'paid' }
+      shipment_state { 'ready' }
 
       after(:create) do |order|
-        # order.refresh_shipment_rates
-        order.update_column(:completed_at, Time.now)
-        order.update_column(:state, 'complete')
-        payment = create(:credit_card_payment, amount: order.total, order: order, state: 'completed')
+        order.update_column(:completed_at, Time.current)
 
-        order.updater.update
-        order.next
+        order.recalculate
 
-        payment.avalara_finalize
+        payment = create(:credit_card_payment, amount: order.total, order: order)
+        payment.purchase!
+
+        order.reload
       end
     end
   end

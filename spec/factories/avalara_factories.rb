@@ -41,7 +41,7 @@ FactoryBot.define do
           }
         ],
         customerCode: 1,
-        companyCode: 'DEFAULT',
+        companyCode: '54321',
         customerUsageType: nil,
         exemptionNo: nil,
         referenceCode: 'R250707809',
@@ -68,9 +68,6 @@ FactoryBot.modify do
       state_code { 'AL' }
     end
 
-    firstname { 'John' }
-    lastname { 'Doe' }
-    company { 'Company' }
     address1 { '915 S Jackson St' }
     address2 { '' }
     city { 'Montgomery' }
