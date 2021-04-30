@@ -5,6 +5,8 @@ module SolidusAvataxCertified
     isolate_namespace Spree
     engine_name 'solidus_avatax_certified'
 
+    include SolidusSupport::EngineExtensions
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     # use rspec for tests
@@ -16,6 +18,10 @@ module SolidusAvataxCertified
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/decorators/**/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
+    end
+
+    def self.frontend_available?
+      const_defined?('::Spree::Frontend::Engine')
     end
   end
 end

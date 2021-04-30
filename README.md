@@ -21,14 +21,6 @@ From Avalara's own explanation of the certification program:
 
 **[For Installation and Setup instructions, please visit our wiki.](https://github.com/boomerdigital/solidus_avatax_certified/wiki)**
 
-## Version compatibility
-
-| Solidus version | Branch    | Latest AvaTax version |
-|:---------------:|:---------:|:---------------------:|
-| v1.0 - v2.0     | v1.0-v2.0 | 1.1.0                 |
-| v2.1 - v2.2     | v2.1-2.2  | 2.0.0                 |
-| v2.3 - master   | master    | 3.0.0                 |
-
 ## Installation
 
 ### 1. Install the gem

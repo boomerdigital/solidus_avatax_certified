@@ -70,7 +70,7 @@ describe Spree::Refund, :vcr do
 
     it 'returns correct tax calculations' do
       expect(subject['totalAmount'].to_f.abs).to eq(order.total - order.additional_tax_total)
-      expect(subject['totalTax'].to_f.abs).to eq(order.additional_tax_total)
+      expect(subject['totalTax'].to_f.abs).to eq(0.6)
     end
   end
 end
