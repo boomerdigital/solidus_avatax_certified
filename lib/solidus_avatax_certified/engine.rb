@@ -5,6 +5,8 @@ module SolidusAvataxCertified
     isolate_namespace Spree
     engine_name 'solidus_avatax_certified'
 
+    include SolidusSupport::EngineExtensions
+
     config.autoload_paths += %W(#{config.root}/lib)
 
     # use rspec for tests

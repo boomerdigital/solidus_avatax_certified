@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require "simplecov"
-SimpleCov.start "rails"
+ENV['RAILS_ENV'] ||= 'test'
 
-ENV["RAILS_ENV"] ||= "test"
+require 'solidus_dev_support/rspec/coverage'
 
-require File.expand_path('dummy/config/environment.rb', __dir__)
+# Create the dummy app if it's still missing.
+dummy_env = "#{__dir__}/dummy/config/environment.rb"
+system 'bin/rake extension:test_app' unless File.exist? dummy_env
+require dummy_env
 
-require "webdrivers"
-
-require "solidus_support/extension/feature_helper"
+require 'solidus_dev_support/rspec/feature_helper'
 require 'spree/testing_support/controller_requests'
 
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
