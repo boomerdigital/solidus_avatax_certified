@@ -9,10 +9,14 @@ orbs:
 
 jobs:
   run-specs-with-postgres:
+    environment:
+      AUTO_RUN_MIGRATIONS: 'true'
     executor: solidusio_extensions/postgres
     steps:
       - solidusio_extensions/run-tests
   run-specs-with-mysql:
+    environment:
+      AUTO_RUN_MIGRATIONS: 'true'
     executor: solidusio_extensions/mysql
     steps:
       - solidusio_extensions/run-tests
