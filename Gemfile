@@ -6,6 +6,7 @@ solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
 
 gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
 gem 'solidus_auth_devise'
+gem 'avatax-ruby', git: 'git@github.com:boomerdigital/avatax.git', require: 'avatax', branch: 'crossborder'
 
 # Needed to help Bundler figure out how to resolve dependencies,
 # otherwise it takes forever to resolve them.
