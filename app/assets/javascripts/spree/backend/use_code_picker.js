@@ -6,7 +6,7 @@ $.fn.usecodeAutocomplete = function () {
     multiple: false,
     initSelection: function (element, callback) {
       Spree.ajax({
-        url: Spree.routes.use_code_search,
+        url: Spree.avataxRoutes.use_code_search,
         data: {
           ids: element.val()
         },
@@ -16,7 +16,7 @@ $.fn.usecodeAutocomplete = function () {
       })
     },
     ajax: {
-      url: Spree.routes.use_code_search,
+      url: Spree.avataxRoutes.use_code_search,
       datatype: 'json',
       data:  function (term) {
         return {
