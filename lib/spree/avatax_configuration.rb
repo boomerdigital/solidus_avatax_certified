@@ -4,7 +4,7 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   preference :company_code, :string, default: ENV['AVATAX_COMPANY_CODE']
   preference :account, :string, default: ENV['AVATAX_ACCOUNT']
   preference :license_key, :string, default: ENV['AVATAX_LICENSE_KEY']
-  preference :environment, :string, default: -> { default_environment }
+  preference :environment, :string, default: proc { Spree::AvataxConfiguration.default_environment }
   preference :log, :boolean, default: true
   preference :log_to_stdout, :boolean, default: false
   preference :address_validation, :boolean, default: true
@@ -24,7 +24,7 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
     %w(company_code account license_key environment)
   end
 
-  def default_environment
+  def self.default_environment
     if ENV['AVATAX_ENVIRONMENT'].present?
       ENV['AVATAX_ENVIRONMENT']
     else
