@@ -11,39 +11,31 @@ Gem::Specification.new do |s|
   s.version     = SolidusAvataxCertified::VERSION
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
-  s.required_ruby_version = '>= 2.1'
+  s.required_ruby_version = Gem::Requirement.new('> 2.5')
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'
-  s.homepage  = 'http://www.boomerdigital.net'
+  s.homepage  = 'https://github.com/boomerdigital/solidus_avatax_certified'
+
+  s.metadata['homepage_uri'] = s.homepage
+  s.metadata['source_code_uri'] = 'https://github.com/boomerdigital/solidus_avatax_certified'
 
   s.files       = `git ls-files`.split("\n")
   s.test_files  = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  solidus_version = ['>= 2.3.0', '< 3.0.0']
+  solidus_version = ['>= 2.3.0', '< 4']
   s.add_dependency 'avatax-ruby'
   s.add_dependency 'deface', '~> 1.5'
   s.add_dependency 'json', '~> 2.0'
   s.add_dependency 'logging', '~> 2.0'
-  s.add_dependency 'solidus', solidus_version
-  s.add_dependency 'solidus_support'
+  s.add_dependency 'solidus_core', solidus_version
+  s.add_dependency 'solidus_support', [">= 0.8.0", "< 1"]
 
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'factory_bot'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'github_changelog_generator'
-  s.add_development_dependency 'rspec-rails', '~> 4.0.0.beta2'
-  s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'rubocop-rspec'
-  s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'solidus_dev_support', '~> 2.1'
   s.add_development_dependency 'vcr'
-  s.add_development_dependency 'webdrivers'
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'rails-controller-testing'
+  s.add_development_dependency 'shoulda-matchers'
+  s.add_development_dependency 'cuprite'
 end

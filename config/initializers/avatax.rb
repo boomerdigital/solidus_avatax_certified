@@ -6,8 +6,6 @@ AVATAX_HEADERS = { 'X-Avalara-UID' => AVATAX_CLIENT_VERSION }.freeze
 
 require 'spree/avatax_configuration'
 
-module Spree
-  module Avatax
-    Config = Spree::AvataxConfiguration.new
-  end
+Rails.application.reloader.to_prepare do
+  Spree::Avatax.init
 end

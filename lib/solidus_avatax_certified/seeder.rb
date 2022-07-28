@@ -42,18 +42,18 @@ module SolidusAvataxCertified
           # default values for the create
           tax_rate.amount = BigDecimal('0')
           tax_rate.calculator = tax_calculator
-          tax_rate.tax_category = clothing
+          tax_rate.tax_categories = [clothing]
         end
-        sales_tax.update!(tax_category: clothing, name: 'Tax', amount: BigDecimal('0'), zone: tax_zone, show_rate_in_label: false, calculator: tax_calculator)
+        sales_tax.update!(name: 'Tax', amount: BigDecimal('0'), zone: tax_zone, show_rate_in_label: false, calculator: tax_calculator)
 
         shipping = ::Spree::TaxCategory.find_or_create_by(name: 'Shipping', tax_code: 'FR000000')
         shipping_tax = ::Spree::TaxRate.find_or_create_by(name: 'Shipping Tax') do |shipping_tax|
-          shipping_tax.tax_category = shipping
+          shipping_tax.tax_categories = [shipping]
           shipping_tax.amount = BigDecimal('0')
           shipping_tax.zone = tax_zone
           shipping_tax.show_rate_in_label = false
         end
-        shipping_tax.update!(tax_category: shipping, amount: BigDecimal('0'), zone: ::Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: ::Spree::Calculator::AvalaraTransaction.create!)
+        shipping_tax.update!(amount: BigDecimal('0'), zone: ::Spree::Zone.find_by_name('North America'), show_rate_in_label: false, calculator: ::Spree::Calculator::AvalaraTransaction.create!)
       end
 
       def add_tax_category_to_shipping_methods

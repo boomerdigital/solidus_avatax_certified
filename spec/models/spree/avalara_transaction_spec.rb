@@ -140,22 +140,14 @@ describe Spree::AvalaraTransaction, :vcr do
     let(:reimbursement) { create(:reimbursement, order: order) }
     let(:refund) { build(:refund, payment: order.payments.first, amount: order.total.to_f) }
 
-    before do
-      order.avalara_capture_finalize
-      order.reload
-    end
-
     describe '#commit_avatax' do
       subject do
         order.avalara_transaction.commit_avatax('ReturnOrder', refund)
       end
 
-      it 'receives totalTax key' do
-        expect(subject['totalTax']).to be_present
-      end
-
-      it 'has a totalTax equal to additional_tax_total' do
-        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
+      it 'receives totalTax that is equal to additional_tax_total' do
+        expect(subject).to be_kind_of(Hash)
+        expect(subject['totalTax']).to eq(-0.6)
       end
     end
 
@@ -166,12 +158,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       it 'commits avatax final' do
         expect(subject).to be_kind_of(Hash)
-        expect(subject['totalTax']).to eq(-order.additional_tax_total.to_f)
-      end
-
-      it 'receives post_order_to_avalara' do
-        expect(order.avalara_transaction).to receive(:post_return_to_avalara)
-        subject
+        expect(subject['totalTax']).to eq(-0.6)
       end
     end
   end

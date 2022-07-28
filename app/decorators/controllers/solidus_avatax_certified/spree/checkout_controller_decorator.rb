@@ -29,7 +29,7 @@ module SolidusAvataxCertified
         params['address'].permit(:line1, :line2, :city, :postalCode, :country, :region).to_h
       end
 
-      ::Spree::CheckoutController.prepend self
+      ::Spree::CheckoutController.prepend(self) if SolidusAvataxCertified::Engine.frontend_available?
     end
   end
 end
