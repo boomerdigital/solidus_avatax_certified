@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.version     = SolidusAvataxCertified::VERSION
   s.summary     = 'Solidus extension for Avalara tax calculation.'
   s.description = 'Solidus extension for Avalara tax calculation.'
-  s.required_ruby_version = Gem::Requirement.new('> 2.5')
+  s.required_ruby_version = Gem::Requirement.new('>= 2.7')
 
   s.author    = 'Allison Reilly'
   s.email     = 'acreilly3@gmail.com'
@@ -25,17 +25,15 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  solidus_version = ['>= 2.3.0', '< 4']
+  solidus_version = ['>= 3.0.0', '< 5']
   s.add_dependency 'avatax-ruby'
   s.add_dependency 'deface', '~> 1.5'
-  s.add_dependency 'json', '~> 2.0'
-  s.add_dependency 'logging', '~> 2.0'
   s.add_dependency 'solidus_core', solidus_version
-  s.add_dependency 'solidus_support', [">= 0.8.0", "< 1"]
+  s.add_dependency 'solidus_support', '~> 0.5'
 
-  s.add_development_dependency 'solidus_dev_support', '~> 2.1'
+  s.add_development_dependency 'cuprite'
+  s.add_development_dependency 'shoulda-matchers'
+  s.add_development_dependency 'solidus_dev_support', '~> 2.5'
   s.add_development_dependency 'vcr'
   s.add_development_dependency 'webmock'
-  s.add_development_dependency 'shoulda-matchers'
-  s.add_development_dependency 'cuprite'
 end

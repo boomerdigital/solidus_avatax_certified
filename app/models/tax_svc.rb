@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'logging'
-
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
