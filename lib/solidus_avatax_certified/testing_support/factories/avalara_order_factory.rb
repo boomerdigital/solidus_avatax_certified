@@ -51,10 +51,10 @@ FactoryBot.define do
       end
       order.shipments.reload
 
-      order.recalculate
+      Spree::OrderUpdater.new(order).send(:update_totals)
     end
 
-    after(:create) do |order, evaluator|
+    after(:create) do |order|
       order.next
     end
 
