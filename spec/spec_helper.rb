@@ -14,7 +14,7 @@ require 'spree/testing_support/controller_requests'
 
 Dir[File.join(File.dirname(__FILE__), "support/**/*.rb")].each { |f| require f }
 
-require 'solidus_avatax_certified/testing_support/factories'
+SolidusDevSupport::TestingSupport::Factories.load_for(SolidusAvataxCertified::Engine)
 
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
