@@ -3,7 +3,8 @@
 require 'spec_helper'
 
 describe SolidusAvataxCertified::Address, type: :model do
-  let(:address){ build(:address) }
+  let(:state) { create(:state) }
+  let(:address){ build(:address, state: state, country: state.country) }
   let(:order) { build(:order_with_line_items, ship_address: address) }
 
   before do
