@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'master')
+solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
 
 gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
 gem 'solidus_auth_devise'
