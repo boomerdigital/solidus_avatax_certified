@@ -13,7 +13,7 @@ module SolidusAvataxCertified
       end
 
       def auto_migrate?
-        ENV['AUTO_RUN_MIGRATIONS'] =~ /true/i
+        (ENV['AUTO_RUN_MIGRATIONS'] =~ /true/i) || ENV['CI']
       end
 
       def run_migrations
