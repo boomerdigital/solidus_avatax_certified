@@ -1,0 +1,5 @@
+<!-- insert_bottom '[data-hook="admin_user_tab_options"]' -->
+
+<li>
+  <%= link_to t('spree.avalara_information'), avalara_information_admin_user_path(@user) %>
+</li>
