@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'spree/tax/tax_helpers'
-
 module SolidusAvataxCertified
   class Line
     attr_reader :order, :lines
