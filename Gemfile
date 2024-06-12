@@ -7,6 +7,7 @@ solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
 
 gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
 gem 'solidus_auth_devise'
+gem 'avatax-ruby', git: 'git@github.com:boomerdigital/avatax.git', require: 'avatax', branch: 'crossborder'
 
 # The solidus_frontend gem has been pulled out since v3.2
 if solidus_branch >= 'v3.2'

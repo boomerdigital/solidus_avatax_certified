@@ -46,6 +46,12 @@ module SolidusAvataxCertified
       validation_response(@ship_address.to_avatax_hash)
     end
 
+    def get_hts_code(code)
+      tax_svc = TaxSvc.new
+
+      tax_svc.get_hts_code(@ship_address.country.iso, code)
+    end
+
     private
 
     def validation_response(address)
