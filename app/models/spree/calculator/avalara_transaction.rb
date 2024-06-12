@@ -90,6 +90,7 @@ module Spree
 
       return prev_tax_amount if avalara_response.nil?
       return 0 if avalara_response['totalTax'] == 0.0
+      return 0 if avalara_response['lines'].nil?
 
       avalara_response['lines'].each do |line|
         if line['lineNumber'] == "#{item.id}-#{item.avatax_line_code}"
