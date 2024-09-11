@@ -4,8 +4,8 @@ FactoryBot.define do
   factory :request_hash, class: Hash do
     createTransactionModel {
       {
-        code: 'R250707809',
-        date: '2017-05-31',
+        code: "TEST-#{SecureRandom.hex(10)}",
+        date: Date.today.strftime('%F'),
         discount: '0.0',
         commit: false,
         type: 'SalesOrder',
@@ -41,7 +41,6 @@ FactoryBot.define do
           }
         ],
         customerCode: 1,
-        companyCode: '54321',
         customerUsageType: nil,
         exemptionNo: nil,
         referenceCode: 'R250707809',

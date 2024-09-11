@@ -4,8 +4,8 @@ require 'spec_helper'
 
 describe Spree::Order, :vcr do
   let(:completed_order) { create(:completed_avalara_order) }
-  let(:avalara_order) { create(:avalara_order) }
-  let(:order) { build(:avalara_order, ship_address: build(:address)) }
+  let(:avalara_order) { create(:avalara_order, ship_address: create(:valid_address)) }
+  let(:order) { build(:avalara_order, ship_address: build(:valid_address)) }
 
   it { is_expected.to have_one :avalara_transaction }
 

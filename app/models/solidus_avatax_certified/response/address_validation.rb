@@ -12,7 +12,7 @@ module SolidusAvataxCertified
                                  result['validatedAddresses'][0]
                                else
                                  {}
-        end
+                               end
       end
 
       def messages

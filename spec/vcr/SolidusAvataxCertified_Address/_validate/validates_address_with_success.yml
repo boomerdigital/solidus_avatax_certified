@@ -1,20 +1,142 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=New%20York&country=US&line1=47%20W%2013th%20St&line2=Northwest&postalCode=10011&region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 09:17:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0241077'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 759d8d3f-f4ab-4dd5-b1de-6f1b66900bff
+      X-Avalara-Uid:
+      - 66561e6f-c818-4896-b87e-7a87cfa14894
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"47 W 13th St","line2":"Northwest","city":"New
+        York","region":"AL","country":"US","postalCode":"10011"},"validatedAddresses":[{"addressType":"HighRiseOrBusinessComplex","line1":"NORTHWEST","line2":"47
+        W 13TH ST","line3":"","city":"NEW YORK","region":"NY","country":"US","postalCode":"10011-7956","latitude":40.736333,"longitude":-73.996328}],"coordinates":{"latitude":40.736333,"longitude":-73.996328},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"42","jurisdictionName":"NEW
+        YORK","jurisdictionType":"State","signatureCode":"BFEQ"},{"avalaraId":"359071","jurisdictionName":"METROPOLITAN
+        COMMUTER TRANSPORTATION DISTRICT","jurisdictionType":"Special","signatureCode":"BGJP"},{"avalaraId":"2001053475","jurisdictionName":"NEW
+        YORK CITY","jurisdictionType":"City","signatureCode":"EHTG"}]}'
+  recorded_at: Mon, 09 Sep 2024 09:17:59 GMT
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=New%20York&country=US&line1=47%20W%2013th%20St&line2=Northwest&postalCode=10011&region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 09:17:59 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0048248'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 17e205cc-f38a-499b-943c-1c259db8b0a5
+      X-Avalara-Uid:
+      - a205782e-cf84-4e30-8570-4d43e95aa3d1
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"47 W 13th St","line2":"Northwest","city":"New
+        York","region":"AL","country":"US","postalCode":"10011"},"validatedAddresses":[{"addressType":"HighRiseOrBusinessComplex","line1":"NORTHWEST","line2":"47
+        W 13TH ST","line3":"","city":"NEW YORK","region":"NY","country":"US","postalCode":"10011-7956","latitude":40.736333,"longitude":-73.996328}],"coordinates":{"latitude":40.736333,"longitude":-73.996328},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"42","jurisdictionName":"NEW
+        YORK","jurisdictionType":"State","signatureCode":"BFEQ"},{"avalaraId":"359071","jurisdictionName":"METROPOLITAN
+        COMMUTER TRANSPORTATION DISTRICT","jurisdictionType":"Special","signatureCode":"BGJP"},{"avalaraId":"2001053475","jurisdictionName":"NEW
+        YORK CITY","jurisdictionType":"City","signatureCode":"EHTG"}]}'
+  recorded_at: Mon, 09 Sep 2024 09:17:59 GMT
+- request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
-      string: '{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}'
+      string: '{"line1":"47 W 13th St","line2":"Northwest","city":"New York","region":"NY","country":"US","postalCode":"10011"}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v1.3.0
+      - Faraday v1.10.3
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,22 +147,42 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Fri, 30 Apr 2021 18:20:28 GMT
+      - Mon, 09 Sep 2024 10:25:47 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
-      Vary:
-      - Accept-Encoding
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
       Serverduration:
-      - '00:00:00.0029051'
+      - '00:00:00.0045182'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - c915d24e-fe57-4f94-8cdf-664155c43942
+      X-Avalara-Uid:
+      - 7ad6bafc-4895-4e56-a048-c62d90ce988b
     body:
-      encoding: ASCII-8BIT
-      string: '{"address":{"line1":"915 S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"StreetOrResidentialAddress","line1":"915
-        S JACKSON ST","line2":"","line3":"","city":"MONTGOMERY","region":"AL","country":"US","postalCode":"36104-5732","latitude":32.365575,"longitude":-86.296051}],"coordinates":{"latitude":32.365575,"longitude":-86.296051},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"1","jurisdictionName":"ALABAMA","jurisdictionType":"State","signatureCode":"AAKB"},{"avalaraId":"10130011","jurisdictionName":"MONTGOMERY","jurisdictionType":"City","signatureCode":"ADKT"},{"avalaraId":"10132098","jurisdictionName":"MONTGOMERY","jurisdictionType":"County","signatureCode":"ADKI"}]}'
-  recorded_at: Fri, 30 Apr 2021 18:20:28 GMT
-recorded_with: VCR 6.0.0
+      encoding: UTF-8
+      string: '{"address":{"line1":"47 W 13th St","line2":"Northwest","city":"New
+        York","region":"NY","country":"US","postalCode":"10011"},"validatedAddresses":[{"addressType":"HighRiseOrBusinessComplex","line1":"NORTHWEST","line2":"47
+        W 13TH ST","line3":"","city":"NEW YORK","region":"NY","country":"US","postalCode":"10011-7956","latitude":40.736333,"longitude":-73.996328}],"coordinates":{"latitude":40.736333,"longitude":-73.996328},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"42","jurisdictionName":"NEW
+        YORK","jurisdictionType":"State","signatureCode":"BFEQ"},{"avalaraId":"359071","jurisdictionName":"METROPOLITAN
+        COMMUTER TRANSPORTATION DISTRICT","jurisdictionType":"Special","signatureCode":"BGJP"},{"avalaraId":"2001053475","jurisdictionName":"NEW
+        YORK CITY","jurisdictionType":"City","signatureCode":"EHTG"}]}'
+  recorded_at: Mon, 09 Sep 2024 10:25:47 GMT
+recorded_with: VCR 6.3.1
