@@ -5,9 +5,9 @@ class MyConfigPreferences
     Spree::Avatax::Config.reset
 
     Spree::Avatax::Config.configure do |config|
-      config.company_code = 'DEFAULT'
-      config.license_key = '12345'
-      config.account = '12345'
+      config.company_code = ENV['AVATAX_COMPANY_CODE'] || 'DEFAULT'
+      config.license_key = ENV['AVATAX_LICENSE_KEY'] || '12345'
+      config.account = ENV['AVATAX_ACCOUNT'] || '12345'
 
       config.refuse_checkout_address_validation_error = false
       config.log_to_stdout = false
