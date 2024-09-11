@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=NON%20EXISTENT%20CITY&country=US&line1=915%20S%20Jackson%20St&postalCode=42&region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:16:28 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0040156'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - ab8ac7d2-9921-46d2-8286-91df2d4d7c9b
+      X-Avalara-Uid:
+      - eae05deb-8899-4916-8e59-0a345be00a1d
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"915 S Jackson St","city":"NON EXISTENT CITY","region":"AL","country":"US","postalCode":"42"},"validatedAddresses":[{"addressType":"UnknownAddressType","line1":"915
+        S Jackson St","line2":"","line3":"","city":"NON EXISTENT CITY","region":"AL","country":"US","postalCode":"42"}],"resolutionQuality":"External","messages":[{"summary":"Address
+        not geocoded.","details":"Address cannot be geocoded.","refersTo":"Address","severity":"Error","source":"Avalara.AvaTax.Common"},{"summary":"The
+        city could not be determined.","details":"The city could not be found or determined
+        from postal code.","refersTo":"Address.City","severity":"Error","source":"Avalara.AvaTax.Common"}]}'
+  recorded_at: Mon, 09 Sep 2024 08:16:28 GMT
+recorded_with: VCR 6.3.1

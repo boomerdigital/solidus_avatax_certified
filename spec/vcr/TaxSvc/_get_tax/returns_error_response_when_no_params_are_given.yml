@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0002378'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - '069ad2b2-ebb7-4eb1-a313-773b71db5771'
+      X-Avalara-Uid:
+      - 862dfa15-8f34-404a-bb32-ae5cb5222d45
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"ModelRequiredException","message":"A required model
+        was not provided.","target":"IncorrectData","details":[{"code":"ModelRequiredException","number":38,"message":"A
+        required model was not provided.","description":"Please verify that your request
+        included a request body in valid JSON format.","faultCode":"Client","helpLink":"https://developer.avalara.com/avatax/errors/ModelRequiredException","severity":"Exception"}]}}'
+  recorded_at: Mon, 09 Sep 2024 08:22:14 GMT
+recorded_with: VCR 6.3.1

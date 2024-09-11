@@ -15,6 +15,7 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   preference :refuse_checkout_address_validation_error, :boolean, default: false
   preference :customer_can_validate, :boolean, default: false
   preference :raise_exceptions, :boolean, default: false
+  preference :connection_options, :hash, default: { request: { timeout: 1200 } }
 
   attr_accessor :logger
 

@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.required_ruby_version = '>= 3.0.0'
 
-  s.add_dependency 'avatax-ruby'
+  s.add_dependency 'avatax'
   s.add_dependency 'deface', '>= 1.5'
   s.add_dependency 'json', '>= 2.0'
   s.add_dependency 'solidus_core', ['>= 3', '< 5']

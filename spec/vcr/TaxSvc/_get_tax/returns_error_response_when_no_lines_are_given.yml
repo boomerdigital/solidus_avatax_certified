@@ -1,0 +1,64 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: '{"createTransactionModel":{"code":"TEST-5e15bd210acd28138da6","date":"2024-09-09","discount":"0.0","commit":false,"type":"SalesOrder","lines":[],"customerCode":1,"customerUsageType":null,"exemptionNo":null,"referenceCode":"R250707809","currencyCode":"USD"}}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:15 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0002344'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 3bff428c-fa37-40a0-bd4f-d56637e912b7
+      X-Avalara-Uid:
+      - 25867e06-910e-4f33-ac2d-23f93257efd5
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"MissingLine","message":"Transactions must have at
+        least one line.","target":"HttpRequestHeaders","details":[{"code":"MissingLine","number":311,"message":"Transactions
+        must have at least one line.","description":"The CreateTransactionModel object
+        must have an element called ''lines'', with at least one valid line record.","faultCode":"Client","helpLink":"https://developer.avalara.com/avatax/errors/MissingLine","severity":"Error"}]}}'
+  recorded_at: Mon, 09 Sep 2024 08:22:15 GMT
+recorded_with: VCR 6.3.1
