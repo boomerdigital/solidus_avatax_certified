@@ -54,7 +54,7 @@ describe Spree::AvalaraTransaction, :vcr do
 
       before do
         create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
-        order.updater.update
+        order.recalculate
       end
 
       it 'applies discount' do
