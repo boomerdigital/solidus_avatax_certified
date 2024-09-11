@@ -16,6 +16,8 @@ class Spree::AvataxConfiguration < Spree::Preferences::Configuration
   preference :customer_can_validate, :boolean, default: false
   preference :raise_exceptions, :boolean, default: false
 
+  attr_accessor :logger
+
   def self.boolean_preferences
     %w(tax_calculation document_commit log log_to_stdout address_validation refuse_checkout_address_validation_error customer_can_validate raise_exceptions)
   end

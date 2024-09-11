@@ -3,7 +3,6 @@
 require 'json'
 require 'net/http'
 require 'base64'
-require 'logger'
 
 module SolidusAvataxCertified
   class Address
