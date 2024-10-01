@@ -75,7 +75,7 @@ RSpec.describe Spree::Calculator::AvalaraTransaction do
 
         before do
           create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: order)
-          order.updater.update
+          order.recalculate
         end
 
         it 'is equal to the items pre-tax total * rate' do

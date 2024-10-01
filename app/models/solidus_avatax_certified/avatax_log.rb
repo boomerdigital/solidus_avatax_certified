@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
+require 'logger'
+
 module SolidusAvataxCertified
   class AvataxLog
     def initialize(file_name, log_info = nil, schedule = nil)
       if !::Spree::Avatax::Config.log_to_stdout
         schedule = 'weekly' unless !schedule.nil?
-        @logger ||= Logger.new("#{Rails.root}/log/avatax.log", schedule)
+        @logger ||= ::Spree::Avatax::Config.logger.presence || Logger.new("#{Rails.root}/log/avatax.log", schedule)
         progname(file_name.split('/').last.chomp('.rb'))
         info(log_info) unless log_info.nil?
       else

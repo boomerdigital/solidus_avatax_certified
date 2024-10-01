@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/DEFAULTAUG22/transactions//void
+    body:
+      encoding: UTF-8
+      string: '{"code":"DocVoided"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:18 GMT
+      Content-Length:
+      - '0'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Correlation-Id:
+      - 2f153b2f-2da4-45fe-b83d-9732916b240c
+      X-Avalara-Uid:
+      - 778df2cc-05c0-493a-9fc9-0e38a0fd36fd
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Mon, 09 Sep 2024 08:22:18 GMT
+recorded_with: VCR 6.3.1

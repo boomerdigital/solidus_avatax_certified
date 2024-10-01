@@ -18,7 +18,7 @@ jobs:
         default: "postgres"
       ruby:
         type: string
-        default: "3.2"
+        default: "3.3"
     executor:
       name: solidusio_extensions/<< parameters.db >>
       ruby_version: << parameters.ruby >>
@@ -32,15 +32,15 @@ workflows:
       - run-specs:
           name: &name "run-specs-solidus-<< matrix.solidus >>-ruby-<< matrix.ruby >>-db-<< matrix.db >>"
           matrix:
-            parameters: { solidus: ["main"], ruby: ["3.2"], db: ["postgres"] }
+            parameters: { solidus: ["main"], ruby: ["3.3"], db: ["postgres"] }
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["current"], ruby: ["3.1"], db: ["mysql"] }
+            parameters: { solidus: ["current"], ruby: ["3.2"], db: ["mysql"] }
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["older"], ruby: ["3.0"], db: ["sqlite"] }
+            parameters: { solidus: ["current"], ruby: ["3.1"], db: ["sqlite"] }
 
   "Weekly run specs against main":
     triggers:
@@ -54,8 +54,8 @@ workflows:
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["main"], ruby: ["3.2"], db: ["postgres"] }
+            parameters: { solidus: ["main"], ruby: ["3.3"], db: ["postgres"] }
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["current"], ruby: ["3.1"], db: ["mysql"] }
+            parameters: { solidus: ["current"], ruby: ["3.2"], db: ["mysql"] }

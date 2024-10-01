@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city=Montgomery&country=US&line1=915%20S%20Jackson%20St&postalCode=36104&region=AL
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:13 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0225172'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 256f8329-f707-4f12-944e-9e70529f67ab
+      X-Avalara-Uid:
+      - 371c9495-8bda-44cb-89a7-88b10f9edc22
+    body:
+      encoding: UTF-8
+      string: '{"address":{"line1":"915 S Jackson St","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"},"validatedAddresses":[{"addressType":"StreetOrResidentialAddress","line1":"915
+        S JACKSON ST","line2":"","line3":"","city":"MONTGOMERY","region":"AL","country":"US","postalCode":"36104-5732","latitude":32.365575,"longitude":-86.296051}],"coordinates":{"latitude":32.365575,"longitude":-86.296051},"resolutionQuality":"Intersection","taxAuthorities":[{"avalaraId":"1","jurisdictionName":"ALABAMA","jurisdictionType":"State","signatureCode":"AAKB"},{"avalaraId":"10130011","jurisdictionName":"MONTGOMERY","jurisdictionType":"City","signatureCode":"ADKT"},{"avalaraId":"10132098","jurisdictionName":"MONTGOMERY","jurisdictionType":"County","signatureCode":"ADKI"}]}'
+  recorded_at: Mon, 09 Sep 2024 08:22:13 GMT
+recorded_with: VCR 6.3.1

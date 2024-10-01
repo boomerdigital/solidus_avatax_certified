@@ -10,17 +10,15 @@ module SolidusAvataxCertified
       end
 
       def result
-        @result ||= faraday.body
+        @result ||= faraday.try(:body)
       end
 
       def success?
-        faraday.success?
+        faraday.try(:success?)
       end
 
       def error?
         !success?
-      rescue StandardError
-        true
       end
 
       def description

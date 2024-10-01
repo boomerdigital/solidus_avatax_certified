@@ -90,7 +90,7 @@ xdescribe 'Checkout', :vcr, :js do
           order.line_items.each do |li|
             create(:adjustment, order: order, source: promotion.promotion_actions.first, adjustable: li)
           end
-          order.updater.update
+          order.recalculate
           order.reload
           click_button 'Save and Continue'
         end

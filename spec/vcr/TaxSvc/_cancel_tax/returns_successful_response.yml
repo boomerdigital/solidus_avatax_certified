@@ -1,0 +1,136 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: '{"createTransactionModel":{"code":"TEST-e0d088510173a6a45e9e","date":"2024-09-09","discount":"0.0","commit":true,"type":"SalesInvoice","lines":[{"number":"1-LI","description":"Product
+        #1 - 1825","taxCode":"PC030000","itemCode":"SKU-1","quantity":1,"amount":10.0,"customerUsageType":null,"discounted":false,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"DC","country":"US","postalCode":"20500"},"shipTo":{"line1":"915
+        S Jackson St","line2":null,"city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}],"customerCode":1,"customerUsageType":null,"exemptionNo":null,"referenceCode":"R250707809","currencyCode":"USD"}}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:16 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Location:
+      - "/api/v2/companies/7816098/transactions/85065658567143"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0544043'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - ace96cb6-febb-480f-8e23-f7acaf642c89
+      X-Avalara-Uid:
+      - 71678db2-307b-4071-8c2f-359b7d6d84e5
+    body:
+      encoding: UTF-8
+      string: '{"id":85065658567143,"code":"TEST-e0d088510173a6a45e9e","companyId":7816098,"date":"2024-09-09","paymentDate":"1900-01-01","status":"Committed","type":"SalesInvoice","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R250707809","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0,"taxOverrideReason":"","totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.4,"totalTaxable":10.0,"totalTaxCalculated":0.4,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"24.8.0.0","originAddressId":-1,"destinationAddressId":-1,"exchangeRateEffectiveDate":"2024-09-09","exchangeRate":1.0,"email":"","businessIdentificationNo":"","modifiedDate":"2024-09-09T08:22:16.7697902Z","modifiedUserId":1450221,"taxDate":"2024-09-09","lines":[{"id":85065658567147,"transactionId":85065658567143,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Product
+        #1 - 1825","destinationAddressId":85065658567144,"originAddressId":85065658567145,"discountAmount":0.0,"discountTypeId":0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-1","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2024-09-09","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2024-09-09","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0,"taxOverrideReason":"","taxIncluded":false,"details":[{"id":85065658567154,"transactionLineId":85065658567147,"transactionId":85065658567143,"addressId":85065658567144,"country":"US","region":"AL","countyFIPS":"","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"exemptRuleId":0,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039994,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Use","taxSubTypeId":"U","taxTypeGroupId":"SalesAndUse","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":10.0,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":0.4,"reportingTaxCalculated":0.4,"liabilityType":"Seller","chargedTo":"Buyer"}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":85065658567149,"documentLineId":85065658567147,"documentAddressId":85065658567145,"locationTypeCode":"ShipFrom"},{"documentLineLocationTypeId":85065658567150,"documentLineId":85065658567147,"documentAddressId":85065658567144,"locationTypeCode":"ShipTo"}],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":85065658567144,"transactionId":85065658567143,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5732","country":"US","taxRegionId":2052799,"latitude":"32.365575","longitude":"-86.296051"},{"id":85065658567145,"transactionId":85065658567143,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave Nw","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0005","country":"US","taxRegionId":949,"latitude":"38.898664","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Use","taxSubType":"U","taxName":"AL
+        STATE TAX","rateType":"General","taxable":10.00,"rate":0.040000,"tax":0.40,"taxCalculated":0.40,"nonTaxable":0.00,"exemption":0.00}],"apStatusCode":null,"apStatus":null}'
+  recorded_at: Mon, 09 Sep 2024 08:22:16 GMT
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/companies/DEFAULTAUG22/transactions/TEST-e0d088510173a6a45e9e/void
+    body:
+      encoding: UTF-8
+      string: '{"code":"DocVoided"}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:17 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Location:
+      - "/api/v2/companies/7816098/transactions/85065658567143"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0245921'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - d50102d5-2e27-4d55-9b61-682e1a2ae94d
+      X-Avalara-Uid:
+      - 9984e581-84db-46a7-adf6-1506d521d3f5
+    body:
+      encoding: UTF-8
+      string: '{"id":85065658567143,"code":"TEST-e0d088510173a6a45e9e","companyId":7816098,"date":"2024-09-09","paymentDate":"1900-01-01","status":"Cancelled","type":"SalesInvoice","batchCode":"","currencyCode":"USD","exchangeRateCurrencyCode":"USD","customerUsageType":"","entityUseCode":"","customerVendorCode":"1","customerCode":"1","exemptNo":"","reconciled":false,"locationCode":"","reportingLocationCode":"","purchaseOrderNo":"","referenceCode":"R250707809","salespersonCode":"","taxOverrideType":"None","taxOverrideAmount":0.0,"taxOverrideReason":"","totalAmount":10.0,"totalExempt":0.0,"totalDiscount":0.0,"totalTax":0.4,"totalTaxable":10.0,"totalTaxCalculated":0.4,"adjustmentReason":"NotAdjusted","adjustmentDescription":"","locked":false,"region":"AL","country":"US","version":1,"softwareVersion":"24.8.0.0","originAddressId":0,"destinationAddressId":0,"exchangeRateEffectiveDate":"2024-09-09","exchangeRate":1.0,"isSellerImporterOfRecord":true,"description":"","email":"","businessIdentificationNo":"","modifiedDate":"2024-09-09T08:22:17.409Z","modifiedUserId":1450221,"taxDate":"2024-09-09","lines":[{"id":85065658567147,"transactionId":85065658567143,"lineNumber":"1-LI","boundaryOverrideId":0,"customerUsageType":"","entityUseCode":"","description":"Product
+        #1 - 1825","destinationAddressId":85065658567144,"originAddressId":85065658567145,"discountAmount":0.0,"discountTypeId":0,"exemptAmount":0.0,"exemptCertId":0,"exemptNo":"","isItemTaxable":true,"isSSTP":false,"itemCode":"SKU-1","lineAmount":10.0,"quantity":1.0,"ref1":"","ref2":"","reportingDate":"2024-09-09","revAccount":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0,"taxCalculated":0.4000,"taxCode":"PC030000","taxCodeId":8107,"taxDate":"2024-09-09","taxEngine":"","taxOverrideType":"None","businessIdentificationNo":"","taxOverrideAmount":0.0,"taxOverrideReason":"","taxAmountByTaxTypes":[],"taxIncluded":false,"details":[{"id":85065658567154,"transactionLineId":85065658567147,"transactionId":85065658567143,"addressId":85065658567144,"country":"US","region":"AL","countyFIPS":"","stateFIPS":"01","exemptAmount":0.0000,"exemptReasonId":4,"exemptRuleId":0,"inState":false,"jurisCode":"01","jurisName":"ALABAMA","jurisdictionId":1,"signatureCode":"AAKB","stateAssignedNo":"","jurisType":"STA","jurisdictionType":"State","nonTaxableAmount":0.0000,"nonTaxableRuleId":0,"nonTaxableType":"RateRule","rate":0.040000,"rateRuleId":1039994,"rateSourceId":3,"serCode":"","sourcing":"Destination","tax":0.4000,"taxableAmount":10.0000,"taxType":"Use","taxSubTypeId":"U","taxTypeGroupId":"SalesAndUse","taxName":"AL
+        STATE TAX","taxAuthorityTypeId":45,"taxRegionId":2052799,"taxCalculated":0.4000,"taxOverride":0.0000,"rateType":"General","rateTypeCode":"G","taxableUnits":10.0000,"nonTaxableUnits":0.0000,"exemptUnits":0.0000,"unitOfBasis":"PerCurrencyUnit","isNonPassThru":false,"isFee":false,"reportingTaxableUnits":10.0,"reportingNonTaxableUnits":0.0,"reportingExemptUnits":0.0,"reportingTax":0.4,"reportingTaxCalculated":0.4,"liabilityType":"Seller","chargedTo":"Buyer"}],"nonPassthroughDetails":[],"lineLocationTypes":[{"documentLineLocationTypeId":85065658567149,"documentLineId":85065658567147,"documentAddressId":85065658567145,"locationTypeCode":"ShipFrom"},{"documentLineLocationTypeId":85065658567150,"documentLineId":85065658567147,"documentAddressId":85065658567144,"locationTypeCode":"ShipTo"}],"hsCode":"","costInsuranceFreight":0.0,"vatCode":"","vatNumberTypeId":0}],"addresses":[{"id":85065658567144,"transactionId":85065658567143,"boundaryLevel":"Address","line1":"915
+        S Jackson St","line2":"","line3":"","city":"Montgomery","region":"AL","postalCode":"36104-5732","country":"US","taxRegionId":2052799,"latitude":"32.365575","longitude":"-86.296051"},{"id":85065658567145,"transactionId":85065658567143,"boundaryLevel":"Address","line1":"1600
+        Pennsylvania Ave Nw","line2":"","line3":"","city":"Washington","region":"DC","postalCode":"20500-0005","country":"US","taxRegionId":949,"latitude":"38.898664","longitude":"-77.036543"}],"locationTypes":[],"summary":[{"country":"US","region":"AL","jurisType":"State","jurisCode":"01","jurisName":"ALABAMA","taxAuthorityType":45,"stateAssignedNo":"","taxType":"Use","taxSubType":"U","taxName":"AL
+        STATE TAX","rateType":"General","taxable":10.00,"rate":0.040000,"tax":0.40,"taxCalculated":0.40,"nonTaxable":0.00,"exemption":0.00}],"messages":[],"apStatusCode":null,"apStatus":null}'
+  recorded_at: Mon, 09 Sep 2024 08:22:17 GMT
+recorded_with: VCR 6.3.1

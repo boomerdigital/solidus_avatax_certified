@@ -1,0 +1,65 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/utilities/subscriptions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 08:22:12 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2336'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0182041'
+      Databasecalls:
+      - '1'
+      Databaseduration:
+      - '00:00:00.0180000'
+      Serviceduration:
+      - '00:00:00'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 7959fb04-a7aa-4a4a-84aa-e13c79b37425
+      X-Avalara-Uid:
+      - 4eff94fd-c03a-46cb-8caf-ce03b7b32a31
+    body:
+      encoding: UTF-8
+      string: '{"@recordsetCount":9,"value":[{"id":8224637,"accountId":2001541296,"subscriptionTypeId":1,"subscriptionDescription":"AvaTaxST","effectiveDate":"2024-05-08","createdDate":"2024-05-09T17:49:07.003","createdUserId":46103,"modifiedDate":"2024-05-09T17:49:07.003","modifiedUserId":46103},{"id":8224635,"accountId":2001541296,"subscriptionTypeId":2,"subscriptionDescription":"AvaTaxPro","effectiveDate":"2024-05-08","createdDate":"2024-05-09T17:49:07.003","createdUserId":46103,"modifiedDate":"2024-05-09T17:49:07.003","modifiedUserId":46103},{"id":2652215,"accountId":2001541296,"subscriptionTypeId":3,"subscriptionDescription":"AvaTaxGlobal","effectiveDate":"2021-06-28","createdDate":"2021-06-29T18:23:58.753","createdUserId":46103,"modifiedDate":"2021-06-29T18:23:58.753","modifiedUserId":46103},{"id":8224636,"accountId":2001541296,"subscriptionTypeId":4,"subscriptionDescription":"AutoAddress","effectiveDate":"2024-05-08","createdDate":"2024-05-09T17:49:07.003","createdUserId":46103,"modifiedDate":"2024-05-09T17:49:07.003","modifiedUserId":46103},{"id":2652212,"accountId":2001541296,"subscriptionTypeId":10,"subscriptionDescription":"AvaCert","effectiveDate":"2021-06-28","createdDate":"2021-06-29T18:23:58.753","createdUserId":46103,"modifiedDate":"2021-06-29T18:23:58.753","modifiedUserId":46103},{"id":7826894,"accountId":2001541296,"subscriptionTypeId":15,"subscriptionDescription":"AvaLandedCost","effectiveDate":"2022-06-27","createdDate":"2022-06-28T22:47:54.173","createdUserId":46103,"modifiedDate":"2022-06-28T22:47:54.173","modifiedUserId":46103},{"id":7831081,"accountId":2001541296,"subscriptionTypeId":19,"subscriptionDescription":"AvaEWaste","effectiveDate":"2022-07-07","createdDate":"2022-07-08T13:57:06.097","createdUserId":46103,"modifiedDate":"2022-07-08T13:57:06.097","modifiedUserId":46103},{"id":8041276,"accountId":2001541296,"subscriptionTypeId":47,"subscriptionDescription":"ECMPro","effectiveDate":"2023-09-12","createdDate":"2023-09-13T21:58:26.74","createdUserId":46103,"modifiedDate":"2023-09-13T21:58:26.74","modifiedUserId":46103},{"id":8109348,"accountId":2001541296,"subscriptionTypeId":90,"subscriptionDescription":"AvaEstimatedLandedCost","effectiveDate":"2023-12-14","createdDate":"2023-12-15T22:00:17.043","createdUserId":46103,"modifiedDate":"2023-12-15T22:00:17.043","modifiedUserId":46103}]}'
+  recorded_at: Mon, 09 Sep 2024 08:22:13 GMT
+recorded_with: VCR 6.3.1

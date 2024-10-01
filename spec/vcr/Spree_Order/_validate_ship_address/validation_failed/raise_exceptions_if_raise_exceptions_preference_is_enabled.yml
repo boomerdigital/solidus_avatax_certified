@@ -1,20 +1,80 @@
 ---
 http_interactions:
 - request:
+    method: get
+    uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve?city&country=US&line1&line2=Northwest&postalCode&region=NY
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 24.8.2
+      X-Avalara-Client:
+      - ";;RubySdk;24.8.2;"
+      Authorization:
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Mon, 09 Sep 2024 10:11:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      Serverduration:
+      - '00:00:00.0002859'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - ab59bb19-e7c0-47c1-abc1-808bbe4d73df
+      X-Avalara-Uid:
+      - d17d5180-02fa-42cc-87ce-88b02c28c0ee
+    body:
+      encoding: UTF-8
+      string: '{"error":{"code":"InvalidAddress","message":"The address value was
+        incomplete.","target":"IncorrectData","details":[{"code":"InvalidAddress","number":309,"message":"The
+        address value was incomplete.","description":"The address value NULL was incomplete.
+        You must provide either a valid postal code, line1 + city + region, or line1
+        + postal code.","faultCode":"Client","helpLink":"https://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
+  recorded_at: Mon, 09 Sep 2024 10:11:26 GMT
+- request:
     method: post
     uri: https://sandbox-rest.avatax.com/api/v2/addresses/resolve
     body:
       encoding: UTF-8
-      string: '{"line1":null,"line2":"","city":null,"region":"AL","country":"US","postalCode":null}'
+      string: '{"line1":null,"line2":"Northwest","city":null,"region":"NY","country":"US","postalCode":null}'
     headers:
       X-Avalara-Uid:
       - a0o33000004FH8l
       User-Agent:
-      - Faraday v1.3.0
+      - Faraday v1.10.3
       Content-Type:
       - application/json
       Authorization:
-      - Basic MTEwMDExMzA5NjoxRDEzRURBMkRDQ0M3RTRB
+      - Basic MjAwMTU0MTI5NjoyMjIwQzI2Qjg4QkQ3MDNE
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
@@ -25,25 +85,41 @@ http_interactions:
       message: Bad Request
     headers:
       Date:
-      - Fri, 30 Apr 2021 18:18:17 GMT
+      - Mon, 09 Sep 2024 10:25:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
-      Server:
-      - Kestrel
-      Vary:
-      - Accept-Encoding
+      Cache-Control:
+      - private, no-cache, no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
       Serverduration:
-      - '00:00:00.0002527'
+      - '00:00:00.0002927'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Correlation-Id:
+      - 6ee130c8-696c-4f8b-b29a-57d64e08788e
+      X-Avalara-Uid:
+      - 0b599e95-112d-44f8-95d8-1a68c0d9d58c
     body:
-      encoding: ASCII-8BIT
+      encoding: UTF-8
       string: '{"error":{"code":"InvalidAddress","message":"The address value was
         incomplete.","target":"IncorrectData","details":[{"code":"InvalidAddress","number":309,"message":"The
         address value was incomplete.","description":"The address value NULL was incomplete.
         You must provide either a valid postal code, line1 + city + region, or line1
-        + postal code.","faultCode":"Client","helpLink":"http://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
-  recorded_at: Fri, 30 Apr 2021 18:18:17 GMT
-recorded_with: VCR 6.0.0
+        + postal code.","faultCode":"Client","helpLink":"https://developer.avalara.com/avatax/errors/InvalidAddress","severity":"Error"}]}}'
+  recorded_at: Mon, 09 Sep 2024 10:25:31 GMT
+recorded_with: VCR 6.3.1

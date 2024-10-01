@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 
-require 'logging'
-
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
     log(__method__, request_hash)
 
-    req = client.transactions.create_or_adjust(request_hash)
-
+    req = client.create_or_adjust_transaction(request_hash)
     response = SolidusAvataxCertified::Response::GetTax.new(req)
 
     handle_response(response)
@@ -17,25 +14,24 @@ class TaxSvc
   def cancel_tax(transaction_code)
     log(__method__, transaction_code)
 
-    req = client.transactions.void(company_code, transaction_code)
+    req = client.void_transaction(company_code, transaction_code, code: 'DocVoided')
     response = SolidusAvataxCertified::Response::CancelTax.new(req)
 
     handle_response(response)
   end
 
   def ping
-    logger.info 'Ping Call'
+    log(__method__)
 
-    # Testing if configuration is set up properly, ping will fail if it is not
-    client.tax_rates.get(:by_postal_code, country: 'US', postalCode: '07801')
+    SolidusAvataxCertified::Response::Base.new(client.list_my_subscriptions)
   end
 
   def validate_address(address)
-    begin
-      request = client.addresses.validate(address)
-    rescue StandardError => e
-      logger.error(e)
+    log(__method__, address)
 
+    begin
+      request = client.resolve_address(address)
+    rescue StandardError => e
       request = { 'error' => { 'message' => e } }
     end
 
@@ -47,15 +43,11 @@ class TaxSvc
 
   def handle_response(response)
     result = response.result
-    begin
-      if response.error?
-        raise SolidusAvataxCertified::RequestError, result
-      end
+    logger.debug(result, response.description + ' Response')
 
-      logger.debug(result, response.description + ' Response')
-    rescue SolidusAvataxCertified::RequestError => e
-      logger.error(e.message, response.description + ' Error')
-      raise if raise_exceptions?
+    if response.error?
+      logger.error(result, response.description + ' Error')
+      raise SolidusAvataxCertified::RequestError, result if raise_exceptions?
     end
 
     response
@@ -71,7 +63,7 @@ class TaxSvc
     Spree::Avatax::Config.tax_calculation
   end
 
-  def account_number
+  def account
     Spree::Avatax::Config.account
   end
 
@@ -87,16 +79,21 @@ class TaxSvc
     Spree::Avatax::Config.company_code
   end
 
-  def environment
-    Spree::Avatax::Config.environment
+  def endpoint
+    if Spree::Avatax::Config.environment == 'production'
+      'https://rest.avatax.com'
+    else
+      'https://sandbox-rest.avatax.com'
+    end
   end
 
   def client
-    @client ||= Avatax::Client.new(
-      username: account_number,
+    @client ||= AvaTax::Client.new(
+      endpoint: endpoint,
+      username: account,
       password: license_key,
-      env: environment,
-      headers: AVATAX_HEADERS
+      connection_options: Spree::Avatax::Config.connection_options,
+      faraday_response: true
     )
   end
 
