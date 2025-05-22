@@ -6,7 +6,7 @@
 
 <% content_for :page_actions do %>
     <li>
-      <%= button_link_to t('spree.new_avalara_entity_use_code'), new_object_url, :icon => 'plus', :id => 'admin_new_avalara_entity_use_code_link' %>
+      <%= link_to t('spree.new_avalara_entity_use_code'), new_object_url, :class => 'btn btn-primary', :id => 'admin_new_avalara_entity_use_code_link' %>
     </li>
 <% end %>
 
