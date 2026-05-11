@@ -5,7 +5,10 @@ Spree::Core::Engine.routes.draw do
     resources :avalara_entity_use_codes
 
     resource :avatax_settings, only: %w[show] do
-      get :ping_my_service, :download_avatax_log, :erase_data, :validate_address
+      get :ping_my_service
+      get :download_avatax_log
+      get :erase_data
+      get :validate_address
     end
 
     resources :users, only: [] do
