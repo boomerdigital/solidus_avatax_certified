@@ -7,7 +7,7 @@ module SolidusAvataxCertified
         base.belongs_to :avalara_entity_use_code, optional: true
       end
 
-      ::Spree::User.prepend self
+      ::Spree::LegacyUser.prepend self
     end
   end
 end
