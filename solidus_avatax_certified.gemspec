@@ -22,8 +22,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'avatax'
   s.add_dependency 'deface', '>= 1.5'
   s.add_dependency 'json', '>= 2.0'
-  s.add_dependency 'solidus_core', ['>= 3', '< 5']
-  s.add_dependency 'solidus_support', [">= 0.8", "< 1"]
+  s.add_dependency 'solidus_core', ['>= 4']
+  s.add_dependency 'solidus_support', [">= 0.8"]
 
   s.add_development_dependency 'cuprite'
   s.add_development_dependency 'shoulda-matchers'
