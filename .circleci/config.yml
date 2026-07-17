@@ -12,7 +12,7 @@ jobs:
     parameters:
       solidus:
         type: string
-        default: main
+        default: v4.7
       db:
         type: string
         default: "postgres"
@@ -24,7 +24,11 @@ jobs:
       ruby_version: << parameters.ruby >>
     steps:
       - checkout
-      - solidusio_extensions/run-tests-solidus-<< parameters.solidus >>
+      # This extension requires solidus_core >= 4.7, so pin the tested Solidus
+      # branch explicitly instead of the orb's "current" alias (which resolves to
+      # v4.4 and cannot satisfy the dependency).
+      - solidusio_extensions/test-branch:
+          branch: << parameters.solidus >>
 
 workflows:
   "Run specs on supported Solidus versions":
@@ -32,15 +36,15 @@ workflows:
       - run-specs:
           name: &name "run-specs-solidus-<< matrix.solidus >>-ruby-<< matrix.ruby >>-db-<< matrix.db >>"
           matrix:
-            parameters: { solidus: ["main"], ruby: ["3.3"], db: ["postgres"] }
+            parameters: { solidus: ["v4.7"], ruby: ["3.3"], db: ["postgres"] }
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["current"], ruby: ["3.2"], db: ["mysql"] }
+            parameters: { solidus: ["v4.7"], ruby: ["3.2"], db: ["mysql"] }
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["current"], ruby: ["3.1"], db: ["sqlite"] }
+            parameters: { solidus: ["v4.7"], ruby: ["3.2"], db: ["sqlite"] }
 
   "Weekly run specs against main":
     triggers:
@@ -49,7 +53,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - master
     jobs:
       - run-specs:
           name: *name
@@ -58,4 +62,4 @@ workflows:
       - run-specs:
           name: *name
           matrix:
-            parameters: { solidus: ["current"], ruby: ["3.2"], db: ["mysql"] }
+            parameters: { solidus: ["main"], ruby: ["3.2"], db: ["mysql"] }

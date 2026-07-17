@@ -2,6 +2,22 @@
 
 require 'spec_helper'
 
+RSpec.describe TaxSvc do
+  describe '#client' do
+    it 'passes app_name, app_version, and machine_name to AvaTax::Client for X-Avalara-Client header' do
+      expect(AvaTax::Client).to receive(:new).with(
+        hash_including(
+          app_name: 'solidus_avatax_certified',
+          app_version: SolidusAvataxCertified::VERSION,
+          machine_name: Socket.gethostname
+        )
+      ).and_call_original
+
+      TaxSvc.new.send(:client)
+    end
+  end
+end
+
 RSpec.describe TaxSvc, :vcr do
   let(:taxsvc) { TaxSvc.new }
   let(:request_hash) { build(:request_hash) }

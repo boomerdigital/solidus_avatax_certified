@@ -9,4 +9,5 @@ namespace :solidus_avatax_certified do
   task load_use_codes: :environment do
     SolidusAvataxCertified::Seeder.seed_use_codes!
   end
+
 end

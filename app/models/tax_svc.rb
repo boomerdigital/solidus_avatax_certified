@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'socket'
+
 # Avatax tax calculation API calls
 class TaxSvc
   def get_tax(request_hash)
@@ -92,6 +94,9 @@ class TaxSvc
       endpoint: endpoint,
       username: account,
       password: license_key,
+      app_name: 'solidus_avatax_certified',
+      app_version: SolidusAvataxCertified::VERSION,
+      machine_name: Socket.gethostname,
       connection_options: Spree::Avatax::Config.connection_options,
       faraday_response: true
     )

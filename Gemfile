@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'main')
+solidus_branch = ENV.fetch('SOLIDUS_BRANCH', 'v4.7')
 
 gem 'solidus', github: 'solidusio/solidus', branch: solidus_branch
 gem 'solidus_auth_devise'
@@ -23,9 +23,9 @@ end
 gem 'rails', '>0.a'
 
 case ENV['DB']
-when 'postgresql'
+when 'postgresql', 'postgres'
   gem 'pg'
-when 'mysql'
+when 'mysql', 'mysql2'
   gem 'mysql2'
 else
   gem 'sqlite3'

@@ -14,6 +14,12 @@ module SolidusAvataxCertified
       g.test_framework :rspec
     end
 
+    initializer 'solidus_avatax_certified.prepend_routes', before: :add_routing_paths do |app|
+      app.routes.prepend do
+        get '/checkout/validate_ship_address', to: 'checkouts#validate_ship_address'
+      end
+    end
+
     config.to_prepare do
       Dir.glob(File.join(File.dirname(__FILE__), '../../app/decorators/**/*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)

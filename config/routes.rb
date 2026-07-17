@@ -5,7 +5,7 @@ Spree::Core::Engine.routes.draw do
     resources :avalara_entity_use_codes
 
     resource :avatax_settings, only: %w[show] do
-      get :ping_my_service, :download_avatax_log, :erase_data, :validate_address
+      get :ping_my_service, :download_avatax_log, :erase_data, :validate_ship_address
     end
 
     resources :users, only: [] do
@@ -16,5 +16,5 @@ Spree::Core::Engine.routes.draw do
     end
   end
 
-  get '/checkout/validate_address', to: 'checkout#validate_address', as: :validate_address
+  get '/checkout/validate_ship_address', to: 'checkout#validate_ship_address', as: :validate_ship_address
 end

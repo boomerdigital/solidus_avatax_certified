@@ -19,7 +19,7 @@ module SolidusAvataxCertified
       protected
 
       def base_tax_hash
-        {
+        hash = {
           customerCode: customer_code,
           companyCode: company_code,
           customerUsageType: order.customer_usage_type,
@@ -27,6 +27,31 @@ module SolidusAvataxCertified
           referenceCode: order.number,
           currencyCode: order.currency,
           businessIdentificationNo: business_id_no
+        }
+        hash[:reportingLocationCode] = reporting_location_code if reporting_location_code
+        hash[:addresses] = header_addresses if header_addresses.present?
+        hash
+      end
+
+      def header_addresses
+        addresses = {}
+        addresses[:pointOfOrderOrigin] = order.bill_address.to_avatax_hash if order.bill_address
+        addresses[:shipTo] = order.ship_address.to_avatax_hash if order.ship_address
+        addresses[:shipFrom] = origin_address if origin_address
+        addresses
+      end
+
+      def origin_address
+        return if ::Spree::Avatax::Config.origin.blank?
+
+        origin = JSON.parse(::Spree::Avatax::Config.origin)
+        {
+          line1: origin['line1'],
+          line2: origin['line2'],
+          city: origin['city'],
+          region: origin['region'],
+          country: origin['country'],
+          postalCode: origin['postalCode']
         }
       end
 
@@ -54,6 +79,10 @@ module SolidusAvataxCertified
 
       def customer_code
         order.user ? order.user.id : order.email
+      end
+
+      def reporting_location_code
+        order.stock_locations.first&.code.presence
       end
     end
   end
