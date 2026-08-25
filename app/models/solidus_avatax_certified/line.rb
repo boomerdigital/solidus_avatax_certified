@@ -30,8 +30,7 @@ module SolidusAvataxCertified
         taxCode: line_item.tax_category.try(:tax_code) || '',
         itemCode: truncateLine(line_item.variant.sku),
         quantity: line_item.quantity,
-        amount: line_item.amount.to_f,
-        discounted: discounted?(line_item),
+        amount: netted_line_amount(line_item),
         taxIncluded: tax_included_in_price?(line_item),
         addresses: {
           shipFrom: get_stock_location(line_item),
@@ -62,7 +61,6 @@ module SolidusAvataxCertified
         amount: shipment.total_before_tax.to_f,
         description: 'Shipping Charge',
         taxCode: shipment.shipping_method_tax_code,
-        discounted: !shipment.promo_total.zero?,
         taxIncluded: tax_included_in_price?(shipment),
         addresses: {
           shipFrom: shipment.stock_location.to_avatax_hash,
@@ -86,10 +84,35 @@ module SolidusAvataxCertified
                    return_items.sum(:amount)
                  else
                    return_items.sum(:pre_tax_amount)
-        end
+                 end
 
         lines << return_item_line(inv_unit.first.line_item, quantity, amount)
       end
+
+      return_shipment_lines(inventory_units)
+    end
+
+    def return_shipment_lines(inventory_units)
+      inventory_units.map(&:shipment).uniq.compact.each do |shipment|
+        next unless shipment.tax_category
+
+        lines << return_shipment_line(shipment)
+      end
+    end
+
+    def return_shipment_line(shipment)
+      {
+        number: "#{shipment.id}-FR",
+        itemCode: truncateLine(shipment.shipping_method.name),
+        quantity: 1,
+        amount: -shipment.total_before_tax.to_f,
+        description: 'Shipping Charge',
+        taxCode: shipment.shipping_method_tax_code,
+        addresses: {
+          shipFrom: shipment.stock_location.to_avatax_hash,
+          shipTo: ship_to
+        }
+      }.merge(base_line_hash)
     end
 
     def refund_line
@@ -160,10 +183,33 @@ module SolidusAvataxCertified
       order.user.try(:vat_id)
     end
 
-    def discounted?(line_item)
-      line_item.adjustments.promotion.eligible.any? ||
-        order.adjustments.promotion.eligible.any? ||
-        order.adjustments.where('amount < 0').where(source: nil).eligible.any?
+    # The amount sent to AvaTax for a line, with all discounts netted in so tax
+    # is computed on the post-discount price (per Avalara: "standard discounts
+    # included in line-level extended amount"). Line-level discounts are already
+    # reflected in #total_before_tax; order-level discounts are distributed across
+    # the item lines proportionally by amount and subtracted here.
+    def netted_line_amount(line_item)
+      (line_item.total_before_tax + order_level_discount_for(line_item)).to_f
+    end
+
+    def order_level_discount_for(line_item)
+      return BigDecimal(0) if order_level_discount_total.zero?
+
+      -order_discount_handler.amount(line_item)
+    end
+
+    # Order-level (adjustable is the order itself) eligible, non-tax, negative
+    # adjustments. The new solidus_promotions system has none of these — every
+    # benefit attaches to a line item or shipment — so this only fires for legacy
+    # order-level promotions and manual order discounts.
+    def order_level_discount_total
+      @order_level_discount_total ||=
+        order.adjustments.eligible.reject(&:tax?).select { |a| a.amount.negative? }.sum(&:amount)
+    end
+
+    def order_discount_handler
+      @order_discount_handler ||=
+        ::Spree::DistributedAmountsHandler.new(order.line_items, order_level_discount_total.abs)
     end
 
     def tax_included_in_price?(item)

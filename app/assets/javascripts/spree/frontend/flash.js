@@ -1,18 +1,31 @@
 window.show_flash = function(type, message) {
-  var $addressValidator, $flashWrapper, flash_div;
-  $addressValidator = $('.address_validator');
-  $flashWrapper = $(".js-flash-wrapper");
+  var addressValidator = document.querySelector('.address_validator');
+  var flashWrapper = document.querySelector('.js-flash-wrapper');
+
   if (type === 'success') {
-    $flashWrapper.find('.error.flash').hide();
-    return $addressValidator.attr('disabled', true).text(message).addClass('flash success disabled');
-  } else {
-    if ($flashWrapper.length === 0) {
-      $addressValidator.before("<div class=\"js-flash-wrapper\" />");
-      $flashWrapper = $(".js-flash-wrapper");
+    if (flashWrapper) {
+      var errorFlash = flashWrapper.querySelector('.error.flash');
+      if (errorFlash) errorFlash.style.display = 'none';
     }
-    $flashWrapper.empty();
-    flash_div = $("<div class='flash " + type + "' />");
-    $flashWrapper.prepend(flash_div);
-    return flash_div.html(message).show();
+    if (addressValidator) {
+      addressValidator.setAttribute('disabled', true);
+      addressValidator.textContent = message;
+      addressValidator.classList.add('flash', 'success', 'disabled');
+    }
+  } else {
+    if (!flashWrapper) {
+      flashWrapper = document.createElement('div');
+      flashWrapper.className = 'js-flash-wrapper';
+      if (addressValidator && addressValidator.parentNode) {
+        addressValidator.parentNode.after(flashWrapper);
+      } else {
+        document.body.prepend(flashWrapper);
+      }
+    }
+    flashWrapper.innerHTML = '';
+    var flashDiv = document.createElement('div');
+    flashDiv.className = 'flash ' + type;
+    flashDiv.innerHTML = message;
+    flashWrapper.prepend(flashDiv);
   }
 };

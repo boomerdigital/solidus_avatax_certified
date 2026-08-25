@@ -2,6 +2,53 @@
 
 require 'spec_helper'
 
+RSpec.describe TaxSvc do
+  describe 'X-Avalara-Client header' do
+    # Avalara requires this header on every call for certified connectors. Only the
+    # App Name and App Version segments are ours; the avatax gem supplies the
+    # Adapter Name/Version, and it renders its version per request rather than on the
+    # connection (see AvaTax::Request#request), so the connection header carries an
+    # unsubstituted "API_VERSION" placeholder.
+    let(:connection_header) do
+      described_class.new.send(:client).send(:connection).headers['X-Avalara-Client']
+    end
+
+    it 'sends an app name carrying our release version, for support triage' do
+      expect(connection_header.split(';')[0])
+        .to eq("Solidus Avatax Certified #{SolidusAvataxCertified::VERSION} by Boomer Digital")
+    end
+
+    it 'sends the static identifier Avalara assigned for certification' do
+      expect(connection_header.split(';')[1]).to eq('a0n3300000G5mCvAAJ')
+    end
+
+    it 'never puts our release version in the app version segment' do
+      expect(connection_header.split(';')[1]).not_to include(SolidusAvataxCertified::VERSION)
+    end
+
+    it 'sends the fully rendered header on a real request' do
+      stub_request(:get, %r{/api/v2/utilities/subscriptions})
+        .to_return(status: 200, body: '{}', headers: { 'Content-Type' => 'application/json' })
+
+      described_class.new.ping
+
+      expect(
+        a_request(:get, %r{/api/v2/utilities/subscriptions}).with(
+          headers: {
+            'X-Avalara-Client' => [
+              "Solidus Avatax Certified #{SolidusAvataxCertified::VERSION} by Boomer Digital",
+              'a0n3300000G5mCvAAJ',
+              'RubySdk',
+              AvaTax::VERSION,
+              Socket.gethostname
+            ].join(';')
+          }
+        )
+      ).to have_been_made
+    end
+  end
+end
+
 RSpec.describe TaxSvc, :vcr do
   let(:taxsvc) { TaxSvc.new }
   let(:request_hash) { build(:request_hash) }

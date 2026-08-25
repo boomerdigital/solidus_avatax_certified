@@ -17,6 +17,26 @@ module Spree
         head :ok
       end
 
+      def validate_ship_address
+        mytax = TaxSvc.new
+        address = params[:address].permit(:line1, :line2, :city, :postalCode, :country, :region).to_h
+
+        address['country'] = Spree::Country.find_by(id: address['country']).try(:iso)
+        address['region'] = Spree::State.find_by(id: address['region']).try(:abbr)
+
+        response = mytax.validate_address(address)
+        result = response.result
+
+        if response.failed?
+          result['responseCode'] = 'error'
+          result['errorMessages'] = response.summary_messages
+        end
+
+        respond_to do |format|
+          format.json { render json: result }
+        end
+      end
+
       def ping_my_service
         mytax = TaxSvc.new
         response = mytax.ping

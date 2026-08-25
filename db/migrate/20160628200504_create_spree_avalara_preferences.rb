@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateSpreeAvalaraPreferences < SolidusSupport::Migration[4.2]
+class CreateSpreeAvalaraPreferences < ActiveRecord::Migration[4.2]
   def change
     create_table :spree_avalara_preferences do |t|
       t.string :name, null: false

@@ -1,0 +1,113 @@
+# Reproduces all three CircleCI jobs locally:
+#
+#   specs-postgres → solidus: v4.7, ruby: 3.3, db: postgres
+#   specs-mysql    → solidus: v4.7, ruby: 3.2, db: mysql
+#   specs-sqlite   → solidus: v4.7, ruby: 3.2, db: sqlite
+#
+# Usage:
+#   docker compose run --rm specs-postgres
+#   docker compose run --rm specs-mysql
+#   docker compose run --rm specs-sqlite
+
+x-common-env: &common-env
+  RAILS_ENV: test
+  SOLIDUS_BRANCH: v4.7
+  SKIP_SOLIDUS_BOLT: "1"
+
+services:
+  # ── Database backends ────────────────────────────────────────────────────────
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ""
+      POSTGRES_HOST_AUTH_METHOD: trust
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "true"
+      MYSQL_ROOT_HOST: "%"
+      MYSQL_DATABASE: circle_test
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # ── Spec runners ─────────────────────────────────────────────────────────────
+
+  specs-postgres:
+    image: ruby:3.3
+    working_dir: /app
+    volumes:
+      - .:/app
+      - bundle-postgres:/usr/local/bundle
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *common-env
+      DB: postgresql
+      PGHOST: postgres
+      PGUSER: postgres
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y nodejs &&
+        bundle lock --update &&
+        bundle install &&
+        bundle exec rake
+      "
+
+  specs-mysql:
+    image: ruby:3.2
+    working_dir: /app
+    volumes:
+      - .:/app
+      - bundle-mysql:/usr/local/bundle
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      <<: *common-env
+      DB: mysql
+      DATABASE_URL: mysql2://root@mysql/circle_test?pool=5
+      DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: "true"
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y default-mysql-client default-libmysqlclient-dev nodejs &&
+        bundle lock --update &&
+        bundle install &&
+        bundle exec rake
+      "
+
+  specs-sqlite:
+    image: ruby:3.2
+    working_dir: /app
+    volumes:
+      - .:/app
+      - bundle-sqlite:/usr/local/bundle
+    environment:
+      <<: *common-env
+      DB: sqlite3
+    command: >
+      bash -c "
+        apt-get update -qq &&
+        apt-get install -y libsqlite3-dev nodejs &&
+        bundle lock --update &&
+        bundle install &&
+        bundle exec rake
+      "
+
+volumes:
+  bundle-postgres:
+  bundle-mysql:
+  bundle-sqlite:

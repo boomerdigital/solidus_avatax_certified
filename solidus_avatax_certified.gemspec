@@ -17,14 +17,15 @@ Gem::Specification.new do |s|
   s.files = `git ls-files`.split("\n")
   s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
-  s.required_ruby_version = '>= 3.0.0'
+  s.required_ruby_version = '>= 3.2.0'
 
   s.add_dependency 'avatax'
   s.add_dependency 'deface', '>= 1.5'
   s.add_dependency 'json', '>= 2.0'
-  s.add_dependency 'solidus_core', ['>= 3', '< 5']
+  s.add_dependency 'solidus_core', '>= 4.7'
   s.add_dependency 'solidus_support', [">= 0.8", "< 1"]
 
+  s.add_development_dependency 'brakeman'
   s.add_development_dependency 'cuprite'
   s.add_development_dependency 'shoulda-matchers'
   s.add_development_dependency 'solidus_dev_support', '>= 2.5'

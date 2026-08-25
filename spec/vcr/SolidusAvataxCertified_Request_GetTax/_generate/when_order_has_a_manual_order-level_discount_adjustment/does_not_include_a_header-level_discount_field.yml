@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://sandbox-rest.avatax.com/api/v2/transactions/createoradjust
+    body:
+      encoding: UTF-8
+      string: '{"createTransactionModel":{"code":"R137851071","date":"2026-07-15","commit":false,"type":"SalesOrder","lines":[{"number":"1-LI","description":"Product
+        #56 - 8725","taxCode":"TaxCode - 774883","itemCode":"SKU-56","quantity":1,"amount":10.0,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"A
+        Different Road","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"10060"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"2-LI","description":"Product
+        #57 - 9137","taxCode":"TaxCode - 774883","itemCode":"SKU-57","quantity":1,"amount":10.0,"taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"A
+        Different Road","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"10060"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null},{"number":"1-FR","itemCode":"Avalara
+        Ground","quantity":1,"amount":5.0,"description":"Shipping Charge","taxCode":"FR000000","taxIncluded":false,"addresses":{"shipFrom":{"line1":"1600
+        Pennsylvania Ave NW","line2":null,"city":"Washington","region":"AL","country":"US","postalCode":"20500"},"shipTo":{"line1":"A
+        Different Road","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"10060"}},"customerUsageType":null,"businessIdentificationNo":null,"exemptionCode":null}],"customerCode":1,"companyCode":"DEFAULT","customerUsageType":null,"exemptionNo":null,"referenceCode":"R137851071","currencyCode":"USD","businessIdentificationNo":null,"addresses":{"pointOfOrderOrigin":{"line1":"PO
+        Box 1337","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"10059"},"shipTo":{"line1":"A
+        Different Road","line2":"Northwest","city":"Herndon","region":"AL","country":"US","postalCode":"10060"},"shipFrom":{"line1":"915
+        S Jackson St","line2":"","city":"Montgomery","region":"AL","country":"US","postalCode":"36104"}}}}'
+    headers:
+      Accept:
+      - application/json; charset=utf-8
+      User-Agent:
+      - AvaTax Ruby Gem 26.5.0
+      X-Avalara-Client:
+      - solidus_avatax_certified;5.0.0;RubySdk;26.5.0;MacBookAir
+      Content-Type:
+      - application/json
+      Authorization:
+      - Basic MTIzNDU6MTIzNDU=
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Date:
+      - Wed, 15 Jul 2026 22:15:04 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private, no-cache, no-store
+      Vary:
+      - Accept-Encoding
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - sameorigin
+      X-Xss-Protection:
+      - 1; mode=block
+      Referrer-Policy:
+      - same-origin
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Correlation-Id:
+      - b450381c-ec62-4ae8-b19d-8bd090e9875f
+      X-Avalara-Uid:
+      - b450381c-ec62-4ae8-b19d-8bd090e9875f
+      Serverduration:
+      - '00:00:00.0067932'
+      Api-Supported-Versions:
+      - '2.0'
+      X-Envoy-Upstream-Service-Time:
+      - '16'
+      Content-Security-Policy:
+      - frame-ancestors 'self';
+      X-Download-Options:
+      - noopen
+      X-Dns-Prefetch-Control:
+      - 'off'
+      Permissions-Policy:
+      - camera 'none';microphone 'none';geolocation 'none';encrypted-media 'none';payment
+        'none';speaker 'none';usb 'none';
+      X-Cip-Engine:
+      - containers
+      X-Cip-Site:
+      - aws_us-west-2
+      X-Cip-Environment:
+      - sbx
+    body:
+      encoding: ASCII-8BIT
+      string: '{"error":{"code":"AuthenticationException","message":"Authentication
+        failed.","target":"HttpRequestHeaders","details":[{"code":"AuthenticationException","number":30,"message":"Authentication
+        failed.","description":"Unable to authenticate the user or the account.","faultCode":"Client","helpLink":"https://developer.avalara.com/avatax/errors/AuthenticationException","severity":"Error"}]}}'
+  recorded_at: Wed, 15 Jul 2026 22:15:04 GMT
+recorded_with: VCR 6.4.0

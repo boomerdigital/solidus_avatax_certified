@@ -1,7 +1,17 @@
 # frozen_string_literal: true
+require 'socket'
 
 # Avatax tax calculation API calls
 class TaxSvc
+  # App Name and App Version segments of the X-Avalara-Client header, sent on every
+  # API call. AVALARA_APP_VERSION is a static identifier Avalara assigned us for
+  # connector certification -- it is deliberately not our release version and must
+  # stay identical across releases, so the release version rides along in the app
+  # name instead. The Adapter Name/Version segments are filled in by the avatax gem
+  # itself; see AvaTax::Connection#connection.
+  AVALARA_APP_NAME = "Solidus Avatax Certified #{SolidusAvataxCertified::VERSION} by Boomer Digital"
+  AVALARA_APP_VERSION = 'a0n3300000G5mCvAAJ'
+
   def get_tax(request_hash)
     log(__method__, request_hash)
 
@@ -92,8 +102,13 @@ class TaxSvc
       endpoint: endpoint,
       username: account,
       password: license_key,
+      app_name: AVALARA_APP_NAME,
+      app_version: AVALARA_APP_VERSION,
+      machine_name: Socket.gethostname,
       connection_options: Spree::Avatax::Config.connection_options,
-      faraday_response: true
+      faraday_response: true,
+      logger: true,
+      log_request_and_response_info: true
     )
   end
 

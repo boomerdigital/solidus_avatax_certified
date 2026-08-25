@@ -12,5 +12,5 @@
 
 <%= form_for [:admin, @avalara_entity_use_code], :method => :put do |f| %>
     <%= render :partial => 'form', :locals => { :f => f } %>
-    <p class="form-buttons" data-hook="buttons"><%= button t('spree.update') %></p>
+    <%= render :partial => 'spree/admin/shared/edit_resource_links' %>
 <% end %>

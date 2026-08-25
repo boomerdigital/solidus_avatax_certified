@@ -4,14 +4,18 @@ module SolidusAvataxCertified
   module Spree
     module OrderDecorator
       def self.prepended(base)
+        return if base.instance_variable_get(:@solidus_avatax_certified_order_prepended)
+        base.instance_variable_set(:@solidus_avatax_certified_order_prepended, true)
+
         base.has_one :avalara_transaction, dependent: :destroy
 
-        base.state_machine.before_transition to: :canceled,
-          do: :cancel_avalara,
-          if: :avalara_tax_enabled?
         base.state_machine.before_transition to: :delivery,
           do: :validate_ship_address,
           if: :address_validation_enabled?
+
+        base.state_machine.before_transition to: :canceled,
+          if: :avalara_tax_enabled?,
+          do: :cancel_avalara
       end
 
       def avalara_tax_enabled?

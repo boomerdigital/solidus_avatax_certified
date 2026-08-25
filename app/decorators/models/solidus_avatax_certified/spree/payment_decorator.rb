@@ -4,6 +4,9 @@ module SolidusAvataxCertified
   module Spree
     module PaymentDecorator
       def self.prepended(base)
+        return if base.instance_variable_get(:@solidus_avatax_certified_payment_prepended)
+        base.instance_variable_set(:@solidus_avatax_certified_payment_prepended, true)
+
         base.state_machine.after_transition to: :completed, do: :avalara_finalize
         base.state_machine.after_transition to: :void, do: :cancel_avalara
       end
@@ -21,7 +24,6 @@ module SolidusAvataxCertified
 
         order.avalara_capture_finalize
       end
-
       ::Spree::Payment.prepend self
     end
   end

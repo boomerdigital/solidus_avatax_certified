@@ -5,7 +5,7 @@ module SolidusAvataxCertified
         def avalara_information
           if request.put?
             if @user.update(user_params)
-              flash.now[:success] = I18n.t(:account_updated)
+              flash.now[:success] = I18n.t('spree.account_updated')
             end
           end
 

@@ -37,6 +37,7 @@ FactoryBot.define do
     end
 
     after(:build) do |order, evaluator|
+      order.store = order.store&.persisted? ? order.store : create(:store) # it needs a store_id (persisted) to attach to Order foreign_key;
       evaluator.stock_location # must evaluate before creating line items
 
       evaluator.line_items_attributes.each do |attributes|

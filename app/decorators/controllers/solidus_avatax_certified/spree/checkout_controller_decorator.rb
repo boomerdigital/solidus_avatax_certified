@@ -3,7 +3,7 @@
 module SolidusAvataxCertified
   module Spree
     module CheckoutControllerDecorator
-      def validate_address
+      def validate_ship_address
         mytax = TaxSvc.new
         address = permitted_address_validation_attrs
 
@@ -29,7 +29,11 @@ module SolidusAvataxCertified
         params['address'].permit(:line1, :line2, :city, :postalCode, :country, :region).to_h
       end
 
-      ::Spree::CheckoutController.prepend(self) if SolidusAvataxCertified::Engine.frontend_available?
+      if SolidusAvataxCertified::Engine.frontend_available?
+        ::Spree::CheckoutController.prepend(self)
+      elsif defined?(::CheckoutsController)
+        ::CheckoutsController.prepend(self)
+      end
     end
   end
 end

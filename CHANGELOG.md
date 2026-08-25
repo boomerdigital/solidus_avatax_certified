@@ -1,5 +1,60 @@
 # Change Log
 
+## [4.0.0](https://github.com/boomerdigital/solidus_avatax_certified/compare/v3.1.0...v4.0.0) (unreleased)
+
+Work done in pursuit of the Avalara AvaTax Sales Tax Calculation certification badge,
+plus the compatibility fixes needed to run the extension on Solidus 4.7. (Earlier
+unreleased Solidus 4 / official-SDK modernization is not itemized here — see git history.)
+
+### Breaking
+
+- **Requires Solidus 4.7 or newer.** The `solidus_core` dependency moved from `['>= 3', '< 5']`
+  to `'>= 4.7'`. Solidus 3.x and 4.0–4.6 are no longer supported.
+- **Address validation endpoint renamed** from `validate_address` to `validate_ship_address`.
+  This affects the storefront route (`/checkout/validate_ship_address`), the
+  `Spree::CheckoutController#validate_address` action, and the `validate_address_path`
+  route helper. Update any custom links, overrides, or JS that referenced the old name.
+- **Discounts are now netted into each line's extended amount.** Previously the discount
+  total was sent as a header-level `discount` field (with a per-line `discounted` flag)
+  and AvaTax distributed it. Now each line is sent at its post-discount price so AvaTax
+  taxes the discounted amount directly — matching Avalara's rule "standard discounts
+  included in line-level extended amount." Line-level discounts come through
+  `total_before_tax`; order-level discounts are distributed proportionally across item
+  lines (never onto freight). The header `discount` field, the per-line `discounted`
+  flag, and any separate discount line are all gone — anything reconciling against them
+  must read the netted line amounts instead. Tax owed is unchanged.
+- **The user decorator now targets `Spree.user_class`** (via `Spree::UserClassHandle`)
+  instead of hardcoding `Spree::LegacyUser`. Stores with a custom user class will now
+  have `avalara_entity_use_code` and `vat_id` decorated onto that class.
+
+### Added
+
+- Header-level addresses on every AvaTax request: `shipTo` (order ship address),
+  `shipFrom` (configured store origin), and `pointOfOrderOrigin` (order bill address).
+  Previously addresses were only sent per line.
+- Refund documents (`ReturnInvoice`) now include a freight line for the returned
+  shipment, so shipping tax is refunded along with the item tax.
+- `X-Avalara-Client` header on all API calls, identifying the extension by name,
+  version, and machine name — required for Avalara certification.
+- "Browse Avalara Tax Codes" lookup link on the admin Tax Category form.
+- Admin-side address validation endpoint
+  (`/admin/avatax_settings/validate_ship_address`), so the "Validate Ship Address"
+  button on the user addresses form works.
+
+### Fixed
+
+- Address validation now works on `solidus_starter_frontend`. The frontend JavaScript
+  was rewritten from jQuery / `Spree.ready()` / `Spree.ajax()` to vanilla DOM APIs and
+  `fetch()`, and the checkout decorator now prepends onto `CheckoutsController` when the
+  legacy frontend is absent. The validation route is registered with `routes.prepend` so
+  it wins over the starter frontend's catch-all.
+- The admin entity use code edit view no longer calls the `button` view helper, which
+  was removed from modern ActionView; it renders the standard `edit_resource_links`
+  partial instead.
+- The "account updated" flash on the admin user Avalara tab is scoped under `spree.`,
+  fixing a "Translation missing" message.
+- `Spree.routes` is initialized before assignment in the admin JavaScript.
+
 ## [Unreleased](https://github.com/boomerdigital/solidus_avatax_certified/tree/HEAD)
 
 [Full Changelog](https://github.com/boomerdigital/solidus_avatax_certified/compare/v2.1.1...HEAD)
